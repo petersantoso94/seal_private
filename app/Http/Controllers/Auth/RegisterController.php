@@ -61,7 +61,7 @@ use RegistersUsers;
     protected function create(array $data) {
         $a = $data['name'];
         $letter = $a['0'];
-
+        $table = '';
         if (preg_match("/[aA-dD0-9]/", $letter)) {
             $table = "idtable1";
         } else if (preg_match("/[eE-iI]/", $letter)) {
@@ -75,12 +75,13 @@ use RegistersUsers;
         } else {
             $table = "idtable5";
         }
-        
-        return User::create([
-                    'name' => $data['name'],
-                    'email' => $data['email'],
-                    'password' => Hash::make($data['password']),
-        ]);
+        dd($table);
+        $registered_id = DB::table($table)->select('id')->where('id', $a)->get();
+        if (!$registered_id) {
+            
+        } else {
+            
+        }
     }
 
 }
