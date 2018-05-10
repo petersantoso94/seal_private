@@ -50,8 +50,11 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('facebook')->user();
-        dd($user);
+        //$user = Socialite::driver('facebook')->user();
+        $providerUser = Socialite::driver('facebook')
+                ->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))
+                ->user();
+        dd($providerUser);
 //        return $user->token;
     }
 }
