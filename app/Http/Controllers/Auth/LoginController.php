@@ -54,7 +54,11 @@ class LoginController extends Controller
         $providerUser = Socialite::driver('facebook')
                 ->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))
                 ->user();
-        dd($providerUser);
+        if($providerUser){
+            return view('home')->with('is_login', true);
+        }else{
+            return view('home')->with('is_login', false);
+        }
 //        return $user->token;
     }
 }

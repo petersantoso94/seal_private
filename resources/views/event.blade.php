@@ -47,30 +47,30 @@
         </div>
     </div>
     <!-- Jumbotron Header -->
+
     <header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
-        <h1 class="display-3">Seal Online CoS First Event !!</h1>
-        <p class="lead">Seal Online: Chronicles of Shiltz will
+        <img src="{{URL::asset('public/picture/S__13393924.jpg')}}" width="30%" style="margin-left: 35%;">
+        <h2>Seal Online CoS First Event !!</h2>
+        <p>Seal Online: Chronicles of Shiltz will
             organize its first event with “Heaven Egg” as
             prize. Information of this event are as follows:</p>
-        <a href="{{url('event')}}" class="btn btn-primary btn-lg">Read more</a>
+        <p>Please read carefully:</p>
+        <p>1. Recommend our Seal server to your friend.</p>
+        <p>2. Ask them to register for an account with
+            inserting your Facebook’s name at their
+            registration form’s recommendation field.</p>
+        <p>3. If 30 account of your friend that you
+            recommended reach level 75 at open beta
+            (OBT), notify us by contacting us from our
+            Fanpage / Instagram / Line account.</p>
+        <p>4. You will be rewarded with Heaven Egg.</p>
+        <p>5. The event will be over at June 1, 2018.</p>
+        <p style="font-size: 80%">If one’s not following what is listed above
+            will be assumed ineligible for this reward.</p>
     </header>
-
     <!-- Page Features -->
     <div class="row text-center">
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card">
-                <img class="card-img-top" src="{{URL::asset('public/picture/hire.jpg')}}" alt="" width="400" height="225">
-                <div class="card-body">
-                    <h4 class="card-title">Now Hiring!! Join us NOW!!</h4>
-                    <p class="card-text">Seal Online: Chronicles of Shiltz will be open
-                        for Volunteers Game Master, will be active
-                        working as Event and Customer Relation GM.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                </div>
-            </div>
-        </div>
+
     </div>
     <!-- /.row -->
 

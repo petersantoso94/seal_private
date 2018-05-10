@@ -10,8 +10,8 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-                        <div class="form-group row">
-                            <div id="fb-root"></div>
+                        <div class="form-group row" style="margin-left: 35%">
+                            <a href="{{url('login/facebook')}}"><img src='{{URL::asset('public/picture/fABGY.png')}}' width="60%"></a>
                         </div>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -62,10 +62,24 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="term-id" name="term">
+                            <label class="form-check-label" for="term-id">By ticking this, I agree with all the <a href="{{url('term')}}">Terms and Agreement</a> used by Seal Online: Chronicles of Shiltz</label>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" disabled="<?php
+                                        if (isset($is_login)) {
+                                            if ($is_login) {
+                                                echo 'false';
+                                            } else {
+                                                echo 'true';
+                                            }
+                                        } else {
+                                            echo 'true';
+                                        }
+                                        ?>">
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -78,13 +92,6 @@
 </div>
 @endsection
 @section('js-content')
-<script>(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id))
-            return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=1888772367819769&autoLogAppEvents=1';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+<script>
+</script>
 @endsection

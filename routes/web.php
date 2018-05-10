@@ -20,6 +20,12 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('auth.login');
 });
+Route::get('/event', function () {
+    return view('event');
+});
+Route::get('/term', function () {
+    return view('term');
+});
 
 //facebook login
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
