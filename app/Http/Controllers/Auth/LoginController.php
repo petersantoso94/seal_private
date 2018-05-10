@@ -55,9 +55,9 @@ class LoginController extends Controller
                 ->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))
                 ->user();
         if($providerUser){
-            return view('home')->with('is_login', true);
+            return view('register')->with('is_login', true);
         }else{
-            return view('home')->with('is_login', false);
+            return view('register')->with('is_login', false);
         }
 //        return $user->token;
     }
