@@ -2,7 +2,44 @@
 @section('main-section')
 <!-- Page Content -->
 <div class="container" id="main">
+    <div class="row text-center" style="margin-top: 30px; margin-left: 10px;">
+        <div class="dropdown show">
+            <!--dropdown-->
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Ranking
+            </a>
 
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Player Rank</a>
+                <a class="dropdown-item" href="#">Guild Rank</a>
+                <a class="dropdown-item" href="#">Couple Rank</a>
+                <a class="dropdown-item" href="#">Tournament</a>
+            </div>
+            
+            <!--dropdown2-->
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Community
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                <a class="dropdown-item" href="https://www.facebook.com/sealonlinecos/">Facebook</a>
+                <a class="dropdown-item" href="#">Line Group</a>
+                <a class="dropdown-item" href="#">Live Chat</a>
+                <a class="dropdown-item" href="#">Councils</a>
+            </div>
+            
+            <!--dropdown3-->
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Guides
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+                <a class="dropdown-item" href="#">Video Guides</a>
+                <a class="dropdown-item" href="#">Seal Wikia</a>
+                <a class="dropdown-item" href="#">Others</a>
+            </div>
+        </div>
+    </div>
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
         <h1 class="display-3">A Warm Welcome!</h1>
