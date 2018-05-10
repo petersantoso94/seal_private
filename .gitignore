@@ -8,13 +8,13 @@ app/storage/
 
 # Laravel 5 & Lumen specific
 public/storage
+config/database.php
+config/app.php
 public/hot
 storage/*.key
-.env.*.php
-.env.php
-.env
-Homestead.yaml
 Homestead.json
+Homestead.yaml
+.env
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
