@@ -46,6 +46,21 @@
                                 @endif
                             </div>
                         </div>
+						
+						<div class="form-group row">
+                            <label for="rcm" class="col-md-4 col-form-label text-md-right">Recommendation Link</label>
+
+                            <div class="col-md-6">
+                                <input type="text" id="rcm"  name="rcm" placeholder="GM" value="GM" required>
+                            </div>
+                        </div>
+						<div class="form-group row">
+                            <label for="pin" class="col-md-4 col-form-label text-md-right">PIN</label>
+
+                            <div class="col-md-6">
+                                <input type="password" id="pin"  name="pin" required>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -69,7 +84,7 @@
                             </div>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="term-id" name="term">
+                            <input type="checkbox" class="form-check-input" id="term-id" name="term" required>
                             <label class="form-check-label" for="term-id">By ticking this, I agree with all the <a href="{{url('term')}}">Terms and Agreement</a> used by Seal Online: Chronicles of Shiltz</label>
                         </div>
 

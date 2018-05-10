@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use DB;
+use Session;
+use App\Quotation;
 
 class RegisterController extends Controller {
     /*
@@ -34,7 +38,7 @@ use RegistersUsers;
      *
      * @return void
      */
-    public function __construct() {
+   public function __construct() {
         $this->middleware('guest');
     }
 
@@ -47,7 +51,7 @@ use RegistersUsers;
     protected function validator(array $data) {
         return Validator::make($data, [
                     'name' => 'required|string|max:255',
-                    'email' => 'required|string|email|max:255|unique:users',
+                    'email' => 'required|string|email|max:255',
                     'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -75,13 +79,20 @@ use RegistersUsers;
         } else {
             $table = "idtable5";
         }
-        dd($table);
-        $registered_id = DB::table($table)->select('id')->where('id', $a)->get();
-        if (!$registered_id) {
-            
-        } else {
-            
-        }
+        $registered_id = DB::table('users')->select('id')->where('name', $a)->get();
+		$nick_name = Session::get('fb_name');
+		$fb_id = Session::get('fb_id');
+		$hashed_pass = DB::table('idtable2')->selectRaw("OLD_PASSWORD ('{$data['password']}') as 'pass'")->get();
+		//dd($hashed_pass[0]->pass);
+		//dd("INSERT INTO {$table} VALUES({$a},{$hashed_pass},CURDATE(),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,{$nick_name},NULL,{$data['email']},NULL,NULL,NULL,NULL,NULL,NULL,{$fb_id},{$data['rcm']})");
+        DB::insert("INSERT INTO {$table} VALUES('{$a}','{$hashed_pass[0]->pass}',CURDATE(),'99','','0',NULL,'',0,0,NULL,NULL,0,NULL,0,CURDATE(),'{$nick_name}','','{$data['email']}','{$data['pin']}',0,0,0,0,0,'{$fb_id}','{$data['rcm']}')");
+			
+        
+		return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
     }
 
 }
