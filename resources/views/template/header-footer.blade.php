@@ -17,6 +17,7 @@
         <style>
             html, body {
                 height: 100%;
+                font-family: 'MyWebFont';
             }
             .footer-custom {
                 position: relative;
@@ -32,6 +33,10 @@
                 overflow:auto;
                 padding-bottom:100px; /* this needs to be bigger than footer height*/
             }
+            @font-face {
+                font-family: 'MyWebFont';
+                src: '<?php echo URL::asset('public/NARNIABLL.TTF') ?>';
+            }  
         </style>
     </head>
 
@@ -44,9 +49,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home
+                            <a class="nav-link" href="{{url('')}}">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -58,26 +63,34 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
+                            </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('login')}}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('register')}}">Register</a>
                         </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
-        <div id="wrap" style="">
-            @yield('main-section')
+                 </div>
+                                                  </nav>
+        <div id="wrap" style=""              >
+                                    @yield('main-section')
         </div>
-        <!-- Footer -->
-        <footer class="py-5 bg-dark footer-custom">
+              <!-- Footer                                       -->
+              <footer class="py-5 bg-dark footer-custom">
             <div class="container">
-                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-            </div>
-            <!-- /.container -->
-        </footer>
+              <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+              </div>
+              <!-- /.container -->
+              </footer>
 
-        <!-- Bootstrap core JavaScript -->
-        <script src="{{ URL::asset('public/jquery/jquery.min.js') }}"></script>
-        <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        @yield('js-content')
-    </body>
+              <!-- Bootstrap core JavaScript -->
+              <script src="{{ URL::asset('public/jquery/jquery.min.js') }}"></script>
+              <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+              @yield('js-content')
+              </body>
 
-</html>
+              </html>
