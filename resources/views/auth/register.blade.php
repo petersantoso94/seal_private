@@ -6,13 +6,19 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
+				@if(Session::has('fb_id'))
+					<div class="alert alert-success" role="alert">
+						Successfully using Facebook Account : {{Session::get('fb_name')}}
+					</div>
+				@endif
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+						@if(!Session::has('fb_id'))
                         <div class="form-group row" style="margin-left: 35%">
                             <a href="{{url('login/facebook')}}"><img src='{{URL::asset('public/picture/fABGY.png')}}' width="60%"></a>
                         </div>
+						@endif
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -69,17 +75,11 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" disabled="<?php
-                                        if (isset($is_login)) {
-                                            if ($is_login) {
-                                                echo 'false';
-                                            } else {
-                                                echo 'true';
-                                            }
-                                        } else {
-                                            echo 'true';
-                                        }
-                                        ?>">
+                                <button type="submit" class="btn btn-primary" 
+								@if(!Session::has('fb_id'))
+									echo 'disabled=""';
+								@endif
+								>
                                     {{ __('Register') }}
                                 </button>
                             </div>

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use DB;
+use App\Quotation;
 use Socialite;
 
 class LoginController extends Controller
@@ -26,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/register';
 
     /**
      * Create a new controller instance.
@@ -40,7 +43,7 @@ class LoginController extends Controller
     
     public function redirectToProvider()
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver('facebook')->scopes(['user_link'])->redirect();
     }
 
     /**
@@ -48,17 +51,23 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback(Request $request)
     {
         //$user = Socialite::driver('facebook')->user();
         $providerUser = Socialite::driver('facebook')
                 ->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))
                 ->user();
-        dd($providerUser);
+		$orders = DB::table('idtable2')
+                ->selectRaw("old_password ('test2')")
+                ->get();
+		dd($orders);
         if($providerUser){
-            return view('register')->with('is_login', true);
+			$request->session()->put('fb_id',$providerUser->id);
+			$request->session()->put('fb_name',$providerUser->name);
+			$request->session()->put('fb_email',$providerUser->email);
+            return redirect()->route('register');
         }else{
-            return view('register')->with('is_login', false);
+            return redirect()->route('register');
         }
 //        return $user->token;
     }

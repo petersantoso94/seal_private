@@ -63,6 +63,33 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+		$a = $data['name'];
+		$letter = $a['0'];
+
+		if (preg_match("/[aA-dD0-9]/", $letter)) 
+		{
+			$table = "idtable1";
+		}
+		else if(preg_match("/[eE-iI]/", $letter)) 
+		{
+			$table = "idtable2";
+		}
+		else if(preg_match("/[eJ-nN]/", $letter)) 
+		{
+			$table = "idtable3";
+		}
+		else if(preg_match("/[oO-rR]/", $letter)) 
+		{
+			$table = "idtable4";
+		}
+		else if(preg_match("/[sS-zZ]/", $letter)) 
+		{
+			$table = "idtable5";
+		}
+		else
+		{
+			$table = "idtable5";
+		} 
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
