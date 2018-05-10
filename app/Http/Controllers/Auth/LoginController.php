@@ -57,10 +57,6 @@ class LoginController extends Controller
         $providerUser = Socialite::driver('facebook')
                 ->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))
                 ->user();
-		$orders = DB::table('idtable2')
-                ->selectRaw("old_password ('test2')")
-                ->get();
-		dd($orders);
         if($providerUser){
 			$request->session()->put('fb_id',$providerUser->id);
 			$request->session()->put('fb_name',$providerUser->name);

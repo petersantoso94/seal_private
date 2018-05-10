@@ -6,21 +6,21 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-				@if(Session::has('fb_id'))
-					<div class="alert alert-success" role="alert">
-						Successfully using Facebook Account : {{Session::get('fb_name')}}
-					</div>
-				@endif
+                @if(Session::has('fb_id'))
+                <div class="alert alert-success" role="alert">
+                    Successfully using Facebook Account : {{Session::get('fb_name')}}
+                </div>
+                @endif
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-						@if(!Session::has('fb_id'))
+                        @if(!Session::has('fb_id'))
                         <div class="form-group row" style="margin-left: 35%">
                             <a href="{{url('login/facebook')}}"><img src='{{URL::asset('public/picture/fABGY.png')}}' width="60%"></a>
                         </div>
-						@endif
+                        @endif
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">ID</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
@@ -76,19 +76,19 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary" 
-								@if(!Session::has('fb_id'))
-									echo 'disabled=""';
-								@endif
-								>
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
+                                        @if(!Session::has('fb_id'))
+                                        echo 'disabled=""';
+                                        @endif
+                                        >
+                                        {{ __('Register') }}
+                            </button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
 @section('js-content')
