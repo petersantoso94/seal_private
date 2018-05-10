@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Heroic Features - Start Bootstrap Template</title>
+        <title>Seal SHILTZ</title>
 
         <!-- Bootstrap core CSS -->
 
@@ -20,8 +20,8 @@
             }
             .footer-custom {
                 position: relative;
-                margin-top: -150px; /* negative value of footer height */
-                height: 150px;
+                margin-top: -100px; /* negative value of footer height */
+                height: 100px;
                 clear:both;
                 padding-top:20px;
             } 
@@ -30,17 +30,16 @@
             }
             #main {
                 overflow:auto;
-                padding-bottom:150px; /* this needs to be bigger than footer height*/
+                padding-bottom:100px; /* this needs to be bigger than footer height*/
             }
         </style>
     </head>
 
-    <body>
-
+    <body background="{{URL::asset('public/picture/Web Background.png')}}" style="background-size: 100% 100%;background-attachment: fixed;">
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="position: -webkit-sticky; /* Safari */position: sticky;; margin-top: 30px;">
             <div class="container">
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a href="#" class="navbar-brand"><img src="{{URL::asset('public/picture/logo.png')}}" alt="Seal SHILTZ" style="height:120px;margin-top: -60px;position: absolute;margin-left: auto;margin-right: auto;left: 0;right: 0;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -55,7 +54,7 @@
                             <a class="nav-link" href="#">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
+                            <a class="nav-link" href="#">Support</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -64,8 +63,8 @@
                 </div>
             </div>
         </nav>
-        <div id="wrap">
-        @yield('main-section')
+        <div id="wrap" style="">
+            @yield('main-section')
         </div>
         <!-- Footer -->
         <footer class="py-5 bg-dark footer-custom">
