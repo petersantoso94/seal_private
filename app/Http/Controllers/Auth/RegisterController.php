@@ -86,7 +86,7 @@ use RegistersUsers;
 		//dd($hashed_pass[0]->pass);
 		//dd("INSERT INTO {$table} VALUES({$a},{$hashed_pass},CURDATE(),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,{$nick_name},NULL,{$data['email']},NULL,NULL,NULL,NULL,NULL,NULL,{$fb_id},{$data['rcm']})");
         DB::insert("INSERT INTO {$table} VALUES('{$a}','{$hashed_pass[0]->pass}',CURDATE(),'99','','0',NULL,'',0,0,NULL,NULL,0,NULL,0,CURDATE(),'{$nick_name}','','{$data['email']}','{$data['pin']}',0,0,0,0,0,'{$fb_id}','{$data['rcm']}')");
-			
+			Session::forget('fb_id');
         
 		return User::create([
             'name' => $data['name'],

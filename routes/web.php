@@ -30,6 +30,7 @@ Route::get('/term', function () {
 //facebook login
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Auth::routes();
 

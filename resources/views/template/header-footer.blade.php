@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Seal SHILTZ</title>
+        <title>Seal Online: Chronicles of Shiltz</title>
 
         <!-- Bootstrap core CSS -->
 
@@ -56,22 +56,28 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="{{url('term')}}">Rules</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Support</a>
+                            <a class="nav-link" href="#">We Receive No Donation !</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="#"></a>
                             </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
+						@if($user = Auth::user())
+							<li class="nav-item">
+                            <a class="nav-link" href="{{url('logout')}}">Logout</a>
+                        </li>
+							@else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('login')}}">Login</a>
+                            <a class="nav-link" href="#">Download</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('register')}}">Register</a>
+                            <a class="nav-link" href="{{url('register')}}">Sign Up</a>
                         </li>
+						@endif
                     </ul>
                 </div>
                  </div>
@@ -82,7 +88,7 @@
               <!-- Footer                                       -->
               <footer class="py-5 bg-dark footer-custom">
             <div class="container">
-              <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+              <p class="m-0 text-center text-white">Copyright &copy; Seal Online: Chronicles of Shiltz 2018</p>
               </div>
               <!-- /.container -->
               </footer>

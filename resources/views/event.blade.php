@@ -40,7 +40,7 @@
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
                     <a class="dropdown-item" href="#">Video Guides</a>
-                    <a class="dropdown-item" href="#">Seal Wikia</a>
+                    <a class="dropdown-item" href="http://sealonline.wikia.com/wiki/Main_Page">Seal Wikia</a>
                     <a class="dropdown-item" href="#">Others</a>
                 </div>
             </div>
@@ -50,22 +50,22 @@
 
     <header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
         <img src="{{URL::asset('public/picture/S__13393924.jpg')}}" width="30%" style="margin-left: 35%;">
-        <h2>Seal Online CoS First Event !!</h2>
+        <h2>Seal Online Chronicles of Shiltz - First Event !!</h2>
         <p>Seal Online: Chronicles of Shiltz will
             organize its first event with “Heaven Egg” as
             prize. Information of this event are as follows:</p>
         <p>Please read carefully:</p>
         <p>1. Recommend our Seal server to your friend.</p>
         <p>2. Ask them to register for an account with
-            inserting your Facebook’s name at their
-            registration form’s recommendation field.</p>
-        <p>3. If 30 account of your friend that you
+            inserting your Facebook’s link at their
+            registration form’s recommendation field during OBT. Please note that all the data will be erased after CBT ends, Ask your friend to input your facebook link during OBT Re-registration.</p>
+        <p>3. If 10 account of your friend that you
             recommended reach level 75 at open beta
             (OBT), notify us by contacting us from our
             Fanpage / Instagram / Line account.</p>
         <p>4. You will be rewarded with Heaven Egg.</p>
-        <p>5. The event will be over at June 1, 2018.</p>
-        <p style="font-size: 80%">If one’s not following what is listed above
+        <p>5. The event duration is from May 18, 2018 until June 1, 2018.</p>
+        <p style="font-size: 80%">All the data will be erased upon OBT, If one’s not following what is listed above
             will be assumed ineligible for this reward.</p>
     </header>
     <!-- Page Features -->

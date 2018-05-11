@@ -40,7 +40,7 @@
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
                     <a class="dropdown-item" href="#">Video Guides</a>
-                    <a class="dropdown-item" href="#">Seal Wikia</a>
+                    <a class="dropdown-item" href="http://sealonline.wikia.com/wiki/Main_Page">Seal Wikia</a>
                     <a class="dropdown-item" href="#">Others</a>
                 </div>
             </div>
@@ -49,7 +49,7 @@
     <!-- Jumbotron Header -->
 
     <header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
-        <h2>Terms and Agreement</h2>
+        <h2>Rules, Terms of Service, and Agreement</h2>
         <p>PLEASE READ CAREFULLY:</p>
         <p>These terms and agreement along with any policies are to be agreed once
             registration is made. All violation to rules, terms of service, and agreement
