@@ -49,8 +49,10 @@
     <!-- Jumbotron Header -->
 
     <header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
-        <img src="{{URL::asset('public/picture/S__13393924.jpg')}}" width="30%" style="margin-left: 35%;">
-        <h2>Seal Online Chronicles of Shiltz - First Event !!</h2>
+		<h2>Seal Online Chronicles of Shiltz - CBT Event !!</h2><br />
+        <img src="{{URL::asset('public/picture/CBT_Event.jpg')}}" width="75%" style="margin-left: 15%;"><br /><br /><br />
+		<h2>Seal Online Chronicles of Shiltz - OBT Event !!</h2><br />
+		<img src="{{URL::asset('public/picture/S__13393924.jpg')}}" width="30%" style="margin-left: 35%;"><br /><br />
         <p>Seal Online: Chronicles of Shiltz will
             organize its first event with “Heaven Egg” as
             prize. Information of this event are as follows:</p>

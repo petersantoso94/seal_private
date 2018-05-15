@@ -115,6 +115,16 @@
 						Language : English & Indonesia <br />
 						Contact : Classified Information <br />
 						<br />
+						Game Master Name : GM Lychee <br />
+						Field : Event Management <br />
+						Language : English & Indonesia <br />
+						Contact : Facebook Game Master Lychee <br />
+						<br />
+						Game Master Name : GM Cupcake <br />
+						Field : Customer Relations <br />
+						Language : English <br />
+						Contact : Discord (Coming Soon !!) <br />
+						<br /
 						</p>
 						<p style="text-center">
 						We will soon release Line ID and Facebook Account
@@ -122,7 +132,7 @@
 						Available at 08:00 AM (GMT+8) to 10:00 PM (GMT+8)
 						<br /><br />
 						We will ensure fun, fair, and competitive gameplay !!<br />
-						Welcome to Seal Online: Chronicles of Shiltz !! Have Fun !! <br />
+						Welcome to Seal Online: Chronicles of Shiltz !! Have Fun !! <br /><br />
 					</p>
 					</p>
                 </div>

@@ -59,7 +59,7 @@
                             <a class="nav-link" href="{{url('term')}}">Rules</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">We Receive No Donation !</a>
+                            <a class="nav-link" href="https://drive.google.com/open?id=1_Iew-NVrXHGZ43p5_ci4R-L0feAP9z2W">Download</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"></a>
@@ -72,7 +72,7 @@
                         </li>
 							@else
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Download</a>
+                            <a class="nav-link" href="#">We Receive No Donation !</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('register')}}">Sign Up</a>
@@ -86,12 +86,7 @@
                                     @yield('main-section')
         </div>
               <!-- Footer                                       -->
-              <footer class="py-5 bg-dark footer-custom">
-            <div class="container">
-              <p class="m-0 text-center text-white">Copyright &copy; Seal Online: Chronicles of Shiltz 2018</p>
-              </div>
-              <!-- /.container -->
-              </footer>
+
 
               <!-- Bootstrap core JavaScript -->
               <script src="{{ URL::asset('public/jquery/jquery.min.js') }}"></script>

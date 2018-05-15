@@ -12,14 +12,19 @@
                 </div>
 				@endif
                 <div class="card-body">
+				<label class="form-check-label" for="term-id">Step 1. Login Your Facebook</label> <br /><br />
                     <form method="POST" action="{{ route('register') }}">
+					
                         @csrf
                         @if(!Session::has('fb_id'))
                         <div class="form-group row" style="margin-left: 35%">
                             <a href="{{url('login/facebook')}}"><img src='{{URL::asset('public/picture/fABGY.png')}}' width="60%"></a>
                         </div>
                         @endif
+						
+						<label class="form-check-label" for="term-id">Step 2. Fill in the form below, do not use inappropriate words, capital or numerical (number) in your ID</label> <br /> <br />
                         <div class="form-group row">
+						
                             <label for="name" class="col-md-4 col-form-label text-md-right">ID</label>
 
                             <div class="col-md-6">
@@ -82,11 +87,12 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
-                        </div>
+                        </div> <br /> <br />
+						<label class="form-check-label" for="term-id">Step 3. Read the Terms and Agreement, tick the box and click Register</label> <br/ ><br />
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="term-id" name="term" required>
+						    <input type="checkbox" class="form-check-input" id="term-id" name="term" required>
                             <label class="form-check-label" for="term-id">I already read and completely agree with all the <a href="{{url('term')}}">Rules, Terms of Service, and Agreement</a> used by Seal Online: Chronicles of Shiltz. All kinds of violation to used rules are agreed to be punished accordingly.</label>
-                        </div>
+                        </div><br />
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
