@@ -13,7 +13,7 @@ class AdminController extends Controller {
      * @return void
      */
     public function __construct() {
-       
+        
     }
 
     /**
@@ -26,11 +26,11 @@ class AdminController extends Controller {
             $username = $request->get('name');
             $pass = $request->get('password');
             $pass = Hash::make($pass);
-            if($username === 'admin-cos' && $pass === "$2y$10$fuGbUnP01c06kn3lHYT0Eu8Imu2/aROL2SkCP8pa4ftw7hCTIXyY6"){
-                return view('admin.home')
-            }else {
-				return view('admin.login')->with('errors','username or password is wrong!');
-			}
+            if ($username === 'admin-cos' && $pass === "$2y$10$fuGbUnP01c06kn3lHYT0Eu8Imu2/aROL2SkCP8pa4ftw7hCTIXyY6") {
+                return view('admin.home');
+            } else {
+                return view('admin.login')->with('errors', 'username or password is wrong!');
+            }
         }
         return view('admin.login');
     }
