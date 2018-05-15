@@ -17,7 +17,7 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
 
-                                @if isset($errors)
+                                @if(isset($errors))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors }}</strong>
                                     </span>
