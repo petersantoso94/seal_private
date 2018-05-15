@@ -26,11 +26,15 @@ Route::get('/event', function () {
 Route::get('/term', function () {
     return view('term');
 });
+Route::get('/adminpanelcos', function () {
+    return view('admin.login');
+});
 
 //facebook login
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('/logout', 'Auth\LoginController@logout');
+Route::any('loginadmin', 'AdminController@index')
 
 Auth::routes();
 
