@@ -31,7 +31,7 @@ use RegistersUsers;
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo ='/';
 
     /**
      * Create a new controller instance.
@@ -50,12 +50,11 @@ use RegistersUsers;
      */
     protected function validator(array $data) {
         return Validator::make($data, [
-                    'name' => 'required|string|max:255',
-                    'email' => 'required|string|email|max:255',
+                    'name' => 'required|string|max:255|unique:users,name',
+                    'email' => 'required|string|email|max:255|unique:users,email',
                     'password' => 'required|string|min:6|confirmed',
         ]);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -79,15 +78,16 @@ use RegistersUsers;
         } else {
             $table = "idtable5";
         }
-        $registered_id = DB::table('users')->select('id')->where('name', $a)->get();
-		$nick_name = Session::get('fb_name');
-		$fb_id = Session::get('fb_id');
-		$hashed_pass = DB::table('idtable2')->selectRaw("OLD_PASSWORD ('{$data['password']}') as 'pass'")->get();
-		//dd($hashed_pass[0]->pass);
-		//dd("INSERT INTO {$table} VALUES({$a},{$hashed_pass},CURDATE(),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,{$nick_name},NULL,{$data['email']},NULL,NULL,NULL,NULL,NULL,NULL,{$fb_id},{$data['rcm']})");
-        DB::insert("INSERT INTO {$table} VALUES('{$a}','{$hashed_pass[0]->pass}',CURDATE(),'99','','0',NULL,'',0,0,NULL,NULL,0,NULL,0,CURDATE(),'{$nick_name}','','{$data['email']}','{$data['pin']}',0,0,0,0,0,'{$fb_id}','{$data['rcm']}')");
-			Session::forget('fb_id');
-        
+        $registered_id = DB::connection('mysql2')->table('users')->select('id')->where('name', $a)->get();
+		if(count($registered_id) == 0){
+			$nick_name = Session::get('fb_name');
+			$fb_id = Session::get('fb_id');
+			$hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$data['password']}') as 'pass'")->get();
+			//dd($hashed_pass[0]->pass);
+			//dd("INSERT INTO {$table} VALUES({$a},{$hashed_pass},CURDATE(),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,{$nick_name},NULL,{$data['email']},NULL,NULL,NULL,NULL,NULL,NULL,{$fb_id},{$data['rcm']})");
+			DB::connection('mysql2')->insert("INSERT INTO idtable1 VALUES('{$a}','{$hashed_pass[0]->pass}',CURDATE(),'99','','0',NULL,'',0,0,NULL,NULL,0,NULL,0,CURDATE(),'{$nick_name}','','{$data['email']}','{$data['pin']}',0,0,0,0,0,'{$fb_id}','{$data['rcm']}')");
+				Session::forget('fb_id');
+		}
 		return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
