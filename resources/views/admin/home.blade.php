@@ -36,7 +36,7 @@
         notin = $(element).data('internal');
         if (confirm("Do you want to accept this user (" + notin + ")?") == true) {
             $.post(postValid, {sn: notin}, function (data) {
-
+                console.log(data);
             }).done(function () {
                 location.reload();
             });
