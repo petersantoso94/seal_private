@@ -31,7 +31,7 @@
 @endsection
 @section('js-content')
 <script>
-    var postValid = '<?php echo url::route('postValid') ?>';
+    var postValid = '<?php echo Route('postValid') ?>';
     window.pushValid = function (element) {
         notin = $(element).data('internal');
         if (confirm("Do you want to accept this user (" + notin + ")?") == true) {
