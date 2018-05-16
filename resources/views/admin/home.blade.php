@@ -11,19 +11,25 @@
             <!--<th>Actions</th>-->
             </tr>
         </thead>
+        <tbody>
+            @foreach(DB::table('idtable1')->select('*')->get() as $data)
+            <tr>
+                <td>{{$data->id}}</td>
+                <td>{{$data->nick_name}}</td>
+                <td>{{$data->email}}</td>
+                <td>
+                    <button title="Set to available" type="button" data-internal="{{$data->id}}" onclick="pushValid(this)"
+                            class="btn btn-pure-xs btn-xs btn-delete">
+                        <span class="glyphicon glyphicon-save"></span>
+                    </button>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
     </table>
 </div>
 @endsection
 @section('js-content')
 <script>
-    var table = '';
-    var registerDataTable = '<?php echo Route('registerDataTable') ?>';
-    table = $('#example').dataTable({
-        "draw": 10,
-        "processing": true,
-        "bDestroy": true,
-        "serverSide": true,
-        "ajax": registerDataTable
-    });
 </script>
 @endsection
