@@ -49,31 +49,22 @@ class AdminController extends Controller {
     }
 
     public function registerDataTable() {
-        $table = 'm_uncatagorized';
-        $primaryKey = 'm_uncatagorized`.`SerialNumber';
+        $table = 'idtable1';
+        $primaryKey = 'idtable1`.`id';
         $columns = array(
-            array('db' => 'SerialNumber', 'dt' => 0),
+            array('db' => 'id', 'dt' => 0),
             array(
-                'db' => 'MSISDN',
+                'db' => 'nick_name',
                 'dt' => 1
             ),
             array(
-                'db' => 'Remark',
+                'db' => 'email',
                 'dt' => 2
             ),
-            array('db' => 'SerialNumber', 'dt' => 3, 'formatter' => function( $d, $row ) {
-                    $set_msisdn = '';
-                    $MSISDN = DB::table('m_uncatagorized')
-                                    ->where('SerialNumber', $d)->select('MSISDN')->get();
-                    if ($MSISDN[0]->MSISDN != NULL)
-                        $set_msisdn = $MSISDN[0]->MSISDN;
-                    $return = '<button title="Set to available" type="button" data-internal="' . $d . '" data-msisdn="' . $set_msisdn . '"  onclick="goShipin(this)"
+            array('db' => 'id', 'dt' => 3, 'formatter' => function( $d, $row ) {
+                    $return = '<button title="Set to available" type="button" data-internal="' . $d . '" onclick="pushValid(this)"
                                              class="btn btn-pure-xs btn-xs btn-delete">
                                         <span class="glyphicon glyphicon-save"></span>
-                                    </button>';
-                    $return .= '<button title="Edit remark" type="button" data-internal="' . $d . '"  onclick="editRemark(this)"
-                                             class="btn btn-pure-xs btn-xs btn-delete">
-                                        <span class="glyphicon glyphicon-pencil"></span>
                                     </button>';
                     return $return;
                 })
@@ -81,8 +72,8 @@ class AdminController extends Controller {
 
         $sql_details = array(
             'user' => 'root',
-            'pass' => '',
-            'db' => 'telkom2',
+            'pass' => 'jb9fwDJs',
+            'db' => 'seal_data',
             'host' => 'localhost'
         );
 
