@@ -23,16 +23,29 @@ class AdminController extends Controller {
      */
     public function index(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $request->get('name');
+            $username = $request->get('email');
             $pass = $request->get('password');
-            $pass = Hash::make($pass);
-            if ($username === 'admin-cos' && $pass === "$2y$10$fuGbUnP01c06kn3lHYT0Eu8Imu2/aROL2SkCP8pa4ftw7hCTIXyY6") {
+            if ($username === 'admin-cos' && $pass === "admin123") {
+				$request->session()->put('admin','admin-cos');
                 return view('admin.home');
             } else {
-                return view('admin.login')->with('errors', 'username or password is wrong!');
+				$data = array(
+            'errors'=>'username or password is wrong!'
+            );
+                return view('admin.login')->with($data);
             }
         }
+		if($request->session()->has('admin')){
+			if($request->session()->get('admin') === 'admin-cos'){
+				return view('admin.home');
+			}
+		}
         return view('admin.login');
     }
+	
+	public function logout(Request $request) {
+		$request->session()->forget('admin');
+		return redirect('adminpanelcos');
+	}
 
 }

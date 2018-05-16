@@ -8,20 +8,21 @@
                 <div class="card-header">Admin Login</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('loginadmin') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="text" class="form-control" name="email" value="" required autofocus>
+				
 
                                 @if(isset($errors))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors }}</strong>
                                     </span>
                                 @endif
+                    <form method="POST" action="{{ route('loginadmin') }}">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-4 col-form-label text-md-right">Username</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="text" class="form-control" name="email" value="" required autofocus>
                             </div>
                         </div>
 
