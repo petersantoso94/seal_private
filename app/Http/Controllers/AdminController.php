@@ -77,7 +77,7 @@ class AdminController extends Controller {
             'host' => 'localhost'
         );
 
-        require('ssp.class.php');
+        require(app_path().'ssp.class.php');
 //        $ID_CLIENT_VALUE = Auth::user()->CompanyInternalID;
         $extraCondition = "";
         $join = '';
