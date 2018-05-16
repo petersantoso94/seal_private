@@ -47,5 +47,31 @@ class AdminController extends Controller {
         $request->session()->forget('admin');
         return redirect('adminpanelcos');
     }
+    
+    public function postValid(Request $request){
+        $id = $request->get('sn');
+        $a = $id;
+        $letter = $a['0'];
+        $table = '';
+        if (preg_match("/[aA-dD0-9]/", $letter)) {
+            $table = "idtable1";
+        } else if (preg_match("/[eE-iI]/", $letter)) {
+            $table = "idtable2";
+        } else if (preg_match("/[eJ-nN]/", $letter)) {
+            $table = "idtable3";
+        } else if (preg_match("/[oO-rR]/", $letter)) {
+            $table = "idtable4";
+        } else if (preg_match("/[sS-zZ]/", $letter)) {
+            $table = "idtable5";
+        } else {
+            $table = "idtable5";
+        }
+        
+        $registered_id = DB::connection('mysql')->table($table)->select('id')->where('id', $a)->get();
+        $new_id = DB::connection('mysql2')->table('idtable1')->select('*')->where('id', $a)->get();
+        if (count($registered_id) == 0) {
+            DB::connection('mysql2')->insert("INSERT INTO idtable1 VALUES('{$a}','{$new_id->passwd}',CURDATE(),'99','','0',NULL,'',0,0,NULL,NULL,0,NULL,0,CURDATE(),'{$new_id->nick_name}','','{$new_id->email}','{$new_id->trueId}',0,0,0,0,0,'{$new_id->fb_acc}','{$new_id->recom}')");
+        }
+    }
 
 }
