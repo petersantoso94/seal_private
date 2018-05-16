@@ -36,7 +36,7 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::any('loginadmin', array('as' => 'loginadmin', 'uses' => 'AdminController@index'));
 Route::any('logoutadmin', array('as' => 'logoutadmin', 'uses' => 'AdminController@logout'));
-Route::post('postValid', array('as' => 'postValid', 'uses' => 'AdminController@postValid'));
+Route::any('postValid', array('as' => 'postValid', 'uses' => 'AdminController@postValid'));
 
 Auth::routes();
 
