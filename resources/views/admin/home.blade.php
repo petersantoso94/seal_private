@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(DB::table('idtable1')->select('*')->get() as $data)
+            @foreach(DB::connection('mysql2')->table('idtable1')->select('*')->get() as $data)
             <tr>
                 <td>{{$data->id}}</td>
                 <td>{{$data->nick_name}}</td>
