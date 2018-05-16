@@ -51,7 +51,7 @@ class AdminController extends Controller {
     
     public function postValid(Request $request){
         $id = $request->get('sn');
-        $id = 'gamelemah';
+        //$id = 'gamelemah';
         $a = $id;
         $letter = $a['0'];
         $table = '';
