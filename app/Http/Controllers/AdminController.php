@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\sspClass;
 
 class AdminController extends Controller {
 
@@ -77,7 +78,7 @@ class AdminController extends Controller {
             'host' => 'localhost'
         );
 
-        require(app_path().'\ssp.class.php');
+//        require(app_path().'\ssp.class.php');
 //        $ID_CLIENT_VALUE = Auth::user()->CompanyInternalID;
         $extraCondition = "";
         $join = '';
