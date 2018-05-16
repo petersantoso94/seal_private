@@ -34,9 +34,10 @@
     var postValid = '<?php echo Route('postValid') ?>';
     window.pushValid = function (element) {
         notin = $(element).data('internal');
+        console.log(notin);
         if (confirm("Do you want to accept this user (" + notin + ")?") == true) {
             $.post(postValid, {sn: notin}, function (data) {
-                console.log(data);
+                
             }).done(function () {
                 location.reload();
             });
