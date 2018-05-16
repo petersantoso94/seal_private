@@ -7,6 +7,7 @@
                 <th>ID</th>
                 <th>Facebook Name</th>
                 <th>Email</th>
+				<th>Link FB</th>
                 <th>Action</th>
             <!--<th>Actions</th>-->
             </tr>
@@ -17,6 +18,7 @@
                 <td>{{$data->id}}</td>
                 <td>{{$data->nick_name}}</td>
                 <td>{{$data->email}}</td>
+				<td>{{$data->fb_link}}</td>
                 <td>
                     <button title="Set to available" type="button" data-internal="{{$data->id}}" onclick="pushValid(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">

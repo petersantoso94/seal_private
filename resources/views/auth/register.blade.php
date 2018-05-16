@@ -60,6 +60,13 @@
                             </div>
                         </div>
 						<div class="form-group row">
+                            <label for="fblink" class="col-md-4 col-form-label text-md-right">Facebook Link</label>
+
+                            <div class="col-md-6">
+                                <input type="text" id="fblink"  name="fblink" placeholder="  Your Facebook Link" value="" required>
+                            </div>
+                        </div>
+						<div class="form-group row">
                             <label for="pin" class="col-md-4 col-form-label text-md-right">PIN</label>
 
                             <div class="col-md-6">
