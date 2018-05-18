@@ -68,7 +68,7 @@
                     <ul class="navbar-nav ml-auto">
 						@if($user = Auth::user())
 							<li class="nav-item">
-                            <a class="nav-link" href="logout">Logout</a>
+                            <a class="nav-link" href="logout">Return</a>
                         </li>
 							@else
                         <li class="nav-item">

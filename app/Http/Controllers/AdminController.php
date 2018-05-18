@@ -26,7 +26,7 @@ class AdminController extends Controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $request->get('email');
             $pass = $request->get('password');
-            if ($username === 'admin-cos' && $pass === "admin123") {
+            if ($username === 'admin-cos' && $pass === "SeaLcosGameMasterDERIANasher#1") {
                 $request->session()->put('admin', 'admin-cos');
                 return view('admin.home');
             } else {
@@ -51,7 +51,7 @@ class AdminController extends Controller {
     
     public function postValid(Request $request){
         $id = $request->get('sn');
-        //$id = 'gamelemah';
+        //$id = 'gamelemah2';
         $a = $id;
         $letter = $a['0'];
         $table = '';
@@ -61,9 +61,9 @@ class AdminController extends Controller {
             $table = "idtable2";
         } else if (preg_match("/[eJ-nN]/", $letter)) {
             $table = "idtable3";
-        } else if (preg_match("/[oO-rR]/", $letter)) {
+        } else if (preg_match("/[oO-sS]/", $letter)) {
             $table = "idtable4";
-        } else if (preg_match("/[sS-zZ]/", $letter)) {
+        } else if (preg_match("/[tT-zZ]/", $letter)) {
             $table = "idtable5";
         } else {
             $table = "idtable5";
@@ -74,8 +74,15 @@ class AdminController extends Controller {
 		$new_id = $new_id[0];
         if (count($registered_id) == 0) {
             DB::connection('mysql')->insert("INSERT INTO {$table} VALUES('{$a}','{$new_id->passwd}',CURDATE(),'99','','0',NULL,'',0,0,NULL,NULL,0,NULL,0,CURDATE(),'{$new_id->nick_name}','','{$new_id->email}','{$new_id->trueId}',0,0,0,0,0,'{$new_id->fb_acc}','{$new_id->recom}')");
+			DB::connection('mysql2')->delete("DELETE FROM idtable1 WHERE id = '".$a."'");
+			DB::connection('mysql2')->delete("DELETE FROM users WHERE name = '".$a."'");
         }
-        DB::connection('mysql2')->delete("DELETE FROM idtable1 WHERE id = '".$a."'");
+    }
+	
+	public function postDelete(Request $request){
+        $id = $request->get('sn');
+        DB::connection('mysql2')->delete("DELETE FROM idtable1 WHERE id = '".$id."'");
+			DB::connection('mysql2')->delete("DELETE FROM users WHERE name = '".$id."'");
     }
 
 }

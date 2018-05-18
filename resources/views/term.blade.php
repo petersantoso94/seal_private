@@ -79,14 +79,23 @@
             hacking, phishing, and scamming will not be retrieved by support
             team.</p>
         <p>6. Players are not allowed to mimic, copy, use similar name as Seal
-            Online: Chronicles of Shiltz’ support team or Game Master. Players
+            Online: Chronicles of Shiltz’ support team, NPC, or Game Master. Players
             also not allowed to do any form of scam and hack to other players.</p>
         <p>7. Players are not allowed to create nickname with impolite, improper,
             and racism words. Player who violates this rule will be punished
             by permanent account ban.</p>
         <p>8. Impolite and improper words or actions toward Game Master,
             Support Team, and Council Members will be punished accordingly.</p>
-        <p style="font-size: 80%">Addition and changes in terms and agreement will be informed to all users.</p>
+		<p>9. On special occasion, players are required to provide personal information
+			needed regarding registration matters such as Identity Card if real identity
+			of player cannot be confirmed by administrator or considered a potential threat.</p>
+		<p>10. Player have no right to protest if the registration declined or revoked 
+			(ban of ID, IP, HWID, etc.) by administrator because consciously being or considered 
+			as a potential threat to the server and its community.</p>
+		<p>11. Player are allowed to kill each other except in demilitarized zone which are
+			Adel Monastery and Trevia Valley. For those who kills in this area can be reported
+			and will be punished with Temporary Ban.</p>
+		<p style="font-size: 80%">Addition and changes in terms and agreement will be informed to all users.</p>
     </header>
     <!-- Page Features -->
     <div class="row text-center">

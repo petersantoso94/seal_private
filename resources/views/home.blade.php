@@ -50,7 +50,7 @@
     <!-- Jumbotron Header -->
 	@if($user = Auth::user())
                 <div class="alert alert-success" role="alert">
-                    Successfully login, thank you {{$user->name}}
+                    Your registration form has been submitted. Please wait for our administrator to review your registration form and contact you if necessary (Max. 24 Hours). Thank you very much !! (Submitted as {{$user->name}})
                 </div>
         @endif
     <header class="jumbotron my-1" style="background: rgba(204, 204, 204, 0.8);;">
@@ -65,33 +65,27 @@
     <div class="row text-center">
         <div class="col">
 		<div class="card">
-                <img class="card-img-top" src="{{URL::asset('public/picture/hiring.png')}}" alt="" width="200" height="255">
-                <div class="card-body">
-                    <h4 class="card-title">Now Hiring!! Join us NOW!!</h4>
-                    <p class="card-text">
-					<p style="text-align:justify"> Seal Online: Chronicles of Shiltz will be open
-                        for Volunteers Game Master, will be active
-                        working as Event and Customer Relation GM. 
-						<br />
-						<br />
-						We will open GM Recruitment at:
-						<br />
-						Friday, May 11 - Friday, May 17 2018
-						<br />
-						
-						<br />
-						Send your application to our email at: <br />
-						gamemaster.sealcos@gmail.com <br /><br />
-						Requirements: <br />
-						</p>
-						<p style="text-align:left">
-						1. English Proficiency Proof. <br />
-						2. CV or Application Resume. <br />
-						3. FB/Skype Ready for Interview. <br />
-						4. Flexible Work-hours. <br />
-						5. Work Experience in Related Field.
-					</p>
-					</p>
+				<br />
+				<h4 class="card-title">Registration are now Open !!</h4>
+                <img class="card-img-top" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="" width="255" height="450">
+				<br />
+				<h4 class="card-title">Closed Beta Test Start !</h4>
+				<img class="card-img-top" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="" width="255" height="450">
+				<br />
+				<h4 class="card-title">GM Recruitment is Now Closed <br /> Thank You for Joining Us !</h4>
+				<img class="card-img-top" src="{{URL::asset('public/picture/hiring2.png')}}" alt="" width="255" height="255">
+				<br />
+				<h4 class="card-title">Our Schedule</h4>
+				<img class="card-img-top" src="{{URL::asset('public/picture/logo_picture.png')}}" alt="" width="255" height="255">
+				<br />
+				<h4 class="card-title">GM Recruitment is Now Open <br /> Join Us Now !! </h4>
+				<img class="card-img-top" src="{{URL::asset('public/picture/hiring.png')}}" alt="" width="255" height="255">
+				<br />
+				<h4 class="card-title">About Our Server</h4>
+                <img class="card-img-top" src="{{URL::asset('public/picture/home_logo.png')}}" alt="" width="255" height="255">
+				<div class="card-body">
+                <br />
+				<h4 class="card-title">Seal Online: Chronicles of Shiltz</h4>
                 </div>
                 <div class="card-footer">
                     <!-- <a href="#" class="btn btn-primary">Find Out More!</a> -->
