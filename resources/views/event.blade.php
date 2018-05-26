@@ -49,6 +49,8 @@
     <!-- Jumbotron Header -->
 
     <header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
+		<h2>Seal Online: Chronicles of Shiltz - Daily Events !!</h2><br />
+		<img src="{{URL::asset('public/picture/Daily_Events.png')}}" width="100%" style="margin-left: 0%;"><br /><br />
 		<h2>Seal Online: Chronicles of Shiltz - Poster & BGM Contest !!</h2><br />
 		<img src="{{URL::asset('public/picture/Open_Beta.jpg')}}" width="75%" style="margin-left: 15%;"><br /><br />
         <p>Seal Online: Chronicles of Shiltz will

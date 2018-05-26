@@ -100,7 +100,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div> <br /> <br />
-						<label class="form-check-label" for="term-id">Step 5. Read the Terms and Agreement, tick the box and click Register</label> <br/ ><br />
+						<label class="form-check-label" for="term-id">Step 5. Read the Terms and Agreement, tick the box and click Register. Send us your Identitiy card's photo to facebook for activation</label> <br/ ><br />
                         <div class="form-check">
 						    <input type="checkbox" class="form-check-input" id="term-id" name="term" required>
                             <label class="form-check-label" for="term-id">I already read and completely agree with all the <a href="{{url('term')}}">Rules, Terms of Service, and Agreement</a> used by Seal Online: Chronicles of Shiltz. All kinds of violation to used rules are agreed to be punished accordingly.</label>

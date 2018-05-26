@@ -41,7 +41,7 @@
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
                     <a class="dropdown-item" href="#">Video Guides</a>
-                    <a class="dropdown-item" href="http://sealonline.wikia.com/wiki/Main_Page">Seal Wikia</a>
+                    <a class="dropdown-item" href="https://seal-cos.wikia.com/wiki/">Seal Wikia</a>
                     <a class="dropdown-item" href="#">Others</a>
                 </div>
             </div>
@@ -50,7 +50,7 @@
     <!-- Jumbotron Header -->
 	@if($user = Auth::user())
                 <div class="alert alert-success" role="alert">
-                    Your registration form has been submitted. Please wait for our administrator to review your registration form and contact you if necessary (Max. 24 Hours). Thank you very much !! (Submitted as {{$user->name}})
+                    Your registration form has been submitted. Please send your Identity Card's Photos to GM Eastwood and wait for our administrator to review your registration form. (Max. 24 Hours). Thank you very much !! (Submitted as {{$user->name}})
                 </div>
         @endif
     <header class="jumbotron my-1" style="background: rgba(204, 204, 204, 0.8);;">
@@ -58,7 +58,7 @@
         <p class="lead">Welcome to Seal Online: Chronicles of Shiltz, to celebrate our launching Seal CoS will
             organize its first event with “Heaven Egg” as
             prize. Information of this event are as follows:</p>
-        <a href="{{url('event')}}" class="btn btn-primary btn-lg">Read more</a>
+        <a href="{{url('event')}}" class="btn btn-primary btn-lg">Ongoing Events</a>
     </header>
 
     <!-- Page Features -->
@@ -68,6 +68,9 @@
 				<br />
 				<h4 class="card-title">Registration are now Open !!</h4>
                 <img class="card-img-top" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="" width="255" height="450">
+				<br />
+				<h4 class="card-title">Quest Central Cegel Rewards !!</h4>
+                <img class="card-img-top" src="{{URL::asset('public/picture/Quest_Reward.png')}}" alt="" width="255" height="450">
 				<br />
 				<h4 class="card-title">Closed Beta Test Start !</h4>
 				<img class="card-img-top" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="" width="255" height="450">
@@ -102,7 +105,7 @@
 						Game Master Name : GM Eastwood <br />
 						Field : Management and Support <br />
 						Language : English <br />
-						Contact : Fanpage & Instagram <br />
+						Line ID : gm.eastwood <br />
 						<br />
 						Game Master Name : GM Ruby <br />
 						Field : Technical and Maintenance <br />
@@ -117,11 +120,10 @@
 						Game Master Name : GM Cupcake <br />
 						Field : Customer Relations <br />
 						Language : English <br />
-						Contact : Discord (Coming Soon !!) <br />
+						Contact : Facebook & Instagram Gamemaster Sealcos <br />
 						<br /
 						</p>
 						<p style="text-center">
-						We will soon release Line ID and Facebook Account
 						<br />
 						Available at 08:00 AM (GMT+8) to 10:00 PM (GMT+8)
 						<br /><br />

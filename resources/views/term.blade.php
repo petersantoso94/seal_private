@@ -40,7 +40,7 @@
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
                     <a class="dropdown-item" href="#">Video Guides</a>
-                    <a class="dropdown-item" href="http://sealonline.wikia.com/wiki/Main_Page">Seal Wikia</a>
+                    <a class="dropdown-item" href="https://seal-cos.wikia.com/wiki/">Seal Wikia</a>
                     <a class="dropdown-item" href="#">Others</a>
                 </div>
             </div>
@@ -86,15 +86,16 @@
             by permanent account ban.</p>
         <p>8. Impolite and improper words or actions toward Game Master,
             Support Team, and Council Members will be punished accordingly.</p>
-		<p>9. On special occasion, players are required to provide personal information
-			needed regarding registration matters such as Identity Card if real identity
-			of player cannot be confirmed by administrator or considered a potential threat.</p>
+		<p>9. All players are required to provide personal information
+			needed regarding registration matters in form of legitimate ID card.</p>
 		<p>10. Player have no right to protest if the registration declined or revoked 
 			(ban of ID, IP, HWID, etc.) by administrator because consciously being or considered 
 			as a potential threat to the server and its community.</p>
 		<p>11. Player are allowed to kill each other except in demilitarized zone which are
 			Adel Monastery and Trevia Valley. For those who kills in this area can be reported
 			and will be punished with Temporary Ban.</p>
+		<p>12. Cheaters and Illegal program users are agree to give consent to Seal Online: Chronicles
+			of Shiltz and Management Team to do any means necessary regarding their data if proven guilty.</p>
 		<p style="font-size: 80%">Addition and changes in terms and agreement will be informed to all users.</p>
     </header>
     <!-- Page Features -->

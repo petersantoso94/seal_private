@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
+		<link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('public/picture/seal-cos.ico')}}">
 
         <title>Seal Online: Chronicles of Shiltz</title>
 
@@ -59,7 +60,7 @@
                             <a class="nav-link" href="{{url('term')}}">Rules</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://drive.google.com/open?id=1_Iew-NVrXHGZ43p5_ci4R-L0feAP9z2W">Download</a>
+                            <a class="nav-link" href="https://drive.google.com/uc?export=download&confirm=agd_&id=1s0PrbusWLzWMcU62Zdoal3RObAEPxeHP">Download</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"></a>
