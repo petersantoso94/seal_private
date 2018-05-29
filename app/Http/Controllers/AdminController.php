@@ -38,7 +38,7 @@ class AdminController extends Controller {
         }
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
-                return view('admin.home');
+                return view('admin.home')->withPage('Approve User');
             }
         }
         return view('admin.login');
@@ -55,10 +55,10 @@ class AdminController extends Controller {
         }
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
-                return view('admin.sendcash');
+                return view('admin.sendcash')->withPage('Send Cash');
             }
         }
-        return view('admin.sendcash');
+        return view('admin.sendcash')->withPage('Send Cash');
     }
     
     public function postValid(Request $request){
