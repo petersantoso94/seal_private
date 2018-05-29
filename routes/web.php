@@ -35,6 +35,7 @@ Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::any('loginadmin', array('as' => 'loginadmin', 'uses' => 'AdminController@index'));
+Route::any('sendcash', array('as' => 'sendcash', 'uses' => 'AdminController@sendcash'));
 Route::any('logoutadmin', array('as' => 'logoutadmin', 'uses' => 'AdminController@logout'));
 Route::any('postValid', array('as' => 'postValid', 'uses' => 'AdminController@postValid'));
 Route::any('postDelete', array('as' => 'postDelete', 'uses' => 'AdminController@postDelete'));
