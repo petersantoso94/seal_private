@@ -94,16 +94,20 @@ class AdminController extends Controller {
         $ids = $request->get('users');
         $it_val = $request->get('it');
         $io_val = $request->get('io');
-//        $ids = 'gm01,derianasher';
+		//$it_val = '3352';
+		//$io_val = '300';
+        //$ids = 'gm01';
         $ids = explode(',', $ids);
         $not_avail = '';
         foreach ($ids as $id) {
-            $registered_id = DB::connection('mysql')->table('store')->where('user_id', $id)->get();
+            $registered_id = DB::connection('mysql3')->table('store')->where('user_id', $id)->get();
             if(count($registered_id) > 0){
                 foreach($registered_id as $user){
                     $idx_kosong = 99;
                     for($i = 0; $i < 80; $i++){
-                        if($user->io.$i == 0 && $user->it.$i == 0){
+						$stringio = 'io'.$i;
+						$stringit = 'it'.$i;
+                        if($user->$stringio == 0 && $user->$stringit == 0){
                             $idx_kosong = $i;
                             break;
                         }
