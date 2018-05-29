@@ -24,9 +24,9 @@ class AdminController extends Controller {
      */
     public function index(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = mysql_real_escape_string($request->get('email'));
-            $pass = mysql_real_escape_string($request->get('password'));
-            if ($username === 'admin-cos' && $pass === "SeaLcosGameMasterDERIANasher#1") {
+            $username = $request->get('email');
+            $pass = md5($request->get('password'));
+            if ($username === 'admin-cos' && $pass === "3c2e6ca89eb0e4d31ef256bef2ba24f2") {#SeaLcosGameMasterDERIANasher#1
                 $request->session()->put('admin', 'admin-cos');
                 return view('admin.home');
             } else {
@@ -50,7 +50,7 @@ class AdminController extends Controller {
     }
     
     public function postValid(Request $request){
-        $id = mysql_real_escape_string($request->get('sn'));
+        $id = $request->get('sn');
         //$id = 'gamelemah2';
         $a = $id;
         $letter = $a['0'];
