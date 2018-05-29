@@ -63,7 +63,7 @@ use RegistersUsers;
      * @return \App\User
      */
     protected function create(array $data) {
-        $a = $data['name'];
+        $a = mysql_real_escape_string($data['name']);
         $letter = $a['0'];
         $table = '';
         if (preg_match("/[aA-dD0-9]/", $letter)) {
