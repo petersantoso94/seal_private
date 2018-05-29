@@ -63,10 +63,10 @@ class AdminController extends Controller {
 
     public function postCash(Request $request) {
         $ids = $request->get('users');
-//        $ids = 'gm01,derianasher';
+        $ids = 'gm01,derianasher';
         $ids = explode(',', $ids);
         $cash = $request->get('nominal');
-//        $cash = 100;
+        $cash = 100;
         foreach ($ids as $id) {
             $a = $id;
             $letter = $a['0'];
@@ -86,7 +86,22 @@ class AdminController extends Controller {
             }
             $registered_id = DB::connection('mysql')->table($table)->where('id', $a)->get();
             if(count($registered_id) > 0){
-                DB::update("UPDATE {$table} SET point = point + {$cash}");
+                DB::update("UPDATE {$table} SET point = point - {$cash}");
+            }
+        }
+    }
+    public function postItems(Request $request) {
+        $ids = $request->get('users');
+        $it_val = $request->get('it');
+        $io_val = $request->get('io');
+//        $ids = 'gm01,derianasher';
+        $ids = explode(',', $ids);
+        $cash = $request->get('nominal');
+//        $cash = 100;
+        foreach ($ids as $id) {
+            $registered_id = DB::connection('mysql')->table('store')->where('user_id', $id)->get();
+            if(count($registered_id) > 0){
+                
             }
         }
     }
