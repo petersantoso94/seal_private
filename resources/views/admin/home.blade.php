@@ -1,6 +1,6 @@
 @extends('template.header-footer-admin')
 @section('main-section')
-<div class="white-pane__bordered margbot20">
+<div class="content-wrapper">
     <table id="example" class="display table-rwd table-inventory" cellspacing="0" width="100%">
         <thead>
             <tr>
