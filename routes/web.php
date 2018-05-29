@@ -39,6 +39,7 @@ Route::any('sendcash', array('as' => 'sendcash', 'uses' => 'AdminController@send
 Route::any('logoutadmin', array('as' => 'logoutadmin', 'uses' => 'AdminController@logout'));
 Route::any('postValid', array('as' => 'postValid', 'uses' => 'AdminController@postValid'));
 Route::any('postDelete', array('as' => 'postDelete', 'uses' => 'AdminController@postDelete'));
+Route::any('postCash', array('as' => 'postCash', 'uses' => 'AdminController@postCash'));
 
 Auth::routes();
 
