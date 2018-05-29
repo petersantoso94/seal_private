@@ -2,7 +2,7 @@
 @section('main-section')
 <div class="white-pane__bordered margbot20">
     <div class="row">
-        <select data-placeholder="Choose users..." class="chosen-select" name="users" id="users"  multiple="" tabindex="-1" style="display: none;">
+        <select data-placeholder="Choose users..." class="chosen-select" name="users" id="users"  multiple="" tabindex="-1">
             <option></option>
             @foreach(DB::connection('mysql3')->table('pc')->select('char_name','user_id')->get() as $char)
             @if($char->char_name != '')
