@@ -28,7 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Google Font -->
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-			  <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <!--
     BODY TAG OPTIONS:
@@ -256,16 +256,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <ul class="sidebar-menu" data-widget="tree">
                         <li class="header">HEADER</li>
                         <!-- Optionally, you can add icons to the links -->
-                        <li <?php if(isset($page)) if($page === 'Approve User') echo 'class="active"'; ?>><a href="{{url('loginadmin')}}"><i class="fa fa-link"></i> <span>Approve User</span></a></li>
-                        <li <?php if(isset($page)) if($page === 'Send Cash') echo 'class="active"'; ?>><a href="{{url('sendcash')}}"><i class="fa fa-link"></i> <span>Send Cash</span></a></li>
+                        <li <?php if (isset($page)) if ($page === 'Approve User') echo 'class="active"'; ?>><a href="{{url('loginadmin')}}"><i class="fa fa-link"></i> <span>Approve User</span></a></li>
+                        <li <?php if (isset($page)) if ($page === 'Send Cash') echo 'class="active"'; ?>><a href="{{url('sendcash')}}"><i class="fa fa-link"></i> <span>Send Cash</span></a></li>
                         <li class="treeview">
                             <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li><a href="#">Link in level 2</a></li>
+                            <ul class="                        treeview-menu">
+                                <li><a href="#">Link in level                        2</a></li>
                                 <li><a href="#">Link in level 2</a></li>
                             </ul>
                         </li>
@@ -280,20 +280,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Page Header
+                        @if(isset($page))
+                        {{$page}}
+                        @endif
                         <small>Optional description</small>
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                        <li class="active">Here</li>
+                        <li><a href="#"><i class="fa f                                                     a-dashboard"></i> Level</a></li>
+                        <li class="active">He                                                 re</li>
                     </ol>
                 </section>
 
                 <!-- Main content -->
-                <section class="content container-fluid">
+                <section class="content container-fluid"                                                         >
                     @yield('main-section')
-                    <!--------------------------
-                    | Your Page Content Here |
+                    <!---------------                                                         -----------
+                    | Your Page Conte                                                         nt Here |
                     -------------------------->
 
                 </section>
@@ -303,7 +305,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <!-- Main Footer -->
             <footer class="main-footer">
-                <!-- To the right -->
+                <!-- To the                                                                          right -->
                 <div class="pull-right hidden-xs">
                     Anything you want
                 </div>
@@ -316,7 +318,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Create the tabs -->
                 <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
                     <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+                    <li><a href="#cont                                                                                                                                                                                                   rol-sidebar-settings-tab" data-toggle="tab"><i                                                                                                                                                                                                   class="fa fa-gears"></i></a></li>
                 </ul>
                 <!-- Tab panes -->
                 <div class="tab-content">
@@ -332,7 +334,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
 
                                         <p>Will be 23 on April 24th</p>
-                                    </div>
+                                        <                                                                                                                                                                                                        /div>
                                 </a>
                             </li>
                         </ul>
@@ -349,7 +351,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </span>
                                     </h4>
 
-                                    <div class="progress progress-xxs">
+                                    <div c                                                                                                                                                                                                        lass="progress progress-xxs">
                                         <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
                                     </div>
                                 </a>
@@ -371,7 +373,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <label class="control-sidebar-subheading">
                                     Report panel usage
                                     <input type="checkbox" class="pull-right" checked>
-                                </label>
+                                </label                                                                                                                                                                                                        >
 
                                 <p>
                                     Some information about this general settings option
@@ -385,7 +387,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </aside>
             <!-- /.control-sidebar -->
             <!-- Add the sidebar's background. This div must be placed
-            immediately after the control sidebar -->
+            immediately                                                                                                                                                                                                         after the control sidebar -->
             <div class="control-sidebar-bg"></div>
         </div>
         <!-- ./wrapper -->
@@ -396,12 +398,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="{{ URL::asset('public/bower_components/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ URL::asset('public/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
         <script src="{{ URL::asset('public/dist/js/adminlte.min.js') }}"></script>
+        <script type="text/javascript" src="{{URL::asset('public/js/chosen.jquery.min.js')}}"></script>
 
         <script type="text/javascript" src="{{URL::asset('public/jquery.dataTables.min.js')}}"></script>
 
         <!-- Optionally, you can add Slimscroll and FastClick plugins.
-             Both of these plugins are recommended to enhance the
-             user experience. -->
+        Both of these plugins are recommended to enhance the
+        user experience. -->
         @yield('js-content')
     </body>
 </html>
