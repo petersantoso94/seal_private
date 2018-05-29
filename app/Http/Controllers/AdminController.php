@@ -87,7 +87,7 @@ class AdminController extends Controller {
             $registered_id = DB::connection('mysql')->table($table)->where('id', $a)->get();
             if(count($registered_id) > 0){
                 $registered_id[0]->point = $registered_id[0]->point + $cash;
-                $registered_id[0]->save();
+                $registered_id->save();
             }
         }
     }
