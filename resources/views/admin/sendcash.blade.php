@@ -1,8 +1,9 @@
 @extends('template.header-footer-admin')
 @section('main-section')
-<div class="content-wrapper">
+<div class="content-wrapper" style="margin-left: -10%">
     <div class="row">
         <div class="form-group">
+            <label for="users">User's Character Name:</label>
             <select data-placeholder="Choose users..." class="chosen-select" name="users" id="users"  multiple="" tabindex="-1" >
                 <option></option>
                 @foreach(DB::connection('mysql3')->table('pc')->select('char_name','user_id')->get() as $char)
@@ -25,8 +26,7 @@
 @endsection
 @section('js-content')
 <script>
-    var postValid = '<?php echo Route('postValid') ?>';
-    var postDelete = '<?php echo Route('postDelete') ?>';
+    var postCash = '<?php echo Route('postCash') ?>';
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -35,19 +35,8 @@
     window.sendCash = function (element) {
         cash = $("#cash-nominal").val();
         user_ids = $("#users").val();
-        alert(user_ids);
-        if (confirm("Do you want to accept this user (" + notin + ")?") == true) {
-            $.post(postValid, {sn: notin}, function (data) {
-
-            }).done(function () {
-                location.reload();
-            });
-        }
-    };
-    window.deleteData = function (element) {
-        notin = $(element).data('internal');
-        if (confirm("Do you want to delete this user (" + notin + ")?") == true) {
-            $.post(postDelete, {sn: notin}, function (data) {
+        if (confirm("Do you want to send "+cash+" to these user(s) (" + user_ids + ")?") == true) {
+            $.post(postCash, {users: user_ids, nominal: cash}, function (data) {
 
             }).done(function () {
                 location.reload();
