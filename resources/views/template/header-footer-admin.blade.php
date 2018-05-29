@@ -13,7 +13,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" type="text/css" href="{{URL::asset('public/jquery.dataTables.css')}}">
         <link href="{{ URL::asset('public/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ URL::asset('public/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+        <!--<link href="{{ URL::asset('public/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">-->
+        
+        <link rel="stylesheet" href="{{URL::asset('public/css/chosen.css')}}">
         <link href="{{ URL::asset('public/bower_components/Ionicons/css/ionicons.min.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('public/dist/css/AdminLTE.min.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('public/dist/css/skins/skin-blue.min.css') }}" rel="stylesheet">
