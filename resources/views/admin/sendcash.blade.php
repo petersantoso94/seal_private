@@ -1,6 +1,6 @@
 @extends('template.header-footer-admin')
 @section('main-section')
-<div class="content-wrapper" style="margin-left: -10%">
+<div class="white-pane__bordered margbot20">
     <div class="row">
         <div class="form-group">
             <label for="users">User's Character Name:</label>
