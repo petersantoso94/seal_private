@@ -96,14 +96,27 @@ class AdminController extends Controller {
         $io_val = $request->get('io');
 //        $ids = 'gm01,derianasher';
         $ids = explode(',', $ids);
-        $cash = $request->get('nominal');
-//        $cash = 100;
+        $not_avail = '';
         foreach ($ids as $id) {
             $registered_id = DB::connection('mysql')->table('store')->where('user_id', $id)->get();
             if(count($registered_id) > 0){
-                
+                foreach($registered_id as $user){
+                    $idx_kosong = 99;
+                    for($i = 0; $i < 80; $i++){
+                        if($user->io.$i == 0 && $user->it.$i == 0){
+                            $idx_kosong = $i;
+                            break;
+                        }
+                    }
+                    if($idx_kosong < 99){
+                        DB::connection('mysql3')->update("UPDATE store SET io".$idx_kosong." = '{$io_val}', it".$idx_kosong." = '{$it_val}' WHERE user_id = '{$id}'");
+                    }else{
+                        $not_avail .= ' '.$id;
+                    }
+                }
             }
         }
+        return $not_avail;
     }
 
     public function postValid(Request $request) {
