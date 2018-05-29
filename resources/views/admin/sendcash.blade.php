@@ -64,7 +64,7 @@
     window.sendCash = function (element) {
         cash = $("#cash-nominal").val();
         user_ids = $("#users").val();
-        if (confirm("Do you want to send "+cash+" to these user(s) (" + user_ids + ")?") == true) {
+        if (confirm("Do you want to send " + cash + " to these user(s) (" + user_ids + ")?") == true) {
             $.post(postCash, {users: user_ids, nominal: cash}, function (data) {
 
             }).done(function () {
@@ -76,9 +76,10 @@
         it_ = $("#val-it").val();
         io_ = $("#val-io").val();
         user_ids = $("#users_for_item").val();
-        if (confirm("Do you want to send "+it_+" to these user(s) (" + user_ids + ")?") == true) {
-            $.post(postCash, {users: user_ids, it: it_, io:io_}, function (data) {
-                alert('User '+data+" dont have enough slot!");
+        if (confirm("Do you want to send " + it_ + " to these user(s) (" + user_ids + ")?") == true) {
+            $.post(postCash, {users: user_ids, it: it_, io: io_}, function (data) {
+                if (data != '')
+                    alert('User ' + data + " dont have enough slot!");
             }).done(function () {
                 location.reload();
             });
