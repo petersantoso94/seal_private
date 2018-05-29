@@ -1,6 +1,6 @@
 @extends('template.header-footer-admin')
 @section('main-section')
-<div class="content-wrapper" style="margin-left: -10%">
+<div class="white-pane__bordered margbot20">
     <table id="example" class="display table-rwd table-inventory" cellspacing="0" width="100%">
         <thead>
             <tr>
