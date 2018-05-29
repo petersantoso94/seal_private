@@ -1,8 +1,8 @@
 @extends('template.header-footer-admin')
 @section('main-section')
-<div class="white-pane__bordered margbot20">
-    <div class="row">
-        <select data-placeholder="Choose users..." class="chosen-select" name="users" id="users"  multiple="" tabindex="-1">
+<div class="row">
+    <div class="form-group">
+        <select data-placeholder="Choose users..." class="chosen-select" name="users" id="users"  multiple="" tabindex="-1" >
             <option></option>
             @foreach(DB::connection('mysql3')->table('pc')->select('char_name','user_id')->get() as $char)
             @if($char->char_name != '')
@@ -13,7 +13,13 @@
             @endforeach
         </select>
     </div>
+    <div class="form-group">
+        <label for="cash-nominal">Cash Nominal:</label>
+        <input type="number" id='cash-nominal'>
+    </div>
+    <button type="submit" class="btn btn-primary" onclick="sendCash(this)">Submit</button>
 </div>
+
 @endsection
 @section('js-content')
 <script>
@@ -24,7 +30,7 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    window.pushValid = function (element) {
+    window.sendCash = function (element) {
         notin = $(element).data('internal');
         if (confirm("Do you want to accept this user (" + notin + ")?") == true) {
             $.post(postValid, {sn: notin}, function (data) {
