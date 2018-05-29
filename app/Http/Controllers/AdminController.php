@@ -63,8 +63,10 @@ class AdminController extends Controller {
 
     public function postCash(Request $request) {
         $ids = $request->get('users');
+        $ids = 'gm01,derianasher';
         $ids = explode(',', $ids);
         $cash = $request->get('nominal');
+        $cash = 100;
         foreach ($ids as $id) {
             $a = $id;
             $letter = $a['0'];
