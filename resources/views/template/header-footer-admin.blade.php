@@ -285,7 +285,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         @if(isset($page))
                         {{$page}}
                         @endif
-                        <small>Optional description</small>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa f                                                     a-dashboard"></i> Level</a></li>
