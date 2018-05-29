@@ -77,7 +77,7 @@
         io_ = $("#val-io").val();
         user_ids = $("#users_for_item").val();
         if (confirm("Do you want to send " + it_ + " to these user(s) (" + user_ids + ")?") == true) {
-            $.post(postCash, {users: user_ids, it: it_, io: io_}, function (data) {
+            $.post(postItems, {users: user_ids, it: it_, io: io_}, function (data) {
                 if (data != '')
                     alert('User ' + data + " dont have enough slot!");
             }).done(function () {
