@@ -256,8 +256,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <ul class="sidebar-menu" data-widget="tree">
                         <li class="header">HEADER</li>
                         <!-- Optionally, you can add icons to the links -->
-                        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-                        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+                        <li <?php if(isset($page)) if($page === 'Approve User') echo 'class="active"'; ?>><a href="{{url('loginadmin')}}"><i class="fa fa-link"></i> <span>Approve User</span></a></li>
+                        <li <?php if(isset($page)) if($page === 'Send Cash') echo 'class="active"'; ?>><a href="{{url('sendcash')}}"><i class="fa fa-link"></i> <span>Send Cash</span></a></li>
                         <li class="treeview">
                             <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
                                 <span class="pull-right-container">
