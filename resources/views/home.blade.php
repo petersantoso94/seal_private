@@ -54,10 +54,9 @@
                 </div>
         @endif
     <header class="jumbotron my-1" style="background: rgba(204, 204, 204, 0.8);;">
-        <h1 class="display-5">Seal Online: Chronicles of Shiltz is Now Open !!</h1>
-        <p class="lead">Welcome to Seal Online: Chronicles of Shiltz, to celebrate our launching Seal CoS will
-            organize its first event with “Heaven Egg” as
-            prize. Information of this event are as follows:</p>
+        <h1 class="display-5">Seal Online: Chronicles of Shiltz International Private Server !!</h1>
+        <p class="lead">Welcome to Seal Online: Chronicles of Shiltz, The First Play to Win Seal Online that Receive No Donations !!
+		Anti-Cheat Environment, Clean and Friendly Community, Interested ?? Join Us Now !! </p>
         <a href="{{url('event')}}" class="btn btn-primary btn-lg">Ongoing Events</a>
     </header>
 
