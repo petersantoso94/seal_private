@@ -64,7 +64,6 @@
     window.sendCash = function (element) {
         cash = $("#cash-nominal").val();
         user_ids = $("#users").val();
-        user_ids = JSON.stringify(user_ids);
         if (confirm("Do you want to send " + cash + " to these user(s) (" + user_ids + ")?") == true) {
             $.post(postCash, {users: user_ids, nominal: cash}, function (data) {
 
@@ -77,7 +76,6 @@
         it_ = $("#val-it").val();
         io_ = $("#val-io").val();
         user_ids = $("#users_for_item").val();
-        user_ids = JSON.stringify(user_ids);
         if (confirm("Do you want to send " + it_ + " to these user(s) (" + user_ids + ")?") == true) {
             $.post(postItems, {users: user_ids, it: it_, io: io_}, function (data) {
                 if (data != '')
