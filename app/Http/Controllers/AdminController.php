@@ -86,7 +86,7 @@ class AdminController extends Controller {
             }
             $registered_id = DB::connection('mysql')->table($table)->where('id', $a)->get();
             if(count($registered_id) > 0){
-                DB::update("UPDATE {$table} SET point = point - {$cash} WHERE id = '{$a}'");
+                DB::update("UPDATE {$table} SET point = point + {$cash} WHERE id = '{$a}'");
             }
         }
     }
