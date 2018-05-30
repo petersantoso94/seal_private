@@ -64,7 +64,7 @@ class AdminController extends Controller {
     public function postCash(Request $request) {
         $ids = $request->get('users');
 //        $ids = 'gm01,derianasher';
-        $ids = explode(',', $ids);
+//        $ids = explode(',', $ids);
         $cash = $request->get('nominal');
 //        $cash = 100;
         foreach ($ids as $id) {
@@ -97,7 +97,7 @@ class AdminController extends Controller {
 		//$it_val = '3352';
 		//$io_val = '300';
         //$ids = 'gm01';
-        $ids = explode(',', $ids);
+//        $ids = explode(',', $ids);
         $not_avail = '';
         foreach ($ids as $id) {
             $registered_id = DB::connection('mysql3')->table('store')->where('user_id', $id)->get();
