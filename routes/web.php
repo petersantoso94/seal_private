@@ -45,3 +45,4 @@ Route::any('postItems', array('as' => 'postItems', 'uses' => 'AdminController@po
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::any('browse/{id}', array('as' => 'browse', 'uses' => 'HomeController@browse'));
