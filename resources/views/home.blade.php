@@ -102,25 +102,47 @@
                     <p class="card-text">
 					<p style="text-center">
 						Game Master Name : GM Eastwood <br />
+						Gender : Male<br />
 						Field : Management and Support <br />
 						Language : English <br />
 						Line ID : gm.eastwood <br />
 						<br />
 						Game Master Name : GM Ruby <br />
+						Gender : Male<br />
 						Field : Technical and Maintenance <br />
 						Language : English & Indonesia <br />
 						Contact : Classified Information <br />
 						<br />
 						Game Master Name : GM Lychee <br />
+						Gender : Female<br />
 						Field : Event Management <br />
 						Language : English & Indonesia <br />
 						Contact : Facebook Game Master Lychee <br />
 						<br />
 						Game Master Name : GM Cupcake <br />
+						Gender : Female<br />
 						Field : Customer Relations <br />
 						Language : English <br />
 						Contact : Facebook & Instagram Gamemaster Sealcos <br />
-						<br /
+						<br />
+						Game Master Name : GM Berry <br />
+						Gender : Female<br />
+						Field : Sub-GM <br />
+						Language : English <br />
+						Line ID :  sealcos.gmberry <br />
+						<br />
+						Game Master Name : GM Lemonade <br />
+						Gender : Male<br />
+						Field : Sub-GM <br />
+						Language : English & Indonesia <br />
+						Line ID : gm.lemonade <br />
+						<br />
+						Game Master Name : GM Cikeys <br />
+						Gender : Female<br />
+						Field : Sub-GM <br />
+						Language : English & Indonesia <br />
+						Line ID : gm.cikeys <br />
+						<br />
 						</p>
 						<p style="text-center">
 						<br />
