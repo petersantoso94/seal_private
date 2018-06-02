@@ -9,7 +9,7 @@
             <?php
             $horizontal = 0;
             $max_horizontal = DB::connection('mysql2')->table('content')->select('horizontal_level')->orderBy('horizontal_level', 'DESC')->first();
-            if (count($max_horizontal) > 0)
+            if ($max_horizontal)
                 $horizontal = $max_horizontal->horizontal_level;
             ?>
             @for($i = 1; $i<=$horizontal ;$i++)
