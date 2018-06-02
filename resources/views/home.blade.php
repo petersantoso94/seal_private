@@ -6,45 +6,30 @@
 		
         <div class="dropdown show">
             <!--dropdown-->
+            <?php
+            $horizontal = 0;
+            $max_horizontal = DB::connection('mysql2')->table('content')->select('horizontal_level')->orderBy('horizontal_level', 'DESC')->first();
+            if (count($max_horizontal) > 0)
+                $horizontal = $max_horizontal->horizontal_level;
+            ?>
+            @for($i = 1; $i<=$horizontal ;$i++)
+            <?php $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'ASC')->where('horizontal_level', $i)->get(); ?>
             <div class="btn-group">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink<?php echo $i; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Ranking
                 </a>
 
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Player Rank</a>
-                    <a class="dropdown-item" href="#">Guild Rank</a>
-                    <a class="dropdown-item" href="#">Couple Rank</a>
-                    <a class="dropdown-item" href="#">Tournament</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink<?php echo $i; ?>">
+                    @foreach($vertical as $data)
+                    @if($data->link === '#')
+                    <a class="dropdown-item" href="#">{{$data->name}}</a>
+                    @else
+                    <a class="dropdown-item" href="{{url::route('browse').'/'.$data->id}}">{{$data->name}}</a>
+                    @endif
+                    @endforeach
                 </div>
             </div>
-
-            <!--dropdown2-->
-            <div class="btn-group">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Community
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                    <a class="dropdown-item" href="https://www.facebook.com/sealonlinecos/">Facebook</a>
-                    <a class="dropdown-item" href="#">Line Group</a>
-                    <a class="dropdown-item" href="#">Live Chat</a>
-                    <a class="dropdown-item" href="#">Councils</a>
-                </div>
-            </div>
-
-            <!--dropdown3-->
-            <div class="btn-group">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Guides
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
-                    <a class="dropdown-item" href="#">Video Guides</a>
-                    <a class="dropdown-item" href="https://seal-cos.wikia.com/wiki/">Seal Wikia</a>
-                    <a class="dropdown-item" href="#">Others</a>
-                </div>
-            </div>
+            @endfor
         </div>
     </div>
     <!-- Jumbotron Header -->
