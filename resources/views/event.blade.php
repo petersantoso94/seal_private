@@ -37,9 +37,10 @@
 
     <header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
         @if(isset($eventdata))
-        @if($eventdata != NULL && count($eventdata) > 0)
+        <?php echo $eventdata->content ?>
+        @if($eventdata != NULL)
         <?php
-        $pict = $eventdata->image;
+        $pict = $eventdata->image_link;
         $picts = explode(';;;', $pict);
         ?>
         <div class="row">
