@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use DB;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -28,6 +30,7 @@ class HomeController extends Controller
     
     public function browse($id)
     {
-        dd($id);
+		$data = DB::connection('mysql2')->table('content')->where('id', $id)->first();
+        return view('event')->with('eventdata',$data);
     }
 }

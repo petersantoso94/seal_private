@@ -16,15 +16,17 @@
             <?php $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'ASC')->where('horizontal_level', $i)->get(); ?>
             <div class="btn-group">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink<?php echo $i; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Ranking
+				{{$vertical[0]->horizontal_name}}
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink<?php echo $i; ?>">
                     @foreach($vertical as $data)
                     @if($data->link === '#')
                     <a class="dropdown-item" href="#">{{$data->name}}</a>
-                    @else
-                    <a class="dropdown-item" href="{{url::route('browse').'/'.$data->id}}">{{$data->name}}</a>
+                    @elseif($data->content === '' || $data->content === NULL)
+					<a class="dropdown-item" href="{{$data->link}}">{{$data->name}}</a>
+					@else
+                    <a class="dropdown-item" href="{{(url('browse').'/'.$data->id)}}">{{$data->name}}</a>
                     @endif
                     @endforeach
                 </div>
@@ -96,19 +98,18 @@
 						Gender : Male<br />
 						Field : Technical and Maintenance <br />
 						Language : English & Indonesia <br />
-						Contact : Classified Information <br />
 						<br />
-						Game Master Name : GM Lychee <br />
-						Gender : Female<br />
-						Field : Event Management <br />
-						Language : English & Indonesia <br />
-						Contact : Facebook Game Master Lychee <br />
-						<br />
-						Game Master Name : GM Cupcake <br />
+						Game Master Name : GM Gabrielle & Cupcake <br />
 						Gender : Female<br />
 						Field : Customer Relations <br />
 						Language : English <br />
 						Contact : Facebook & Instagram Gamemaster Sealcos <br />
+						<br />
+						Game Master Name : GM Mille <br />
+						Gender : Female<br />
+						Field : Sub-GM <br />
+						Language : English & Indonesia <br />
+						Line ID : gm.mille <br />
 						<br />
 						Game Master Name : GM Berry <br />
 						Gender : Female<br />

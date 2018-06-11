@@ -5,87 +5,68 @@
     <div class="row text-center" style="margin-top: 30px; margin-left: 10px;">
         <div class="dropdown show">
             <!--dropdown-->
+            <?php
+            $horizontal = 0;
+            $max_horizontal = DB::connection('mysql2')->table('content')->select('horizontal_level')->orderBy('horizontal_level', 'DESC')->first();
+            if ($max_horizontal)
+                $horizontal = $max_horizontal->horizontal_level;
+            ?>
+            @for($i = 1; $i<=$horizontal ;$i++)
+            <?php $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'ASC')->where('horizontal_level', $i)->get(); ?>
             <div class="btn-group">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Ranking
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink<?php echo $i; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				{{$vertical[0]->horizontal_name}}
                 </a>
 
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Player Rank</a>
-                    <a class="dropdown-item" href="#">Guild Rank</a>
-                    <a class="dropdown-item" href="#">Couple Rank</a>
-                    <a class="dropdown-item" href="#">Tournament</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink<?php echo $i; ?>">
+                    @foreach($vertical as $data)
+                    @if($data->link === '#')
+                    <a class="dropdown-item" href="#">{{$data->name}}</a>
+                    @elseif($data->content === '' || $data->content === NULL)
+					<a class="dropdown-item" href="{{$data->link}}">{{$data->name}}</a>
+					@else
+                    <a class="dropdown-item" href="{{(url('browse').'/'.$data->id)}}">{{$data->name}}</a>
+                    @endif
+                    @endforeach
                 </div>
             </div>
-
-            <!--dropdown2-->
-            <div class="btn-group">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Community
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                    <a class="dropdown-item" href="https://www.facebook.com/sealonlinecos/">Facebook</a>
-                    <a class="dropdown-item" href="#">Line Group</a>
-                    <a class="dropdown-item" href="#">Live Chat</a>
-                    <a class="dropdown-item" href="#">Councils</a>
-                </div>
-            </div>
-
-            <!--dropdown3-->
-            <div class="btn-group">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Guides
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
-                    <a class="dropdown-item" href="#">Video Guides</a>
-                    <a class="dropdown-item" href="http://sealonline.wikia.com/wiki/Main_Page">Seal Wikia</a>
-                    <a class="dropdown-item" href="#">Others</a>
-                </div>
-            </div>
+            @endfor
         </div>
     </div>
     <!-- Jumbotron Header -->
 
     <header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
+	
 		<h2>Seal Online: Chronicles of Shiltz - Daily Events !!</h2><br />
 		<img src="{{URL::asset('public/picture/Daily_Events.png')}}" width="100%" style="margin-left: 0%;"><br /><br />
-		<h2>Seal Online: Chronicles of Shiltz - Poster & BGM Contest !!</h2><br />
+		<h2>Seal Online: Chronicles of Shiltz - Playtime Event !!</h2><br />
 		<img src="{{URL::asset('public/picture/Open_Beta.jpg')}}" width="75%" style="margin-left: 15%;"><br /><br />
-        <p>Seal Online: Chronicles of Shiltz will
-            organize its Grand Opening Event with “Heaven Egg” as
-            prize. Information of this event are as follows:</p>
-        <p>Please read carefully:</p>
-        <p>1. Make sure you have registered your ID at Open Beta Launch.</p>
-        <p>2. Create your own (original) design for posters or re-arrangement of Elim's background music.</p>
-        <p>3. For Posters, the theme is "Grand Launching". Both digital and hand-made are allowed as long as it is your own drawing. Insert Seal CoS Logo on your drawing.</p>
-        <p>4. For Soundtrack, you have to use your own music instrument and based on Elim's background music in form of Video and converted Mp3.</p>
-		<p>5. Upload your masterpiece to your own facebook profile. Do not forget to write #PosterContest, #SealNoDonations, and #SealOnlineCoS, also mention GM Eastwood and Lychee.</p>
-		<p>6. All Participants will get 1805+2018 (3823) coins according to our Open Beta date. The most liked work will be rewarded with Heaven Egg.</p>
-        <p>7. The event duration is from May 18, 2018 until June 1, 2018.</p>
-		<p>8. For the winners, your work will be used in our server for both promotions and replacing Elim's Soundtrack. </p>
-        <p style="font-size: 80%">For more information, please contact GM Eastwood (Facebook or Instagram)</p>
-		<h2>Seal Online Chronicles of Shiltz - OBT Event !!</h2><br />
-		<img src="{{URL::asset('public/picture/S__13393924.jpg')}}" width="75%" style="margin-left: 15%;"><br /><br />
-        <p>Seal Online: Chronicles of Shiltz will
-            organize its first event with “Heaven Egg” as
-            prize. Information of this event are as follows:</p>
-        <p>Please read carefully:</p>
-        <p>1. Recommend our Seal server to your friend.</p>
-        <p>2. Ask them to register for an account with
-            inserting your Facebook’s link at their
-            registration form’s recommendation field during OBT. Please note that all the data will be erased after CBT ends, Ask your friend to input your facebook link during OBT Re-registration.</p>
-        <p>3. If 10 account of your friend that you
-            recommended reach level 75 at open beta
-            (OBT), notify us by contacting us from our
-            Fanpage / Instagram / Line account.</p>
-        <p>4. You will be rewarded with Heaven Egg.</p>
-        <p>5. The event duration is from May 18, 2018 until June 1, 2018.</p>
-        <p style="font-size: 80%">All the data will be erased upon OBT, If one’s not following what is listed above
-            will be assumed ineligible for this reward.</p>
-		<h2>Seal Online Chronicles of Shiltz - CBT Event !!</h2><br />
-        <img src="{{URL::asset('public/picture/CBT_Event.jpg')}}" width="75%" style="margin-left: 15%;"><br /><br /><br />
+        <p>Summer is coming !!School’s Off !! It’s time for Seal Online: Chronicles of Shiltz. 
+
+		All this month, your playtime will earn you awesome prizes!
+		That's right, a month long playtime event!<br /><br />
+
+		Event duration: <br /><br />
+
+		June 5 - July 5, 2018<br /><br />
+
+		Requirements and Rewards:<br /><br />
+		1. 120 hours --> Refinement Manual G13<br />
+		2. 180 hours --> Angel Link.G<br />
+		3. 240 hours --> Yellow Ribbon.G<br />
+		4. 300 hours --> 1 Abysmal Egg<br />
+<br />
+Rules and Restrictions:<br />
+- Players must have a character of AT LEAST level 50 at the end of the event (Level 1-50 Playtime will be counted) to be eligible for rewards.<br />
+- Rewards are NOT cumulative.<br />
+- Playtime is tracked by account ID, on highest character playtime. (If more than 1 character is played, only the highest playtime in that ID will be used)<br />
+- Reward will be sent to the Bank, make sure you have slot before Weekly Maintenance.<br />
+<br />
+Notes:<br />
+- This will be a long event, so keep track of your playtime as best as you can to ensure the correct rewards.<br />
+- The event will be tracked starting at 12 PM GMT+8 on June 5, 2018 until 12 PM GMT+8 on July 5, 2018.<br /></p>
+        <p style="font-size: 80%">For more information, please contact GM Eastwood (Line ID: gm.eastwood)</p>
+
     </header>
     <!-- Page Features -->
     <div class="row text-center">

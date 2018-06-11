@@ -83,6 +83,21 @@ return [
             'strict' => false,
             'engine' => null,
         ],
+		
+		'mysql4' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST4', '127.0.0.1'),
+            'port' => env('DB_PORT4', '3306'),
+            'database' => env('DB_DATABASE4', 'item'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'jb9fwDJs'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
 
         'pgsql' => [
             'driver' => 'pgsql',

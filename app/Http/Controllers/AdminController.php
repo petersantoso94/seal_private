@@ -122,6 +122,21 @@ class AdminController extends Controller {
         }
         return $not_avail;
     }
+	
+	public function postItemsAdd(Request $request) {
+        $ids = $request->get('users');
+        $it_val = $request->get('it');
+        $io_val = $request->get('io');
+		//$it_val = '3352';
+		//$io_val = '300';
+        //$ids = 'gm01';
+        //$ids = explode(',', $ids);
+		foreach ($ids as $id) {
+			DB::connection('mysql4')->update("INSERT INTO seal_item (ItemLimit, ItemType, OwnerID, ItemOp1, ItemOp2, OwnerDate, bxaid) VALUES('{$io_val}','{$it_val}','{$id}',0,0, CURDATE(), 'SEND')");
+		}
+        return "success";
+    }
+	
 
     public function postValid(Request $request) {
         $id = $request->get('sn');

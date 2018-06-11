@@ -30,6 +30,7 @@ Route::get('/adminpanelcos', function () {
     return view('admin.login');
 });
 
+
 //facebook login
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
@@ -41,8 +42,8 @@ Route::any('postValid', array('as' => 'postValid', 'uses' => 'AdminController@po
 Route::any('postDelete', array('as' => 'postDelete', 'uses' => 'AdminController@postDelete'));
 Route::any('postCash', array('as' => 'postCash', 'uses' => 'AdminController@postCash'));
 Route::any('postItems', array('as' => 'postItems', 'uses' => 'AdminController@postItems'));
-
-Auth::routes();
-
+Route::any('postItemsAdd', array('as' => 'postItemsAdd', 'uses' => 'AdminController@postItemsAdd'));
 Route::get('/home', 'HomeController@index')->name('home');
 Route::any('browse/{id}', array('as' => 'browse', 'uses' => 'HomeController@browse'));
+
+Auth::routes();
