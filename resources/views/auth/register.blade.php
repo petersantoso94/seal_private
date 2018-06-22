@@ -64,10 +64,10 @@
                         </div>
 						
 						<div class="form-group row">
-                            <label for="rcm" class="col-md-4 col-form-label text-md-right">Recommendation From</label>
+                            <label for="rcm" class="col-md-4 col-form-label text-md-right">Referral Code</label>
 
                             <div class="col-md-6">
-                                <input type="text" id="rcm"  name="rcm" placeholder="  Friend's Facebook URL" value="" required>
+                                <input type="text" id="rcm"  name="rcm" placeholder="  Recommendation Code" value="" required>
                             </div>
                         </div>
 						

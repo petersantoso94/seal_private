@@ -52,6 +52,12 @@
         <div class="col">
 		<div class="card">
 				<br />
+				<h4 class="card-title">Instagram Promotions !!</h4>
+                <img class="card-img-top" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="" width="255" height="450">
+				<br />
+				<h4 class="card-title">Summer Playtime Event Start !!</h4>
+                <img class="card-img-top" src="{{URL::asset('public/picture/Details.png')}}" alt="" width="255" height="450">
+				<br />
 				<h4 class="card-title">Registration are now Open !!</h4>
                 <img class="card-img-top" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="" width="255" height="450">
 				<br />
