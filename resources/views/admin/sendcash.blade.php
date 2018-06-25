@@ -2,7 +2,7 @@
 @section('main-section')
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;">
     <h3>Cash transfer</h3>
-    <div class="row">
+    <form>
         <div class="form-group">
             <label for="users">User's Character Name:</label>
             <select data-placeholder="Choose users..." class="chosen-select" name="users" id="users"  multiple="" tabindex="-1" >
@@ -21,11 +21,11 @@
             <input type="number" id='cash-nominal'>
         </div>
         <button type="submit" class="btn btn-primary" onclick="sendCash(this)">Submit</button>
-    </div>
+    </form>
 </div>
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;">
     <h3>Item transfer</h3>
-    <div class="row">
+    <form>
         <div class="form-group">
             <label for="users">User's Character Name:</label>
             <select data-placeholder="Choose users..." class="chosen-select" name="users_for_item" id="users_for_item"  multiple="" tabindex="-1" >
@@ -48,11 +48,11 @@
             <input type="number" id='val-io'>
         </div>
         <button type="submit" class="btn btn-primary" onclick="sendItems(this)">Submit</button>
-    </div>
+    </form>
 </div>
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;">
     <h3>Item transfer (add)</h3>
-    <div class="row">
+    <form>
         <div class="form-group">
             <label for="users">User's Character Name:</label>
             <select data-placeholder="Choose users..." class="chosen-select" name="users_for_item_add" id="users_for_item_add"  multiple="" tabindex="-1" >
@@ -75,7 +75,7 @@
             <input type="number" id='val-dr'>
         </div>
         <button type="submit" class="btn btn-primary" onclick="sendItemsAdd(this)">Submit</button>
-    </div>
+    </form>
 </div>
 
 @endsection
