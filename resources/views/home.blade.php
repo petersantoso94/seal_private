@@ -63,49 +63,49 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
                         <h5>Instagram Promotions</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="{{URL::asset('public/picture/Details.png')}}" alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
                         <h5>Summer Playtime Event Start</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
                         <h5>Registration are now Open</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="{{URL::asset('public/picture/Quest_Reward.png')}}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
                         <h5>Quest Central Cegel Rewards</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
                         <h5>Closed Beta Test Start</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="{{URL::asset('public/picture/hiring2.png')}}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
                         <h5>GM Recruitment is Now Closed</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="{{URL::asset('public/picture/logo_picture.png')}}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
                         <h5>Our Schedule</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="{{URL::asset('public/picture/home_logo.png')}}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
                         <h5>About Our Server</h5>
                     </div>
                 </div>
