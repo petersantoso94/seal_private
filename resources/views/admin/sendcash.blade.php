@@ -4,7 +4,7 @@
     <h3>Cash transfer</h3>
     <form>
         <div class="form-group">
-            <label for="users">User's Character Name:</label>
+            <label for="users">User's Character Name:</label><br>
             <select data-placeholder="Choose users..." class="chosen-select" name="users" id="users"  multiple="" tabindex="-1" >
                 <option></option>
                 @foreach(DB::connection('mysql3')->table('pc')->select('char_name','user_id')->get() as $char)
@@ -17,7 +17,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="cash-nominal">Cash Nominal:</label>
+            <label for="cash-nominal">Cash Nominal:</label><br>
             <input type="number" id='cash-nominal'>
         </div>
         <button type="submit" class="btn btn-primary" onclick="sendCash(this)">Submit</button>
@@ -27,7 +27,7 @@
     <h3>Item transfer</h3>
     <form>
         <div class="form-group">
-            <label for="users">User's Character Name:</label>
+            <label for="users">User's Character Name:</label><br>
             <select data-placeholder="Choose users..." class="chosen-select" name="users_for_item" id="users_for_item"  multiple="" tabindex="-1" >
                 <option></option>
                 @foreach(DB::connection('mysql3')->table('pc')->select('char_name','user_id')->get() as $char)
@@ -40,11 +40,11 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="cash-nominal">Item Code:</label>
+            <label for="cash-nominal">Item Code:</label><br>
             <input type="number" id='val-it'>
         </div>
         <div class="form-group">
-            <label for="cash-nominal">Item's Quantity / Refine Level:</label>
+            <label for="cash-nominal">Item's Quantity / Refine Level:</label><br>
             <input type="number" id='val-io'>
         </div>
         <button type="submit" class="btn btn-primary" onclick="sendItems(this)">Submit</button>
@@ -54,7 +54,7 @@
     <h3>Item transfer (add)</h3>
     <form>
         <div class="form-group">
-            <label for="users">User's Character Name:</label>
+            <label for="users">User's Character Name:</label><br>
             <select data-placeholder="Choose users..." class="chosen-select" name="users_for_item_add" id="users_for_item_add"  multiple="" tabindex="-1" >
                 <option></option>
                 @foreach(DB::connection('mysql3')->table('pc')->select('char_name','user_id')->get() as $char)
@@ -67,11 +67,11 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="cash-nominal">Item Type:</label>
+            <label for="cash-nominal">Item Type:</label><br>
             <input type="number" id='val-type'>
         </div>
         <div class="form-group">
-            <label for="cash-nominal">Durability:</label>
+            <label for="cash-nominal">Durability:</label><br>
             <input type="number" id='val-dr'>
         </div>
         <button type="submit" class="btn btn-primary" onclick="sendItemsAdd(this)">Submit</button>
