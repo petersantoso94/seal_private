@@ -49,114 +49,116 @@
 
     <!-- Page Features -->
     <div class="row text-center">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
-                        <h5>Instagram Promotions</h5>
+        <div class='col'>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d;opacity: 0.5; ">
+                            <h5>Instagram Promotions</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{URL::asset('public/picture/Details.png')}}" alt="Second slide">
+                        <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d;opacity: 0.5; ">
+                            <h5>Summer Playtime Event Start</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d;opacity: 0.5; ">
+                            <h5>Registration are now Open</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{URL::asset('public/picture/Quest_Reward.png')}}" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d;opacity: 0.5; ">
+                            <h5>Quest Central Cegel Rewards</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d;opacity: 0.5; ">
+                            <h5>Closed Beta Test Start</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{URL::asset('public/picture/hiring2.png')}}" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d;opacity: 0.5; ">
+                            <h5>GM Recruitment is Now Closed</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{URL::asset('public/picture/logo_picture.png')}}" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d;opacity: 0.5; ">
+                            <h5>Our Schedule</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{URL::asset('public/picture/home_logo.png')}}" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d;opacity: 0.5; ">
+                            <h5>About Our Server</h5>
+                        </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/Details.png')}}" alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
-                        <h5>Summer Playtime Event Start</h5>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
-                        <h5>Registration are now Open</h5>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/Quest_Reward.png')}}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
-                        <h5>Quest Central Cegel Rewards</h5>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
-                        <h5>Closed Beta Test Start</h5>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/hiring2.png')}}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
-                        <h5>GM Recruitment is Now Closed</h5>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/logo_picture.png')}}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
-                        <h5>Our Schedule</h5>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/home_logo.png')}}" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block" style="background-color:#6c757d">
-                        <h5>About Our Server</h5>
-                    </div>
-                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
-<!--        <div class="col">
-            <div class="card">
-                <br />
-                <h4 class="card-title">Instagram Promotions !!</h4>
-                <img class="card-img-top" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="" width="255" height="450">
-                <br />
-                <h4 class="card-title">Summer Playtime Event Start !!</h4>
-                <img class="card-img-top" src="{{URL::asset('public/picture/Details.png')}}" alt="" width="255" height="450">
-                <br />
-                <h4 class="card-title">Registration are now Open !!</h4>
-                <img class="card-img-top" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="" width="255" height="450">
-                <br />
-                <h4 class="card-title">Quest Central Cegel Rewards !!</h4>
-                <img class="card-img-top" src="{{URL::asset('public/picture/Quest_Reward.png')}}" alt="" width="255" height="450">
-                <br />
-                <h4 class="card-title">Closed Beta Test Start !</h4>
-                <img class="card-img-top" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="" width="255" height="450">
-                <br />
-                <h4 class="card-title">GM Recruitment is Now Closed <br /> Thank You for Joining Us !</h4>
-                <img class="card-img-top" src="{{URL::asset('public/picture/hiring2.png')}}" alt="" width="255" height="255">
-                <br />
-                <h4 class="card-title">Our Schedule</h4>
-                <img class="card-img-top" src="{{URL::asset('public/picture/logo_picture.png')}}" alt="" width="255" height="255">
-                <br />
-                <h4 class="card-title">GM Recruitment is Now Open <br /> Join Us Now !! </h4>
-                <img class="card-img-top" src="{{URL::asset('public/picture/hiring.png')}}" alt="" width="255" height="255">
-                <br />
-                <h4 class="card-title">About Our Server</h4>
-                <img class="card-img-top" src="{{URL::asset('public/picture/home_logo.png')}}" alt="" width="255" height="255">
-                <div class="card-body">
-                    <br />
-                    <h4 class="card-title">Seal Online: Chronicles of Shiltz</h4>
-                </div>
-                <div class="card-footer">
-                     <a href="#" class="btn btn-primary">Find Out More!</a> 
-                </div>
-            </div>
-        </div>-->
+        <!--        <div class="col">
+                    <div class="card">
+                        <br />
+                        <h4 class="card-title">Instagram Promotions !!</h4>
+                        <img class="card-img-top" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="" width="255" height="450">
+                        <br />
+                        <h4 class="card-title">Summer Playtime Event Start !!</h4>
+                        <img class="card-img-top" src="{{URL::asset('public/picture/Details.png')}}" alt="" width="255" height="450">
+                        <br />
+                        <h4 class="card-title">Registration are now Open !!</h4>
+                        <img class="card-img-top" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="" width="255" height="450">
+                        <br />
+                        <h4 class="card-title">Quest Central Cegel Rewards !!</h4>
+                        <img class="card-img-top" src="{{URL::asset('public/picture/Quest_Reward.png')}}" alt="" width="255" height="450">
+                        <br />
+                        <h4 class="card-title">Closed Beta Test Start !</h4>
+                        <img class="card-img-top" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="" width="255" height="450">
+                        <br />
+                        <h4 class="card-title">GM Recruitment is Now Closed <br /> Thank You for Joining Us !</h4>
+                        <img class="card-img-top" src="{{URL::asset('public/picture/hiring2.png')}}" alt="" width="255" height="255">
+                        <br />
+                        <h4 class="card-title">Our Schedule</h4>
+                        <img class="card-img-top" src="{{URL::asset('public/picture/logo_picture.png')}}" alt="" width="255" height="255">
+                        <br />
+                        <h4 class="card-title">GM Recruitment is Now Open <br /> Join Us Now !! </h4>
+                        <img class="card-img-top" src="{{URL::asset('public/picture/hiring.png')}}" alt="" width="255" height="255">
+                        <br />
+                        <h4 class="card-title">About Our Server</h4>
+                        <img class="card-img-top" src="{{URL::asset('public/picture/home_logo.png')}}" alt="" width="255" height="255">
+                        <div class="card-body">
+                            <br />
+                            <h4 class="card-title">Seal Online: Chronicles of Shiltz</h4>
+                        </div>
+                        <div class="card-footer">
+                             <a href="#" class="btn btn-primary">Find Out More!</a> 
+                        </div>
+                    </div>
+                </div>-->
         <div class="col">
             <div class="card">
                 <img class="card-img-top" src="{{URL::asset('public/picture/us.jpg')}}" alt="" width="400" height="255">
