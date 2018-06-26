@@ -38,12 +38,24 @@
                 font-family: 'MyWebFont';
                 src: '<?php echo URL::asset('public/NARNIABLL.TTF') ?>';
             }  
-            .img-container-cs{
+/*            .img-container-cs{
                 max-height:500px;
             }
             .img-slider{
                 width:100%;
                 height:100%;
+            }*/
+            .slideshow > div {
+                position: absolute;
+                max-width: 100%;
+                width: 100%;
+                height: 240px;
+                max-height: 100%;
+            }
+
+            .slideshow > div > img {
+                height: 100%;
+                width: 100%;
             }
         </style>
     </head>
