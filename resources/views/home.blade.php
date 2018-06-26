@@ -56,49 +56,49 @@
             <div class="carousel-inner" style="height:500px; width: 100%;">
                 <div class="carousel-item img-container-cs active">
                     <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="First slide" >
-                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6);color:black;">
                         <h5>Instagram Promotions</h5>
                     </div>
                 </div>
                 <div class="carousel-item img-container-cs" >
                     <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Details.png')}}" alt="Second slide" >
-                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6);color:black; ">
                         <h5>Summer Playtime Event Start</h5>
                     </div>
                 </div>
                 <div class="carousel-item img-container-cs" >
                     <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="Third slide" >
-                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6);color:black; ">
                         <h5>Registration are now Open</h5>
                     </div>
                 </div>
                 <div class="carousel-item img-container-cs" >
                     <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Quest_Reward.png')}}" alt="Third slide" >
-                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6);color:black; ">
                         <h5>Quest Central Cegel Rewards</h5>
                     </div>
                 </div>
                 <div class="carousel-item img-container-cs" >
                     <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="Third slide" >
-                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6);color:black; ">
                         <h5>Closed Beta Test Start</h5>
                     </div>
                 </div>
                 <div class="carousel-item img-container-cs" >
                     <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/hiring2.png')}}" alt="Third slide" >
-                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6);color:black; ">
                         <h5>GM Recruitment is Now Closed</h5>
                     </div>
                 </div>
                 <div class="carousel-item img-container-cs" >
                     <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/logo_picture.png')}}" alt="Third slide" >
-                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6);color:black; ">
                         <h5>Our Schedule</h5>
                     </div>
                 </div>
                 <div class="carousel-item img-container-cs" >
                     <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/home_logo.png')}}" alt="Third slide" >
-                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6);color:black; ">
                         <h5>About Our Server</h5>
                     </div>
                 </div>
