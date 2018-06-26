@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-		<link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('public/picture/seal-cos.ico')}}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('public/picture/seal-cos.ico')}}">
 
         <title>Seal Online: Chronicles of Shiltz</title>
 
@@ -38,6 +38,13 @@
                 font-family: 'MyWebFont';
                 src: '<?php echo URL::asset('public/NARNIABLL.TTF') ?>';
             }  
+            .img-container-cs{
+                max-height:500px;
+            }
+            .img-slider{
+                width:100%;
+                height:100%;
+            }
         </style>
     </head>
 
@@ -64,35 +71,35 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"></a>
-                            </li>
+                        </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
-						@if($user = Auth::user())
-							<li class="nav-item">
+                        @if($user = Auth::user())
+                        <li class="nav-item">
                             <a class="nav-link" href="logout">Return</a>
                         </li>
-							@else
+                        @else
                         <li class="nav-item">
                             <a class="nav-link" href="#">We Receive No Donation !</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('register')}}">Sign Up</a>
                         </li>
-						@endif
+                        @endif
                     </ul>
                 </div>
-                 </div>
-                                                  </nav>
+            </div>
+        </nav>
         <div id="wrap" style=""              >
-                                    @yield('main-section')
+            @yield('main-section')
         </div>
-              <!-- Footer                                       -->
+        <!-- Footer                                       -->
 
 
-              <!-- Bootstrap core JavaScript -->
-              <script src="{{ URL::asset('public/jquery/jquery.min.js') }}"></script>
-              <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-              @yield('js-content')
-              </body>
+        <!-- Bootstrap core JavaScript -->
+        <script src="{{ URL::asset('public/jquery/jquery.min.js') }}"></script>
+        <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        @yield('js-content')
+    </body>
 
-              </html>
+</html>
