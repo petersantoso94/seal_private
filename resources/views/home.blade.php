@@ -60,7 +60,7 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
             </ol>
-            <div class="carousel-inner slideshow" >
+            <div class="carousel-inner" >
                 <div class="carousel-item img-container-cs active">
                     <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="First slide" >
                     <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
