@@ -55,7 +55,7 @@ class AdminController extends Controller {
         }
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
-                return view('admin.editpage')->withPage('Edit Front Page');
+                return view('admin.sendcash')->withPage('Send Cash');
             }
         }
         return view('admin.login');
@@ -67,7 +67,7 @@ class AdminController extends Controller {
         }
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
-                return view('admin.sendcash')->withPage('Send Cash');
+                return view('admin.editpage')->withPage('Edit Front Page');
             }
         }
         return view('admin.login');
