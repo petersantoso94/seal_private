@@ -32,6 +32,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <style>.cke{visibility:hidden;}</style><script type="text/javascript" src="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/config.js?t=HBDF"></script>
+        <link rel="stylesheet" type="text/css" href="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/skins/moono-lisa/editor.css?t=HBDF">
+        <script type="text/javascript" src="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/lang/en.js?t=HBDF"></script>
+        <script type="text/javascript" src="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/styles.js?t=HBDF"></script>
+        <link rel="stylesheet" type="text/css" href="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css">
+        <link rel="stylesheet" type="text/css" href="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/plugins/scayt/dialogs/dialog.css">
+        <link rel="stylesheet" type="text/css" href="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/plugins/tableselection/styles/tableselection.css">
+        <link rel="stylesheet" type="text/css" href="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css">
+        <script type="text/javascript" src="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/plugins/image/dialogs/image.js?t=HBDF"></script>
+        <link rel="stylesheet" type="text/css" href="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/skins/moono-lisa/dialog.css?t=HBDF">
     </head>
     <!--
     BODY TAG OPTIONS:
@@ -260,6 +270,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <script type="text/javascript" src="{{URL::asset('public/jquery.dataTables.min.js')}}"></script>
         <script src="{{URL::asset('public/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+        <script src="{{URL::asset('public/bower_components/ckeditor/ckeditor.js')}}"></script>
         <script src="{{URL::asset('public/dist/js/demo.js')}}"></script>
 
         <!-- Optionally, you can add Slimscroll and FastClick plugins.
