@@ -2,7 +2,7 @@
 @section('main-section')
 <!-- Page Content -->
 <div class="container" id="main">
-    <div class="row text-center" style="margin-top: 30px; margin-left: 10px;background: #6c757d">
+    <div class="row text-center" style="margin-top: 30px;background: #6c757d">
 
         <div class="dropdown show" style="margin-left:auto;margin-right:auto;">
             <!--dropdown-->
@@ -41,7 +41,7 @@
     </div>
     @endif
 
-    <div class="row text-center" style="margin-top: 4px;border:2px solid black;background:rgba(211,211,211,0.6); ">
+    <div class="row text-center" style="margin-top: 10px;background:rgba(211,211,211,0.6); ">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left:auto;margin-right:auto;">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
