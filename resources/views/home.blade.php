@@ -2,7 +2,7 @@
 @section('main-section')
 <!-- Page Content -->
 <div class="container" id="main">
-    <div class="row text-center" style="margin-top: 30px; margin-left: 10px;">
+    <div class="row text-center" style="margin-top: 30px; margin-left: 10px;background: #6c757d">
 
         <div class="dropdown show">
             <!--dropdown-->
@@ -41,8 +41,8 @@
     </div>
     @endif
 
-    <div class="row text-center">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left:auto;margin-right:auto;border:2px solid black;">
+    <div class="row text-center" style="margin-top: 4px;border:2px solid black;">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left:auto;margin-right:auto;">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -151,7 +151,7 @@
                     </div>
                 </div>-->
     </div>
-    <header class="jumbotron my-1" style="background: rgba(204, 204, 204);;">
+    <header class="jumbotron my-1" style="background: rgba(204, 204, 204);">
         <h1 class="display-5">Seal Online: Chronicles of Shiltz International Private Server !!</h1>
         <p class="lead">Welcome to Seal Online: Chronicles of Shiltz, The First Play to Win Seal Online that Receive No Donations !!
             Anti-Cheat Environment, Clean and Friendly Community, Interested ?? Join Us Now !! </p>
