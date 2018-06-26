@@ -14,7 +14,7 @@
         <!-- Bootstrap core CSS -->
 
         <link href="{{ URL::asset('public/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ URL::asset('public/css/heroic-features.css') }}rel="stylesheet">
+        <link href="{{ URL::asset('public/css/heroic-features.css') }}" rel="stylesheet">
         <style>
             html, body {
                 height: 100%;
