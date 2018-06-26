@@ -40,7 +40,7 @@
         Your registration form has been submitted. Please send your Identity Card's Photos to GM Eastwood and wait for our administrator to review your registration form. (Max. 24 Hours). Thank you very much !! (Submitted as {{$user->name}})
     </div>
     @endif
-    <header class="jumbotron my-1" style="background: rgba(204, 204, 204, 0.8);;">
+    <header class="jumbotron my-1" style="background: rgba(204, 204, 204);;">
         <h1 class="display-5">Seal Online: Chronicles of Shiltz International Private Server !!</h1>
         <p class="lead">Welcome to Seal Online: Chronicles of Shiltz, The First Play to Win Seal Online that Receive No Donations !!
             Anti-Cheat Environment, Clean and Friendly Community, Interested ?? Join Us Now !! </p>
@@ -62,49 +62,49 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="First slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="First slide" style="width: 100%;object-fit: cover;">
                     <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
                         <h5>Instagram Promotions</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/Details.png')}}" alt="Second slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/Details.png')}}" alt="Second slide" style="width: 100%;object-fit: cover;">
                     <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
                         <h5>Summer Playtime Event Start</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="Third slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="Third slide" style="width: 100%;object-fit: cover;">
                     <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
                         <h5>Registration are now Open</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/Quest_Reward.png')}}" alt="Third slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/Quest_Reward.png')}}" alt="Third slide" style="width: 100%;object-fit: cover;">
                     <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
                         <h5>Quest Central Cegel Rewards</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="Third slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="Third slide" style="width: 100%;object-fit: cover;">
                     <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
                         <h5>Closed Beta Test Start</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/hiring2.png')}}" alt="Third slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/hiring2.png')}}" alt="Third slide" style="width: 100%;object-fit: cover;">
                     <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
                         <h5>GM Recruitment is Now Closed</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/logo_picture.png')}}" alt="Third slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/logo_picture.png')}}" alt="Third slide" style="width: 100%;object-fit: cover;">
                     <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
                         <h5>Our Schedule</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{URL::asset('public/picture/home_logo.png')}}" alt="Third slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/home_logo.png')}}" alt="Third slide" style="width: 100%;object-fit: cover;">
                     <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
                         <h5>About Our Server</h5>
                     </div>
