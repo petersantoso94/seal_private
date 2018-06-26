@@ -49,77 +49,75 @@
 
     <!-- Page Features -->
     <div class="row text-center">
-        <div class='col'>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="First slide" style="height: 300px;width: 100%;object-fit: cover;">
-                        <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
-                            <h5>Instagram Promotions</h5>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{URL::asset('public/picture/Details.png')}}" alt="Second slide" style="height: 300px;width: 100%;object-fit: cover;">
-                        <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
-                            <h5>Summer Playtime Event Start</h5>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="Third slide" style="height: 300px;width: 100%;object-fit: cover;">
-                        <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
-                            <h5>Registration are now Open</h5>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{URL::asset('public/picture/Quest_Reward.png')}}" alt="Third slide" style="height: 300px;width: 100%;object-fit: cover;">
-                        <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
-                            <h5>Quest Central Cegel Rewards</h5>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="Third slide" style="height: 300px;width: 100%;object-fit: cover;">
-                        <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
-                            <h5>Closed Beta Test Start</h5>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{URL::asset('public/picture/hiring2.png')}}" alt="Third slide" style="height: 300px;width: 100%;object-fit: cover;">
-                        <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
-                            <h5>GM Recruitment is Now Closed</h5>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{URL::asset('public/picture/logo_picture.png')}}" alt="Third slide" style="height: 300px;width: 100%;object-fit: cover;">
-                        <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
-                            <h5>Our Schedule</h5>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{URL::asset('public/picture/home_logo.png')}}" alt="Third slide" style="height: 300px;width: 100%;object-fit: cover;">
-                        <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
-                            <h5>About Our Server</h5>
-                        </div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="First slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                        <h5>Instagram Promotions</h5>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/Details.png')}}" alt="Second slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                        <h5>Summer Playtime Event Start</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="Third slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                        <h5>Registration are now Open</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/Quest_Reward.png')}}" alt="Third slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                        <h5>Quest Central Cegel Rewards</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="Third slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                        <h5>Closed Beta Test Start</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/hiring2.png')}}" alt="Third slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                        <h5>GM Recruitment is Now Closed</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/logo_picture.png')}}" alt="Third slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                        <h5>Our Schedule</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{URL::asset('public/picture/home_logo.png')}}" alt="Third slide" style="height: 800px;width: 100%;object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.6); ">
+                        <h5>About Our Server</h5>
+                    </div>
+                </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
         <!--        <div class="col">
                     <div class="card">
@@ -159,67 +157,65 @@
                         </div>
                     </div>
                 </div>-->
-        <div class="col">
-            <div class="card">
-                <img class="card-img-top" src="{{URL::asset('public/picture/us.jpg')}}" alt="" width="400" height="255">
-                <div class="card-body">
-                    <h4 class="card-title">Introducing The Game Masters</h4>
-                    <p class="card-text">
-                    <p style="text-center">
-                        Game Master Name : GM Eastwood <br />
-                        Gender : Male<br />
-                        Field : Management and Support <br />
-                        Language : English <br />
-                        Line ID : gm.eastwood <br />
-                        <br />
-                        Game Master Name : GM Ruby <br />
-                        Gender : Male<br />
-                        Field : Technical and Maintenance <br />
-                        Language : English & Indonesia <br />
-                        <br />
-                        Game Master Name : GM Gabrielle & Cupcake <br />
-                        Gender : Female<br />
-                        Field : Customer Relations <br />
-                        Language : English <br />
-                        Contact : Facebook & Instagram Gamemaster Sealcos <br />
-                        <br />
-                        Game Master Name : GM Mille <br />
-                        Gender : Female<br />
-                        Field : Sub-GM <br />
-                        Language : English & Indonesia <br />
-                        Line ID : gm.mille <br />
-                        <br />
-                        Game Master Name : GM Berry <br />
-                        Gender : Female<br />
-                        Field : Sub-GM <br />
-                        Language : English <br />
-                        Line ID :  sealcos.gmberry <br />
-                        <br />
-                        Game Master Name : GM Lemonade <br />
-                        Gender : Male<br />
-                        Field : Sub-GM <br />
-                        Language : English & Indonesia <br />
-                        Line ID : gm.lemonade <br />
-                        <br />
-                        Game Master Name : GM Cikeys <br />
-                        Gender : Female<br />
-                        Field : Sub-GM <br />
-                        Language : English & Indonesia <br />
-                        Line ID : gm.cikeys <br />
-                        <br />
-                    </p>
-                    <p style="text-center">
-                        <br />
-                        Available at 08:00 AM (GMT+8) to 10:00 PM (GMT+8)
-                        <br /><br />
-                        We will ensure fun, fair, and competitive gameplay !!<br />
-                        Welcome to Seal Online: Chronicles of Shiltz !! Have Fun !! <br /><br />
-                    </p>
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <!-- <a href="#" class="btn btn-primary">Find Out More!</a> -->
-                </div>
+        <div class="card">
+            <img class="card-img-top" src="{{URL::asset('public/picture/us.jpg')}}" alt="" width="400" height="255">
+            <div class="card-body">
+                <h4 class="card-title">Introducing The Game Masters</h4>
+                <p class="card-text">
+                <p style="text-center">
+                    Game Master Name : GM Eastwood <br />
+                    Gender : Male<br />
+                    Field : Management and Support <br />
+                    Language : English <br />
+                    Line ID : gm.eastwood <br />
+                    <br />
+                    Game Master Name : GM Ruby <br />
+                    Gender : Male<br />
+                    Field : Technical and Maintenance <br />
+                    Language : English & Indonesia <br />
+                    <br />
+                    Game Master Name : GM Gabrielle & Cupcake <br />
+                    Gender : Female<br />
+                    Field : Customer Relations <br />
+                    Language : English <br />
+                    Contact : Facebook & Instagram Gamemaster Sealcos <br />
+                    <br />
+                    Game Master Name : GM Mille <br />
+                    Gender : Female<br />
+                    Field : Sub-GM <br />
+                    Language : English & Indonesia <br />
+                    Line ID : gm.mille <br />
+                    <br />
+                    Game Master Name : GM Berry <br />
+                    Gender : Female<br />
+                    Field : Sub-GM <br />
+                    Language : English <br />
+                    Line ID :  sealcos.gmberry <br />
+                    <br />
+                    Game Master Name : GM Lemonade <br />
+                    Gender : Male<br />
+                    Field : Sub-GM <br />
+                    Language : English & Indonesia <br />
+                    Line ID : gm.lemonade <br />
+                    <br />
+                    Game Master Name : GM Cikeys <br />
+                    Gender : Female<br />
+                    Field : Sub-GM <br />
+                    Language : English & Indonesia <br />
+                    Line ID : gm.cikeys <br />
+                    <br />
+                </p>
+                <p style="text-center">
+                    <br />
+                    Available at 08:00 AM (GMT+8) to 10:00 PM (GMT+8)
+                    <br /><br />
+                    We will ensure fun, fair, and competitive gameplay !!<br />
+                    Welcome to Seal Online: Chronicles of Shiltz !! Have Fun !! <br /><br />
+                </p>
+                </p>
+            </div>
+            <div class="card-footer">
+                <!-- <a href="#" class="btn btn-primary">Find Out More!</a> -->
             </div>
         </div>
     </div>
