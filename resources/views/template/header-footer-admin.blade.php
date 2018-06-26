@@ -260,6 +260,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <script type="text/javascript" src="{{URL::asset('public/jquery.dataTables.min.js')}}"></script>
         <script src="{{URL::asset('public/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+        <script src="{{URL::asset('public/dist/js/demo.js')}}"></script>
 
         <!-- Optionally, you can add Slimscroll and FastClick plugins.
         Both of these plugins are recommended to enhance the
