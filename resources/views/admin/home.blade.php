@@ -203,6 +203,8 @@
             });
         }
     };
-    $('.textarea').wysihtml5()
+    $(document).ready(function () {
+        $('.textarea').wysihtml5();
+    });
 </script>
 @endsection
