@@ -40,16 +40,9 @@
         Your registration form has been submitted. Please send your Identity Card's Photos to GM Eastwood and wait for our administrator to review your registration form. (Max. 24 Hours). Thank you very much !! (Submitted as {{$user->name}})
     </div>
     @endif
-    <header class="jumbotron my-1" style="background: rgba(204, 204, 204);;">
-        <h1 class="display-5">Seal Online: Chronicles of Shiltz International Private Server !!</h1>
-        <p class="lead">Welcome to Seal Online: Chronicles of Shiltz, The First Play to Win Seal Online that Receive No Donations !!
-            Anti-Cheat Environment, Clean and Friendly Community, Interested ?? Join Us Now !! </p>
-        <a href="{{url('event')}}" class="btn btn-primary btn-lg">Ongoing Events</a>
-    </header>
 
-    <!-- Page Features -->
     <div class="row text-center">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left:auto;margin-right:auto;">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left:auto;margin-right:auto;border:2px solid black;">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -157,68 +150,16 @@
                         </div>
                     </div>
                 </div>-->
-        <div class="card">
-            <img class="card-img-top" src="{{URL::asset('public/picture/us.jpg')}}" alt="" width="400" height="255">
-            <div class="card-body">
-                <h4 class="card-title">Introducing The Game Masters</h4>
-                <p class="card-text">
-                <p style="text-center">
-                    Game Master Name : GM Eastwood <br />
-                    Gender : Male<br />
-                    Field : Management and Support <br />
-                    Language : English <br />
-                    Line ID : gm.eastwood <br />
-                    <br />
-                    Game Master Name : GM Ruby <br />
-                    Gender : Male<br />
-                    Field : Technical and Maintenance <br />
-                    Language : English & Indonesia <br />
-                    <br />
-                    Game Master Name : GM Gabrielle & Cupcake <br />
-                    Gender : Female<br />
-                    Field : Customer Relations <br />
-                    Language : English <br />
-                    Contact : Facebook & Instagram Gamemaster Sealcos <br />
-                    <br />
-                    Game Master Name : GM Mille <br />
-                    Gender : Female<br />
-                    Field : Sub-GM <br />
-                    Language : English & Indonesia <br />
-                    Line ID : gm.mille <br />
-                    <br />
-                    Game Master Name : GM Berry <br />
-                    Gender : Female<br />
-                    Field : Sub-GM <br />
-                    Language : English <br />
-                    Line ID :  sealcos.gmberry <br />
-                    <br />
-                    Game Master Name : GM Lemonade <br />
-                    Gender : Male<br />
-                    Field : Sub-GM <br />
-                    Language : English & Indonesia <br />
-                    Line ID : gm.lemonade <br />
-                    <br />
-                    Game Master Name : GM Cikeys <br />
-                    Gender : Female<br />
-                    Field : Sub-GM <br />
-                    Language : English & Indonesia <br />
-                    Line ID : gm.cikeys <br />
-                    <br />
-                </p>
-                <p style="text-center">
-                    <br />
-                    Available at 08:00 AM (GMT+8) to 10:00 PM (GMT+8)
-                    <br /><br />
-                    We will ensure fun, fair, and competitive gameplay !!<br />
-                    Welcome to Seal Online: Chronicles of Shiltz !! Have Fun !! <br /><br />
-                </p>
-                </p>
-            </div>
-            <div class="card-footer">
-                <!-- <a href="#" class="btn btn-primary">Find Out More!</a> -->
-            </div>
-        </div>
     </div>
+    <header class="jumbotron my-1" style="background: rgba(204, 204, 204);;">
+        <h1 class="display-5">Seal Online: Chronicles of Shiltz International Private Server !!</h1>
+        <p class="lead">Welcome to Seal Online: Chronicles of Shiltz, The First Play to Win Seal Online that Receive No Donations !!
+            Anti-Cheat Environment, Clean and Friendly Community, Interested ?? Join Us Now !! </p>
+        <a href="{{url('event')}}" class="btn btn-primary btn-lg">Ongoing Events</a>
+    </header>
+
+    <!-- Page Features -->
+
 
     <!-- /.row -->
 
