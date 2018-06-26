@@ -19,6 +19,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link href="{{ URL::asset('public/bower_components/Ionicons/css/ionicons.min.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('public/dist/css/AdminLTE.min.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('public/dist/css/skins/skin-blue.min.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{URL::asset('public/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -257,6 +258,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script type="text/javascript" src="{{URL::asset('public/js/chosen.jquery.min.js')}}"></script>
 
         <script type="text/javascript" src="{{URL::asset('public/jquery.dataTables.min.js')}}"></script>
+        <script src="{{URL::asset('public/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
 
         <!-- Optionally, you can add Slimscroll and FastClick plugins.
         Both of these plugins are recommended to enhance the
