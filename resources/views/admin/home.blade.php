@@ -89,7 +89,7 @@
             });
         }
     };
-    $(document).ready(function () {
+    $(function () {
         $('.textarea').wysihtml5();
     });
 </script>
