@@ -145,10 +145,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         {{$page}}
                         @endif
                     </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa f                                                     a-dashboard"></i> Level</a></li>
-                        <li class="active">He                                                 re</li>
-                    </ol>
                 </section>
 
                 <!-- Main content -->
