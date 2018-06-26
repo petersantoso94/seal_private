@@ -4,7 +4,7 @@
 <div class="container" id="main">
     <div class="row text-center" style="margin-top: 30px; margin-left: 10px;background: #6c757d">
 
-        <div class="dropdown show">
+        <div class="dropdown show" style="margin-left:auto;margin-right:auto;">
             <!--dropdown-->
             <?php
             $horizontal = 0;
@@ -41,7 +41,7 @@
     </div>
     @endif
 
-    <div class="row text-center" style="margin-top: 4px;border:2px solid black;">
+    <div class="row text-center" style="margin-top: 4px;border:2px solid black;background:rgba(211,211,211,0.6); ">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left:auto;margin-right:auto;">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -112,44 +112,6 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <!--        <div class="col">
-                    <div class="card">
-                        <br />
-                        <h4 class="card-title">Instagram Promotions !!</h4>
-                        <img class="card-img-top" src="{{URL::asset('public/picture/Instagram Details.png')}}" alt="" width="255" height="450">
-                        <br />
-                        <h4 class="card-title">Summer Playtime Event Start !!</h4>
-                        <img class="card-img-top" src="{{URL::asset('public/picture/Details.png')}}" alt="" width="255" height="450">
-                        <br />
-                        <h4 class="card-title">Registration are now Open !!</h4>
-                        <img class="card-img-top" src="{{URL::asset('public/picture/Open_Beta.jpg')}}" alt="" width="255" height="450">
-                        <br />
-                        <h4 class="card-title">Quest Central Cegel Rewards !!</h4>
-                        <img class="card-img-top" src="{{URL::asset('public/picture/Quest_Reward.png')}}" alt="" width="255" height="450">
-                        <br />
-                        <h4 class="card-title">Closed Beta Test Start !</h4>
-                        <img class="card-img-top" src="{{URL::asset('public/picture/CBT_Open.png')}}" alt="" width="255" height="450">
-                        <br />
-                        <h4 class="card-title">GM Recruitment is Now Closed <br /> Thank You for Joining Us !</h4>
-                        <img class="card-img-top" src="{{URL::asset('public/picture/hiring2.png')}}" alt="" width="255" height="255">
-                        <br />
-                        <h4 class="card-title">Our Schedule</h4>
-                        <img class="card-img-top" src="{{URL::asset('public/picture/logo_picture.png')}}" alt="" width="255" height="255">
-                        <br />
-                        <h4 class="card-title">GM Recruitment is Now Open <br /> Join Us Now !! </h4>
-                        <img class="card-img-top" src="{{URL::asset('public/picture/hiring.png')}}" alt="" width="255" height="255">
-                        <br />
-                        <h4 class="card-title">About Our Server</h4>
-                        <img class="card-img-top" src="{{URL::asset('public/picture/home_logo.png')}}" alt="" width="255" height="255">
-                        <div class="card-body">
-                            <br />
-                            <h4 class="card-title">Seal Online: Chronicles of Shiltz</h4>
-                        </div>
-                        <div class="card-footer">
-                             <a href="#" class="btn btn-primary">Find Out More!</a> 
-                        </div>
-                    </div>
-                </div>-->
     </div>
     <header class="jumbotron my-1" style="background: rgba(204, 204, 204);">
         <h1 class="display-5">Seal Online: Chronicles of Shiltz International Private Server !!</h1>
