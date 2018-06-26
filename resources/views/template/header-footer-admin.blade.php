@@ -120,6 +120,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Optionally, you can add icons to the links -->
                         <li <?php if (isset($page)) if ($page === 'Approve User') echo 'class="active"'; ?>><a href="{{url('loginadmin')}}"><i class="fa fa-link"></i> <span>Approve User</span></a></li>
                         <li <?php if (isset($page)) if ($page === 'Send Cash') echo 'class="active"'; ?>><a href="{{url('sendcash')}}"><i class="fa fa-link"></i> <span>Send Cash</span></a></li>
+                        <li <?php if (isset($page)) if ($page === 'Edit Front Page') echo 'class="active"'; ?>><a href="{{url('editpage')}}"><i class="fa fa-link"></i> <span>Edit Front Page</span></a></li>
                         <li class="treeview">
                             <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
                                 <span class="pull-right-container">
