@@ -28,7 +28,7 @@
     <form>
         <div class="form-group">
             <label for="users">User's Character Name:</label><br>
-            <select data-placeholder="Choose users..." class="chosen-select" name="users_for_item" id="users_for_item"  multiple="" tabindex="-1" >
+            <select data-placeholder="Choose users..." class="chosen-select form-control" name="users_for_item" id="users_for_item"  multiple="" tabindex="-1" >
                 <option></option>
                 @foreach(DB::connection('mysql3')->table('pc')->select('char_name','user_id')->get() as $char)
                 @if($char->char_name != '')
@@ -41,11 +41,11 @@
         </div>
         <div class="form-group">
             <label for="cash-nominal">Item Code:</label><br>
-            <input type="number" id='val-it'>
+            <input type="number" id='val-it' class='form-control'>
         </div>
         <div class="form-group">
             <label for="cash-nominal">Item's Quantity / Refine Level:</label><br>
-            <input type="number" id='val-io'>
+            <input type="number" id='val-io' class='form-control'>
         </div>
         <button type="submit" class="btn btn-primary" onclick="sendItems(this)">Submit</button>
     </form>
@@ -55,7 +55,7 @@
     <form>
         <div class="form-group">
             <label for="users">User's Character Name:</label><br>
-            <select data-placeholder="Choose users..." class="chosen-select" name="users_for_item_add" id="users_for_item_add"  multiple="" tabindex="-1" >
+            <select data-placeholder="Choose users..." class="chosen-select form-control" name="users_for_item_add" id="users_for_item_add"  multiple="" tabindex="-1" >
                 <option></option>
                 @foreach(DB::connection('mysql3')->table('pc')->select('char_name','user_id')->get() as $char)
                 @if($char->char_name != '')
@@ -68,11 +68,11 @@
         </div>
         <div class="form-group">
             <label for="cash-nominal">Item Type:</label><br>
-            <input type="number" id='val-type'>
+            <input type="number" id='val-type' class='form-control'>
         </div>
         <div class="form-group">
             <label for="cash-nominal">Durability:</label><br>
-            <input type="number" id='val-dr'>
+            <input type="number" id='val-dr' class='form-control'>
         </div>
         <button type="submit" class="btn btn-primary" onclick="sendItemsAdd(this)">Submit</button>
     </form>
