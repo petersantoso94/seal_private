@@ -63,7 +63,7 @@ class AdminController extends Controller {
 
     public function editpage(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
+            dd($request->get('editor1'));
         }
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
