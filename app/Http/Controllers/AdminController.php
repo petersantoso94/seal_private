@@ -63,7 +63,14 @@ class AdminController extends Controller {
 
     public function editpage(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            dd($request->get('editor1'));
+            $data = trim($request->get('editor1'));
+            if ($data != "" && $data != NULL) {
+                $data = stripslashes($data);
+                $data = htmlspecialchars($data);
+                DB::connection('mysql2')->insert("INSERT INTO content (`name`,`horizontal_level`,`vertical_level`,`content`,`horizontal_name`) VALUE ('Test','5','1','{$data}','Test')");
+                return view('admin.editpage')->withPage('Edit Front Page')->withSuccess('Sukses Insert Event');
+            }
+            return view('admin.editpage')->withPage('Edit Front Page')->withError('Error Data Kosong');
         }
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
