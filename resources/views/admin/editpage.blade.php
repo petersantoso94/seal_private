@@ -8,9 +8,9 @@
                 <strong>{{ $success }}</strong>
             </span>
             @endif
-            @if(isset(#error))
+            @if(isset($error))
             <span class="invalid-feedback">
-                <strong>{{ error }}</strong>
+                <strong>{{ $error }}</strong>
             </span>
             @endif
             <h3 class="box-title">Bootstrap WYSIHTML5
