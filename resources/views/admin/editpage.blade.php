@@ -20,6 +20,7 @@
             <form>
                 <textarea id="editor1" name="editor1" rows="10" cols="80" style="visibility: hidden; display: none;">                                            This is my textarea to be replaced with CKEditor.
                 </textarea>
+                <button type="submit" id="btn-submit">Submit</button>
             </form>
         </div>
     </div>
