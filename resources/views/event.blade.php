@@ -37,7 +37,7 @@
 
     <header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
         @if(isset($eventdata))
-        <?php echo $eventdata->content ?>
+        <?php echo html_entity_decode($eventdata->content); ?>
         @if($eventdata != NULL)
         <?php
         $pict = $eventdata->image_link;
