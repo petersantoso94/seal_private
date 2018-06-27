@@ -3,6 +3,11 @@
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;">
     <div class="box">
         <div class="box-header">
+            @if(isset($success))
+            <span class="invalid-feedback">
+                <strong>{{ $success }}</strong>
+            </span>
+            @endif
             <h3 class="box-title">Bootstrap WYSIHTML5
                 <small>Simple and fast</small>
             </h3>
