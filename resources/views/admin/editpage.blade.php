@@ -4,8 +4,13 @@
     <div class="box">
         <div class="box-header">
             @if(isset($success))
-            <span class="invalid-feedback">
+            <span class="valid-feedback">
                 <strong>{{ $success }}</strong>
+            </span>
+            @endif
+            @if(isset(#error))
+            <span class="invalid-feedback">
+                <strong>{{ error }}</strong>
             </span>
             @endif
             <h3 class="box-title">Bootstrap WYSIHTML5
