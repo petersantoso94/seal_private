@@ -64,10 +64,23 @@ class AdminController extends Controller {
     public function editpage(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = trim($request->get('editor1'));
+            $category = $request->get('category');
+            $pagename = $request->get('pagename');
+            $new_name = '';
+            $vert_number = 1;
+            if ($request->get('newcategory')) {
+                $horizontal = DB::connection('mysql2')->table('content')->orderBy('horizontal_level', 'DESC')->select('horizontal_level')->first();
+                $new_name = $request->get('newcategory');
+                $category = $horizontal[0]->horizontal_level + 1;
+            } else {
+                $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'DESC')->where('horizontal_level', $category)->select('vertical_level', 'horizontal_name')->first();
+                $new_name = $vertical[0]->horizontal_name;
+                $vert_number = $vertical[0]->vertical_level + 1;
+            }
             if ($data != "" && $data != NULL) {
                 $data = stripslashes($data);
                 $data = htmlspecialchars($data);
-                DB::connection('mysql2')->insert("INSERT INTO content (`name`,`horizontal_level`,`vertical_level`,`content`,`horizontal_name`) VALUE ('Test','5','1','{$data}','Test')");
+                DB::connection('mysql2')->insert("INSERT INTO content (`name`,`horizontal_level`,`vertical_level`,`content`,`horizontal_name`) VALUE ('{$pagename}','{$category}','{$vert_number}','{$data}','{$new_name}')");
                 return view('admin.editpage')->withPage('Edit Front Page')->withSuccess('Sukses Insert Event');
             }
             return view('admin.editpage')->withPage('Edit Front Page')->withError('Error Data Kosong');
