@@ -45,18 +45,18 @@
                 width:100%;
                 height:100%;
             }
-/*            .slideshow > div {
-                position: absolute;
-                max-width: 100%;
-                width: 100%;
-                height: 240px;
-                max-height: 100%;
-            }
-
-            .slideshow > div > img {
-                height: 100%;
-                width: 100%;
-            }*/
+            /*            .slideshow > div {
+                            position: absolute;
+                            max-width: 100%;
+                            width: 100%;
+                            height: 240px;
+                            max-height: 100%;
+                        }
+            
+                        .slideshow > div > img {
+                            height: 100%;
+                            width: 100%;
+                        }*/
         </style>
     </head>
 
@@ -103,15 +103,48 @@
             </div>
         </nav>
         <div id="wrap" style=""              >
-            @yield('main-section')
-        </div>
-        <!-- Footer                                       -->
+            <div class="container" id="main">
+                <div class="row text-center" style="margin-top: 30px;background: #6c757d">
+
+                    <div class="dropdown show" style="margin-left:auto;margin-right:auto;">
+                        <!--dropdown-->
+                        <?php
+                        $horizontal = 0;
+                        $max_horizontal = DB::connection('mysql2')->table('content')->select('horizontal_level')->orderBy('horizontal_level', 'DESC')->first();
+                        if ($max_horizontal)
+                            $horizontal = $max_horizontal->horizontal_level;
+                        ?>
+                        @for($i = 1; $i<=$horizontal ;$i++)
+                        <?php $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'ASC')->where('horizontal_level', $i)->get(); ?>
+                        <div class="btn-group">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink<?php echo $i; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{$vertical[0]->horizontal_name}}
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink<?php echo $i; ?>">
+                                @foreach($vertical as $data)
+                                @if($data->link === '#')
+                                <a class="dropdown-item" href="#">{{$data->name}}</a>
+                                @elseif($data->content === '' || $data->content === NULL)
+                                <a class="dropdown-item" href="{{$data->link}}">{{$data->name}}</a>
+                                @else
+                                <a class="dropdown-item" href="{{(url('browse').'/'.$data->id)}}">{{$data->name}}</a>
+                                @endif
+                                @endforeach
+                            </div>
+                        </div>
+                        @endfor
+                    </div>
+                </div>
+                @yield('main-section')
+            </div>
+            <!-- Footer                                       -->
 
 
-        <!-- Bootstrap core JavaScript -->
-        <script src="{{ URL::asset('public/jquery/jquery.min.js') }}"></script>
-        <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        @yield('js-content')
+            <!-- Bootstrap core JavaScript -->
+            <script src="{{ URL::asset('public/jquery/jquery.min.js') }}"></script>
+            <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+            @yield('js-content')
     </body>
 
 </html>
