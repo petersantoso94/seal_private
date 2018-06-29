@@ -1,38 +1,6 @@
 @extends('template.header-footer')
 @section('main-section')
 <!-- Page Content -->
-<div class="container" id="main">
-    <div class="row text-center" style="margin-top: 30px; margin-left: 10px;">
-        <div class="dropdown show">
-            <!--dropdown-->
-            <?php
-            $horizontal = 0;
-            $max_horizontal = DB::connection('mysql2')->table('content')->select('horizontal_level')->orderBy('horizontal_level', 'DESC')->first();
-            if ($max_horizontal)
-                $horizontal = $max_horizontal->horizontal_level;
-            ?>
-            @for($i = 1; $i<=$horizontal ;$i++)
-            <?php $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'ASC')->where('horizontal_level', $i)->get(); ?>
-            <div class="btn-group">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink<?php echo $i; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{$vertical[0]->horizontal_name}}
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink<?php echo $i; ?>">
-                    @foreach($vertical as $data)
-                    @if($data->link === '#')
-                    <a class="dropdown-item" href="#">{{$data->name}}</a>
-                    @elseif($data->content === '' || $data->content === NULL)
-                    <a class="dropdown-item" href="{{$data->link}}">{{$data->name}}</a>
-                    @else
-                    <a class="dropdown-item" href="{{(url('browse').'/'.$data->id)}}">{{$data->name}}</a>
-                    @endif
-                    @endforeach
-                </div>
-            </div>
-            @endfor
-        </div>
-    </div>
     <!-- Jumbotron Header -->
 
     <header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
