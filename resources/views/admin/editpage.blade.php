@@ -37,7 +37,7 @@
                         <div class="col-sm-4">
                             <select data-placeholder="Choose users..." class="form-control" name="category" id="category">
                                 <option></option>
-                                @foreach(DB::connection('mysql2')->table('content')->selectRaw("DISTINCT(horizontal_level),DISTINCT(horizontal_name)")->get() as $char)
+                                @foreach(DB::connection('mysql2')->table('content')->selectRaw("DISTINCT horizontal_level, horizontal_name")->get() as $char)
                                 @if($char->horizontal_name != '')
                                 <option value="{{$char->horizontal_level}}">
                                     {{$char->horizontal_name}}
