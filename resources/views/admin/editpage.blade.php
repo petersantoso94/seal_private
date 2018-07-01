@@ -110,7 +110,7 @@
         $('.textarea').wysihtml5();
     });
     var newCategory = function () {
-        $('#new-cat-container').toogle();
+        $('#new-cat-container').toggle();
     }
     var editEvent = '<?php echo Route('editEvent') ?>';
     var postDeleteEvent = '<?php echo Route('postDeleteEvent') ?>';
