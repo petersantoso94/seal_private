@@ -23,21 +23,21 @@ class AdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $request->get('email');
-            $pass = md5($request->get('password'));
-            if ($username === 'admin-cos' && $pass === "3c2e6ca89eb0e4d31ef256bef2ba24f2") {#SeaLcosGameMasterDERIANasher#1
-                $request->session()->put('admin', 'admin-cos');
-                return view('admin.home')->withPage('Approve User');
-            } else {
-                $data = array(
-                    'errors' => 'username or password is wrong!'
-                );
-                return view('admin.login')->with($data);
-            }
-        }
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $username = $request->get('email');
+                    $pass = md5($request->get('password'));
+                    if ($username === 'admin-cos' && $pass === "3c2e6ca89eb0e4d31ef256bef2ba24f2") {#SeaLcosGameMasterDERIANasher#1
+                        $request->session()->put('admin', 'admin-cos');
+                        return view('admin.home')->withPage('Approve User');
+                    } else {
+                        $data = array(
+                            'errors' => 'username or password is wrong!'
+                        );
+                        return view('admin.login')->with($data);
+                    }
+                }
                 return view('admin.home')->withPage('Approve User');
             }
         }
@@ -50,43 +50,87 @@ class AdminController extends Controller {
     }
 
     public function sendcash(Request $request) {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
-        }
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    
+                }
                 return view('admin.sendcash')->withPage('Send Cash');
             }
         }
         return view('admin.login');
     }
 
-    public function editpage(Request $request) {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = trim($request->get('editor1'));
-            $category = $request->get('category');
-            $pagename = $request->get('pagename');
-            $new_name = '';
-            $vert_number = 1;
-            if ($request->get('newcategory')) {
-                $horizontal = DB::connection('mysql2')->table('content')->orderBy('horizontal_level', 'DESC')->select('horizontal_level')->first();
-                $new_name = $request->get('newcategory');
-                $category = $horizontal->horizontal_level + 1;
-            } else {
-                $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'DESC')->where('horizontal_level', $category)->select('vertical_level', 'horizontal_name')->first();
-                $new_name = $vertical->horizontal_name;
-                $vert_number = $vertical->vertical_level + 1;
-            }
-            if ($data != "" && $data != NULL) {
-                $data = stripslashes($data);
-                $data = htmlspecialchars($data);
-                DB::connection('mysql2')->insert("INSERT INTO content (`name`,`horizontal_level`,`vertical_level`,`content`,`horizontal_name`) VALUE ('{$pagename}','{$category}','{$vert_number}','{$data}','{$new_name}')");
-                return view('admin.editpage')->withPage('Edit Front Page')->withSuccess('Sukses Insert Event');
-            }
-            return view('admin.editpage')->withPage('Edit Front Page')->withError('Error Data Kosong');
-        }
+    public function editEvent(Request $request) {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
+                $data = [];
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $id = $request->get('sn');
+                    $existed_event = DB::connection('mysql2')->table('content')->where('id', $id)->select('*')->first();
+                    $data['content'] = $existed_event->content;
+                    $data['id'] = $existed_event->id;
+                    $data['name'] = $existed_event->name;
+                    $data['horizontal_level'] = $existed_event->horizontal_level;
+                    return $data;
+                }
+                return view('admin.editpage')->withPage('Edit Front Page');
+            }
+        }
+        return view('admin.login');
+    }
+
+    public function editpage(Request $request) {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('admin') === 'admin-cos') {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    if ($request->get('tipe') === 'insert') {
+                        $data = trim($request->get('editor1'));
+                        $category = $request->get('category');
+                        $pagename = $request->get('pagename');
+                        $new_name = '';
+                        $vert_number = 1;
+                        if ($request->get('newcategory')) {
+                            $horizontal = DB::connection('mysql2')->table('content')->orderBy('horizontal_level', 'DESC')->select('horizontal_level')->first();
+                            $new_name = $request->get('newcategory');
+                            $category = $horizontal->horizontal_level + 1;
+                        } else {
+                            $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'DESC')->where('horizontal_level', $category)->select('vertical_level', 'horizontal_name')->first();
+                            $new_name = $vertical->horizontal_name;
+                            $vert_number = $vertical->vertical_level + 1;
+                        }
+                        if ($data != "" && $data != NULL) {
+                            $data = stripslashes($data);
+                            $data = htmlspecialchars($data);
+                            DB::connection('mysql2')->insert("INSERT INTO content (`name`,`horizontal_level`,`vertical_level`,`content`,`horizontal_name`) VALUE ('{$pagename}','{$category}','{$vert_number}','{$data}','{$new_name}')");
+                            return view('admin.editpage')->withPage('Edit Front Page')->withSuccess('Sukses Insert Event');
+                        }
+                        return view('admin.editpage')->withPage('Edit Front Page')->withError('Error Data Kosong');
+                    } else if ($request->get('tipe') === 'update') {
+                        $data = trim($request->get('editor1'));
+                        $category = $request->get('category');
+                        $pagename = $request->get('pagename');
+                        $id_update = $request->get('id_update');
+                        $new_name = '';
+                        $vert_number = 1;
+                        if ($request->get('newcategory')) {
+                            $horizontal = DB::connection('mysql2')->table('content')->orderBy('horizontal_level', 'DESC')->select('horizontal_level')->first();
+                            $new_name = $request->get('newcategory');
+                            $category = $horizontal->horizontal_level + 1;
+                        } else {
+                            $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'DESC')->where('horizontal_level', $category)->select('vertical_level', 'horizontal_name')->first();
+                            $new_name = $vertical->horizontal_name;
+                            $vert_number = $vertical->vertical_level + 1;
+                        }
+                        if ($data != "" && $data != NULL) {
+                            $data = stripslashes($data);
+                            $data = htmlspecialchars($data);
+                            DB::connection('mysql2')->insert("UPDATE content SET `name`='{$pagename}',`horizontal_level`='{$category}',`vertical_level`='{$vert_number}',`content`='{$data}',`horizontal_name`='{$new_name}' WHERE `id`='{$id_update}'");
+                            return view('admin.editpage')->withPage('Edit Front Page')->withSuccess('Sukses Insert Event');
+                        }
+                        return view('admin.editpage')->withPage('Edit Front Page')->withError('Error Data Kosong');
+                    }
+                }
                 return view('admin.editpage')->withPage('Edit Front Page');
             }
         }
@@ -226,6 +270,16 @@ class AdminController extends Controller {
                 $id = $request->get('sn');
                 DB::connection('mysql2')->delete("DELETE FROM idtable1 WHERE id = '" . $id . "'");
                 DB::connection('mysql2')->delete("DELETE FROM users WHERE name = '" . $id . "'");
+            }
+        }
+        return view('admin.login');
+    }
+
+    public function postDeleteEvent(Request $request) {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('admin') === 'admin-cos') {
+                $id = $request->get('sn');
+                DB::connection('mysql2')->delete("DELETE FROM content WHERE id = '" . $id . "'");
             }
         }
         return view('admin.login');
