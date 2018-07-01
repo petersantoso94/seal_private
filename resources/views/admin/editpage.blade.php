@@ -13,6 +13,7 @@
         </thead>
         <tbody>
             @foreach(DB::connection('mysql2')->table('content')->select('*')->get() as $data)
+            @if($data->link === NULL)
             <tr>
                 <td>{{$data->id}}</td>
                 <td>{{$data->name}}</td>
@@ -28,6 +29,7 @@
                     </button>
                 </td>
             </tr>
+            @endif
             @endforeach
         </tbody>
     </table>
