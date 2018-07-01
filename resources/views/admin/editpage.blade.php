@@ -131,8 +131,8 @@
                 $('#id_update').val(result.id);
                 $('#category').val(result.horizontal_level);
                 $('#pagename').val(result.name);
-                
-                CKEDITOR.instances['editor1'].setData(result.content);
+                CKEDITOR.instances.editor1.setData(result.content);
+//                CKEDITOR.instances['editor1'].setData();
             });
         }
     };
