@@ -41,6 +41,8 @@ Route::any('editpage', array('as' => 'editpage', 'uses' => 'AdminController@edit
 Route::any('logoutadmin', array('as' => 'logoutadmin', 'uses' => 'AdminController@logout'));
 Route::any('postValid', array('as' => 'postValid', 'uses' => 'AdminController@postValid'));
 Route::any('postDelete', array('as' => 'postDelete', 'uses' => 'AdminController@postDelete'));
+Route::any('editEvent', array('as' => 'editEvent', 'uses' => 'AdminController@editEvent'));
+Route::any('postDeleteEvent', array('as' => 'postDeleteEvent', 'uses' => 'AdminController@postDeleteEvent'));
 Route::any('postCash', array('as' => 'postCash', 'uses' => 'AdminController@postCash'));
 Route::any('postItems', array('as' => 'postItems', 'uses' => 'AdminController@postItems'));
 Route::any('postItemsAdd', array('as' => 'postItemsAdd', 'uses' => 'AdminController@postItemsAdd'));
