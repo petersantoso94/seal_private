@@ -68,7 +68,7 @@ class AdminController extends Controller {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $id = $request->get('sn');
                     $existed_event = DB::connection('mysql2')->table('content')->where('id', $id)->select('*')->first();
-                    $data['content'] = $existed_event->content;
+                    $data['content'] = html_entity_decode($existed_event->content);
                     $data['id'] = $existed_event->id;
                     $data['name'] = $existed_event->name;
                     $data['horizontal_level'] = $existed_event->horizontal_level;
