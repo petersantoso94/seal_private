@@ -1,6 +1,38 @@
 @extends('template.header-footer-admin')
 @section('main-section')
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;">
+    <table id="example" class="display table-rwd table-inventory" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Event Name</th>
+                <th>Category</th>
+                <th>Action</th>
+            <!--<th>Actions</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(DB::connection('mysql2')->table('content')->select('*')->get() as $data)
+            <tr>
+                <td>{{$data->id}}</td>
+                <td>{{$data->name}}</td>
+                <td>{{$data->horizontal_name}}</td>
+                <td>
+                    <button title="Set to available" type="button" data-internal="{{$data->id}}" data-name="{{$data->name}}" onclick="pushEdit(this)"
+                            class="btn btn-pure-xs btn-xs btn-delete">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                    <button title="Set to available" type="button" data-internal="{{$data->id}}" data-name="{{$data->name}}" onclick="deleteData(this)"
+                            class="btn btn-pure-xs btn-xs btn-delete">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<div class="white-pane__bordered margbot20" style="margin-left: 20px;">
     <div class="box">
         <div class="box-header">
             <?php if (isset($success)) { ?>
@@ -53,6 +85,8 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" id="tipe" name="tipe" value="insert">
+                <input type="hidden" id="id_update" name="id_update" value="">
                 <div class="form-group" id="new-cat-container" style="display:none;">
                     <label for="exampleInputPassword1">New Category Name</label>
                     <input type="text" class="form-control" id="newcategory" name="newcategory" placeholder="leave blank if you want to use existing category">
@@ -76,7 +110,42 @@
         $('.textarea').wysihtml5();
     });
     var newCategory = function () {
-        $('#new-cat-container').show();
+        $('#new-cat-container').toogle();
     }
+    var editEvent = '<?php echo Route('editEvent') ?>';
+    var postDeleteEvent = '<?php echo Route('postDeleteEvent') ?>';
+    var result = '';
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    window.pushEdit = function (element) {
+        notin = $(element).data('internal');
+        name = $(element).data('name');
+        if (confirm("Do you want to edit this Event (" + name + ")?") == true) {
+            $.post(editEvent, {sn: notin}, function (data) {
+                result = data;
+            }).done(function () {
+                $('#tipe').val('update');
+                $('#id_update').val(result.id);
+                $('#category').val(result.horizontal_level);
+                $('#pagename').val(result.name);
+                
+                CKEDITOR.instances['editor1'].setData(result.content);
+            });
+        }
+    };
+    window.deleteData = function (element) {
+        notin = $(element).data('internal');
+        name = $(element).data('name');
+        if (confirm("Do you want to delete this Event (" + name + ")?") == true) {
+            $.post(postDeleteEvent, {sn: notin}, function (data) {
+
+            }).done(function () {
+                
+            });
+        }
+    };
 </script>
 @endsection
