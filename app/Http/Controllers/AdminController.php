@@ -23,25 +23,20 @@ class AdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-        if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $username = $request->get('email');
-                    $pass = md5($request->get('password'));
-                    if ($username === 'admin-cos' && $pass === "3c2e6ca89eb0e4d31ef256bef2ba24f2") {#SeaLcosGameMasterDERIANasher#1
-                        $request->session()->put('admin', 'admin-cos');
-                        return view('admin.home')->withPage('Approve User');
-                    } else {
-                        $data = array(
-                            'errors' => 'username or password is wrong!'
-                        );
-                        return view('admin.login')->with($data);
-                    }
-                }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = $request->get('email');
+            $pass = md5($request->get('password'));
+            if ($username === 'admin-cos' && $pass === "3c2e6ca89eb0e4d31ef256bef2ba24f2") {#SeaLcosGameMasterDERIANasher#1
+                $request->session()->put('admin', 'admin-cos');
                 return view('admin.home')->withPage('Approve User');
+            } else {
+                $data = array(
+                    'errors' => 'username or password is wrong!'
+                );
+                return view('admin.login')->with($data);
             }
         }
-        return view('admin.login');
+        return view('admin.home')->withPage('Approve User');
     }
 
     public function logout(Request $request) {
