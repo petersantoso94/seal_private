@@ -3,16 +3,18 @@
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;">
     <div class="box">
         <div class="box-header">
-            @if(isset($success))
-            <span class="valid-feedback">
-                <strong>{{ $success }}</strong>
-            </span>
-            @endif
-            @if(isset($error))
-            <span class="invalid-feedback">
-                <strong>{{ $error }}</strong>
-            </span>
-            @endif
+            <?php if (isset($success)) { ?>
+                <div class="alert alert-success alert-dismissible" role="alert" style="width: 98%; margin: 1%">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{$success}}
+                </div>
+            <?php } ?>
+            <?php if (isset($error)) { ?>
+                <div class="alert alert-error alert-dismissible" role="alert" style="width: 98%; margin: 1%">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{$error}}
+                </div>
+            <?php } ?>
             <h3 class="box-title">HTML editor
                 <small>Simple and fast</small>
             </h3>
@@ -73,7 +75,7 @@
         CKEDITOR.replace('editor1');
         $('.textarea').wysihtml5();
     });
-    var newCategory = function(){
+    var newCategory = function () {
         $('#new-cat-container').show();
     }
 </script>
