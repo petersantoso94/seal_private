@@ -18,6 +18,7 @@
 			<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
 			<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
 			<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
         </ol>
         <div class="carousel-inner" style="height:500px; width: 100%;">
             <div class="carousel-item img-container-cs active">
@@ -31,22 +32,27 @@
                 </div>
             </div>
 			<div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Promotional Event Instagram.png')}}" alt="Third slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/July Update.png')}}" alt="Third slide" >
                 <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black; ">
                 </div>
             </div>
 			<div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Summer Playtime2.png')}}" alt="Fourth slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Promotional Event Instagram.png')}}" alt="Fourth slide" >
+                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black; ">
+                </div>
+            </div>
+			<div class="carousel-item img-container-cs" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Vending Frenzy.png')}}" alt="Fifth slide" >
                 <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black; ">
                 </div>
             </div>
             <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Daily Event.png')}}" alt="Fifth slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Daily Event.png')}}" alt="Sixth slide" >
                 <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black; ">
                 </div>
             </div>
             <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Quest Reward.png')}}" alt="Sixth slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Quest Reward.png')}}" alt="Seventh slide" >
                 <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black; ">
                 </div>
             </div>
