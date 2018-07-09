@@ -88,11 +88,14 @@
                     <ul class="navbar-nav ml-auto">
                         @if($user = Auth::user())
                         <li class="nav-item">
-                            <a class="nav-link" href="logout">Return</a>
+                            <a class="nav-link" href="logout">Logout</a>
                         </li>
                         @else
                         <li class="nav-item">
                             <a class="nav-link" href="#">We Receive No Donation !</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('register')}}">Sign Up</a>
