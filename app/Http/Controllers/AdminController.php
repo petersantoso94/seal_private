@@ -36,7 +36,7 @@ class AdminController extends Controller {
                 return view('admin.login')->with($data);
             }
         }
-        return view('admin.login')->with($data);
+        return view('admin.login');
     }
 
     public function logout(Request $request) {
