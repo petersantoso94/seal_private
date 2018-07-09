@@ -252,7 +252,7 @@ class AdminController extends Controller {
                 if (count($registered_id) == 0) {
                     DB::connection('mysql')->insert("INSERT INTO {$table} VALUES('{$a}','{$new_id->passwd}',CURDATE(),'99','','0',NULL,'',0,0,NULL,NULL,0,NULL,0,CURDATE(),'{$new_id->nick_name}','','{$new_id->email}','{$new_id->trueId}',0,0,0,0,0,'{$new_id->fb_acc}','{$new_id->recom}')");
                     DB::connection('mysql2')->delete("DELETE FROM idtable1 WHERE id = '" . $a . "'");
-                    DB::connection('mysql2')->delete("DELETE FROM users WHERE name = '" . $a . "'");
+//                    DB::connection('mysql2')->delete("DELETE FROM users WHERE name = '" . $a . "'");
                 }
             }
         }
