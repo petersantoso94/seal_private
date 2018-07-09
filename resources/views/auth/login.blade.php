@@ -4,6 +4,43 @@
 <div class="container" id="main">
     <div class="row justify-content-center" style="margin-top: 120px;">
         <div class="col-md-8">
+            @if(isset($messages))
+            @if($messages == 'salahLogin')
+            <div class="row nopadd">
+                <div class="col-xs-20 col-xs-offset-2 col-sm-12 col-sm-offset-6 col-md-8 col-md-offset-8 nopadd">
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Failed!</strong> Data entry error occurred.
+                        @if(isset($errors))
+                        <ul>
+                            @foreach($errors->all('<li>:message</li>') as $message)
+                            {{$message}}
+                            @endforeach
+                        </ul>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            @endif
+            @if($messages == 'gagalLogin')
+            <div class="row nopadd">
+                <div class="col-xs-20 col-xs-offset-2 col-sm-12 col-sm-offset-6 col-md-8 col-md-offset-8 nopadd">
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close no-shadow" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Oops !</strong> your username or password are mismatch, please try again.
+                    </div>
+                </div>
+            </div>
+            @endif
+            @if($messages == 'belumLogin')
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="alert alert-danger alert-dismissible fr400" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Sorry!</strong> You must login first!
+                </div>
+            </div>
+            @endif
+            @endif
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
@@ -18,9 +55,9 @@
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
@@ -32,9 +69,9 @@
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                 @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
