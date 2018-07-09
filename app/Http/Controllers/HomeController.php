@@ -28,6 +28,7 @@ class HomeController extends Controller {
 
     public function login(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            dd('abc');
             $rule = array(
                 'email' => 'required',
                 'password' => 'required'
