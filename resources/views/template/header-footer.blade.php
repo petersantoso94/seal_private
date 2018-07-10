@@ -295,7 +295,9 @@
                                 status = data;
                                 }).done(function () {
                                 if (status){
-
+                                alert('pin benar');
+                                } else{
+                                alert('pin salah');
                                 }
                                 });
                                 };
