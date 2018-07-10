@@ -16,6 +16,113 @@
         <link href="{{ URL::asset('public/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('public/css/heroic-features.css') }}" rel="stylesheet">
         <style>
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+            }
+
+            button:hover {
+                opacity: 0.8;
+            }
+
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+                width: auto;
+                padding: 10px 18px;
+                background-color: #f44336;
+            }
+
+            /* Center the image and position the close button */
+            .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+                position: relative;
+            }
+
+            img.avatar {
+                width: 40%;
+                border-radius: 50%;
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            span.psw {
+                float: right;
+                padding-top: 16px;
+            }
+
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                padding-top: 60px;
+            }
+
+            /* Modal Content/Box */
+            .modal-content {
+                background-color: #fefefe;
+                margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+                border: 1px solid #888;
+                width: 80%; /* Could be more or less, depending on screen size */
+            }
+
+            /* The Close Button (x) */
+            .close {
+                position: absolute;
+                right: 25px;
+                top: 0;
+                color: #000;
+                font-size: 35px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: red;
+                cursor: pointer;
+            }
+
+            /* Add Zoom Animation */
+            .animate {
+                -webkit-animation: animatezoom 0.6s;
+                animation: animatezoom 0.6s
+            }
+
+            @-webkit-keyframes animatezoom {
+                from {-webkit-transform: scale(0)} 
+                to {-webkit-transform: scale(1)}
+            }
+
+            @keyframes animatezoom {
+                from {transform: scale(0)} 
+                to {transform: scale(1)}
+            }
+
+            /* Change styles for span and cancel button on extra small screens */
+            @media screen and (max-width: 300px) {
+                span.psw {
+                    display: block;
+                    float: none;
+                }
+                .cancelbtn {
+                    width: 100%;
+                }
+            }
             html, body {
                 height: 100%;
                 font-family: 'MyWebFont';
@@ -61,6 +168,25 @@
     </head>
 
     <body background="{{URL::asset('public/picture/Web Background.png')}}" style="background-size: 100% 100%;background-attachment: fixed;">
+        <div id="id01" class="modal">
+
+            <form class="modal-content animate">
+                <div class="container">
+                    <label for="psw"><b>Pin</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" id='pinnum' required>
+                    <button type="button" id='submitpin'>Send</button>
+                </div>
+            </form>
+        </div>
+        <div id="id02" class="modal">
+            <form class="modal-content animate">
+                <div class="container">
+                    <label for="psw"><b>New Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" id='newpass' required>
+                    <button type="button" id='submitpass'>Reset</button>
+                </div>
+            </form>
+        </div>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="position: -webkit-sticky; /* Safari */position: sticky;; margin-top: 30px;">
             <div class="container">
@@ -106,50 +232,43 @@
             </div>
         </nav>
         <div id="wrap" style="">
-            <div class="row">
-                <div class="card col-xs-3" style="width: 18rem;">
-                    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="container col-xs-8" id="main">
-                    <div class="text-center" style="margin-top: 30px;background: #6c757d">
+            <div class="container" id="main">
+                <div class="text-center" style="margin-top: 30px;background: #6c757d">
 
-                        <div class="dropdown show" style="margin-left:auto;margin-right:auto;">
-                            <!--dropdown-->
-                            <?php
-                            $horizontal = 0;
-                            $max_horizontal = DB::connection('mysql2')->table('content')->select('horizontal_level')->orderBy('horizontal_level', 'DESC')->first();
-                            if ($max_horizontal)
-                                $horizontal = $max_horizontal->horizontal_level;
-                            ?>
-                            @for($i = 1; $i<=$horizontal ;$i++)
-                            <?php $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'ASC')->where('horizontal_level', $i)->get(); ?>
-                            <div class="btn-group">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink<?php echo $i; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{$vertical[0]->horizontal_name}}
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink<?php echo $i; ?>">
-                                    @foreach($vertical as $data)
-                                    @if($data->link === '#')
-                                    <a class="dropdown-item" href="#">{{$data->name}}</a>
-                                    @elseif($data->content === '' || $data->content === NULL)
-                                    <a class="dropdown-item" href="{{$data->link}}">{{$data->name}}</a>
-                                    @else
-                                    <a class="dropdown-item" href="{{(url('browse').'/'.$data->id)}}">{{$data->name}}</a>
-                                    @endif
-                                    @endforeach
-                                </div>
-                            </div>
-                            @endfor
+                    <div class="dropdown show" style="margin-left:auto;margin-right:auto;">
+                        <div class="btn-group">
+                            <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display = 'block'">Reset Game Login Password</a>
                         </div>
+                        <!--dropdown-->
+                        <?php
+                        $horizontal = 0;
+                        $max_horizontal = DB::connection('mysql2')->table('content')->select('horizontal_level')->orderBy('horizontal_level', 'DESC')->first();
+                        if ($max_horizontal)
+                            $horizontal = $max_horizontal->horizontal_level;
+                        ?>
+                        @for($i = 1; $i<=$horizontal ;$i++)
+                        <?php $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'ASC')->where('horizontal_level', $i)->get(); ?>
+                        <div class="btn-group">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink<?php echo $i; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{$vertical[0]->horizontal_name}}
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink<?php echo $i; ?>">
+                                @foreach($vertical as $data)
+                                @if($data->link === '#')
+                                <a class="dropdown-item" href="#">{{$data->name}}</a>
+                                @elseif($data->content === '' || $data->content === NULL)
+                                <a class="dropdown-item" href="{{$data->link}}">{{$data->name}}</a>
+                                @else
+                                <a class="dropdown-item" href="{{(url('browse').'/'.$data->id)}}">{{$data->name}}</a>
+                                @endif
+                                @endforeach
+                            </div>
+                        </div>
+                        @endfor
                     </div>
-                    @yield('main-section')
                 </div>
+                @yield('main-section')
             </div>
         </div>
         <!-- Footer                                       -->
@@ -159,6 +278,27 @@
         <script src="{{ URL::asset('public/jquery/jquery.min.js') }}"></script>
         <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         @yield('js-content')
-    </body>
+        <script>
+                                var checkPIN = {{url('checkPIN')}};
+                                var pin = '';
+                                $('#submitpin').on('click', function () {
+                                pin = $('#pinnum').val();
+                                if (pin == null || pin == "") {
+                                alert('Please enter correct PIN');
+                                } else {
+                                checkPin();
+                                }
+                                });
+                                var checkPin = function () {
+                                var status = false;
+                                $.post(checkPIN, {pin_arg: pin}, function (data) {
+                                status = data;
+                                }).done(function () {
+                                if (status){
 
+                                }
+                                });
+                                };
+        </script>
+    </body>
 </html>
