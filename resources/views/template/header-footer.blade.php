@@ -171,6 +171,7 @@
         <div id="id01" class="modal">
 
             <form class="modal-content animate">
+                @csrf
                 <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
                 <div class="container">
                     <label for="psw"><b>Pin</b></label>
@@ -184,6 +185,7 @@
         </div>
         <div id="id02" class="modal">
             <form class="modal-content animate">
+                @csrf
                 <span onclick="document.getElementById('id02').style.display = 'none'" class="close" title="Close Modal">&times;</span>
                 <div class="container">
                     <label for="psw"><b>New Password</b></label>
