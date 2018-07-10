@@ -171,19 +171,27 @@
         <div id="id01" class="modal">
 
             <form class="modal-content animate">
+                <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
                 <div class="container">
                     <label for="psw"><b>Pin</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" id='pinnum' required>
                     <button type="button" id='submitpin'>Send</button>
                 </div>
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id01').style.display = 'none'" class="cancelbtn">Cancel</button>
+                </div>
             </form>
         </div>
         <div id="id02" class="modal">
             <form class="modal-content animate">
+                <span onclick="document.getElementById('id02').style.display = 'none'" class="close" title="Close Modal">&times;</span>
                 <div class="container">
                     <label for="psw"><b>New Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" id='newpass' required>
                     <button type="button" id='submitpass'>Reset</button>
+                </div>
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id02').style.display = 'none'" class="cancelbtn">Cancel</button>
                 </div>
             </form>
         </div>
