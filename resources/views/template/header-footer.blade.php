@@ -307,7 +307,7 @@
                                     $.post(checkPIN, {pin_arg: pin}, function (data) {
                                         status = data;
                                     }).done(function () {
-                                        if (status) {
+                                        if (status === 'true') {
                                             alert('pin benar');
                                         } else {
                                             alert('pin salah');
