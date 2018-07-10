@@ -170,30 +170,18 @@
     <body background="{{URL::asset('public/picture/Web Background.png')}}" style="background-size: 100% 100%;background-attachment: fixed;">
         <div id="id01" class="modal">
 
-            <form class="modal-content animate">
+            <form class="modal-content animate" action="{{url('checkPIN')}}" method="POST" id='form_reset_pass'>
                 @csrf
                 <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
                 <div class="container">
                     <label for="psw"><b>Pin</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" id='pinnum' required>
+                    <input type="password" placeholder="Enter Pin" name="pin" id='pinnum' required>
+                    <label for="psw"><b>New Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" id='newpass' required>
                     <button type="button" id='submitpin'>Send</button>
                 </div>
                 <div class="container" style="background-color:#f1f1f1">
                     <button type="button" onclick="document.getElementById('id01').style.display = 'none'">Cancel</button>
-                </div>
-            </form>
-        </div>
-        <div id="id02" class="modal">
-            <form class="modal-content animate">
-                @csrf
-                <span onclick="document.getElementById('id02').style.display = 'none'" class="close" title="Close Modal">&times;</span>
-                <div class="container">
-                    <label for="psw"><b>New Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" id='newpass' required>
-                    <button type="button" id='submitpass'>Reset</button>
-                </div>
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id02').style.display = 'none'">Cancel</button>
                 </div>
             </form>
         </div>
@@ -291,6 +279,7 @@
         <script>
                                 var checkPIN = "{{url('checkPIN')}}";
                                 var pin = '';
+                                var pass = '';
                                 $.ajaxSetup({
                                     headers: {
                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -298,24 +287,13 @@
                                 });
                                 $('#submitpin').on('click', function () {
                                     pin = $('#pinnum').val();
-                                    if (pin == null || pin == "") {
+                                    pass = $('#newpass').val();
+                                    if ((pin == null || pin == "") && (pass == null || pass == "")) {
                                         alert('Please enter correct PIN');
                                     } else {
-                                        checkPin();
+                                        $('form#form_reset_pass').submit();
                                     }
                                 });
-                                window.checkPin = function () {
-                                    var status = 'false';
-                                    $.post(checkPIN, {pin_arg: pin}, function (data) {
-                                        status = data;
-                                    }).done(function () {
-                                        if (status === 'true') {
-                                            alert('pin benar');
-                                        } else {
-                                            alert('pin salah');
-                                        }
-                                    });
-                                };
         </script>
     </body>
 </html>
