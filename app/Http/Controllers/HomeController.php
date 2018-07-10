@@ -33,7 +33,7 @@ class HomeController extends Controller {
     }
 
     public function checkPIN(Request $request) {
-        if ($user = Auth::user()) {
+        if (Auth::user()) {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $input_pin = $request->get('pin_arg');
                 $input_pin = '12345678';
