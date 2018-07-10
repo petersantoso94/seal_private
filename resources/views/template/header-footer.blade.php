@@ -296,6 +296,7 @@
                                 var pin = '';
                                 $('#submitpin').on('click', function () {
                                     pin = $('#pinnum').val();
+                                    alert(pin);
                                     if (pin == null || pin == "") {
                                         alert('Please enter correct PIN');
                                     } else {
