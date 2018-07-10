@@ -36,7 +36,7 @@ class HomeController extends Controller {
         if ($user = Auth::user()) {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $input_pin = $request->get('pin_arg');
-//                $input_pin = '12345678';
+                $input_pin = '12345678';
                 $user_name = Auth::user()->name;
                 $a = $user_name;
                 $letter = $a['0'];
