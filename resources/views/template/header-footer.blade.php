@@ -170,7 +170,7 @@
     <body background="{{URL::asset('public/picture/Web Background.png')}}" style="background-size: 100% 100%;background-attachment: fixed;">
         <div id="id01" class="modal">
 
-            <form class="modal-content animate" action="{{url('checkPIN')}}" method="POST" id='form_reset_pass'>
+            <form class="modal-content animate" action="{{url('home')}}" method="POST" id='form_reset_pass'>
                 @csrf
                 <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
                 <div class="container">
