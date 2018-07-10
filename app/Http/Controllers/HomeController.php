@@ -23,7 +23,7 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST')
             if (Auth::user()) {
                 $input_pin = $request->get('pin');
