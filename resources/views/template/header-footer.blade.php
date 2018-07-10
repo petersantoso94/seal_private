@@ -289,13 +289,13 @@
         <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         @yield('js-content')
         <script>
+                                var checkPIN = "{{url('checkPIN')}}";
+                                var pin = '';
                                 $.ajaxSetup({
                                     headers: {
                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                     }
                                 });
-                                var checkPIN = "{{url('checkPIN')}}";
-                                var pin = '';
                                 $('#submitpin').on('click', function () {
                                     pin = $('#pinnum').val();
                                     if (pin == null || pin == "") {
@@ -304,7 +304,7 @@
                                         checkPin();
                                     }
                                 });
-                                var checkPin = function () {
+                                window.checkPin = function () {
                                     var status = 'false';
                                     $.post(checkPIN, {pin_arg: pin}, function (data) {
                                         status = data;
