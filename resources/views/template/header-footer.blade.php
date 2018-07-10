@@ -287,27 +287,32 @@
         <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         @yield('js-content')
         <script>
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
                                 var checkPIN = "{{url('checkPIN')}}";
                                 var pin = '';
                                 $('#submitpin').on('click', function () {
-                                pin = $('#pinnum').val();
-                                if (pin == null || pin == "") {
-                                alert('Please enter correct PIN');
-                                } else {
-                                checkPin();
-                                }
+                                    pin = $('#pinnum').val();
+                                    if (pin == null || pin == "") {
+                                        alert('Please enter correct PIN');
+                                    } else {
+                                        checkPin();
+                                    }
                                 });
                                 var checkPin = function () {
-                                var status = false;
-                                $.post(checkPIN, {pin_arg: pin}, function (data) {
-                                status = data;
-                                }).done(function () {
-                                if (status){
-                                alert('pin benar');
-                                } else{
-                                alert('pin salah');
-                                }
-                                });
+                                    var status = false;
+                                    $.post(checkPIN, {pin_arg: pin}, function (data) {
+                                        status = data;
+                                    }).done(function () {
+                                        if (status) {
+                                            alert('pin benar');
+                                        } else {
+                                            alert('pin salah');
+                                        }
+                                    });
                                 };
         </script>
     </body>
