@@ -178,7 +178,7 @@
                     <button type="button" id='submitpin'>Send</button>
                 </div>
                 <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id01').style.display = 'none'" class="cancelbtn">Cancel</button>
+                    <button type="button" onclick="document.getElementById('id01').style.display = 'none'">Cancel</button>
                 </div>
             </form>
         </div>
@@ -191,7 +191,7 @@
                     <button type="button" id='submitpass'>Reset</button>
                 </div>
                 <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id02').style.display = 'none'" class="cancelbtn">Cancel</button>
+                    <button type="button" onclick="document.getElementById('id02').style.display = 'none'">Cancel</button>
                 </div>
             </form>
         </div>
@@ -221,6 +221,9 @@
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         @if($user = Auth::user())
+                        <div class="nav-item">
+                            <a class="nav-link" href="#" onclick="document.getElementById('id01').style.display = 'block'">Reset Game Login Password</a>
+                        </div>
                         <li class="nav-item">
                             <a class="nav-link" href="logout">Logout</a>
                         </li>
@@ -244,9 +247,6 @@
                 <div class="text-center" style="margin-top: 30px;background: #6c757d">
 
                     <div class="dropdown show" style="margin-left:auto;margin-right:auto;">
-                        <div class="btn-group">
-                            <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display = 'block'">Reset Game Login Password</a>
-                        </div>
                         <!--dropdown-->
                         <?php
                         $horizontal = 0;
