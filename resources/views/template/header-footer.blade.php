@@ -287,7 +287,7 @@
         <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         @yield('js-content')
         <script>
-                                var checkPIN = {{url('checkPIN')}};
+                                var checkPIN = "{{url('checkPIN')}}";
                                 var pin = '';
                                 $('#submitpin').on('click', function () {
                                 pin = $('#pinnum').val();
