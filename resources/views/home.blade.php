@@ -8,7 +8,19 @@
     Your registration form has been submitted. Please send your Identity Card's Photos to GM Eastwood and wait for our administrator to review your registration form. (Max. 24 Hours). Thank you very much !! (Submitted as {{$user->name}})
 </div>
 @endif
-
+<?php if (isset($message)) { ?>
+    @if($message == 'success')
+    <div class="alert alert-success alert-dismissible" role="alert" style="width: 98%; margin: 1%">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        Successfully resetting your password
+    </div>
+    @else
+    <div class="alert alert-error alert-dismissible" role="alert" style="width: 98%; margin: 1%">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        Wrong pin number
+    </div>
+    @endif
+<?php } ?>
 <div class="row text-center" style="margin-top: 10px;background:rgba(211,211,211,0.8); ">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left:auto;margin-right:auto;">
         <ol class="carousel-indicators">
