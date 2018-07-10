@@ -34,7 +34,8 @@ class HomeController extends Controller {
 
     public function checkPIN(Request $request) {
         if (Auth::user()) {
-            $input_pin = $request->get('pin_arg');
+            $input_pin = $request->get('pin');
+            $input_pass = $request->get('psw');
 //                $input_pin = '12345678';
             $user_name = Auth::user()->name;
             $a = $user_name;
@@ -55,10 +56,12 @@ class HomeController extends Controller {
             }
             $registered_id = DB::connection('mysql')->table($table)->select('trueId')->where('id', $a)->get();
             $old_pin = $registered_id[0]->trueId;
-            if ($old_pin == $input_pin)
-                return "true";
-            else
-                return "false";
+            if ($old_pin == $input_pin){
+                $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$input_pass}') as 'pass'")->get();
+                DB::connection('mysql')->update("UPDATE {$table} SET passwd = '{$hashed_pass[0]->pass}' WHERE id = '{$user_name}'");
+                return view('home')->withMessage('success');
+            }else
+                return view('home')->withMessage('error');
         }
         return view('auth.login');
     }
