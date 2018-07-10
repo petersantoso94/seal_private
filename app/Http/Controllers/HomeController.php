@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -32,7 +32,7 @@ class HomeController extends Controller {
     }
 
     public function checkPIN(Request $request) {
-        if ($user = Auth::user()) {
+        if ($user = \App\Providers\AuthServiceProvider::user()) {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $input_pin = $request->get('pin_arg');
 //                $input_pin = '12345678';
