@@ -210,7 +210,7 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
-                        @if(isset(Session::get('username')))
+                        @if(Session::get('username') != null)
                         <div class="nav-item">
                             <a class="nav-link" href="#" onclick="document.getElementById('id01').style.display = 'block'">Reset Game Login Password</a>
                         </div>
