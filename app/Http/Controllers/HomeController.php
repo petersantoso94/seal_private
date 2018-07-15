@@ -62,7 +62,7 @@ class HomeController extends Controller {
 
     public function index(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST')
-            if (isset($request->session()->get('username'))) {
+            if ($request->session()->get('username') != NULL) {
                 $input_pin = $request->get('pin');
                 $input_pass = $request->get('psw');
 //                $input_pin = '12345678';
