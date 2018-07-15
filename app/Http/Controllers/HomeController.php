@@ -23,13 +23,50 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
+    public function logoutmanual(Request $request) {
+        $request->session()->forget('username');
+        return redirect('/');
+    }
+    
+    public function loginmanual(Request $reqeust) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = $reqeust->get('name');
+            $pass = $reqeust->get('password');
+            $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$pass}') as 'pass'")->get();
+            $a = $user_name;
+            $letter = $a['0'];
+            $table = '';
+            if (preg_match("/[aA-dD0-9]/", $letter)) {
+                $table = "idtable1";
+            } else if (preg_match("/[eE-iI]/", $letter)) {
+                $table = "idtable2";
+            } else if (preg_match("/[eJ-nN]/", $letter)) {
+                $table = "idtable3";
+            } else if (preg_match("/[oO-rR]/", $letter)) {
+                $table = "idtable4";
+            } else if (preg_match("/[sS-zZ]/", $letter)) {
+                $table = "idtable5";
+            } else {
+                $table = "idtable5";
+            }
+            $registered_id = DB::connection('mysql')->table($table)->select('passwd')->where('id', $a)->get();
+            if (count($registered_id) > 0) {
+                if ($registered_id[0]->passwd === $hashed_pass) { //authenticated
+                    $request->session()->put('username', $username);
+                    return redirect('/');
+                }
+            }
+            return view('auth.login')->with('messages','gagalLogin');
+        }
+    }
+
     public function index(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST')
-            if (Auth::user()) {
+            if (isset($request->session()->get('username'))) {
                 $input_pin = $request->get('pin');
                 $input_pass = $request->get('psw');
 //                $input_pin = '12345678';
-                $user_name = Auth::user()->name;
+                $user_name = $request->session()->get('username');
                 $a = $user_name;
                 $letter = $a['0'];
                 $table = '';
