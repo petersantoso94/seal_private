@@ -33,7 +33,7 @@ class HomeController extends Controller {
             $username = $reqeust->get('name');
             $pass = $reqeust->get('password');
             $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$pass}') as 'pass'")->get();
-            $a = $user_name;
+            $a = $username;
             $letter = $a['0'];
             $table = '';
             if (preg_match("/[aA-dD0-9]/", $letter)) {
