@@ -58,6 +58,7 @@ class HomeController extends Controller {
             }
             return view('auth.login')->with('messages','gagalLogin');
         }
+        return redirect('/');
     }
 
     public function index(Request $request) {
