@@ -27,7 +27,7 @@ class HomeController extends Controller {
         $request->session()->forget('username');
         return redirect('/');
     }
-    
+
     public function loginmanual(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $request->get('name');
@@ -50,14 +50,14 @@ class HomeController extends Controller {
                 $table = "idtable5";
             }
             $registered_id = DB::connection('mysql')->table($table)->select('passwd')->where('id', $a)->get();
-            dd($registered_id);
             if (count($registered_id) > 0) {
+                dd($registered_id);
                 if ($registered_id[0]->passwd === $hashed_pass) { //authenticated
                     $request->session()->put('username', $username);
                     return redirect('/');
                 }
             }
-            return view('auth.login')->with('messages','gagalLogin');
+            return view('auth.login')->with('messages', 'gagalLogin');
         }
         return redirect('/');
     }
