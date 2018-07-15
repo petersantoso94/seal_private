@@ -28,10 +28,10 @@ class HomeController extends Controller {
         return redirect('/');
     }
     
-    public function loginmanual(Request $reqeust) {
+    public function loginmanual(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $request->get('name');
-            $pass = $reqeust->get('password');
+            $pass = $request->get('password');
             $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$pass}') as 'pass'")->get();
             $a = $username;
             $letter = $a['0'];
