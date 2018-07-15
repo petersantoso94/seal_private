@@ -210,12 +210,12 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
-                        @if($user = Auth::user())
+                        @if(isset(Session::get('username')))
                         <div class="nav-item">
                             <a class="nav-link" href="#" onclick="document.getElementById('id01').style.display = 'block'">Reset Game Login Password</a>
                         </div>
                         <li class="nav-item">
-                            <a class="nav-link" href="logout">Logout</a>
+                            <a class="nav-link" href="{{url('logoutmanual')}}">Logout</a>
                         </li>
                         @else
                         <li class="nav-item">
