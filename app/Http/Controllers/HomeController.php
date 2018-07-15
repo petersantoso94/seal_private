@@ -51,7 +51,7 @@ class HomeController extends Controller {
             }
             $registered_id = DB::connection('mysql')->table($table)->select('passwd')->where('id', $a)->get();
             if (count($registered_id) > 0) {
-                if ($registered_id[0]->passwd == $hashed_pass->pass) { //authenticated
+                if ($registered_id[0]->passwd == $hashed_pass[0]->pass) { //authenticated
                     $request->session()->put('username', $username);
                     return redirect('/');
                 }
