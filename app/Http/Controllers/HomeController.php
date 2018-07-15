@@ -33,7 +33,6 @@ class HomeController extends Controller {
             $username = $request->get('name');
             $pass = $request->get('password');
             $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$pass}') as 'pass'")->get();
-            dd($username.$pass);
             $a = $username;
             $letter = $a['0'];
             $table = '';
@@ -51,6 +50,7 @@ class HomeController extends Controller {
                 $table = "idtable5";
             }
             $registered_id = DB::connection('mysql')->table($table)->select('passwd')->where('id', $a)->get();
+            dd($registered_id);
             if (count($registered_id) > 0) {
                 if ($registered_id[0]->passwd === $hashed_pass) { //authenticated
                     $request->session()->put('username', $username);
