@@ -30,7 +30,7 @@ class HomeController extends Controller {
     
     public function loginmanual(Request $reqeust) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $reqeust->get('name');
+            $username = $request->get('name');
             $pass = $reqeust->get('password');
             $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$pass}') as 'pass'")->get();
             $a = $username;
