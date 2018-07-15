@@ -33,6 +33,7 @@ class HomeController extends Controller {
             $username = $request->get('name');
             $pass = $request->get('password');
             $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$pass}') as 'pass'")->get();
+            dd($username.$pass);
             $a = $username;
             $letter = $a['0'];
             $table = '';
