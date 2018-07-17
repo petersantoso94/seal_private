@@ -37,18 +37,18 @@ class HomeController extends Controller {
             $letter = $a['0'];
             $table = '';
             if (preg_match("/[aA-dD0-9]/", $letter)) {
-                $table = "idtable1";
-            } else if (preg_match("/[eE-iI]/", $letter)) {
-                $table = "idtable2";
-            } else if (preg_match("/[eJ-nN]/", $letter)) {
-                $table = "idtable3";
-            } else if (preg_match("/[oO-rR]/", $letter)) {
-                $table = "idtable4";
-            } else if (preg_match("/[sS-zZ]/", $letter)) {
-                $table = "idtable5";
-            } else {
-                $table = "idtable5";
-            }
+                    $table = "idtable1";
+                } else if (preg_match("/[eE-iI]/", $letter)) {
+                    $table = "idtable2";
+                } else if (preg_match("/[eJ-nN]/", $letter)) {
+                    $table = "idtable3";
+                } else if (preg_match("/[oO-sS]/", $letter)) {
+                    $table = "idtable4";
+                } else if (preg_match("/[tT-zZ]/", $letter)) {
+                    $table = "idtable5";
+                } else {
+                    $table = "idtable5";
+                }
             $registered_id = DB::connection('mysql')->table($table)->select('passwd')->where('id', $a)->get();
             if (count($registered_id) > 0) {
                 if ($registered_id[0]->passwd == $hashed_pass[0]->pass) { //authenticated
