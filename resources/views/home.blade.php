@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Vending Frenzy.png')}}" alt="Fifth slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Vending Frenzy New.png')}}" alt="Fifth slide" >
                 <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black; ">
                 </div>
             </div>
