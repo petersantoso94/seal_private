@@ -50,6 +50,7 @@ Route::any('postItems', array('as' => 'postItems', 'uses' => 'AdminController@po
 Route::any('postItemsAdd', array('as' => 'postItemsAdd', 'uses' => 'AdminController@postItemsAdd'));
 Route::any('checkPIN', array('as' => 'checkPIN', 'uses' => 'HomeController@checkPIN'));
 Route::any('/home', 'HomeController@index')->name('home');
+Route::any('account', array('as' => 'account', 'uses' => 'HomeController@account'));
 Route::any('browse/{id}', array('as' => 'browse', 'uses' => 'HomeController@browse'));
 
 Auth::routes();
