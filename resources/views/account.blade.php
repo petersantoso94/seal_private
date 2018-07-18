@@ -105,7 +105,10 @@
         if (counter > 0) {
             $('#email').removeAttr('disabled');
             $('#pin').removeAttr('disabled');
-            $('#form_edit_account').submit();
+            if ($('#email').val() != '' && $('#pin').val() != '')
+                $('#form_edit_account').submit();
+            else
+                alert('Please fill the value correctly!');
         }
     }
 </script>
