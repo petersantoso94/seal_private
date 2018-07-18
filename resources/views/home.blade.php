@@ -87,5 +87,5 @@
 <!-- /.container -->
 @stop
 @section('js-content')
-@endsection
+@stop
 
