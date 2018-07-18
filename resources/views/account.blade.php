@@ -4,17 +4,17 @@
 <!-- Jumbotron Header -->
 <!-- Page Features -->
 <div class="row" style="background: rgba(204, 204, 204, 0.8);margin-top: 20px;padding-left: 10px;padding-right: 10px">
-    <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3>
-    <?php if (isset($message)) { ?>
-        @if($message == 'success')
-        <div class="alert alert-success alert-dismissible" role="alert" style="width: 98%; margin: 1%">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            Successfully resetting your password
-        </div>
-        @endif
-    <?php } ?>
     <form action="{{url('account')}}" method="POST" id='form_edit_account'>
         {{ csrf_field() }}
+        <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3>
+        <?php if (isset($message)) { ?>
+            @if($message == 'success')
+            <div class="alert alert-success alert-dismissible" role="alert" style="width: 98%; margin: 1%">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                Successfully resetting your password
+            </div>
+            @endif
+        <?php } ?>
         <div class="form-group">
             @if(Session::get('username') != null)
             <label for="users">Hi, {{Session::get('username')}}</label><br>
