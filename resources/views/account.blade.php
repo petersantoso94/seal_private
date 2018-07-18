@@ -5,6 +5,7 @@
 <!-- Page Features -->
 <div class="row" style="background: rgba(204, 204, 204, 0.8);margin-top: 20px;padding-left: 10px;padding-right: 10px">
     <form action="{{url('account')}}" method="POST" id='form_edit_account'>
+        {{ csrf_field() }}
         <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3>
         <?php if (isset($message)) { ?>
             @if($message == 'success')
