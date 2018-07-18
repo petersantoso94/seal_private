@@ -4,8 +4,21 @@
 <!-- Jumbotron Header -->
 <!-- Page Features -->
 <div class="row" style="background: rgba(204, 204, 204, 0.8);margin-top: 20px;padding-left: 10px;padding-right: 10px">
-    <form>
+    <form action="{{url('account')}}" method="POST" id='form_edit_account'>
         <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3>
+        <?php if (isset($message)) { ?>
+            @if($message == 'success')
+            <div class="alert alert-success alert-dismissible" role="alert" style="width: 98%; margin: 1%">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                Successfully resetting your password
+            </div>
+            @else
+            <div class="alert alert-danger alert-dismissible" role="alert" style="width: 98%; margin: 1%">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                Wrong pin number
+            </div>
+            @endif
+        <?php } ?>
         <div class="form-group">
             @if(Session::get('username') != null)
             <label for="users">Hi, {{Session::get('username')}}</label><br>
@@ -38,15 +51,16 @@
         ?>
         <div class="form-group">
             <label for="users">Your Email:</label>
-            <input type="text" id='email' class='form-control' value="{{$email}}" disabled="">
-            <button type="button" onclick="enableEmail(this)" id='btn-enable-email' class="btn btn-primary" style="float:right;">edit</button>
-            <button type="button" onclick="disableEmail(this)" id='btn-dis-email' class="btn" style="display: none;float:right;">cancel</button>
+            <input type="text" id='email' name='email' class='form-control' value="{{$email}}" disabled="">
+            <button type="button" onclick="enableEmail(this)" id='btn-enable-email' class="btn btn-primary" >edit</button>
+            <button type="button" onclick="disableEmail(this)" id='btn-dis-email' class="btn" style="display: none;">cancel</button>
         </div>
         <div class="form-group">
             <label for="users">Your PIN:</label>
-            <input type='password' class='form-control' id='pin' value='{{$pin}}' disabled="">
-            <button type="button" onclick="enablePin(this)" id='btn-enable-pin' class="btn btn-primary" style="float:right;">edit</button>
-            <button type="button" onclick="disablePin(this)" id='btn-dis-pin' class='btn' style="display: none;float:right;" >cancel</button>
+            <input type='password' name='pin' class='form-control' id='pin' value='{{$pin}}' disabled="">
+            <button type="button" onclick="enablePin(this)" id='btn-enable-pin' class="btn btn-primary" >edit</button>
+            <button type="button" onclick="disablePin(this)" id='btn-dis-pin' class='btn' style="display: none;" >cancel</button>
+            <button type="button" onclick="submitForm(this)" id='btn-submit' class='btn btn-primary' style="float:right" disabled="">Submit</button>
         </div>
     </form>
 </div>
@@ -57,26 +71,42 @@
 @stop
 @section('js-content')
 <script>
+    var counter = 0;
     var enableEmail = function () {
+        counter++;
+        $('#btn-submit').removeAttr('disabled');
         $('#email').removeAttr('disabled');
         $('#btn-enable-email').hide();
         $('#btn-dis-email').show();
     };
     var disableEmail = function () {
+        counter--;
+        $('#btn-submit').attr('disabled', 'disabled');
         $('#email').attr('disabled', 'disabled');
         $('#btn-dis-email').hide();
         $('#btn-enable-email').show();
     };
     var enablePin = function () {
+        counter++;
+        $('#btn-submit').removeAttr('disabled');
         $('#pin').removeAttr('disabled');
         $('#btn-enable-pin').hide();
         $('#btn-dis-pin').show();
     };
     var disablePin = function () {
+        counter--;
+        $('#btn-submit').attr('disabled', 'disabled');
         $('#pin').attr('disabled', 'disabled');
         $('#btn-dis-pin').hide();
         $('#btn-enable-pin').show();
     };
+    var submitForm = function () {
+        if (counter > 0) {
+            $('#email').removeAttr('disabled');
+            $('#pin').removeAttr('disabled');
+            $('#form_edit_account').submit();
+        }
+    }
 </script>
 @stop
 
