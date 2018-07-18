@@ -3,7 +3,7 @@
 <!-- Page Content -->
 <!-- Jumbotron Header -->
 <!-- Page Features -->
-<div class="row text-center" style="background: rgba(204, 204, 204, 0.8);margin-top: 20px;">
+<div class="row" style="background: rgba(204, 204, 204, 0.8);margin-top: 20px;">
     <div class='col-xs-4'>
         @if(Session::get('username') != null)
         <h4>Hi, {{Session::get('username')}}</h4>
