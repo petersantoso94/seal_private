@@ -292,14 +292,14 @@
                                     pin = $('#pinnum').val();
                                     pass = $('#newpass').val();
                                     confpass = $('#conf_pass').val();
-                                    alert(confpass);
                                     if ((pin == null || pin == "") || (pass == null || pass == "") || (confpass == null || confpass == "")) {
                                         alert('Please fill all the field');
-                                        if(pass !== confpass){
-                                            document.getElementById("conf_pass").setCustomValidity("Passwords Don't Match");
-                                        }
                                     } else {
-                                        $('form#form_reset_pass').submit();
+                                        if (pass !== confpass) {
+                                            document.getElementById("conf_pass").setCustomValidity("Passwords Don't Match");
+                                        } else {
+                                            $('form#form_reset_pass').submit();
+                                        }
                                     }
                                 });
         </script>
