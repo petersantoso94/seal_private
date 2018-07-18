@@ -34,7 +34,7 @@
             $pin = $registered_id[0]->trueId;
         }
         ?>
-        <p>Your ID: {{$username}}</p>
+        <p>Your ID: {{$a}}</p>
         <p>Your Email: {{$email}}</p>
         <p>Your PIN:</p><input type='password' value='{{$pin}}' disabled="">
     </div>
