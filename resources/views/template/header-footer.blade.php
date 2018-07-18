@@ -237,9 +237,9 @@
         <div id="wrap" style="">
             <div class="container" id="main">
                 <div class="text-center" style="margin-top: 30px;background: #6c757d">
-                    @if(Session::get('username') == null)
 
                     <div class="dropdown show" style="margin-left:auto;margin-right:auto;">
+                        @if(Session::get('username') == null)
                         <!--dropdown-->
                         <?php
                         $horizontal = 0;
@@ -268,23 +268,23 @@
                         </div>
                         @endfor
                         @else
-                        <div class="btn-group <?php if (isset($page)) if ($page == 'account') echo 'show'; ?>">
+                        <div class="btn-group <?php if(isset($page))if($page == 'account')echo 'show'; ?>">
                             <a class="btn btn-secondary" href="{{url('account')}}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Account
                             </a>
                         </div>
                         <div class="btn-group">
-                            <a class="btn btn-secondary" href="#" role="button" id="                            dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Editable Space
                             </a>
                         </div>
                         <div class="btn-group">
-                            <a class="btn btn-secondary"                                 href="#                                " role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Fan Art
                             </a>
                         </div>
+                        @endif
                     </div>
-                    @endif
                 </div>
                 @yield('main-section')
             </div>
