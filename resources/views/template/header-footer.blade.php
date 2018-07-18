@@ -236,7 +236,7 @@
         </nav>
         <div id="wrap" style="">
             <div class="container" id="main">
-                <div class="text-center fixed-top" style="position: -webkit-sticky; /* Safari */position: sticky; margin-top: 30px;background: #6c757d">
+                <div class="text-center" style="margin-top: 30px;background: #6c757d">
 
                     <div class="dropdown show" style="margin-left:auto;margin-right:auto;">
                         <!--dropdown-->
