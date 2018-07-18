@@ -180,9 +180,9 @@
                     <input type="password" placeholder="Enter Password" name="psw" id='newpass' required>
                     <label for="confpsw"><b>Confirm Password</b></label>
                     <input type="password" placeholder="Confirm Password" name="psw2" id='conf_pass' required>
-                    <button type="button" id='submitpin'>Send</button>
                 </div>
                 <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" id='submitpin'>Submit</button>
                     <button type="button" onclick="document.getElementById('id01').style.display = 'none'">Cancel</button>
                 </div>
             </form>
