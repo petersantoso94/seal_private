@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home')->with('page','home');
 });
 Route::get('/register', function () {
     return view('register');
