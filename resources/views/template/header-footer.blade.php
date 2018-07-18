@@ -296,7 +296,7 @@
                                         alert('Please fill all the field');
                                     } else {
                                         if (pass !== confpass) {
-                                            document.getElementById("conf_pass").setCustomValidity("Passwords Don't Match");
+                                            alert("Passwords Don't Match");
                                         } else {
                                             $('form#form_reset_pass').submit();
                                         }
