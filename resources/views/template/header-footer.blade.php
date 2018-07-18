@@ -143,7 +143,7 @@
             }
             @font-face {
                 font-family: 'MyWebFont';
-                src: url('../../../public/NARNIABLL.ttf');
+                /*src: url('../../../public/NARNIABLL.ttf');*/
             }  
             .img-container-cs{
                 height:500px;
