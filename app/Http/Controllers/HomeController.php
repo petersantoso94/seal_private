@@ -27,7 +27,7 @@ class HomeController extends Controller {
         if ($request->session()->get('username') != NULL) {
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $id = $request->session()->get('username');
-                $email = $request->get('name');
+                $email = $request->get('email');
                 $pin = $request->get('pin');
                 $a = $id;
                 $letter = $a['0'];
