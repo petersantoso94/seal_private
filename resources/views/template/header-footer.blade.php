@@ -282,6 +282,7 @@
                                 var checkPIN = "{{url('checkPIN')}}";
                                 var pin = '';
                                 var pass = '';
+                                var confpass = '';
                                 $.ajaxSetup({
                                     headers: {
                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -294,7 +295,7 @@
                                     if ((pin == null || pin == "") || (pass == null || pass == "") || (confpass == null || confpass == "")) {
                                         alert('Please fill all the field');
                                         if(pass != confpass){
-                                            alert('Password dont match the Confirm Password');
+                                            document.getElementById("conf_pass").setCustomValidity("Passwords Don't Match");
                                         }
                                     } else {
                                         $('form#form_reset_pass').submit();
