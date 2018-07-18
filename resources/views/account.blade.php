@@ -39,7 +39,7 @@
             ?>
             <div class="form-group">
                 <label for="users">Your Email:</label><br>
-                <input type="text" id='email' class='form-control' value="{{{{$email}}}}" disabled="">
+                <input type="text" id='email' class='form-control' value="{{$email}}" disabled="">
                 <button type="button" onclick="enableEmail(this)" id='btn-enable-email'>edit</button>
                 <button type="button" onclick="disableEmail(this)" id='btn-dis-email' style="display: none">cancel</button>
             </div>
