@@ -289,7 +289,6 @@
                 @yield('main-section')
             </div>
         </div>
-        <                            !-- Footer                                         -                        ->
 
 
         <!-- Bootstrap core JavaSc                    ript -->
