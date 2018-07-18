@@ -3,12 +3,14 @@
 <!-- Page Content -->
 <!-- Jumbotron Header -->
 <!-- Page Features -->
-<div class="row" style="background: rgba(204, 204, 204, 0.8);margin-top: 20px;">
-    <div class='col-xs-4'>
-        @if(Session::get('username') != null)
-        <h4>Hi, {{Session::get('username')}}</h4>
-        @endif
+<div class="row" style="background: rgba(204, 204, 204, 0.8);margin-top: 20px;padding-left: 10px;padding-right: 10px">
+    <form>
         <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3>
+        <div class="form-group">
+            @if(Session::get('username') != null)
+            <label for="users">Hi, {{Session::get('username')}}</label><br>
+            @endif
+        </div>
         <?php
         $a = Session::get('username');
         $email = '';
@@ -34,10 +36,9 @@
             $pin = $registered_id[0]->trueId;
         }
         ?>
-        <p>Your ID: {{$a}}</p>
         <p>Your Email: {{$email}}</p>
         <p>Your PIN:</p><input type='password' value='{{$pin}}' disabled="">
-    </div>
+    </form>
 </div>
 <!-- /.row -->
 
