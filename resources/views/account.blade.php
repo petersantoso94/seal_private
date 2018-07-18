@@ -58,23 +58,23 @@
 @section('js-content')
 <script>
     var enableEmail = function () {
-        $(this).hide();
         $('#email').removeAttr('disabled');
+        $('#btn-enable-email').hide();
         $('#btn-dis-email').show();
     };
     var disableEmail = function () {
-        $(this).hide();
         $('#email').attr('disabled', 'disabled');
+        $('#btn-dis-email').hide();
         $('#btn-enable-email').show();
     };
     var enablePin = function () {
-        $(this).hide();
         $('#pin').removeAttr('disabled');
+        $('#btn-enable-pin').hide();
         $('#btn-dis-pin').show();
     };
     var disablePin = function () {
-        $(this).hide();
         $('#pin').attr('disabled', 'disabled');
+        $('#btn-dis-pin').hide();
         $('#btn-enable-pin').show();
     };
 </script>
