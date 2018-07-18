@@ -143,7 +143,7 @@
             }
             @font-face {
                 font-family: 'MyWebFont';
-                /*src: url('../../../public/NARNIABLL.ttf');*/
+                src: url('../../../public/NARNIABLL.ttf');
             }  
             .img-container-cs{
                 height:500px;
@@ -237,9 +237,9 @@
         <div id="wrap" style="">
             <div class="container" id="main">
                 <div class="text-center" style="margin-top: 30px;background: #6c757d">
+                    @if(Session::get('username') == null)
 
                     <div class="dropdown show" style="margin-left:auto;margin-right:auto;">
-                        @if(Session::get('username') == null)
                         <!--dropdown-->
                         <?php
                         $horizontal = 0;
@@ -268,7 +268,7 @@
                         </div>
                         @endfor
                         @else
-                        <div class="btn-group <?php if(isset($page))if($page == 'account')echo 'show'; ?>">
+                        <div class="btn-group <?php if (isset($page)) if ($page == 'account') echo 'show'; ?>">
                             <a class="btn btn-secondary" href="{{url('account')}}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Account
                             </a>
@@ -283,8 +283,8 @@
                                 Fan Art
                             </a>
                         </div>
-                        @endif
                     </div>
+                    @endif
                 </div>
                 @yield('main-section')
             </div>
