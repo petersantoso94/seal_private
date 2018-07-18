@@ -113,9 +113,15 @@ class AdminController extends Controller {
                             $new_name = $request->get('newcategory');
                             $category = $horizontal->horizontal_level + 1;
                         } else {
-                            $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'DESC')->where('horizontal_level', $category)->select('vertical_level', 'horizontal_name')->first();
-                            $new_name = $vertical->horizontal_name;
-                            $vert_number = $vertical->vertical_level + 1;
+                            $check_horizontal = DB::connection('mysql2')->table('content')->where('id', $id_update)->select('horizontal_level', 'horizontal_name', 'vertical_level')->first();
+                            if ($check_horizontal->horizontal_level == $category) {
+                                $new_name = $check_horizontal->horizontal_name;
+                                $vert_number = $check_horizontal->vertical_level;
+                            } else {
+                                $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'DESC')->where('horizontal_level', $category)->select('vertical_level', 'horizontal_name')->first();
+                                $new_name = $vertical->horizontal_name;
+                                $vert_number = $vertical->vertical_level + 1;
+                            }
                         }
                         if ($data != "" && $data != NULL) {
                             $data = stripslashes($data);
