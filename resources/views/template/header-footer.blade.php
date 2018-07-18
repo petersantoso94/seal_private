@@ -292,6 +292,7 @@
                                     pin = $('#pinnum').val();
                                     pass = $('#newpass').val();
                                     confpass = $('#conf_pass').val();
+                                    alert(confpass);
                                     if ((pin == null || pin == "") || (pass == null || pass == "") || (confpass == null || confpass == "")) {
                                         alert('Please fill all the field');
                                         if(pass != confpass){
