@@ -59,22 +59,22 @@
 @stop
 @section('js-content')
 <script>
-    var enableEmail = function(this){
+    var enableEmail = function(){
         $(this).hide();
         $('#email').removeAttr('disabled');
         $('#btn-dis-email').show();
     };
-    var disableEmail = function(this){
+    var disableEmail = function(){
         $(this).hide();
         $('#email').attr('disabled','disabled');
         $('#btn-enable-email').show();
     };
-    var enablePin = function(this){
+    var enablePin = function(){
         $(this).hide();
         $('#pin').removeAttr('disabled');
         $('#btn-dis-pin').show();
     };
-    var disablePin = function(this){
+    var disablePin = function(){
         $(this).hide();
         $('#pin').attr('disabled','disabled');
         $('#btn-enable-pin').show();
