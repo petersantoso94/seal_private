@@ -178,6 +178,8 @@
                     <input type="password" placeholder="Enter Pin" name="pin" id='pinnum' required>
                     <label for="psw"><b>New Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" id='newpass' required>
+                    <label for="confpsw"><b>Confirm Password</b></label>
+                    <input type="password" placeholder="Confirm Password" name="psw2" id='conf_pass' required>
                     <button type="button" id='submitpin'>Send</button>
                 </div>
                 <div class="container" style="background-color:#f1f1f1">
@@ -288,8 +290,12 @@
                                 $('#submitpin').on('click', function () {
                                     pin = $('#pinnum').val();
                                     pass = $('#newpass').val();
-                                    if ((pin == null || pin == "") && (pass == null || pass == "")) {
+                                    confpass = $('#conf_pass').val();
+                                    if ((pin == null || pin == "") || (pass == null || pass == "") || (confpass == null || confpass == "")) {
                                         alert('Please enter correct PIN');
+                                        if(pass != confpass){
+                                            alert('Password dont match the Confirm Password');
+                                        }
                                     } else {
                                         $('form#form_reset_pass').submit();
                                     }
