@@ -237,9 +237,7 @@
         <div id="wrap" style="">
             <div class="container" id="main">
                 <div class="text-center" style="margin-top: 30px;background: #6c757d">
-
                     <div class="dropdown show" style="margin-left:auto;margin-right:auto;">
-                        @if(Session::get('username') == null)
                         <!--dropdown-->
                         <?php
                         $horizontal = 0;
@@ -267,7 +265,6 @@
                             </div>
                         </div>
                         @endfor
-                        @endif
                     </div>
                 </div>
                 @yield('main-section')
