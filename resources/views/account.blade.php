@@ -13,11 +13,6 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 Successfully resetting your password
             </div>
-            @else
-            <div class="alert alert-danger alert-dismissible" role="alert" style="width: 98%; margin: 1%">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                Wrong pin number
-            </div>
             @endif
         <?php } ?>
         <div class="form-group">
