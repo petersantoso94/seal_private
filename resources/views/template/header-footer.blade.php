@@ -293,7 +293,7 @@
 
         <!-- Bootstrap core JavaSc                    ript -->
         <script src="{{ URL::asset('public/jquery/jquery.min.js') }}"></script>
-        <scriptsrc="{{ URL::asset('public/bootstrap/js/boot  strap.bundle.min.js') }}"></script>
+        <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         @yield('js-content')
         <script>
                                 var checkPIN = "{{url('checkPIN')}}";
