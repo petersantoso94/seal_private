@@ -239,6 +239,7 @@
                 <div class="text-center" style="margin-top: 30px;background: #6c757d">
 
                     <div class="dropdown show" style="margin-left:auto;margin-right:auto;">
+                        @if(Session::get('username') == null)
                         <!--dropdown-->
                         <?php
                         $horizontal = 0;
@@ -266,17 +267,34 @@
                             </div>
                         </div>
                         @endfor
+                        @else
+                        <div class="btn-group <?php if(isset($page))if($page == 'account')echo 'show'; ?>">
+                            <a class="btn btn-secondary dropdown-toggle" href="{{url('account')}}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Account
+                            </a>
+                        </div>
+                        <div class="btn-group">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="                            dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Editable Space
+                            </a>
+                        </div>
+                        <div class="btn-group">
+                            <a class="btn btn-secondary dropdown-toggle"                                 href="#                                " role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Fan Art
+                            </a>
+                        </div>
+                        @endif
                     </div>
                 </div>
                 @yield('main-section')
             </div>
         </div>
-        <!-- Footer                                       -->
+        <                            !-- Footer                                         -                        ->
 
 
-        <!-- Bootstrap core JavaScript -->
+        <!-- Bootstrap core JavaSc                    ript -->
         <script src="{{ URL::asset('public/jquery/jquery.min.js') }}"></script>
-        <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <scriptsrc="{{ URL::asset('public/bootstrap/js/boot  strap.bundle.min.js') }}"></script>
         @yield('js-content')
         <script>
                                 var checkPIN = "{{url('checkPIN')}}";
