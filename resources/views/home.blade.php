@@ -116,9 +116,6 @@
 
 
 <!-- /.row -->
-
-
-</div>
 <!-- /.container -->
 @stop
 @section('js-content')
