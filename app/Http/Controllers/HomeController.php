@@ -25,6 +25,29 @@ class HomeController extends Controller {
      */
     public function account(Request $request){
         if ($request->session()->get('username') != NULL) {
+            if($_SERVER['REQUEST_METHOD'] === 'POST'){
+                $id = $request->session()->get('username');
+                $email = $request->get('name');
+                $pin = $request->get('pin');
+                $a = $id;
+                $letter = $a['0'];
+                $table = '';
+                if (preg_match("/[aA-dD0-9]/", $letter)) {
+                    $table = "idtable1";
+                } else if (preg_match("/[eE-iI]/", $letter)) {
+                    $table = "idtable2";
+                } else if (preg_match("/[eJ-nN]/", $letter)) {
+                    $table = "idtable3";
+                } else if (preg_match("/[oO-rR]/", $letter)) {
+                    $table = "idtable4";
+                } else if (preg_match("/[sS-zZ]/", $letter)) {
+                    $table = "idtable5";
+                } else {
+                    $table = "idtable5";
+                }
+                DB::connection('mysql')->update("UPDATE {$table} SET trueId = '{$pin}', email = '{$email}' WHERE id = '{$id}'");
+                return view('account')->with('page', 'account')->with('message','success');
+            }
             return view('account')->with('page', 'account');
         }
         return redirect('/');
