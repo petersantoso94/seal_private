@@ -295,7 +295,7 @@
                                     alert(confpass);
                                     if ((pin == null || pin == "") || (pass == null || pass == "") || (confpass == null || confpass == "")) {
                                         alert('Please fill all the field');
-                                        if(pass != confpass){
+                                        if(pass !== confpass){
                                             document.getElementById("conf_pass").setCustomValidity("Passwords Don't Match");
                                         }
                                     } else {
