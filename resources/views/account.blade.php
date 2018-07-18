@@ -39,14 +39,14 @@
         <div class="form-group">
             <label for="users">Your Email:</label>
             <input type="text" id='email' class='form-control' value="{{$email}}" disabled="">
-            <button type="button" onclick="enableEmail(this)" id='btn-enable-email' class="btn btn-primary">edit</button>
-            <button type="button" onclick="disableEmail(this)" id='btn-dis-email' class="btn" style="display: none">cancel</button>
+            <button type="button" onclick="enableEmail(this)" id='btn-enable-email' class="btn btn-primary" style="float:right;">edit</button>
+            <button type="button" onclick="disableEmail(this)" id='btn-dis-email' class="btn" style="display: none;float:right;">cancel</button>
         </div>
         <div class="form-group">
             <label for="users">Your PIN:</label>
             <input type='password' class='form-control' id='pin' value='{{$pin}}' disabled="">
-            <button type="button" onclick="enablePin(this)" id='btn-enable-pin' class="btn btn-primary">edit</button>
-            <button type="button" onclick="disablePin(this)" id='btn-dis-pin' class='btn' style="display: none">cancel</button>
+            <button type="button" onclick="enablePin(this)" id='btn-enable-pin' class="btn btn-primary" style="float:right;">edit</button>
+            <button type="button" onclick="disablePin(this)" id='btn-dis-pin' class='btn' style="display: none;float:right;" >cancel</button>
         </div>
     </form>
 </div>
