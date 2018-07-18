@@ -23,6 +23,13 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
+    public function account(Request $request){
+        if ($request->session()->get('username') != NULL) {
+            return view('account')->with('page', 'account');
+        }
+        return redirect('/');
+    }
+    
     public function logoutmanual(Request $request) {
         $request->session()->forget('username');
         return redirect('/');
