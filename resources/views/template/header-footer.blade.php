@@ -236,7 +236,6 @@
         </nav>
         <div id="wrap" style="">
             <div class="container" id="main">
-                @if(!isset($page))
                 <div class="text-center" style="margin-top: 30px;background: #6c757d">
 
                     <div class="dropdown show" style="margin-left:auto;margin-right:auto;">
@@ -269,7 +268,6 @@
                         @endfor
                     </div>
                 </div>
-                @endif
                 @yield('main-section')
             </div>
         </div>
