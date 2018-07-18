@@ -292,7 +292,7 @@
                                     pass = $('#newpass').val();
                                     confpass = $('#conf_pass').val();
                                     if ((pin == null || pin == "") || (pass == null || pass == "") || (confpass == null || confpass == "")) {
-                                        alert('Please enter correct PIN');
+                                        alert('Please fill all the field');
                                         if(pass != confpass){
                                             alert('Password dont match the Confirm Password');
                                         }
