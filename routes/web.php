@@ -52,6 +52,7 @@ Route::any('checkPIN', array('as' => 'checkPIN', 'uses' => 'HomeController@check
 Route::any('forgetPass', array('as' => 'forgetPass', 'uses' => 'HomeController@forgetPass'));
 Route::any('/home', 'HomeController@index')->name('home');
 Route::any('account', array('as' => 'account', 'uses' => 'HomeController@account'));
+Route::any('personalRank', array('as' => 'personalRank', 'uses' => 'HomeController@personalRank'));
 Route::any('browse/{id}', array('as' => 'browse', 'uses' => 'HomeController@browse'));
 
 Auth::routes();
