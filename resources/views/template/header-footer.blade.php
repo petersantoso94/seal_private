@@ -223,9 +223,6 @@
                         </li>
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="#">We Receive No Donation !</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="login">Login</a>
                         </li>
                         <li class="nav-item">
