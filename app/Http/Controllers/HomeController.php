@@ -46,14 +46,16 @@ class HomeController extends Controller {
                 $table = "idtable5";
             }
             $registered_id = DB::connection('mysql')->table($table)->select('trueId')->where('id', $a)->get();
-            $old_pin = $registered_id[0]->trueId;
-            if ($old_pin == $input_pin) {
-                $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$input_pass}') as 'pass'")->get();
-                DB::connection('mysql')->update("UPDATE {$table} SET passwd = '{$hashed_pass[0]->pass}' WHERE id = '{$user_name}'");
-                $request->session()->put('username', $user_name);
-                return redirect('/');
-            } else
-                return view('reset')->withMessage('error');
+            if (count($registered_id) > 0) {
+                $old_pin = $registered_id[0]->trueId;
+                if ($old_pin == $input_pin) {
+                    $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$input_pass}') as 'pass'")->get();
+                    DB::connection('mysql')->update("UPDATE {$table} SET passwd = '{$hashed_pass[0]->pass}' WHERE id = '{$user_name}'");
+                    $request->session()->put('username', $user_name);
+                    return redirect('/');
+                }
+            }
+            return view('reset')->withMessage('error');
         }
         return view('reset')->with('page', 'account');
     }
