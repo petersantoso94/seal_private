@@ -23,9 +23,36 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function account(Request $request){
+    public function forgetPass() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $request->session()->get('username');
+            $email = $request->get('email');
+            $pin = $request->get('pin');
+            $a = $id;
+            $letter = $a['0'];
+            $table = '';
+            if (preg_match("/[aA-dD0-9]/", $letter)) {
+                $table = "idtable1";
+            } else if (preg_match("/[eE-iI]/", $letter)) {
+                $table = "idtable2";
+            } else if (preg_match("/[eJ-nN]/", $letter)) {
+                $table = "idtable3";
+            } else if (preg_match("/[oO-rR]/", $letter)) {
+                $table = "idtable4";
+            } else if (preg_match("/[sS-zZ]/", $letter)) {
+                $table = "idtable5";
+            } else {
+                $table = "idtable5";
+            }
+            DB::connection('mysql')->update("UPDATE {$table} SET trueId = '{$pin}', email = '{$email}' WHERE id = '{$id}'");
+            return view('account')->with('page', 'account')->with('message', 'success');
+        }
+        return view('reset')->with('page', 'account');
+    }
+
+    public function account(Request $request) {
         if ($request->session()->get('username') != NULL) {
-            if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $id = $request->session()->get('username');
                 $email = $request->get('email');
                 $pin = $request->get('pin');
@@ -46,13 +73,13 @@ class HomeController extends Controller {
                     $table = "idtable5";
                 }
                 DB::connection('mysql')->update("UPDATE {$table} SET trueId = '{$pin}', email = '{$email}' WHERE id = '{$id}'");
-                return view('account')->with('page', 'account')->with('message','success');
+                return view('account')->with('page', 'account')->with('message', 'success');
             }
             return view('account')->with('page', 'account');
         }
         return redirect('/');
     }
-    
+
     public function logoutmanual(Request $request) {
         $request->session()->forget('username');
         return redirect('/');
@@ -67,18 +94,18 @@ class HomeController extends Controller {
             $letter = $a['0'];
             $table = '';
             if (preg_match("/[aA-dD0-9]/", $letter)) {
-                    $table = "idtable1";
-                } else if (preg_match("/[eE-iI]/", $letter)) {
-                    $table = "idtable2";
-                } else if (preg_match("/[eJ-nN]/", $letter)) {
-                    $table = "idtable3";
-                } else if (preg_match("/[oO-sS]/", $letter)) {
-                    $table = "idtable4";
-                } else if (preg_match("/[tT-zZ]/", $letter)) {
-                    $table = "idtable5";
-                } else {
-                    $table = "idtable5";
-                }
+                $table = "idtable1";
+            } else if (preg_match("/[eE-iI]/", $letter)) {
+                $table = "idtable2";
+            } else if (preg_match("/[eJ-nN]/", $letter)) {
+                $table = "idtable3";
+            } else if (preg_match("/[oO-sS]/", $letter)) {
+                $table = "idtable4";
+            } else if (preg_match("/[tT-zZ]/", $letter)) {
+                $table = "idtable5";
+            } else {
+                $table = "idtable5";
+            }
             $registered_id = DB::connection('mysql')->table($table)->select('passwd')->where('id', $a)->get();
             if (count($registered_id) > 0) {
                 if ($registered_id[0]->passwd == $hashed_pass[0]->pass) { //authenticated
