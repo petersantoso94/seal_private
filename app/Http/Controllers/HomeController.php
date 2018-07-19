@@ -23,6 +23,13 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
+    public function personalRank(Request $request){
+        if ($request->session()->get('username') != NULL) {
+            return view('personalrank')->with('page', 'personalrank');
+        }
+        return redirect('/');
+    }
+    
     public function forgetPass(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $input_pin = $request->get('pin');
