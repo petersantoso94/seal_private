@@ -125,6 +125,8 @@
             }
             html, body {
                 height: 100%;
+            }
+            h1, h2, h3, h4, h5 {
                 font-family: 'MyWebFont';
             }
             .footer-custom {
@@ -188,7 +190,7 @@
             </form>
         </div>
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="position: -webkit-sticky; /* Safari */position: sticky;; margin-top: 30px;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="position: -webkit-sticky; /* Safari */position: sticky;; margin-top: 30px;font-family: 'MyWebFont';">
             <div class="container">
                 <a href="#" class="navbar-brand"><img src="{{URL::asset('public/picture/logo.png')}}" alt="Seal SHILTZ" style="height:120px;margin-top: -60px;position: absolute;margin-left: auto;margin-right: auto;left: 0;right: 0;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -236,7 +238,7 @@
         </nav>
         <div id="wrap" style="">
             <div class="container" id="main">
-                <div class="text-center" style="margin-top: 30px;background: #6c757d">
+                <div class="text-center" style="margin-top: 30px;background: #6c757d;font-family: 'MyWebFont';">
 
                     <div class="dropdown" style="margin-left:auto;margin-right:auto;">
                         @if(Session::get('username') == null)
