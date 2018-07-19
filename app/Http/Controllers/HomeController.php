@@ -23,7 +23,7 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function forgetPass() {
+    public function forgetPass(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $input_pin = $request->get('pin');
             $input_pass = $request->get('password');
