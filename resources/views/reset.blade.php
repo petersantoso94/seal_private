@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('password.request') }}">
+                    <form method="POST" action="{{ route('forgetPass') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -17,11 +17,9 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                                <span class="invalid-feedback" id='err-email'>
+                                    
+                                </span>
                             </div>
                         </div>
 
@@ -31,11 +29,9 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                                <span class="invalid-feedback" id='err-pass'>
+                                    
+                                </span>
                             </div>
                         </div>
 
@@ -44,12 +40,15 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <span class="invalid-feedback" id='err-conf'>
+                                    
+                                </span>
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="button" class="btn btn-primary" onclick="submitForm()">
                                     {{ __('Reset Password') }}
                                 </button>
                             </div>
@@ -60,4 +59,12 @@
         </div>
     </div>
 </div>
+@endsection
+@section('js-content')
+<script>
+    var submitForm = function(){
+        var email_err = $('.invalid-feedback[id="err-email"]');
+        console.log(email_err);
+    };
+</script>
 @endsection
