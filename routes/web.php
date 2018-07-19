@@ -49,6 +49,7 @@ Route::any('postCash', array('as' => 'postCash', 'uses' => 'AdminController@post
 Route::any('postItems', array('as' => 'postItems', 'uses' => 'AdminController@postItems'));
 Route::any('postItemsAdd', array('as' => 'postItemsAdd', 'uses' => 'AdminController@postItemsAdd'));
 Route::any('checkPIN', array('as' => 'checkPIN', 'uses' => 'HomeController@checkPIN'));
+Route::any('forgetPass', array('as' => 'forgetPass', 'uses' => 'HomeController@forgetPass'));
 Route::any('/home', 'HomeController@index')->name('home');
 Route::any('account', array('as' => 'account', 'uses' => 'HomeController@account'));
 Route::any('browse/{id}', array('as' => 'browse', 'uses' => 'HomeController@browse'));
