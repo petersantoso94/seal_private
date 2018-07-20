@@ -213,7 +213,7 @@
                             <a class="nav-link" href="https://drive.google.com/uc?export=download&confirm=agd_&id=1s0PrbusWLzWMcU62Zdoal3RObAEPxeHP">Download</a>
                         </li>
                         <div class="nav-item">
-                            <a class="nav-link" href="#" onclick="document.getElementById('id01').style.display = 'block'">Reset Password</a>
+                            
                         </div>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('logoutmanual')}}">Logout</a>
@@ -232,6 +232,9 @@
         </nav>
         <div id="wrap" style="">
             <div class="container" id="main">
+                @if(Session::get('username') != null)
+                <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id01').style.display = 'block'">Reset Password</button>
+                @endif
                 <div class="text-center" style="margin-top: 30px;background: #6c757d;font-family: 'MyWebFont';">
 
                     <div class="dropdown" style="margin-left:auto;margin-right:auto;">
