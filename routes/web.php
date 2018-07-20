@@ -47,6 +47,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::any('loginadmin', array('as' => 'loginadmin', 'uses' => 'AdminController@index'));
 Route::any('sendcash', array('as' => 'sendcash', 'uses' => 'AdminController@sendcash'));
 Route::any('editpage', array('as' => 'editpage', 'uses' => 'AdminController@editpage'));
+Route::any('editfanart', array('as' => 'editfanart', 'uses' => 'AdminController@editfanart'));
 Route::any('logoutadmin', array('as' => 'logoutadmin', 'uses' => 'AdminController@logout'));
 Route::any('loginmanual', array('as' => 'loginmanual', 'uses' => 'HomeController@loginmanual'));
 Route::any('logoutmanual', array('as' => 'logoutmanual', 'uses' => 'HomeController@logoutmanual'));
