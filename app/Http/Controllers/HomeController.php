@@ -160,11 +160,11 @@ class HomeController extends Controller {
                 if ($old_pin == $input_pin) {
                     $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$input_pass}') as 'pass'")->get();
                     DB::connection('mysql')->update("UPDATE {$table} SET passwd = '{$hashed_pass[0]->pass}' WHERE id = '{$user_name}'");
-                    return view('home')->withMessage('success');
+                    return view('home')->with('page','home')->withMessage('success');
                 } else
-                    return view('home')->withMessage('error');
+                    return view('home')->with('page','home')->withMessage('error');
             }
-        return view('home');
+        return view('home')->with('page','home');
     }
 
     public function browse($id) {
