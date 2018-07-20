@@ -34,7 +34,7 @@
         </tbody>
     </table>
 </div>
-<div class="white-pane__bordered margbot20" style="margin-left: 20px;">
+<div class="white-pane__bordered margbot20" style="margin-left: 20px;margin-top: 20px;">
     <div class="box">
         <div class="box-header">
             <?php if (isset($success)) { ?>
