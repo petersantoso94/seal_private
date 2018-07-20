@@ -26,6 +26,9 @@ Route::get('/event', function () {
 Route::get('/term', function () {
     return view('term')->with('page','term');
 });
+Route::get('/fanart', function () {
+    return view('fanart')->with('page','fanart');
+});
 Route::get('/adminpanelcos', function () {
     return view('admin.login');
 });
