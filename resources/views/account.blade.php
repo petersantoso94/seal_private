@@ -113,15 +113,12 @@
     $email = $registered_id[0]->email;
     $pin = $registered_id[0]->trueId;
     $point = $registered_id[0]->point;
-    $len_id = 4;
-    if (strlen($id) < $len_id)
-        $len_id = strlen($id) - 1;
-    $len_pin = 4;
-    if (strlen($pin) < $len_pin)
-        $len_pin = strlen($pin) - 1;
+    $len_id = strlen($id)/2;
+    $len_email = strlen($email)/2;
+    $len_pin = strlen($pin)/2;
     $print_id = str_repeat('*', strlen($id) - $len_id);
     $print_reg = str_repeat('*', strlen($reg_date) - 4);
-    $print_email = str_repeat('*', strlen($email) - 4);
+    $print_email = str_repeat('*', strlen($email) - $len_email);
     $print_pin = str_repeat('*', strlen($pin) - $len_pin);
     ?>
     <div class="row" style="width: 100%;margin-top: 30px;border:1px black">
@@ -135,13 +132,13 @@
             <strong>Registration Date</strong>
         </div>
         <div class='col-4'>
-            {{substr($reg_date,0,4).$print_reg}}
+            {{$reg_date}}
         </div>
         <div class='col-2'>
             <strong>Email</strong>
         </div>
         <div class='col-4'>
-            {{substr($email,0,4).$print_email}}
+            {{substr($email,0,$len_email).$print_email}}
         </div>
         <div class='col-2'>
             <strong>PIN</strong>
