@@ -197,7 +197,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
                             <a class="nav-link" href="{{url('')}}">Home
                                 <span class="sr-only">(current)</span>
@@ -206,21 +206,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('term')}}">Rules</a>
                         </li>
-                        <li class="nav-item" style="margin-right:40px;">
+                        <li class="nav-item" style="margin-right:-40px;">
                             <a class="nav-link" href="#"></a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item" style="margin-left:40px;">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item" style="margin-left:-40px;">
                             <a class="nav-link" href="#"></a>
                         </li>
                         @if(Session::get('username') != null)
-                        <div class="nav-item">
-                            <a class="nav-link" href="#" onclick="document.getElementById('id01').style.display = 'block'">Reset Password</a>
-                        </div>
                         <li class="nav-item">
                             <a class="nav-link" href="https://drive.google.com/uc?export=download&confirm=agd_&id=1s0PrbusWLzWMcU62Zdoal3RObAEPxeHP">Download</a>
                         </li>
+                        <div class="nav-item">
+                            <a class="nav-link" href="#" onclick="document.getElementById('id01').style.display = 'block'">Reset Password</a>
+                        </div>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('logoutmanual')}}">Logout</a>
                         </li>
@@ -270,7 +270,7 @@
                         </div>
                         @endfor
                         @else
-                        <div class="btn-group <?php if(isset($page))if($page == 'account')echo 'show'; ?>">
+                        <div class="btn-group <?php if (isset($page)) if ($page == 'account') echo 'show'; ?>">
                             <a class="btn btn-secondary" href="{{url('account')}}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Account
                             </a>
