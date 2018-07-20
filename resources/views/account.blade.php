@@ -84,7 +84,7 @@
     </div>
 
     @if(Session::get('username') != null)
-    <div class="row" style="width: 100%;margin-top: 30px">
+    <div class="row" style="width: 100%;">
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id01').style.display = 'block'" style="width:20%;background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Password</button>
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id02').style.display = 'block'" style="width:20%;background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset PIN</button>
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id03').style.display = 'block'" style="width:20%;background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Email</button>
@@ -113,39 +113,44 @@
     $email = $registered_id[0]->email;
     $pin = $registered_id[0]->trueId;
     $point = $registered_id[0]->point;
-    
-    $print_id = str_repeat('*', strlen($id)-4);
-    $print_reg = str_repeat('*', strlen($reg_date)-4);
-    $print_email = str_repeat('*', strlen($email)-4);
-    $print_pin = str_repeat('*', strlen($pin)-4);
+    $len_id = 4;
+    if (strlen($id) < $len_id)
+        $len_id = strlen($id) - 1;
+    $len_pin = 4;
+    if (strlen($pin) < $len_pin)
+        $len_pin = strlen($pin) - 1;
+    $print_id = str_repeat('*', strlen($id) - $len_id);
+    $print_reg = str_repeat('*', strlen($reg_date) - 4);
+    $print_email = str_repeat('*', strlen($email) - 4);
+    $print_pin = str_repeat('*', strlen($pin) - $len_pin);
     ?>
-    <div class="row" style="width: 100%;">
+    <div class="row" style="width: 100%;margin-top: 30px;border:1px black">
         <div class='col-2'>
-            Account-ID
+            <strong>Account-ID</strong>
         </div>
         <div class='col-4'>
-            {{substr($id,0,4).$print_id}}
+            {{substr($id,0,$len_id).$print_id}}
         </div>
         <div class='col-2'>
-            Registration Date
+            <strong>Registration Date</strong>
         </div>
         <div class='col-4'>
             {{substr($reg_date,0,4).$print_reg}}
         </div>
         <div class='col-2'>
-            Email
+            <strong>Email</strong>
         </div>
         <div class='col-4'>
             {{substr($email,0,4).$print_email}}
         </div>
         <div class='col-2'>
-            PIN
+            <strong>PIN</strong>
         </div>
         <div class='col-4'>
-            {{substr($pin,0,4).$print_pin}}
+            {{substr($pin,0,$len_pin).$print_pin}}
         </div>
         <div class='col-2'>
-            IM Coins
+            <strong>IM Coins</strong>
         </div>
         <div class='col-4'>
             {{$point}}
