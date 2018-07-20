@@ -63,7 +63,7 @@
                     {{$error}}
                 </div>
             <?php } ?>
-            <form method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+            <form method="POST" accept-charset="UTF-8" enctype="multipart/form-data" id='form_edit_fanart'>
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div class="row">
@@ -72,9 +72,6 @@
                         </div>
                         <div class="col-sm-4">
                             <input type='file' name='image' id='img-upload'>
-                        </div>
-                        <div class="col-sm-1" style="margin-top: 5px;">
-                            <button type="button" onclick="newCategory(this)"><span class="glyphicon glyphicon-plus"></span></button>
                         </div>
                     </div>
                 </div>
@@ -89,6 +86,7 @@
     var editEvent = '<?php echo Route('editEvent') ?>';
     var postDeleteEvent = '<?php echo Route('postDeleteEvent') ?>';
     var result = '';
+    var filetype = '';
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -103,7 +101,10 @@
                 filename = filename.substring(1);
             }
             filetype =  filename.split(".");
-            alert(filetype[1]);
+            filetype = filetype[1];
+        }
+        if(filetype != '' && filetype == 'png' && filetype == 'gif' && filetype == 'jpeg' && filetype == 'jpg'){
+            $('#form_edit_fanart').submit();
         }
     });
     window.deleteData = function (element) {
