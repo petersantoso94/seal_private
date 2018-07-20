@@ -1,0 +1,55 @@
+@extends('template.header-footer')
+@section('main-section')
+<!-- Page Content -->
+<!-- Jumbotron Header -->
+<!-- Page Features -->
+<header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
+    <h3>Top Guild Rank</h3>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Player 1 Name</th>
+                <th scope="col">Player 2 Name</th>
+                <th scope="col">Days</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $all_player = DB::connection('mysql3')->table('msgfriend')->select('char_name','couple_name','couple_daycnt')->get();
+            $players = [];
+            foreach ($all_player as $player) {
+                $gw_win = floatval($player->couple_daycnt);
+                $players[] = array(
+                    'char_name' => $player->char_name,
+                    'master' => $player->couple_name,
+                    'total_score' => $gw_win
+                );
+            }
+            $arr_total  = array_column($players, 'total_score');
+            array_multisort($arr_total, SORT_DESC, $players);
+            $show_player = array_slice($players, 0, 20);
+            $counter = 1;
+            ?>
+            @foreach($show_player as $player)
+            <tr>
+                <th scope="row">{{$counter}}</th>
+                <td>{{$player['char_name']}}</td>
+                <td>{{$player['master']}}</td>
+                <td>{{$player['total_score']}}</td>
+            </tr>
+            <?php $counter++; ?>
+            @endforeach
+        </tbody>
+    </table>
+</header>
+<!-- /.row -->
+
+</div>
+<!-- /.container -->
+@stop
+@section('js-content')
+<script>
+</script>
+@stop
+
