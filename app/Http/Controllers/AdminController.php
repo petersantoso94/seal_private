@@ -150,7 +150,7 @@ class AdminController extends Controller {
                         } else {
                             $imgnumber = $imgnumber->id + 1;
                         }
-                        $destination = base_path() . '/public/picture/fanart/';
+                        $destination = base_path() . '/public/picture/';
                         $extention = $input_image->getClientOriginalExtension();
                         $filename = 'image_fanart' . $imgnumber . '.' . $extention;
                         $input_image->move($destination, $filename);
