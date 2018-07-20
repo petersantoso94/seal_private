@@ -57,13 +57,13 @@
 
     @if(Session::get('username') != null)
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-4">
             <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id01').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Password</button>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
             <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id02').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset PIN</button>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
             <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id03').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Email</button>
         </div>
     </div>
