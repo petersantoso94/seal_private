@@ -282,8 +282,8 @@
                                 Editable Space
                             </a>
                         </div>
-                        <div class="btn-group">
-                            <a class="btn btn-secondary" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        <div class="btn-group <?php if (isset($page)) if ($page == 'fanart') echo 'show'; ?>">
+                            <a class="btn btn-secondary" href="{{url('fanart')}}" role="button" aria-haspopup="true" aria-expanded="false">
                                 Fan Art
                             </a>
                         </div>
