@@ -92,14 +92,14 @@
     <div class="row" style="width: 100%;">
         <div class='col'>
             <div class="row">
-                <div class='col-sm-8'>Account ID:</div>
-                <div class='col-sm-8'>ABC****</div>
+                <div class='col-sm-4'>Account ID:</div>
+                <div class='col-sm-4'>ABC****</div>
             </div>
         </div>
         <div class='col'>
             <div class="row">
-                <div class='col-sm-8'>Registration Date:</div>
-                <div class='col-sm-8'>18-******</div>
+                <div class='col-sm-4'>Registration Date:</div>
+                <div class='col-sm-4'>18-******</div>
             </div>
         </div>
     </div>
