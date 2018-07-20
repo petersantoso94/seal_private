@@ -90,7 +90,7 @@
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id03').style.display = 'block'" style="width:20%;background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Email</button>
     </div>
     <?php
-    $user_name = $request->session()->get('username');
+    $user_name = Session::get('username');
     $a = $user_name;
     $letter = $a['0'];
     $table = '';
