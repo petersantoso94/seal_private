@@ -103,8 +103,8 @@
             $('#form_edit_fanart').submit();
         }
     });
-    window.deleteData = function (element) {
-        notin = $(element).data('internal');\
+    var deleteData = function (element) {
+        notin = $(element).data('internal');
         if (confirm("Do you want to delete this Image?") == true) {
             $.post(postDeleteEvent, {sn: notin}, function (data) {
 
