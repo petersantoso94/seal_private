@@ -24,7 +24,7 @@ Route::get('/event', function () {
     return view('event');
 });
 Route::get('/term', function () {
-    return view('term');
+    return view('term')->with('page','term');
 });
 Route::get('/adminpanelcos', function () {
     return view('admin.login');
