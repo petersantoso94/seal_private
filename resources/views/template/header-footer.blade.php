@@ -232,6 +232,9 @@
         </nav>
         <div id="wrap" style="">
             <div class="container" id="main">
+                @if(Session::get('username') != null)
+                <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id01').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;float:right;font-family: 'MyWebFont';">Reset Password</button>
+                @endif
                 <div class="text-center" style="margin-top: 30px;background: #6c757d;font-family: 'MyWebFont';">
 
                     <div class="dropdown" style="margin-left:auto;margin-right:auto;">
@@ -282,9 +285,6 @@
                         @endif
                     </div>
                 </div>
-                @if(Session::get('username') != null)
-                <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id01').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;float:right;font-family: 'MyWebFont';">Reset Password</button>
-                @endif
                 @yield('main-section')
             </div>
         </div>
