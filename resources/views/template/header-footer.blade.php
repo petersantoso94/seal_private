@@ -197,17 +197,17 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
+                    <ul class="navbar-nav mr-auto ml-auto">
+                        <li class="nav-item <?php if (isset($page)) if ($page == 'home') echo 'active'; ?>">
                             <a class="nav-link" href="{{url('')}}">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item <?php if (isset($page)) if ($page == 'term') echo 'active'; ?>">
                             <a class="nav-link" href="{{url('term')}}">Rules</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav ml-auto mr-auto">
                         @if(Session::get('username') != null)
                         <li class="nav-item">
                             <a class="nav-link" href="https://drive.google.com/uc?export=download&confirm=agd_&id=1s0PrbusWLzWMcU62Zdoal3RObAEPxeHP">Download</a>
