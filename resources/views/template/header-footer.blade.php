@@ -150,6 +150,11 @@
             .img-container-cs{
                 height:500px;
             }
+            
+            .nav-item{
+                margin-left: 10px;
+                margin-right: 10px;
+            }
             .img-slider{
                 width:100%;
                 height:100%;
@@ -235,7 +240,7 @@
                 @if(Session::get('username') != null)
                 <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id01').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Password</button>
                 @endif
-                <div class="text-center" style="margin-top: 30px;background: #6c757d;font-family: 'MyWebFont';">
+                <div class="text-center" style="margin-top: 10px;background: #6c757d;font-family: 'MyWebFont';">
 
                     <div class="dropdown" style="margin-left:auto;margin-right:auto;">
                         @if(Session::get('username') == null)
