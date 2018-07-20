@@ -7,27 +7,23 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Event Name</th>
-                        <th>Category</th>
+                        <th>Image</th>
                         <th>Action</th>
                     <!--<th>Actions</th>-->
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(DB::connection('mysql2')->table('content')->select('*')->get() as $data)
-                    @if($data->link === NULL)
+                    @foreach(DB::connection('mysql2')->table('fanart')->select('*')->get() as $data)
                     <tr>
                         <td>{{$data->id}}</td>
-                        <td>{{$data->name}}</td>
-                        <td>{{$data->horizontal_name}}</td>
+                        <td><img class="card-img-top" src="{{URL::asset('public/picture/'.$data->image)}}" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;"></td>
                         <td>
-                            <button title="Delete" type="button" data-internal="{{$data->id}}" data-name="{{$data->name}}" onclick="deleteData(this)"
+                            <button title="Delete" type="button" data-internal="{{$data->id}}" onclick="deleteData(this)"
                                     class="btn btn-pure-xs btn-xs btn-delete">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </button>
                         </td>
                     </tr>
-                    @endif
                     @endforeach
                 </tbody>
             </table>
@@ -84,7 +80,7 @@
 @section('js-content')
 <script>
     var editEvent = '<?php echo Route('editEvent') ?>';
-    var postDeleteEvent = '<?php echo Route('postDeleteEvent') ?>';
+    var postDeleteFanart = '<?php echo Route('postDeleteFanart') ?>';
     var result = '';
     var filetype = '';
     $.ajaxSetup({
@@ -108,9 +104,8 @@
         }
     });
     window.deleteData = function (element) {
-        notin = $(element).data('internal');
-        name = $(element).data('name');
-        if (confirm("Do you want to delete this Event (" + name + ")?") == true) {
+        notin = $(element).data('internal');\
+        if (confirm("Do you want to delete this Image?") == true) {
             $.post(postDeleteEvent, {sn: notin}, function (data) {
 
             }).done(function () {
