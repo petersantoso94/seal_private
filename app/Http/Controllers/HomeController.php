@@ -67,10 +67,12 @@ class HomeController extends Controller {
     public function account(Request $request) {
         if ($request->session()->get('username') != NULL) {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $id = $request->session()->get('username');
-                $email = $request->get('email');
-                $pin = $request->get('pin');
-                $a = $id;
+                $type = $request->get('tipe');
+                $input_pin = $request->get('pin');
+                $input_pass = $request->get('psw');
+//                $input_pin = '12345678';
+                $user_name = $request->session()->get('username');
+                $a = $user_name;
                 $letter = $a['0'];
                 $table = '';
                 if (preg_match("/[aA-dD0-9]/", $letter)) {
@@ -79,15 +81,28 @@ class HomeController extends Controller {
                     $table = "idtable2";
                 } else if (preg_match("/[eJ-nN]/", $letter)) {
                     $table = "idtable3";
-                } else if (preg_match("/[oO-rR]/", $letter)) {
+                } else if (preg_match("/[oO-sS]/", $letter)) {
                     $table = "idtable4";
-                } else if (preg_match("/[sS-zZ]/", $letter)) {
+                } else if (preg_match("/[tT-zZ]/", $letter)) {
                     $table = "idtable5";
                 } else {
                     $table = "idtable5";
                 }
-                DB::connection('mysql')->update("UPDATE {$table} SET trueId = '{$pin}', email = '{$email}' WHERE id = '{$id}'");
-                return view('account')->with('page', 'account')->with('message', 'success');
+                $registered_id = DB::connection('mysql')->table($table)->select('trueId')->where('id', $a)->get();
+                $old_pin = $registered_id[0]->trueId;
+                if ($old_pin == $input_pin) {
+                    if ($type === 'pass') {
+                        $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$input_pass}') as 'pass'")->get();
+                        DB::connection('mysql')->update("UPDATE {$table} SET passwd = '{$hashed_pass[0]->pass}' WHERE id = '{$user_name}'");
+                    } else if ($type === 'pin') {
+                        DB::connection('mysql')->update("UPDATE {$table} SET trueId = '{$input_pass}' WHERE id = '{$user_name}'");
+                    } else if ($type === 'email') {
+                        DB::connection('mysql')->update("UPDATE {$table} SET email = '{$input_pass}' WHERE id = '{$user_name}'");
+                    }
+                    return view('account')->with('page', 'account')->with('message', 'success');
+                } else {
+                    return view('account')->with('page', 'account')->with('message', 'error');
+                }
             }
             return view('account')->with('page', 'account');
         }
@@ -148,9 +163,9 @@ class HomeController extends Controller {
                     $table = "idtable2";
                 } else if (preg_match("/[eJ-nN]/", $letter)) {
                     $table = "idtable3";
-                } else if (preg_match("/[oO-rR]/", $letter)) {
+                } else if (preg_match("/[oO-sS]/", $letter)) {
                     $table = "idtable4";
-                } else if (preg_match("/[sS-zZ]/", $letter)) {
+                } else if (preg_match("/[tT-zZ]/", $letter)) {
                     $table = "idtable5";
                 } else {
                     $table = "idtable5";
