@@ -55,6 +55,7 @@ Route::any('postValid', array('as' => 'postValid', 'uses' => 'AdminController@po
 Route::any('postDelete', array('as' => 'postDelete', 'uses' => 'AdminController@postDelete'));
 Route::any('editEvent', array('as' => 'editEvent', 'uses' => 'AdminController@editEvent'));
 Route::any('postDeleteEvent', array('as' => 'postDeleteEvent', 'uses' => 'AdminController@postDeleteEvent'));
+Route::any('postDeleteFanart', array('as' => 'postDeleteFanart', 'uses' => 'AdminController@postDeleteFanart'));
 Route::any('postCash', array('as' => 'postCash', 'uses' => 'AdminController@postCash'));
 Route::any('postItems', array('as' => 'postItems', 'uses' => 'AdminController@postItems'));
 Route::any('postItemsAdd', array('as' => 'postItemsAdd', 'uses' => 'AdminController@postItemsAdd'));
