@@ -88,7 +88,20 @@
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id01').style.display = 'block'" style="width:20%;background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Password</button>
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id02').style.display = 'block'" style="width:20%;background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset PIN</button>
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id03').style.display = 'block'" style="width:20%;background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Email</button>
-
+    </div>
+    <div class="row" style="width: 100%;">
+        <div class='col'>
+            <div class="row">
+                <div class='col-sm-8'>Account ID:</div>
+                <div class='col-sm-8'>ABC****</div>
+            </div>
+        </div>
+        <div class='col'>
+            <div class="row">
+                <div class='col-sm-8'>Registration Date:</div>
+                <div class='col-sm-8'>18-******</div>
+            </div>
+        </div>
     </div>
     @endif
 </div>
