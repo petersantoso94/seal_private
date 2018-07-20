@@ -40,7 +40,7 @@
             </div>
         </form>
     </div>
-    <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3>
+    <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3><br>
     <?php if (isset($message)) { ?>
         @if($message == 'success')
         <div class="alert alert-success alert-dismissible" role="alert" style="width: 98%; margin: 1%">
@@ -49,14 +49,24 @@
         </div>
         @endif
     <?php } ?>
-    <div class="form-group">
+    <div class="row">
         @if(Session::get('username') != null)
         <label for="users">Hi, {{Session::get('username')}}</label><br>
         @endif
     </div>
 
     @if(Session::get('username') != null)
-    <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id01').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Password</button>
+    <div class="row">
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id01').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Password</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id02').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset PIN</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id03').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Email</button>
+        </div>
+    </div>
     @endif
 </div>
 <!-- /.row -->
@@ -66,45 +76,29 @@
 @stop
 @section('js-content')
 <script>
-    var counter = 0;
-    var enableEmail = function () {
-        counter++;
-        $('#btn-submit').removeAttr('disabled');
-        $('#email').removeAttr('disabled');
-        $('#btn-enable-email').hide();
-        $('#btn-dis-email').show();
-    };
-    var disableEmail = function () {
-        counter--;
-        $('#btn-submit').attr('disabled', 'disabled');
-        $('#email').attr('disabled', 'disabled');
-        $('#btn-dis-email').hide();
-        $('#btn-enable-email').show();
-    };
-    var enablePin = function () {
-        counter++;
-        $('#btn-submit').removeAttr('disabled');
-        $('#pin').removeAttr('disabled');
-        $('#btn-enable-pin').hide();
-        $('#btn-dis-pin').show();
-    };
-    var disablePin = function () {
-        counter--;
-        $('#btn-submit').attr('disabled', 'disabled');
-        $('#pin').attr('disabled', 'disabled');
-        $('#btn-dis-pin').hide();
-        $('#btn-enable-pin').show();
-    };
-    var submitForm = function () {
-        if (counter > 0) {
-            $('#email').removeAttr('disabled');
-            $('#pin').removeAttr('disabled');
-            if ($('#email').val() != '' && $('#pin').val() != '')
-                $('#form_edit_account').submit();
-            else
-                alert('Please fill the value correctly!');
+
+    var pin = '';
+    var pass = '';
+    var confpass = '';
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    }
+    });
+    $('#submitpin').on('click', function () {
+        pin = $('#pinnum').val();
+        pass = $('#newpass').val();
+        confpass = $('#conf_pass').val();
+        if ((pin == null || pin == "") || (pass == null || pass == "") || (confpass == null || confpass == "")) {
+            alert('Please fill all the field');
+        } else {
+            if (pass !== confpass) {
+                alert("Passwords Don't Match");
+            } else {
+                $('form#form_reset_pass').submit();
+            }
+        }
+    });
 </script>
 @stop
 
