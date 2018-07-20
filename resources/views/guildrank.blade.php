@@ -20,7 +20,6 @@
             $players = [];
             foreach ($all_player as $player) {
                 $gw_win = floatval($player->gw_win_w);
-                $total_score = round(($player_level*0.5)+($player_fame*0.2)+($player_kill*0.3)* 10,0);
                 $players[] = array(
                     'char_name' => $player->name,
                     'master' => $player->mastername,
