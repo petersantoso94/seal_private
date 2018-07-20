@@ -142,26 +142,38 @@ class AdminController extends Controller {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $input = $request->file('image');
-                    dd($input);
-                    $category = $request->get('category');
-                    $pagename = $request->get('pagename');
-                    $new_name = '';
-                    $vert_number = 1;
-                    if ($request->get('newcategory')) {
-                        $horizontal = DB::connection('mysql2')->table('content')->orderBy('horizontal_level', 'DESC')->select('horizontal_level')->first();
-                        $new_name = $request->get('newcategory');
-                        $category = $horizontal->horizontal_level + 1;
-                    } else {
-                        $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'DESC')->where('horizontal_level', $category)->select('vertical_level', 'horizontal_name')->first();
-                        $new_name = $vertical->horizontal_name;
-                        $vert_number = $vertical->vertical_level + 1;
-                    }
-                    if ($data != "" && $data != NULL) {
-                        $data = stripslashes($data);
-                        $data = htmlspecialchars($data);
-                        DB::connection('mysql2')->insert("INSERT INTO content (`name`,`horizontal_level`,`vertical_level`,`content`,`horizontal_name`) VALUE ('{$pagename}','{$category}','{$vert_number}','{$data}','{$new_name}')");
-                        return view('admin.editfanart')->withPage('Edit Fan Art')->withSuccess('Sukses Insert Event');
+                    $input_image = $request->file('image');
+                    if ($input_image != '') {
+                        $imgnumber = DB::connection('mysql2')->table('fanart')->orderBy('id', 'DESC')->select('id')->first();
+                        if(count($imgnumber) == 0){
+                            $imgnumber = 1;
+                        }else{
+                            $imgnumber = $imgnumber[0]->id +1;
+                        }
+                        $destination = base_path() . '/public/picture/fanart/';
+                        $extention = $input_image->getClientOriginalExtension();
+                        $filename = 'image_fanart'.$imgnumber.'.' . $extention;
+                        dd($filename);
+                        $input_image->move($destination, $filename);
+                        $category = $request->get('category');
+                        $pagename = $request->get('pagename');
+                        $new_name = '';
+                        $vert_number = 1;
+                        if ($request->get('newcategory')) {
+                            $horizontal = DB::connection('mysql2')->table('content')->orderBy('horizontal_level', 'DESC')->select('horizontal_level')->first();
+                            $new_name = $request->get('newcategory');
+                            $category = $horizontal->horizontal_level + 1;
+                        } else {
+                            $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'DESC')->where('horizontal_level', $category)->select('vertical_level', 'horizontal_name')->first();
+                            $new_name = $vertical->horizontal_name;
+                            $vert_number = $vertical->vertical_level + 1;
+                        }
+                        if ($data != "" && $data != NULL) {
+                            $data = stripslashes($data);
+                            $data = htmlspecialchars($data);
+                            DB::connection('mysql2')->insert("INSERT INTO content (`name`,`horizontal_level`,`vertical_level`,`content`,`horizontal_name`) VALUE ('{$pagename}','{$category}','{$vert_number}','{$data}','{$new_name}')");
+                            return view('admin.editfanart')->withPage('Edit Fan Art')->withSuccess('Sukses Insert Event');
+                        }
                     }
                     return view('admin.editpage')->withPage('Edit Front Page')->withError('Error Data Kosong');
                 }
