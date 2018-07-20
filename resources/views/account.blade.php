@@ -126,7 +126,7 @@
             <strong>Account-ID</strong>
         </div>
         <div class='col-4'>
-            {{substr($id,0,$len_id).$print_id}}
+            {{$id}}
         </div>
         <div class='col-2'>
             <strong>Registration Date</strong>
