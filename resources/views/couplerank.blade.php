@@ -16,7 +16,15 @@
         </thead>
         <tbody>
             <?php
-            $all_player = DB::connection('mysql3')->table('msgfriend')->select('char_name', 'couple_name', 'couple_daycnt')->get();
+            $all_gm = [];
+            for ($i = 1; $i <= 20; $i++) {
+                if ($i < 10)
+                    $all_gm[] = 'gm0' . $i;
+                else {
+                    $all_gm[] = 'gm' . $i;
+                }
+            }
+            $all_player = DB::connection('mysql3')->table('msgfriend')->select('char_name', 'couple_name', 'couple_daycnt')->whereNotIn('char_name', $all_gm)->get();
             $players = [];
             $players2 = [];
             foreach ($all_player as $player) {
