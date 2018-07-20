@@ -40,7 +40,9 @@
             </div>
         </form>
     </div>
-    <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3><br>
+    <div class="row">
+        <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3>
+    </div>
     <?php if (isset($message)) { ?>
         @if($message == 'success')
         <div class="alert alert-success alert-dismissible" role="alert" style="width: 98%; margin: 1%">
@@ -57,15 +59,10 @@
 
     @if(Session::get('username') != null)
     <div class="row">
-        <div class="col-md-4">
-            <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id01').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Password</button>
-        </div>
-        <div class="col-md-4">
-            <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id02').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset PIN</button>
-        </div>
-        <div class="col-md-4">
-            <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id03').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Email</button>
-        </div>
+        <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id01').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Password</button>
+        <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id02').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset PIN</button>
+        <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id03').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Email</button>
+
     </div>
     @endif
 </div>
