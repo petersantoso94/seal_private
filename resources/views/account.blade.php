@@ -23,19 +23,19 @@
         </form>
     </div>
     <div id="id02" class="modal">
-        <form class="modal-content animate" action="{{url('home')}}" method="POST" id='form_reset_pass'>
+        <form class="modal-content animate" action="{{url('home')}}" method="POST" id='form_reset_pin'>
             @csrf
             <span onclick="document.getElementById('id02').style.display = 'none'" class="close" title="Close Modal">&times;</span>
             <div class="container">
                 <label for="psw"><b>Old Pin</b></label>
-                <input type="password" placeholder="Enter Pin" name="pin" id='pinnum' required>
+                <input type="password" placeholder="Enter Pin" name="pin" id='pinnum2' required>
                 <label for="psw"><b>New Pin</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" id='newpass' required>
+                <input type="password" placeholder="Enter Password" name="psw" id='newpass2' required>
                 <label for="confpsw"><b>Confirm New Pin</b></label>
-                <input type="password" placeholder="Confirm Password" name="psw2" id='conf_pass' required>
+                <input type="password" placeholder="Confirm Password" name="psw2" id='conf_pass2' required>
             </div>
             <div class="container" style="background-color:#f1f1f1">
-                <button type="button" id='submitpin'>Submit</button>
+                <button type="button" id='submitpin2'>Submit</button>
                 <button type="button" onclick="document.getElementById('id02').style.display = 'none'">Cancel</button>
             </div>
         </form>
@@ -93,6 +93,20 @@
                 alert("Passwords Don't Match");
             } else {
                 $('form#form_reset_pass').submit();
+            }
+        }
+    });
+    $('#submitpin2').on('click', function () {
+        pin = $('#pinnum2').val();
+        pass = $('#newpass2').val();
+        confpass = $('#conf_pass2').val();
+        if ((pin == null || pin == "") || (pass == null || pass == "") || (confpass == null || confpass == "")) {
+            alert('Please fill all the field');
+        } else {
+            if (pass !== confpass) {
+                alert("Passwords Don't Match");
+            } else {
+                $('form#form_reset_pin').submit();
             }
         }
     });
