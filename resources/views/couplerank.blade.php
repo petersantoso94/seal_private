@@ -20,18 +20,20 @@
             $players = [];
             foreach ($all_player as $player) {
                 $gw_win = floatval($player->couple_daycnt);
-                if (count($players) == 0)
+                if (count($players) == 0) {
                     $players[] = array(
                         'char_name' => $player->char_name,
                         'master' => $player->couple_name,
                         'total_score' => $gw_win
                     );
-                if (!in_array($player->couple_name, $players['master']) && count($players) > 0) {
-                    $players[] = array(
-                        'char_name' => $player->char_name,
-                        'master' => $player->couple_name,
-                        'total_score' => $gw_win
-                    );
+                } else {
+                    if (!in_array($player->couple_name, $players['master']) && count($players) > 0) {
+                        $players[] = array(
+                            'char_name' => $player->char_name,
+                            'master' => $player->couple_name,
+                            'total_score' => $gw_win
+                        );
+                    }
                 }
             }
             $arr_total = array_column($players, 'total_score');
