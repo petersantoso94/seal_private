@@ -84,23 +84,72 @@
     </div>
 
     @if(Session::get('username') != null)
-    <div class="row" style="width: 100%;">
+    <div class="row" style="width: 100%;margin-top: 30px">
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id01').style.display = 'block'" style="width:20%;background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Password</button>
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id02').style.display = 'block'" style="width:20%;background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset PIN</button>
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id03').style.display = 'block'" style="width:20%;background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Email</button>
     </div>
+    <?php
+    $user_name = $request->session()->get('username');
+    $a = $user_name;
+    $letter = $a['0'];
+    $table = '';
+    if (preg_match("/[aA-dD0-9]/", $letter)) {
+        $table = "idtable1";
+    } else if (preg_match("/[eE-iI]/", $letter)) {
+        $table = "idtable2";
+    } else if (preg_match("/[eJ-nN]/", $letter)) {
+        $table = "idtable3";
+    } else if (preg_match("/[oO-sS]/", $letter)) {
+        $table = "idtable4";
+    } else if (preg_match("/[tT-zZ]/", $letter)) {
+        $table = "idtable5";
+    } else {
+        $table = "idtable5";
+    }
+    $registered_id = DB::connection('mysql')->table($table)->select('*')->where('id', $a)->get();
+    $id = $registered_id[0]->id;
+    $reg_date = $registered_id[0]->reg_date;
+    $email = $registered_id[0]->email;
+    $pin = $registered_id[0]->trueId;
+    $point = $registered_id[0]->point;
+    
+    $print_id = str_repeat('*', strlen($id)-4);
+    $print_reg = str_repeat('*', strlen($reg_date)-4);
+    $print_email = str_repeat('*', strlen($email)-4);
+    $print_pin = str_repeat('*', strlen($pin)-4);
+    $print_point = str_repeat('*', strlen($point)-4);
+    ?>
     <div class="row" style="width: 100%;">
-        <div class='col'>
-            <div class="row">
-                <div class='col-sm-4'>Account ID:</div>
-                <div class='col-sm-4'>ABC****</div>
-            </div>
+        <div class='col-2'>
+            Account-ID
         </div>
-        <div class='col'>
-            <div class="row">
-                <div class='col-sm-4'>Registration Date:</div>
-                <div class='col-sm-4'>18-******</div>
-            </div>
+        <div class='col-4'>
+            {{substr($id,0,4).$print_id}}
+        </div>
+        <div class='col-2'>
+            Registration Date
+        </div>
+        <div class='col-4'>
+            {{substr($reg_date,0,4).$print_reg}}
+        </div>
+        <div class='col-2'>
+            Email
+        </div>
+        <div class='col-4'>
+            {{substr($email,0,4).$print_email}}
+        </div>
+        <div class='col-2'>
+            PIN
+        </div>
+        <div class='col-4'>
+            {{substr($pin,0,4).$print_pin}}
+        </div>
+        <div class='col-2'>
+            IM Coins
+        </div>
+        <div class='col-4'>
+            {{substr($point,0,4).$print_point}}
         </div>
     </div>
     @endif
