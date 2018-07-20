@@ -106,7 +106,7 @@
     var deleteData = function (element) {
         notin = $(element).data('internal');
         if (confirm("Do you want to delete this Image?") == true) {
-            $.post(postDeleteEvent, {sn: notin}, function (data) {
+            $.post(postDeleteFanart, {sn: notin}, function (data) {
 
             }).done(function () {
 
