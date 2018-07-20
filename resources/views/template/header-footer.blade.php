@@ -175,25 +175,7 @@
     </head>
 
     <body background="{{URL::asset('public/picture/Web Background.png')}}" style="background-size: 100% 100%;background-attachment: fixed;">
-        <div id="id01" class="modal">
-
-            <form class="modal-content animate" action="{{url('home')}}" method="POST" id='form_reset_pass'>
-                @csrf
-                <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
-                <div class="container">
-                    <label for="psw"><b>Pin</b></label>
-                    <input type="password" placeholder="Enter Pin" name="pin" id='pinnum' required>
-                    <label for="psw"><b>New Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" id='newpass' required>
-                    <label for="confpsw"><b>Confirm Password</b></label>
-                    <input type="password" placeholder="Confirm Password" name="psw2" id='conf_pass' required>
-                </div>
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" id='submitpin'>Submit</button>
-                    <button type="button" onclick="document.getElementById('id01').style.display = 'none'">Cancel</button>
-                </div>
-            </form>
-        </div>
+        
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="position: -webkit-sticky; /* Safari */position: sticky;; margin-top: 30px;font-family: 'MyWebFont';">
             <div class="container">
@@ -237,9 +219,6 @@
         </nav>
         <div id="wrap" style="">
             <div class="container" id="main">
-                @if(Session::get('username') != null)
-                <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id01').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Password</button>
-                @endif
                 <div class="text-center" style="margin-top: 10px;background: #6c757d;font-family: 'MyWebFont';">
 
                     <div class="dropdown" style="margin-left:auto;margin-right:auto;">
