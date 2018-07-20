@@ -145,10 +145,10 @@ class AdminController extends Controller {
                     $input_image = $request->file('image');
                     if ($input_image != '') {
                         $imgnumber = DB::connection('mysql2')->table('fanart')->orderBy('id', 'DESC')->select('id')->first();
-                        if(count($imgnumber) == 0){
+                        if(!$imgnumber){
                             $imgnumber = 1;
                         }else{
-                            $imgnumber = $imgnumber[0]->id +1;
+                            $imgnumber = $imgnumber->id +1;
                         }
                         $destination = base_path() . '/public/picture/fanart/';
                         $extention = $input_image->getClientOriginalExtension();
