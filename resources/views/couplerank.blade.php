@@ -18,8 +18,10 @@
             <?php
             $all_player = DB::connection('mysql3')->table('msgfriend')->select('char_name', 'couple_name', 'couple_daycnt')->get();
             $players = [];
+            $players2 = [];
             foreach ($all_player as $player) {
                 $gw_win = floatval($player->couple_daycnt);
+                $players2[] = $player->couple_name;
                 if (count($players) == 0) {
                     $players[] = array(
                         'char_name' => $player->char_name,
@@ -27,7 +29,7 @@
                         'total_score' => $gw_win
                     );
                 } else {
-                    if (!in_array($player->couple_name, $players['master']) && count($players) > 0) {
+                    if (!in_array($player->char_name, $players2) && count($players) > 0) {
                         $players[] = array(
                             'char_name' => $player->char_name,
                             'master' => $player->couple_name,
