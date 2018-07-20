@@ -150,7 +150,7 @@
             .img-container-cs{
                 height:500px;
             }
-            
+
             .nav-item{
                 margin-left: 10px;
                 margin-right: 10px;
@@ -175,7 +175,7 @@
     </head>
 
     <body background="{{URL::asset('public/picture/Web Background.png')}}" style="background-size: 100% 100%;background-attachment: fixed;">
-        
+
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="position: -webkit-sticky; /* Safari */position: sticky;; margin-top: 30px;font-family: 'MyWebFont';">
             <div class="container">
@@ -200,7 +200,7 @@
                             <a class="nav-link" href="https://drive.google.com/uc?export=download&confirm=agd_&id=1s0PrbusWLzWMcU62Zdoal3RObAEPxeHP">Download</a>
                         </li>
                         <div class="nav-item">
-                            
+
                         </div>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('logoutmanual')}}">Logout</a>
@@ -279,29 +279,6 @@
         <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         @yield('js-content')
         <script>
-                                var checkPIN = "{{url('checkPIN')}}";
-                                var pin = '';
-                                var pass = '';
-                                var confpass = '';
-                                $.ajaxSetup({
-                                    headers: {
-                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                    }
-                                });
-                                $('#submitpin').on('click', function () {
-                                    pin = $('#pinnum').val();
-                                    pass = $('#newpass').val();
-                                    confpass = $('#conf_pass').val();
-                                    if ((pin == null || pin == "") || (pass == null || pass == "") || (confpass == null || confpass == "")) {
-                                        alert('Please fill all the field');
-                                    } else {
-                                        if (pass !== confpass) {
-                                            alert("Passwords Don't Match");
-                                        } else {
-                                            $('form#form_reset_pass').submit();
-                                        }
-                                    }
-                                });
         </script>
     </body>
 </html>
