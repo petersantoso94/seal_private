@@ -51,14 +51,14 @@
         </div>
         @endif
     <?php } ?>
-    <div class="row">
+    <div class="row" style="width: 100%;">
         @if(Session::get('username') != null)
         <label for="users">Hi, {{Session::get('username')}}</label><br>
         @endif
     </div>
 
     @if(Session::get('username') != null)
-    <div class="row">
+    <div class="row" style="width: 100%;">
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id01').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Password</button>
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id02').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset PIN</button>
         <button type="button" class="btn btn-primary btn-rounded btn-marg" onclick="document.getElementById('id03').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Email</button>
