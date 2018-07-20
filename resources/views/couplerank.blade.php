@@ -16,17 +16,25 @@
         </thead>
         <tbody>
             <?php
-            $all_player = DB::connection('mysql3')->table('msgfriend')->select('char_name','couple_name','couple_daycnt')->get();
+            $all_player = DB::connection('mysql3')->table('msgfriend')->select('char_name', 'couple_name', 'couple_daycnt')->get();
             $players = [];
             foreach ($all_player as $player) {
                 $gw_win = floatval($player->couple_daycnt);
-                $players[] = array(
-                    'char_name' => $player->char_name,
-                    'master' => $player->couple_name,
-                    'total_score' => $gw_win
-                );
+                if (count($players) == 0)
+                    $players[] = array(
+                        'char_name' => $player->char_name,
+                        'master' => $player->couple_name,
+                        'total_score' => $gw_win
+                    );
+                if (!in_array($player->couple_name, $players['master']) && count($players) > 0) {
+                    $players[] = array(
+                        'char_name' => $player->char_name,
+                        'master' => $player->couple_name,
+                        'total_score' => $gw_win
+                    );
+                }
             }
-            $arr_total  = array_column($players, 'total_score');
+            $arr_total = array_column($players, 'total_score');
             array_multisort($arr_total, SORT_DESC, $players);
             $show_player = array_slice($players, 0, 20);
             $counter = 1;
