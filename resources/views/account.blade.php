@@ -40,7 +40,7 @@
             </div>
         </form>
     </div>
-    <div class="row">
+    <div class="row" style="width: 100%;">
         <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3>
     </div>
     <?php if (isset($message)) { ?>
