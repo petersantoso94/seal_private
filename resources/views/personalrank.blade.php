@@ -18,13 +18,21 @@
         </thead>
         <tbody>
             <?php
-            $all_player = DB::connection('mysql3')->table('pc')->select('char_name', 'level', 'fame', 'gw_score_t')->get();
+            $all_gm = [];
+            for ($i = 1; $i <= 20; $i++) {
+                if ($i < 10)
+                    $all_gm[] = '0' . $i;
+                else {
+                    $all_gm[] = (string) $i;
+                }
+            }
+            $all_player = DB::connection('mysql3')->table('pc')->select('char_name', 'level', 'fame', 'gw_score_t')->whereNotIn('user_id', ['', 200])->get();
             $players = [];
             foreach ($all_player as $player) {
                 $player_level = floatval($player->level);
                 $player_fame = floatval($player->fame);
                 $player_kill = floatval($player->gw_score_t);
-                $total_score = ($player_level*0.5)+($player_fame*0.2)+($player_kill*0.3);
+                $total_score = ($player_level * 0.5) + ($player_fame * 0.2) + ($player_kill * 0.3);
                 $players[] = array(
                     'char_name' => $player->char_name,
                     'level' => $player_level,
@@ -33,7 +41,7 @@
                     'total_score' => $total_score
                 );
             }
-            $arr_total  = array_column($players, 'total_score');
+            $arr_total = array_column($players, 'total_score');
             array_multisort($arr_total, SORT_DESC, $players);
             $show_player = array_slice($players, 0, 50);
             $counter = 1;
