@@ -42,9 +42,9 @@ class HomeController extends Controller {
                 $table = "idtable2";
             } else if (preg_match("/[eJ-nN]/", $letter)) {
                 $table = "idtable3";
-            } else if (preg_match("/[oO-rR]/", $letter)) {
+            } else if (preg_match("/[oO-sS]/", $letter)) {
                 $table = "idtable4";
-            } else if (preg_match("/[sS-zZ]/", $letter)) {
+            } else if (preg_match("/[tT-zZ]/", $letter)) {
                 $table = "idtable5";
             } else {
                 $table = "idtable5";
@@ -160,11 +160,11 @@ class HomeController extends Controller {
                 if ($old_pin == $input_pin) {
                     $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$input_pass}') as 'pass'")->get();
                     DB::connection('mysql')->update("UPDATE {$table} SET passwd = '{$hashed_pass[0]->pass}' WHERE id = '{$user_name}'");
-                    return view('home')->with('page','home')->withMessage('success');
+                    return view('home')->with('page', 'home')->withMessage('success');
                 } else
-                    return view('home')->with('page','home')->withMessage('error');
+                    return view('home')->with('page', 'home')->withMessage('error');
             }
-        return view('home')->with('page','home');
+        return view('home')->with('page', 'home');
     }
 
     public function browse($id) {
