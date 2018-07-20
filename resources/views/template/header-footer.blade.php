@@ -159,6 +159,10 @@
                 width:100%;
                 height:100%;
             }
+            .card-img-top{
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
             /*            .slideshow > div {
                             position: absolute;
                             max-width: 100%;
