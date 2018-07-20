@@ -24,7 +24,11 @@
                     $all_gm[] = 'gm' . $i;
                 }
             }
-            $all_player = DB::connection('mysql3')->table('msgfriend')->select('char_name', 'couple_name', 'couple_daycnt')->whereNotIn('char_name', $all_gm)->whereNotIn('couple_name', $all_gm)->get();
+            $gm_name =[];
+            foreach(DB::connection('mysql3')->table('pc')->select('char_name','user_id')->whereIn('user_id',$all_gm)->get() as $char){
+                $gm_name[] = $char->char_name;
+            }
+            $all_player = DB::connection('mysql3')->table('msgfriend')->select('char_name', 'couple_name', 'couple_daycnt')->whereNotIn('char_name', $gm_name)->whereNotIn('couple_name', $gm_name)->get();
             $players = [];
             $players2 = [];
             foreach ($all_player as $player) {
