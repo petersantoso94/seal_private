@@ -131,17 +131,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li <?php if (isset($page)) if ($page === 'Approve User') echo 'class="active"'; ?>><a href="{{url('loginadmin')}}"><i class="fa fa-link"></i> <span>Approve User</span></a></li>
                         <li <?php if (isset($page)) if ($page === 'Send Cash') echo 'class="active"'; ?>><a href="{{url('sendcash')}}"><i class="fa fa-link"></i> <span>Send Cash</span></a></li>
                         <li <?php if (isset($page)) if ($page === 'Edit Front Page') echo 'class="active"'; ?>><a href="{{url('editpage')}}"><i class="fa fa-link"></i> <span>Edit Front Page</span></a></li>
-                        <li class="treeview">
-                            <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="                        treeview-menu">
-                                <li><a href="#">Link in level                        2</a></li>
-                                <li><a href="#">Link in level 2</a></li>
-                            </ul>
-                        </li>
+                        <li <?php if (isset($page)) if ($page === 'Edit Fan Art') echo 'class="active"'; ?>><a href="{{url('editfanart')}}"><i class="fa fa-link"></i> <span>Edit Fan Art</span></a></li>
                     </ul>
                     <!-- /.sidebar-menu -->
                 </section>
