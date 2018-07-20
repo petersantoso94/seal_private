@@ -103,7 +103,7 @@
             filetype =  filename.split(".");
             filetype = filetype[1];
         }
-        if(filetype != '' && filetype == 'png' && filetype == 'gif' && filetype == 'jpeg' && filetype == 'jpg'){
+        if(filetype != '' && (filetype == 'png' || filetype == 'gif' || filetype == 'jpeg' || filetype == 'jpg')){
             $('#form_edit_fanart').submit();
         }
     });
