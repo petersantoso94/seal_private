@@ -13,7 +13,7 @@
                 <th scope="col">Level</th>
                 <th scope="col">Kill</th>
                 <th scope="col">Fame</th>
-                <th scope="col">Total Points</th>
+                <th scope="col">Player's Rating</th>
             </tr>
         </thead>
         <tbody>
@@ -32,7 +32,7 @@
                 $player_level = floatval($player->level);
                 $player_fame = floatval($player->fame);
                 $player_kill = floatval($player->gw_score_t);
-                $total_score = ($player_level * 0.5) + ($player_fame * 0.0002) + ($player_kill * 0.6);
+                $total_score = round((($player_level * 0.5) + ($player_fame * 0.0002) + ($player_kill * 0.6)) * 10,0);
                 $players[] = array(
                     'char_name' => $player->char_name,
                     'level' => $player_level,
