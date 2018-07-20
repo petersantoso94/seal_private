@@ -163,6 +163,9 @@
                 padding-top: 10px;
                 padding-bottom: 10px;
             }
+            .btn-marg{
+                margin-right: 20px;
+            }
             /*            .slideshow > div {
                             position: absolute;
                             max-width: 100%;
