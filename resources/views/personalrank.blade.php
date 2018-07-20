@@ -21,12 +21,12 @@
             $all_gm = [];
             for ($i = 1; $i <= 20; $i++) {
                 if ($i < 10)
-                    $all_gm[] = '0' . $i;
+                    $all_gm[] = 'gm0' . $i;
                 else {
-                    $all_gm[] = (string) $i;
+                    $all_gm[] = 'gm' . $i;
                 }
             }
-            $all_player = DB::connection('mysql3')->table('pc')->select('char_name', 'level', 'fame', 'gw_score_t')->whereNotIn('user_id', ['', 200])->get();
+            $all_player = DB::connection('mysql3')->table('pc')->select('char_name', 'level', 'fame', 'gw_score_t')->whereNotIn('user_id', $all_gm)->get();
             $players = [];
             foreach ($all_player as $player) {
                 $player_level = floatval($player->level);
