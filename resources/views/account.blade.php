@@ -130,7 +130,7 @@
             alert('Please fill all the field');
         } else {
             if (pass !== confpass) {
-                alert("Passwords Don't Match");
+                alert("PINs Don't Match");
             } else {
                 $('form#form_reset_pin').submit();
             }
@@ -144,7 +144,7 @@
             alert('Please fill all the field');
         } else {
             if (pass !== confpass) {
-                alert("Passwords Don't Match");
+                alert("Emails Don't Match");
             } else {
                 $('form#form_reset_email').submit();
             }
