@@ -23,7 +23,7 @@
                             class="btn btn-pure-xs btn-xs btn-delete">
                         <span class="glyphicon glyphicon-edit"></span>
                     </button>
-                    <button title="Set to available" type="button" data-internal="{{$data->id}}" data-name="{{$data->name}}" onclick="deleteData(this)"
+                    <button title="Delete" type="button" data-internal="{{$data->id}}" data-name="{{$data->name}}" onclick="deleteData(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
