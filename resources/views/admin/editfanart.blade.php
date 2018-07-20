@@ -18,7 +18,7 @@
                         <td>{{$data->id}}</td>
                         <td><img class="card-img-top" src="{{URL::asset('public/picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
                         <td>
-                            <button title="Delete" type="button" data-internal="{{$data->id}}" onclick="deleteData(this)"
+                            <button title="Delete" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="deleteData(this)"
                                     class="btn btn-pure-xs btn-xs btn-delete">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </button>
@@ -96,17 +96,18 @@
             if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
                 filename = filename.substring(1);
             }
-            filetype =  filename.split(".");
+            filetype = filename.split(".");
             filetype = filetype[1];
         }
-        if(filetype != '' && (filetype == 'png' || filetype == 'gif' || filetype == 'jpeg' || filetype == 'jpg')){
+        if (filetype != '' && (filetype == 'png' || filetype == 'gif' || filetype == 'jpeg' || filetype == 'jpg')) {
             $('#form_edit_fanart').submit();
         }
     });
     var deleteData = function (element) {
         notin = $(element).data('internal');
+        name_ = $(element).data('name');
         if (confirm("Do you want to delete this Image?") == true) {
-            $.post(postDeleteFanart, {sn: notin}, function (data) {
+            $.post(postDeleteFanart, {sn: notin, name: name_}, function (data) {
 
             }).done(function () {
 
