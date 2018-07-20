@@ -35,38 +35,26 @@
         <div class="carousel-inner" style="height:500px; width: 100%;">
             <div class="carousel-item img-container-cs active">
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Home Logo Seal CoS.png')}}" alt="First slide" >
-                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black;">     
-                </div>
+<!--                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black;">     
+                </div>-->
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Pet 6th.png')}}" alt="Second slide" >
-                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black; ">
-                </div>
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/July Update.png')}}" alt="Third slide" >
-                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black; ">
-                </div>
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Promotional Event Instagram.png')}}" alt="Fourth slide" >
-                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black; ">
-                </div>
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Vending Frenzy New.png')}}" alt="Fifth slide" >
-                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black; ">
-                </div>
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Daily Event.png')}}" alt="Sixth slide" >
-                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black; ">
-                </div>
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Quest Reward.png')}}" alt="Seventh slide" >
-                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black; ">
-                </div>
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
