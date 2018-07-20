@@ -32,7 +32,7 @@
                 $player_level = floatval($player->level);
                 $player_fame = floatval($player->fame);
                 $player_kill = floatval($player->gw_score_t);
-                $total_score = ($player_level * 0.5) + ($player_fame * 0.2) + ($player_kill * 0.3);
+                $total_score = ($player_level * 0.5) + ($player_fame * 0.0002) + ($player_kill * 0.6);
                 $players[] = array(
                     'char_name' => $player->char_name,
                     'level' => $player_level,

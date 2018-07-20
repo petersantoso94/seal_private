@@ -45,7 +45,7 @@
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/July Update.png')}}" alt="Third slide" >
             </div>
             <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Promotional Event Instagram.png')}}" alt="Fourth slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/FB TnS 1.png')}}" alt="Fourth slide" >
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Vending Frenzy New.png')}}" alt="Fifth slide" >
