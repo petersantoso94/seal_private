@@ -118,7 +118,6 @@
     $print_reg = str_repeat('*', strlen($reg_date)-4);
     $print_email = str_repeat('*', strlen($email)-4);
     $print_pin = str_repeat('*', strlen($pin)-4);
-    $print_point = str_repeat('*', strlen($point)-4);
     ?>
     <div class="row" style="width: 100%;">
         <div class='col-2'>
@@ -149,7 +148,7 @@
             IM Coins
         </div>
         <div class='col-4'>
-            {{substr($point,0,4).$print_point}}
+            {{$point}}
         </div>
     </div>
     @endif
