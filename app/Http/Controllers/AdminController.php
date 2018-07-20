@@ -313,11 +313,16 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
+
     public function postDeleteFanart(Request $request) {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
                 $id = $request->get('sn');
+                $name = $request->get('name');
                 DB::connection('mysql2')->delete("DELETE FROM fanart WHERE id = '" . $id . "'");
+                $destination = base_path() . '/public/picture/'.$name;
+                unlink($destination);
+                
             }
         }
         return view('admin.login');
