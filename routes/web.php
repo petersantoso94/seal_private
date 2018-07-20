@@ -32,6 +32,9 @@ Route::get('/fanart', function () {
 Route::get('/guildRank', function () {
     return view('guildrank');
 });
+Route::get('/coupleRank', function () {
+    return view('couplerank');
+});
 Route::get('/adminpanelcos', function () {
     return view('admin.login');
 });
