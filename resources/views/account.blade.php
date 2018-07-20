@@ -3,62 +3,61 @@
 <!-- Page Content -->
 <!-- Jumbotron Header -->
 <!-- Page Features -->
-<div class="row" style="background: rgba(204, 204, 204, 0.8);margin-top: 20px;padding-left: 10px;padding-right: 10px">
-    <form action="{{url('account')}}" method="POST" id='form_edit_account'>
-        {{ csrf_field() }}
-        <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3>
-        <?php if (isset($message)) { ?>
-            @if($message == 'success')
-            <div class="alert alert-success alert-dismissible" role="alert" style="width: 98%; margin: 1%">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                Successfully resetting your data
+<div class="row" style="background: rgba(204, 204, 204, 0.8);margin-top: 20px;padding: 30px">
+    <div id="id01" class="modal">
+        <form class="modal-content animate" action="{{url('home')}}" method="POST" id='form_reset_pass'>
+            @csrf
+            <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
+            <div class="container">
+                <label for="psw"><b>Pin</b></label>
+                <input type="password" placeholder="Enter Pin" name="pin" id='pinnum' required>
+                <label for="psw"><b>New Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" id='newpass' required>
+                <label for="confpsw"><b>Confirm Password</b></label>
+                <input type="password" placeholder="Confirm Password" name="psw2" id='conf_pass' required>
             </div>
-            @endif
-        <?php } ?>
-        <div class="form-group">
-            @if(Session::get('username') != null)
-            <label for="users">Hi, {{Session::get('username')}}</label><br>
-            @endif
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" id='submitpin'>Submit</button>
+                <button type="button" onclick="document.getElementById('id01').style.display = 'none'">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div id="id02" class="modal">
+        <form class="modal-content animate" action="{{url('home')}}" method="POST" id='form_reset_pass'>
+            @csrf
+            <span onclick="document.getElementById('id02').style.display = 'none'" class="close" title="Close Modal">&times;</span>
+            <div class="container">
+                <label for="psw"><b>Old Pin</b></label>
+                <input type="password" placeholder="Enter Pin" name="pin" id='pinnum' required>
+                <label for="psw"><b>New Pin</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" id='newpass' required>
+                <label for="confpsw"><b>Confirm New Pin</b></label>
+                <input type="password" placeholder="Confirm Password" name="psw2" id='conf_pass' required>
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" id='submitpin'>Submit</button>
+                <button type="button" onclick="document.getElementById('id02').style.display = 'none'">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3>
+    <?php if (isset($message)) { ?>
+        @if($message == 'success')
+        <div class="alert alert-success alert-dismissible" role="alert" style="width: 98%; margin: 1%">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            Successfully resetting your data
         </div>
-        <?php
-        $a = Session::get('username');
-        $email = '';
-        $pin = '';
-        $letter = $a['0'];
-        $table = '';
-        if (preg_match("/[aA-dD0-9]/", $letter)) {
-            $table = "idtable1";
-        } else if (preg_match("/[eE-iI]/", $letter)) {
-            $table = "idtable2";
-        } else if (preg_match("/[eJ-nN]/", $letter)) {
-            $table = "idtable3";
-        } else if (preg_match("/[oO-sS]/", $letter)) {
-            $table = "idtable4";
-        } else if (preg_match("/[tT-zZ]/", $letter)) {
-            $table = "idtable5";
-        } else {
-            $table = "idtable5";
-        }
-        $registered_id = DB::connection('mysql')->table($table)->select('*')->where('id', $a)->get();
-        if (count($registered_id) > 0) {
-            $email = $registered_id[0]->email;
-            $pin = $registered_id[0]->trueId;
-        }
-        ?>
-        <div class="form-group">
-            <label for="users">Your Email:</label>
-            <input type="text" id='email' name='email' class='form-control' value="{{$email}}" disabled="">
-            <button type="button" onclick="enableEmail(this)" id='btn-enable-email' class="btn btn-primary" >edit</button>
-            <button type="button" onclick="disableEmail(this)" id='btn-dis-email' class="btn" style="display: none;">cancel</button>
-        </div>
-        <div class="form-group">
-            <label for="users">Your PIN:</label>
-            <input type='password' name='pin' class='form-control' id='pin' value='{{$pin}}' disabled="">
-            <button type="button" onclick="enablePin(this)" id='btn-enable-pin' class="btn btn-primary" >edit</button>
-            <button type="button" onclick="disablePin(this)" id='btn-dis-pin' class='btn' style="display: none;" >cancel</button>
-            <button type="button" onclick="submitForm(this)" id='btn-submit' class='btn btn-primary' style="float:right" disabled="">Submit</button>
-        </div>
-    </form>
+        @endif
+    <?php } ?>
+    <div class="form-group">
+        @if(Session::get('username') != null)
+        <label for="users">Hi, {{Session::get('username')}}</label><br>
+        @endif
+    </div>
+
+    @if(Session::get('username') != null)
+    <button type="button" class="btn btn-primary btn-rounded" onclick="document.getElementById('id01').style.display = 'block'" style="background-color: #343a40;border-color: #343a40;font-family: 'MyWebFont';">Reset Password</button>
+    @endif
 </div>
 <!-- /.row -->
 
