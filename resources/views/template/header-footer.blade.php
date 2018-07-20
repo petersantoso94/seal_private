@@ -273,17 +273,17 @@
                         @endfor
                         @else
                         <div class="btn-group <?php if (isset($page)) if ($page == 'account') echo 'show'; ?>">
-                            <a class="btn btn-secondary" href="{{url('account')}}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-secondary" href="{{url('account')}}" role="button"  aria-haspopup="true" aria-expanded="false">
                                 Account
                             </a>
                         </div>
                         <div class="btn-group">
-                            <a class="btn btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-secondary" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                 Editable Space
                             </a>
                         </div>
                         <div class="btn-group">
-                            <a class="btn btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-secondary" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                 Fan Art
                             </a>
                         </div>
