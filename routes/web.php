@@ -29,6 +29,9 @@ Route::get('/term', function () {
 Route::get('/fanart', function () {
     return view('fanart')->with('page','fanart');
 });
+Route::get('/guildRank', function () {
+    return view('guildrank');
+});
 Route::get('/adminpanelcos', function () {
     return view('admin.login');
 });
