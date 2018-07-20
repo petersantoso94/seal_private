@@ -70,6 +70,7 @@ class HomeController extends Controller {
                 $type = $request->get('tipe');
                 $input_pin = $request->get('pin');
                 $input_pass = $request->get('psw');
+                $type_print = '';
 //                $input_pin = '12345678';
                 $user_name = $request->session()->get('username');
                 $a = $user_name;
@@ -92,14 +93,17 @@ class HomeController extends Controller {
                 $old_pin = $registered_id[0]->trueId;
                 if ($old_pin == $input_pin) {
                     if ($type === 'pass') {
+                        $type_print = 'Password';
                         $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$input_pass}') as 'pass'")->get();
                         DB::connection('mysql')->update("UPDATE {$table} SET passwd = '{$hashed_pass[0]->pass}' WHERE id = '{$user_name}'");
                     } else if ($type === 'pin') {
+                        $type_print = 'PIN';
                         DB::connection('mysql')->update("UPDATE {$table} SET trueId = '{$input_pass}' WHERE id = '{$user_name}'");
                     } else if ($type === 'email') {
+                        $type_print = 'Email';
                         DB::connection('mysql')->update("UPDATE {$table} SET email = '{$input_pass}' WHERE id = '{$user_name}'");
                     }
-                    return view('account')->with('page', 'account')->with('message', 'success');
+                    return view('account')->with('page', 'account')->with('message', 'success')->with('tipe',$type_print);
                 } else {
                     return view('account')->with('page', 'account')->with('message', 'error');
                 }
