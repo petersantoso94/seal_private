@@ -58,6 +58,10 @@ class AdminController extends Controller {
                             . "`job`='{$job}',`exp`='{$exp}',`money`='{$money}',`fame`='{$fame}',`strength`='{$str}',`intelligence`='{$intel}',`dexterity`='{$dex}' "
                             . ",`constitution`='{$cons}' ,`mentality`='{$mental}',`sense`='{$sense}',`levelup_point`='{$lvluppoint}',`skillup_point`='{$skilluppoint}',`expert_skillup_point`='{$exppoint}'"
                             . "WHERE `char_name`='{$users}'");
+
+                    $admin = $request->session()->get('admin');
+                    $log_text = "editing character " . $users;
+                    DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
                     return view('admin.editcharacter')->withPage('Edit Character')->withSuccess('Sukses Edit Character');
                 }
                 return view('admin.editcharacter')->withPage('Edit Character');
@@ -72,6 +76,9 @@ class AdminController extends Controller {
             $pass = md5($request->get('password'));
             if ($username === 'admin-cos' && $pass === "3c2e6ca89eb0e4d31ef256bef2ba24f2") {#SeaLcosGameMasterDERIANasher#1
                 $request->session()->put('admin', 'admin-cos');
+                $admin = $request->session()->get('admin');
+                $log_text = "admin login";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
                 return view('admin.home')->withPage('Approve User');
             } else {
                 $data = array(
@@ -84,6 +91,9 @@ class AdminController extends Controller {
     }
 
     public function logout(Request $request) {
+        $admin = $request->session()->get('admin');
+        $log_text = "admin logout";
+        DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
         $request->session()->forget('admin');
         return redirect('adminpanelcos');
     }
@@ -142,6 +152,10 @@ class AdminController extends Controller {
                             $data = stripslashes($data);
                             $data = htmlspecialchars($data);
                             DB::connection('mysql2')->insert("INSERT INTO content (`name`,`horizontal_level`,`vertical_level`,`content`,`horizontal_name`) VALUE ('{$pagename}','{$category}','{$vert_number}','{$data}','{$new_name}')");
+
+                            $admin = $request->session()->get('admin');
+                            $log_text = "Inserting front page " . $pagename;
+                            DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
                             return view('admin.editpage')->withPage('Edit Front Page')->withSuccess('Sukses Insert Event');
                         }
                         return view('admin.editpage')->withPage('Edit Front Page')->withError('Error Data Kosong');
@@ -171,6 +185,10 @@ class AdminController extends Controller {
                             $data = stripslashes($data);
                             $data = htmlspecialchars($data);
                             DB::connection('mysql2')->insert("UPDATE content SET `name`='{$pagename}',`horizontal_level`='{$category}',`vertical_level`='{$vert_number}',`content`='{$data}',`horizontal_name`='{$new_name}' WHERE `id`='{$id_update}'");
+
+                            $admin = $request->session()->get('admin');
+                            $log_text = "Update front page " . $pagename;
+                            DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
                             return view('admin.editpage')->withPage('Edit Front Page')->withSuccess('Sukses Insert Event');
                         }
                         return view('admin.editpage')->withPage('Edit Front Page')->withError('Error Data Kosong');
@@ -199,7 +217,9 @@ class AdminController extends Controller {
                         $filename = 'image_fanart' . $imgnumber . '.' . $extention;
                         $input_image->move($destination, $filename);
                         DB::connection('mysql2')->insert("INSERT INTO fanart (`id`,`image`) VALUE ('{$imgnumber}','{$filename}')");
-
+                        $admin = $request->session()->get('admin');
+                        $log_text = "Inserting fan art " . $imgnumber;
+                        DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
                         return view('admin.editfanart')->withPage('Edit Fan Art')->withSuccess('Sukses Insert Fan Art');
                     }
                     return view('admin.editfanart')->withPage('Edit Front Page')->withError('Error Data Kosong');
@@ -229,6 +249,10 @@ class AdminController extends Controller {
                         $filename = 'image_news' . $imgnumber . '.' . $extention;
                         $input_image->move($destination, $filename);
                         DB::connection('mysql2')->insert("INSERT INTO news (`id`,`image`,`title`,`content`) VALUE ('{$imgnumber}','{$filename}','{$input_title}','{$input_content}')");
+
+                        $admin = $request->session()->get('admin');
+                        $log_text = "Inserting news " . $imgnumber;
+                        DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
 
                         return view('admin.editnews')->withPage('Edit News')->withSuccess('Sukses Insert News');
                     }
@@ -268,6 +292,10 @@ class AdminController extends Controller {
                     $registered_id = DB::connection('mysql')->table($table)->where('id', $a)->get();
                     if (count($registered_id) > 0) {
                         DB::update("UPDATE {$table} SET point = point + {$cash} WHERE id = '{$a}'");
+
+                        $admin = $request->session()->get('admin');
+                        $log_text = "Set point {$a} +" . $cash;
+                        DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
                     }
                 }
             }
@@ -301,6 +329,10 @@ class AdminController extends Controller {
                             }
                             if ($idx_kosong < 99) {
                                 DB::connection('mysql3')->update("UPDATE store SET io" . $idx_kosong . " = '{$io_val}', it" . $idx_kosong . " = '{$it_val}' WHERE user_id = '{$id}'");
+
+                                $admin = $request->session()->get('admin');
+                                $log_text = "Give item for {$id} ";
+                                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
                             } else {
                                 $not_avail .= ' ' . $id;
                             }
@@ -325,6 +357,9 @@ class AdminController extends Controller {
                 //$ids = explode(',', $ids);
                 foreach ($ids as $id) {
                     DB::connection('mysql4')->update("INSERT INTO seal_item (ItemLimit, ItemType, OwnerID, ItemOp1, ItemOp2, OwnerDate, bxaid) VALUES('{$io_val}','{$it_val}','{$id}',0,0, CURDATE(), 'SEND')");
+                    $admin = $request->session()->get('admin');
+                    $log_text = "Set item for {$id} ";
+                    DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
                 }
                 return "success";
             }
@@ -360,6 +395,10 @@ class AdminController extends Controller {
                 if (count($registered_id) == 0) {
                     DB::connection('mysql')->insert("INSERT INTO {$table} VALUES('{$a}','{$new_id->passwd}',CURDATE(),'99','','0',NULL,'',0,0,NULL,NULL,0,NULL,0,CURDATE(),'{$new_id->nick_name}','','{$new_id->email}','{$new_id->trueId}',0,0,0,0,0,'{$new_id->fb_acc}','{$new_id->recom}')");
                     DB::connection('mysql2')->delete("DELETE FROM idtable1 WHERE id = '" . $a . "'");
+
+                    $admin = $request->session()->get('admin');
+                    $log_text = "Set player {$a} as valid";
+                    DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
 //                    DB::connection('mysql2')->delete("DELETE FROM users WHERE name = '" . $a . "'");
                 }
             }
@@ -373,6 +412,10 @@ class AdminController extends Controller {
                 $id = $request->get('sn');
                 DB::connection('mysql2')->delete("DELETE FROM idtable1 WHERE id = '" . $id . "'");
                 DB::connection('mysql2')->delete("DELETE FROM users WHERE name = '" . $id . "'");
+
+                $admin = $request->session()->get('admin');
+                $log_text = "Set player {$id} as invalid";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
             }
         }
         return view('admin.login');
@@ -383,6 +426,9 @@ class AdminController extends Controller {
             if ($request->session()->get('admin') === 'admin-cos') {
                 $id = $request->get('sn');
                 DB::connection('mysql2')->delete("DELETE FROM content WHERE id = '" . $id . "'");
+                $admin = $request->session()->get('admin');
+                $log_text = "Delete event {$id}";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
             }
         }
         return view('admin.login');
@@ -393,6 +439,9 @@ class AdminController extends Controller {
             if ($request->session()->get('admin') === 'admin-cos') {
                 $id = $request->get('sn');
                 $name = $request->get('name');
+                $admin = $request->session()->get('admin');
+                $log_text = "Delete fanart {$id}";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
                 DB::connection('mysql2')->delete("DELETE FROM fanart WHERE id = '" . $id . "'");
                 $destination = base_path() . '/public/picture/' . $name;
                 unlink($destination);
@@ -406,6 +455,9 @@ class AdminController extends Controller {
             if ($request->session()->get('admin') === 'admin-cos') {
                 $id = $request->get('sn');
                 $name = $request->get('name');
+                $admin = $request->session()->get('admin');
+                $log_text = "Delete news {$id}";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`) VALUE ('{$admin}','{$log_text}')");
                 DB::connection('mysql2')->delete("DELETE FROM news WHERE id = '" . $id . "'");
                 $destination = base_path() . '/public/picture/' . $name;
                 unlink($destination);
