@@ -101,6 +101,8 @@
         }
         if (filetype != '' && (filetype == 'png' || filetype == 'gif' || filetype == 'jpeg' || filetype == 'jpg')) {
             $('#form_edit_fanart').submit();
+        }else{
+            alert('Not Supported Image File!');
         }
     });
     var deleteData = function (element) {
