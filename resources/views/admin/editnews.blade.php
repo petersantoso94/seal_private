@@ -66,7 +66,7 @@
                             <label for="exampleInputEmail1">Title</label>
                         </div>
                         <div class="col-sm-4">
-                            <input type='text' name='title' id='title'>
+                            <input type='text' class="form-control" name='title' id='title'>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                             <label for="exampleInputEmail1">Content</label>
                         </div>
                         <div class="col-sm-4">
-                            <textarea name='content' id='content'></textarea>
+                            <textarea name='content' class="form-control" id='content'></textarea>
                         </div>
                     </div>
                 </div>
