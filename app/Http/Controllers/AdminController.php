@@ -37,32 +37,62 @@ class AdminController extends Controller {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $users = $request->get('users');
-                    $map = $request->get('map');
-                    $level = $request->get('level');
-                    $job = $request->get('job');
-                    $exp = $request->get('exp');
-                    $money = $request->get('money');
-                    $fame = $request->get('fame');
-                    $str = $request->get('str');
-                    $intel = $request->get('intel');
-                    $dex = $request->get('dex');
-                    $cons = $request->get('cons');
-                    $mental = $request->get('mental');
-                    $sense = $request->get('sense');
-                    $lvluppoint = $request->get('lvluppoint');
-                    $skilluppoint = $request->get('skilluppoint');
-                    $exppoint = $request->get('exppoint');
-                    $playflag = $request->get('playflag');
-                    DB::connection('mysql3')->insert("UPDATE pc SET `map_num`='{$map}',`level`='{$level}',`play_flag`='{$playflag}',"
-                            . "`job`='{$job}',`exp`='{$exp}',`money`='{$money}',`fame`='{$fame}',`strength`='{$str}',`intelligence`='{$intel}',`dexterity`='{$dex}' "
-                            . ",`constitution`='{$cons}' ,`mentality`='{$mental}',`sense`='{$sense}',`levelup_point`='{$lvluppoint}',`skillup_point`='{$skilluppoint}',`expert_skillup_point`='{$exppoint}'"
-                            . "WHERE `char_name`='{$users}'");
+                    if ($request->get('tipe') === 'edit') {
+                        $users = $request->get('users');
+                        $map = $request->get('map');
+                        $level = $request->get('level');
+                        $job = $request->get('job');
+                        $exp = $request->get('exp');
+                        $money = $request->get('money');
+                        $fame = $request->get('fame');
+                        $str = $request->get('str');
+                        $intel = $request->get('intel');
+                        $dex = $request->get('dex');
+                        $cons = $request->get('cons');
+                        $mental = $request->get('mental');
+                        $sense = $request->get('sense');
+                        $lvluppoint = $request->get('lvluppoint');
+                        $skilluppoint = $request->get('skilluppoint');
+                        $exppoint = $request->get('exppoint');
+                        $playflag = $request->get('playflag');
+                        DB::connection('mysql3')->insert("UPDATE pc SET `map_num`='{$map}',`level`='{$level}',`play_flag`='{$playflag}',"
+                                . "`job`='{$job}',`exp`='{$exp}',`money`='{$money}',`fame`='{$fame}',`strength`='{$str}',`intelligence`='{$intel}',`dexterity`='{$dex}' "
+                                . ",`constitution`='{$cons}' ,`mentality`='{$mental}',`sense`='{$sense}',`levelup_point`='{$lvluppoint}',`skillup_point`='{$skilluppoint}',`expert_skillup_point`='{$exppoint}'"
+                                . "WHERE `char_name`='{$users}'");
 
-                    $admin = $request->session()->get('admin');
-                    $log_text = "editing character " . $users;
-                    DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
-                    return view('admin.editcharacter')->withPage('Edit Character')->withSuccess('Sukses Edit Character');
+                        $admin = $request->session()->get('admin');
+                        $log_text = "editing character " . $users;
+                        DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                        return view('admin.editcharacter')->withPage('Edit Character')->withSuccess('Sukses Edit Character');
+                    } else if ($request->get('tipe') === 'edit') {
+                        $users = $request->get('users');
+
+                        $a = $users;
+                        $letter = $a['0'];
+                        $table = '';
+                        if (preg_match("/[aA-dD0-9]/", $letter)) {
+                            $table = "idtable1";
+                        } else if (preg_match("/[eE-iI]/", $letter)) {
+                            $table = "idtable2";
+                        } else if (preg_match("/[eJ-nN]/", $letter)) {
+                            $table = "idtable3";
+                        } else if (preg_match("/[oO-sS]/", $letter)) {
+                            $table = "idtable4";
+                        } else if (preg_match("/[tT-zZ]/", $letter)) {
+                            $table = "idtable5";
+                        } else {
+                            $table = "idtable5";
+                        }
+                        $registered_id = DB::connection('mysql')->table($table)->where('id', $a)->get();
+                        if (count($registered_id) > 0) {
+                            DB::update("UPDATE {$table} SET game_block = '2030-01-01 00:00:00' WHERE id = '{$a}'");
+
+                            $admin = $request->session()->get('admin');
+                            $log_text = "ban character " . $users;
+                            DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                            return view('admin.editcharacter')->withPage('Edit Character')->withSuccessban('Sukses Ban Character');
+                        }
+                    }
                 }
                 return view('admin.editcharacter')->withPage('Edit Character');
             }
