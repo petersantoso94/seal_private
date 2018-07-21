@@ -139,7 +139,7 @@
             $.post(postDeleteNews, {sn: notin, name: name_}, function (data) {
 
             }).done(function () {
-                location.reload();
+                window.location.replace("<?php url('editnews') ?>");
             });
         }
     };
