@@ -4,7 +4,19 @@
     <div class='row'>
         <div class='col-xs-8'>
             <h3>Edit Character</h3>
-            <form method='POST' action="">
+            <?php if (isset($success)) { ?>
+                <div class="alert alert-success alert-dismissible" role="alert" style="width: 98%; margin: 1%">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{$success}}
+                </div>
+            <?php } ?>
+            <?php if (isset($error)) { ?>
+                <div class="alert alert-error alert-dismissible" role="alert" style="width: 98%; margin: 1%">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{$error}}
+                </div>
+            <?php } ?>
+            <form method='POST' action="" id='form-edit-char'>
                 @csrf
                 <div class="form-group">
                     <label for="users">User's Character Name:</label><br>
@@ -117,7 +129,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-primary" onclick="editChar()">Submit</button>
             </form>
         </div>
     </div>
@@ -132,6 +144,13 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
+    var editChar = function () {
+        if (confirm("Confirm Edit") == true) {
+            $("#form-edit-char").submit();
+        }
+    };
+
     $('#users').on('change', function () {
         user_ids = $("#users").val();
         $.post(getUserData, {users: user_ids}, function (data) {
