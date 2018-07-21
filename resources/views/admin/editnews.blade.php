@@ -7,15 +7,19 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Title</th>
+                        <th>Content</th>
                         <th>Image</th>
                         <th>Action</th>
                     <!--<th>Actions</th>-->
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(DB::connection('mysql2')->table('fanart')->select('*')->get() as $data)
+                    @foreach(DB::connection('mysql2')->table('news')->select('*')->get() as $data)
                     <tr>
                         <td>{{$data->id}}</td>
+                        <td>{{$data->title}}</td>
+                        <td style="word-wrap: break-word;white-space: pre-wrap;">{{$data->content}}</td>
                         <td><img class="card-img-top" src="{{URL::asset('public/picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
                         <td>
                             <button title="Delete" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="deleteData(this)"
@@ -99,7 +103,7 @@
 @section('js-content')
 <script>
     var editEvent = '<?php echo Route('editEvent') ?>';
-    var postDeleteFanart = '<?php echo Route('postDeleteFanart') ?>';
+    var postDeleteNews = '<?php echo Route('postDeleteNews') ?>';
     var result = '';
     var filetype = '';
     $.ajaxSetup({
@@ -131,8 +135,8 @@
     var deleteData = function (element) {
         notin = $(element).data('internal');
         name_ = $(element).data('name');
-        if (confirm("Do you want to delete this Image?") == true) {
-            $.post(postDeleteFanart, {sn: notin, name: name_}, function (data) {
+        if (confirm("Do you want to delete this News?") == true) {
+            $.post(postDeleteNews, {sn: notin, name: name_}, function (data) {
 
             }).done(function () {
                 location.reload();
