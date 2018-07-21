@@ -145,7 +145,7 @@
             $.post(postDeleteEvent, {sn: notin}, function (data) {
 
             }).done(function () {
-                location.reload();
+                window.location.replace("<?php url('editpage') ?>");
             });
         }
     };
