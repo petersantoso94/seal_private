@@ -49,6 +49,7 @@ Route::any('sendcash', array('as' => 'sendcash', 'uses' => 'AdminController@send
 Route::any('editpage', array('as' => 'editpage', 'uses' => 'AdminController@editpage'));
 Route::any('editfanart', array('as' => 'editfanart', 'uses' => 'AdminController@editfanart'));
 Route::any('editnews', array('as' => 'editnews', 'uses' => 'AdminController@editnews'));
+Route::any('editcharacter', array('as' => 'editcharacter', 'uses' => 'AdminController@editcharacter'));
 Route::any('logoutadmin', array('as' => 'logoutadmin', 'uses' => 'AdminController@logout'));
 Route::any('loginmanual', array('as' => 'loginmanual', 'uses' => 'HomeController@loginmanual'));
 Route::any('logoutmanual', array('as' => 'logoutmanual', 'uses' => 'HomeController@logoutmanual'));
@@ -61,6 +62,7 @@ Route::any('postDeleteNews', array('as' => 'postDeleteNews', 'uses' => 'AdminCon
 Route::any('postCash', array('as' => 'postCash', 'uses' => 'AdminController@postCash'));
 Route::any('postItems', array('as' => 'postItems', 'uses' => 'AdminController@postItems'));
 Route::any('postItemsAdd', array('as' => 'postItemsAdd', 'uses' => 'AdminController@postItemsAdd'));
+Route::any('getUserData', array('as' => 'getUserData', 'uses' => 'AdminController@getUserData'));
 Route::any('checkPIN', array('as' => 'checkPIN', 'uses' => 'HomeController@checkPIN'));
 Route::any('forgetPass', array('as' => 'forgetPass', 'uses' => 'HomeController@forgetPass'));
 Route::any('/home', 'HomeController@index')->name('home');
