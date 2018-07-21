@@ -7,6 +7,7 @@
 <div class="alert alert-success" role="alert">
     Your registration form has been submitted. Please send your Identity Card's Photos to GM Eastwood and wait for our administrator to review your registration form. (Max. 24 Hours). Thank you very much !! (Submitted as {{$user->name}})
 </div>
+<?php Auth::logout(); ?>
 @endif
 <?php if (isset($message)) { ?>
     @if($message == 'success')
