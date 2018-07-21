@@ -22,6 +22,29 @@ class AdminController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
+    public function getUserData(Request $request) {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('admin') === 'admin-cos') {
+                $user = $request->get('users');
+                $user_data = DB::connection('mysql3')->table('pc')->select('*')->where('char_name',$user)->get();
+                return $user_data;
+            }
+        }
+        return view('admin.login');
+    }
+    
+    public function editcharacter(Request $request){
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('admin') === 'admin-cos') {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    
+                }
+                return view('admin.editcharacter')->withPage('Edit Character');
+            }
+        }
+        return view('admin.login');
+    }
+    
     public function index(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $request->get('email');
