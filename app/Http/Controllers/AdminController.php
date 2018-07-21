@@ -58,7 +58,7 @@ class AdminController extends Controller {
                             . "`job`='{$job}',`exp`='{$exp}',`money`='{$money}',`fame`='{$fame}',`strength`='{$str}',`intelligence`='{$intel}',`dexterity`='{$dex}' "
                             . ",`constitution`='{$cons}' ,`mentality`='{$mental}',`sense`='{$sense}',`levelup_point`='{$lvluppoint}',`skillup_point`='{$skilluppoint}',`expert_skillup_point`='{$exppoint}'"
                             . "WHERE `char_name`='{$users}'");
-                    return view('admin.editcharacter')->withPage('Edit Character')->withSuccess('Sukses Insert Fan Art');
+                    return view('admin.editcharacter')->withPage('Edit Character')->withSuccess('Sukses Edit Character');
                 }
                 return view('admin.editcharacter')->withPage('Edit Character');
             }
