@@ -89,6 +89,7 @@ use RegistersUsers;
             DB::connection('mysql2')->insert("INSERT INTO idtable1 VALUES('{$a}','{$hashed_pass[0]->pass}',CURDATE(),'99','','0',NULL,'',0,0,NULL,NULL,0,NULL,0,CURDATE(),'{$nick_name}','','{$data['email']}','{$data['pin']}',0,0,0,0,0,'{$fb_id}','{$data['rcm']}','{$data['fblink']}')");
             Session::forget('fb_id');
         }
+        Session::put('username', $a);
         return User::create([
                     'name' => $data['name'],
                     'email' => $data['email'],
