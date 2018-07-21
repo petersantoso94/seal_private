@@ -26,25 +26,46 @@ class AdminController extends Controller {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
                 $user = $request->get('users');
-                $user_data = DB::connection('mysql3')->table('pc')->select('*')->where('char_name',$user)->get();
+                $user_data = DB::connection('mysql3')->table('pc')->select('*')->where('char_name', $user)->get();
                 return $user_data;
             }
         }
         return view('admin.login');
     }
-    
-    public function editcharacter(Request $request){
+
+    public function editcharacter(Request $request) {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    
+                    $users = $request->get('users');
+                    $map = $request->get('map');
+                    $level = $request->get('level');
+                    $job = $request->get('job');
+                    $exp = $request->get('exp');
+                    $money = $request->get('money');
+                    $fame = $request->get('fame');
+                    $str = $request->get('str');
+                    $intel = $request->get('intel');
+                    $dex = $request->get('dex');
+                    $cons = $request->get('cons');
+                    $mental = $request->get('mental');
+                    $sense = $request->get('sense');
+                    $lvluppoint = $request->get('lvluppoint');
+                    $skilluppoint = $request->get('skilluppoint');
+                    $exppoint = $request->get('exppoint');
+                    $playflag = $request->get('playflag');
+                    DB::connection('mysql3')->insert("UPDATE pc SET `map_num`='{$map}',`level`='{$level}',`play_flag`='{$playflag}',"
+                            . "`job`='{$job}',`exp`='{$exp}',`money`='{$money}',`fame`='{$fame}',`strength`='{$str}',`intelligence`='{$intel}',`dexterity`='{$dex}' "
+                            . ",`constitution`='{$cons}' ,`mentality`='{$mental}',`sense`='{$sense}',`levelup_point`='{$lvluppoint}',`skillup_point`='{$skilluppoint}',`expert_skillup_point`='{$exppoint}'"
+                            . "WHERE `char_name`='{$users}'");
+                    return view('admin.editcharacter')->withPage('Edit Character')->withSuccess('Sukses Insert Fan Art');
                 }
                 return view('admin.editcharacter')->withPage('Edit Character');
             }
         }
         return view('admin.login');
     }
-    
+
     public function index(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $request->get('email');
@@ -188,6 +209,7 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
+
     public function editnews(Request $request) {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
@@ -372,21 +394,20 @@ class AdminController extends Controller {
                 $id = $request->get('sn');
                 $name = $request->get('name');
                 DB::connection('mysql2')->delete("DELETE FROM fanart WHERE id = '" . $id . "'");
-                $destination = base_path() . '/public/picture/'.$name;
+                $destination = base_path() . '/public/picture/' . $name;
                 unlink($destination);
-                
             }
         }
         return view('admin.login');
     }
-    
+
     public function postDeleteNews(Request $request) {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('admin') === 'admin-cos') {
                 $id = $request->get('sn');
                 $name = $request->get('name');
                 DB::connection('mysql2')->delete("DELETE FROM news WHERE id = '" . $id . "'");
-                $destination = base_path() . '/public/picture/'.$name;
+                $destination = base_path() . '/public/picture/' . $name;
                 unlink($destination);
             }
         }
