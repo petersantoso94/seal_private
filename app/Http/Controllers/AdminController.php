@@ -75,6 +75,7 @@ class AdminController extends Controller {
             $username = $request->get('email');
             $pass = md5($request->get('password'));
             if ($username === 'admin-cos' && $pass === "3c2e6ca89eb0e4d31ef256bef2ba24f2") {#SeaLcosGameMasterDERIANasher#1
+                dd($request->ip());
                 $request->session()->put('admin', 'admin-cos');
                 $admin = $request->session()->get('admin');
                 $log_text = "admin login";
