@@ -129,7 +129,41 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name='tipe' value="edit">
                 <button type="button" class="btn btn-primary" onclick="editChar()">Submit</button>
+            </form>
+        </div>
+        <div class="col-xs-4">
+            <h3>Ban Character</h3>
+            <?php if (isset($successban)) { ?>
+                <div class="alert alert-success alert-dismissible" role="alert" style="width: 98%; margin: 1%">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{$successban}}
+                </div>
+            <?php } ?>
+            <?php if (isset($errorban)) { ?>
+                <div class="alert alert-error alert-dismissible" role="alert" style="width: 98%; margin: 1%">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{$error}}
+                </div>
+            <?php } ?>
+            <form method='POST' action="" id='form-ban-char'>
+                @csrf
+                <input type="hidden" name='tipe' value="ban">
+                <div class="form-group">
+                    <label for="users">User's Character Name:</label><br>
+                    <select data-placeholder="Choose users..." class="chosen-select form-control" name="users" id="ban_users">
+                        <option></option>
+                        @foreach(DB::connection('mysql3')->table('pc')->select('char_name','user_id')->get() as $char)
+                        @if($char->char_name != '')
+                        <option value="{{$char->user_id}}">
+                            {{$char->char_name}}
+                        </option>
+                        @endif
+                        @endforeach
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="banChar()">Submit</button>
             </form>
         </div>
     </div>
@@ -148,6 +182,11 @@
     var editChar = function () {
         if (confirm("Confirm Edit") == true) {
             $("#form-edit-char").submit();
+        }
+    };
+    var banChar = function () {
+        if (confirm("Confirm Ban User") == true) {
+            $("#form-ban-char").submit();
         }
     };
 
