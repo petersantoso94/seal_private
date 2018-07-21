@@ -29,6 +29,11 @@
             button:hover {
                 opacity: 0.8;
             }
+            
+            .row{
+                margin-right: auto;
+                margin-left: auto;
+            }
 
             /* Extra styles for the cancel button */
             .cancelbtn {
