@@ -35,8 +35,8 @@
         <div class="carousel-inner" style="height:500px; width: 100%;">
             <div class="carousel-item img-container-cs active">
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Home Logo Seal CoS.png')}}" alt="First slide" >
-<!--                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black;">     
-                </div>-->
+                <!--                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black;">     
+                                </div>-->
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Pet 6th.png')}}" alt="Second slide" >
@@ -65,6 +65,20 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+    </div>
+
+    <div class="row" style="width:100%;height: 200px;">
+        <h4>Title</h4>
+        <div class="col-4">
+            <img class="card-img-" src="https://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/img_01.jpg" alt="Card image cap" style="width: 100%;">
+        </div>
+        <div class="col-8">
+            <p>content1</p>
+            <p>content1</p>
+            <p>content1</p>
+            <p>content1</p>
+            <p>content1</p>
+        </div>
     </div>
 </div>
 
