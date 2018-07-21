@@ -20,97 +20,97 @@
                     </select>
                 </div>
                 <div class="row" style="width: 100%">
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Map:</label><br>
                             <input type="number" name='map' id='map' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Level:</label><br>
                             <input type="number" name='level' id='level' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Job:</label><br>
                             <input type="number" name='job' id='job' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Exp:</label><br>
                             <input type="number" name='exp' id='exp' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Money:</label><br>
                             <input type="number" name='money' id='money' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Fame:</label><br>
                             <input type="number" name='fame' id='fame' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Strength:</label><br>
                             <input type="number" name='str' id='str' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Intelligence:</label><br>
                             <input type="number" name='intel' id='intel' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Dexterity:</label><br>
                             <input type="number" name='dex' id='dex' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Constitution:</label><br>
                             <input type="number" name='cons' id='cons' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Mentality:</label><br>
                             <input type="number" name='mental' id='mental' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Sense:</label><br>
                             <input type="number" name='sense' id='sense' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Level Up Point:</label><br>
                             <input type="number" name='lvluppoint' id='lvluppoint' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Skill Up Point:</label><br>
                             <input type="number" name='skilluppoint' id='skilluppoint' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Expert Skill Up Point:</label><br>
                             <input type="number" name='exppoint' id='exppoint' class='form-control' required="">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash-nominal">Play flag:</label><br>
                             <input type="number" name='playflag' id='playflag' class='form-control' required="">
@@ -136,23 +136,22 @@
         user_ids = $("#users").val();
         $.post(getUserData, {users: user_ids}, function (data) {
             if (data != '') {
-                console.log(data[0].char_name);
-                $('#map').val();
-                $('#level').val();
-                $('#job').val();
-                $('#exp').val();
-                $('#money').val();
-                $('#fame').val();
-                $('#str').val();
-                $('#intel').val();
-                $('#dex').val();
-                $('#cons').val();
-                $('#mental').val();
-                $('#sense').val();
-                $('#lvluppoint').val();
-                $('#skilluppoint').val();
-                $('#exppoint').val();
-                $('#playflag').val();
+                $('#map').val(data[0].map_num);
+                $('#level').val(data[0].level);
+                $('#job').val(data[0].job);
+                $('#exp').val(data[0].exp);
+                $('#money').val(data[0].money);
+                $('#fame').val(data[0].fame);
+                $('#str').val(data[0].strength);
+                $('#intel').val(data[0].intelligence);
+                $('#dex').val(data[0].dexterity);
+                $('#cons').val(data[0].constitution);
+                $('#mental').val(data[0].mentality);
+                $('#sense').val(data[0].sense);
+                $('#lvluppoint').val(data[0].levelup_point);
+                $('#skilluppoint').val(data[0].skillup_point);
+                $('#exppoint').val(data[0].expert_skillup_point);
+                $('#playflag').val(data[0].play_flag);
             }
         }).done(function () {
         });
