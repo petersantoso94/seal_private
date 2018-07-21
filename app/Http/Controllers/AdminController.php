@@ -156,11 +156,40 @@ class AdminController extends Controller {
                         $input_image->move($destination, $filename);
                         DB::connection('mysql2')->insert("INSERT INTO fanart (`id`,`image`) VALUE ('{$imgnumber}','{$filename}')");
 
-                        return view('admin.editfanart')->withPage('Edit Fan Art')->withSuccess('Sukses Insert Event');
+                        return view('admin.editfanart')->withPage('Edit Fan Art')->withSuccess('Sukses Insert Fan Art');
                     }
-                    return view('admin.editpage')->withPage('Edit Front Page')->withError('Error Data Kosong');
+                    return view('admin.editfanart')->withPage('Edit Front Page')->withError('Error Data Kosong');
                 }
                 return view('admin.editfanart')->withPage('Edit Fan Art');
+            }
+        }
+        return view('admin.login');
+    }
+    public function editnews(Request $request) {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('admin') === 'admin-cos') {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $input_image = $request->file('image');
+                    $input_title = $request->get('title');
+                    $input_content = $request->get('content');
+                    if ($input_image != '') {
+                        $imgnumber = DB::connection('mysql2')->table('news')->orderBy('id', 'DESC')->select('id')->first();
+                        if (!$imgnumber) {
+                            $imgnumber = 1;
+                        } else {
+                            $imgnumber = $imgnumber->id + 1;
+                        }
+                        $destination = base_path() . '/public/picture/';
+                        $extention = $input_image->getClientOriginalExtension();
+                        $filename = 'image_news' . $imgnumber . '.' . $extention;
+                        $input_image->move($destination, $filename);
+                        DB::connection('mysql2')->insert("INSERT INTO news (`id`,`image`,`title`,`content`) VALUE ('{$imgnumber}','{$filename}','{$input_title}','{$input_content}')");
+
+                        return view('admin.editnews')->withPage('Edit News')->withSuccess('Sukses Insert News');
+                    }
+                    return view('admin.editnews')->withPage('Edit News')->withError('Error Data Kosong');
+                }
+                return view('admin.editnews')->withPage('Edit News');
             }
         }
         return view('admin.login');
