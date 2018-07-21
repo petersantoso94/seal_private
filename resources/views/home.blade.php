@@ -76,11 +76,7 @@
             <img class="card-img-" src="https://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/img_01.jpg" alt="Card image cap" style="width: 100%;">
         </div>
         <div class="col-8">
-            <p>content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1</p>
-            <p>content1</p>
-            <p>content1</p>
-            <p>content1</p>
-            <p>content1</p>
+            content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1
         </div>
     </div>
 </div>
