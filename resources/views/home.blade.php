@@ -68,7 +68,7 @@
     </div>
 </div>
 <div class="row" style="margin-top: 10px;background:rgba(211,211,211,0.8);width: 100%; ">
-    <div class="row" style="width:100%;">  
+    <div class="row" style="width:100%;height: 20px;background: #6c757d;">  
         <h4>Title</h4>
     </div>
     <div class="row" style="width:100%;height: 200px;">
