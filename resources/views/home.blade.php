@@ -68,10 +68,23 @@
     </div>
 </div>
 <div class="row" style="margin-top: 10px;background:rgba(211,211,211,0.8);width: 100%; ">
-    <div class="row" style="width:100%;background: #6c757d; height: 10%;">  
+    <div class="row" style="width:100%;background: #6c757d; height: 10%;padding-left: 15px;padding-left: 10px;margin-bottom: 10px">  
         <h4>Title</h4>
     </div>
-    <div class="row" style="width:100%;height: 90%;">
+    <div class="row" style="width:100%;height: 90%;padding-bottom: 10px">
+        <div class="col-4">
+            <img class="card-img-" src="https://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/img_01.jpg" alt="Card image cap" style="width: 100%;">
+        </div>
+        <div class="col-8" style="word-wrap: break-word;">
+            content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1content1
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top: 10px;background:rgba(211,211,211,0.8);width: 100%; ">
+    <div class="row" style="width:100%;background: #6c757d; height: 10%;padding-left: 15px;padding-left: 10px;margin-bottom: 10px">  
+        <h4>Title</h4>
+    </div>
+    <div class="row" style="width:100%;height: 90%;padding-bottom: 10px">
         <div class="col-4">
             <img class="card-img-" src="https://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/img_01.jpg" alt="Card image cap" style="width: 100%;">
         </div>
