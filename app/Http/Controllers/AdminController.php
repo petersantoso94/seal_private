@@ -64,7 +64,7 @@ class AdminController extends Controller {
                         $log_text = "editing character " . $users;
                         DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
                         return view('admin.editcharacter')->withPage('Edit Character')->withSuccess('Sukses Edit Character');
-                    } else if ($request->get('tipe') === 'edit') {
+                    } else if ($request->get('tipe') === 'ban') {
                         $users = $request->get('users');
 
                         $a = $users;
