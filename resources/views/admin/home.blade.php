@@ -18,7 +18,7 @@
                 <td>{{$data->id}}</td>
                 <td>{{$data->nick_name}}</td>
                 <td>{{$data->email}}</td>
-                <td>{{$data->fb_link}}</td>
+                <td><a href="{{$data->fb_link}}">{{$data->fb_link}}</a></td>
                 <td>
                     <button title="Set to available" type="button" data-internal="{{$data->id}}" onclick="pushValid(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
