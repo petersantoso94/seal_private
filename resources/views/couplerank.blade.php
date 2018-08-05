@@ -4,7 +4,7 @@
 <!-- Jumbotron Header -->
 <!-- Page Features -->
 <header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
-    <h3>Top Couple Rank</h3>
+    <h3>Couple's Leaderboard</h3>
     <table class="table">
         <thead class="thead-dark">
             <tr>
