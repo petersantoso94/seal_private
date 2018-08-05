@@ -47,6 +47,10 @@
             array_multisort($arr_total, SORT_DESC, $players);
             $show_player = array_slice($players, 0, 50);
             $counter = 1;
+            ?>
+            @foreach($show_player as $player)
+			<?php 
+			
             $job_name = '';
             if($player['job'] == '1')
                 $job_name = 'job1';
@@ -54,8 +58,7 @@
                 $job_name = 'job2';
             else if($player['job'] == '3')
                 $job_name = 'job3';
-            ?>
-            @foreach($show_player as $player)
+			?>
             <tr>
                 <th scope="row">{{$counter}}</th>
                 <td>{{$player['char_name']}}</td>
