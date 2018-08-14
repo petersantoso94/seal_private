@@ -104,8 +104,9 @@ class AdminController extends Controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $request->get('email');
             $pass = md5($request->get('password'));
-            if ($username === 'admin-cos' && $pass === "3c2e6ca89eb0e4d31ef256bef2ba24f2") {#SeaLcosGameMasterDERIANasher#1
-                $request->session()->put('admin', 'admin-cos');
+            $user_data = DB::connection('mysql2')->table('admin')->select('name', 'password')->where('name', $username)->get();
+            if (count($user_data) > 0 && $user_data[0]->password === $pass) {#SeaLcosGameMasterDERIANasher#1
+                $request->session()->put('admin', $user_data[0]->name);
                 $admin = $request->session()->get('admin');
                 $log_text = "admin login";
                 DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
