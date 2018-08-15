@@ -138,6 +138,9 @@ class AdminController extends Controller {
                 return view('admin.login')->with($data);
             }
         }
+        if ($request->session()->get('role') >= 0) {
+            return view('admin.home')->withPage('Approve User');
+        }
         return view('admin.login');
     }
 
