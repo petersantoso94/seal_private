@@ -24,7 +24,7 @@ class AdminController extends Controller {
      */
     public function getUserData(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 $user = $request->get('users');
                 $user_data = DB::connection('mysql3')->table('pc')->select('*')->where('char_name', $user)->get();
                 return $user_data;
@@ -35,7 +35,7 @@ class AdminController extends Controller {
 
     public function editcharacter(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if ($request->get('tipe') === 'edit') {
                         $users = $request->get('users');
@@ -99,14 +99,34 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
+    
+    public function addadmin(Request $request){
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') >= 0) {
+                $data = [];
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $id = $request->get('sn');
+                    $existed_event = DB::connection('mysql2')->table('content')->where('id', $id)->select('*')->first();
+                    $data['content'] = html_entity_decode($existed_event->content);
+                    $data['id'] = $existed_event->id;
+                    $data['name'] = $existed_event->name;
+                    $data['horizontal_level'] = $existed_event->horizontal_level;
+                    return $data;
+                }
+                return view('admin.addadmin')->withPage('Add Admin');
+            }
+        }
+        return view('admin.login');
+    }
 
     public function index(Request $request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $request->get('email');
             $pass = md5($request->get('password'));
-            $user_data = DB::connection('mysql2')->table('admin')->select('name', 'password')->where('name', $username)->get();
+            $user_data = DB::connection('mysql2')->table('admin')->select('name', 'password','role')->where('name', $username)->get();
             if (count($user_data) > 0 && $user_data[0]->password === $pass) {#SeaLcosGameMasterDERIANasher#1
                 $request->session()->put('admin', $user_data[0]->name);
+                $request->session()->put('role', $user_data[0]->role);
                 $admin = $request->session()->get('admin');
                 $log_text = "admin login";
                 DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
@@ -131,7 +151,7 @@ class AdminController extends Controller {
 
     public function sendcash(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     
                 }
@@ -143,7 +163,7 @@ class AdminController extends Controller {
 
     public function editEvent(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 $data = [];
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $id = $request->get('sn');
@@ -162,7 +182,7 @@ class AdminController extends Controller {
 
     public function editpage(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if ($request->get('tipe') === 'insert') {
                         $data = trim($request->get('editor1'));
@@ -233,7 +253,7 @@ class AdminController extends Controller {
 
     public function editfanart(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $input_image = $request->file('image');
                     if ($input_image != '') {
@@ -263,7 +283,7 @@ class AdminController extends Controller {
 
     public function editnews(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $input_image = $request->file('image');
                     $input_title = $request->get('title');
@@ -297,7 +317,7 @@ class AdminController extends Controller {
 
     public function postCash(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 $ids = $request->get('users');
                 //        $ids = 'gm01,derianasher';
                 //        $ids = explode(',', $ids);
@@ -336,7 +356,7 @@ class AdminController extends Controller {
 
     public function postItems(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 $ids = $request->get('users');
                 $it_val = $request->get('it');
                 $io_val = $request->get('io');
@@ -378,7 +398,7 @@ class AdminController extends Controller {
 
     public function postItemsAdd(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 $ids = $request->get('users');
                 $it_val = $request->get('it');
                 $io_val = $request->get('io');
@@ -400,7 +420,7 @@ class AdminController extends Controller {
 
     public function postValid(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 $id = $request->get('sn');
                 //$id = 'gamelemah2';
                 $a = $id;
@@ -439,7 +459,7 @@ class AdminController extends Controller {
 
     public function postDelete(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 $id = $request->get('sn');
                 DB::connection('mysql2')->delete("DELETE FROM idtable1 WHERE id = '" . $id . "'");
                 DB::connection('mysql2')->delete("DELETE FROM users WHERE name = '" . $id . "'");
@@ -454,7 +474,7 @@ class AdminController extends Controller {
 
     public function postDeleteEvent(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 $id = $request->get('sn');
                 DB::connection('mysql2')->delete("DELETE FROM content WHERE id = '" . $id . "'");
                 $admin = $request->session()->get('admin');
@@ -467,7 +487,7 @@ class AdminController extends Controller {
 
     public function postDeleteFanart(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 $id = $request->get('sn');
                 $name = $request->get('name');
                 $admin = $request->session()->get('admin');
@@ -483,7 +503,7 @@ class AdminController extends Controller {
 
     public function postDeleteNews(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('admin') === 'admin-cos') {
+            if ($request->session()->get('role') >= 0) {
                 $id = $request->get('sn');
                 $name = $request->get('name');
                 $admin = $request->session()->get('admin');
