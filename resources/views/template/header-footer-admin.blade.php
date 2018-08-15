@@ -129,7 +129,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="header">Admin Panel</li>
                         <!-- Optionally, you can add icons to the links -->
                         <li <?php if (isset($page)) if ($page === 'Approve User') echo 'class="active"'; ?>><a href="{{url('loginadmin')}}"><i class="fa fa-link"></i> <span>Approve User</span></a></li>
-                        @if($request->session()->get('role') == 0)
+                        @if(Session::get('role') == 0)
                         <li <?php if (isset($page)) if ($page === 'Add Admin') echo 'class="active"'; ?>><a href="{{url('addadmin')}}"><i class="fa fa-link"></i> <span>Add Admin</span></a></li>
                         @endif
                         <li <?php if (isset($page)) if ($page === 'Send Cash') echo 'class="active"'; ?>><a href="{{url('sendcash')}}"><i class="fa fa-link"></i> <span>Send Cash</span></a></li>
