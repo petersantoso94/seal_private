@@ -149,6 +149,7 @@ class AdminController extends Controller {
         $log_text = "admin logout";
         DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
         $request->session()->forget('admin');
+        $request->session()->forget('role');
         return redirect('adminpanelcos');
     }
 
