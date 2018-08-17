@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(DB::connection('mysql2')->table('news')->where('approved','1')->select('*')->get() as $data)
+                    @foreach(DB::connection('mysql2')->table('news')->select('*')->get() as $data)
                     <tr>
                         <td>{{$data->id}}</td>
                         <td>{{$data->title}}</td>
