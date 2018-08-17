@@ -69,7 +69,7 @@
     </div>
 </div>
 <div class="news-container" >
-    @foreach(DB::connection('mysql2')->table('news')->orderBy('id', 'DESC')->select('*')->get() as $new)
+    @foreach(DB::connection('mysql2')->table('news')->where('approved','1')->orderBy('id', 'DESC')->select('*')->get() as $new)
     <div class="row" style="margin-top: 10px;background:rgba(211,211,211,0.8);width: 100%; ">
         <div class="row" style="width:100%;background: #6c757d; height: 10%;padding-left: 15px;padding-top: 10px;margin-bottom: 10px">  
             <h4>{{$new->title}}</h4>
