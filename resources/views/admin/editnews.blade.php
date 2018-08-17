@@ -1,5 +1,6 @@
 @extends('template.header-footer-admin')
 @section('main-section')
+@if(Session::get('role') == 0)
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;">
     <div class="box">
         <div class="box-body pad">
@@ -15,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(DB::connection('mysql2')->table('news')->select('*')->get() as $data)
+                    @foreach(DB::connection('mysql2')->table('news')->where('approved','1')->select('*')->get() as $data)
                     <tr>
                         <td>{{$data->id}}</td>
                         <td>{{$data->title}}</td>
@@ -34,6 +35,7 @@
         </div>
     </div>
 </div>
+@endif
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;margin-top: 20px;">
     <div class="box">
         <div class="box-header">
