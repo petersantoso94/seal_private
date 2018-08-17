@@ -194,6 +194,10 @@ class AdminController extends Controller {
                         $pagename = $request->get('pagename');
                         $new_name = '';
                         $vert_number = 1;
+                        $approve = '0';
+                        if ($request->session()->get('role') === 0)
+                            $approve = '1';
+                            
                         if ($request->get('newcategory')) {
                             $horizontal = DB::connection('mysql2')->table('content')->orderBy('horizontal_level', 'DESC')->select('horizontal_level')->first();
                             $new_name = $request->get('newcategory');
@@ -206,7 +210,7 @@ class AdminController extends Controller {
                         if ($data != "" && $data != NULL) {
                             $data = stripslashes($data);
                             $data = htmlspecialchars($data);
-                            DB::connection('mysql2')->insert("INSERT INTO content (`name`,`horizontal_level`,`vertical_level`,`content`,`horizontal_name`) VALUE ('{$pagename}','{$category}','{$vert_number}','{$data}','{$new_name}')");
+                            DB::connection('mysql2')->insert("INSERT INTO content (`name`,`horizontal_level`,`vertical_level`,`content`,`horizontal_name`,`approved`) VALUE ('{$pagename}','{$category}','{$vert_number}','{$data}','{$new_name}','{$approve}')");
 
                             $admin = $request->session()->get('admin');
                             $log_text = "Inserting front page " . $pagename;
