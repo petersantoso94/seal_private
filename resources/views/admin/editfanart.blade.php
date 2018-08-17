@@ -14,7 +14,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(DB::connection('mysql2')->table('fanart')->select('*')->get() as $data)
+                    @foreach(DB::connection('mysql2')->table('fanart')->where('approved','1')->select('*')->get() as $data)
                     <tr>
                         <td>{{$data->id}}</td>
                         <td><img class="card-img-top" src="{{URL::asset('public/picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
