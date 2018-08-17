@@ -238,12 +238,12 @@
                         <!--dropdown-->
                         <?php
                         $horizontal = 0;
-                        $max_horizontal = DB::connection('mysql2')->table('content')->select('horizontal_level')->orderBy('horizontal_level', 'DESC')->first();
+                        $max_horizontal = DB::connection('mysql2')->table('content')->where('approved','1')->select('horizontal_level')->orderBy('horizontal_level', 'DESC')->first();
                         if ($max_horizontal)
                             $horizontal = $max_horizontal->horizontal_level;
                         ?>
                         @for($i = 1; $i<=$horizontal ;$i++)
-                        <?php $vertical = DB::connection('mysql2')->table('content')->orderBy('vertical_level', 'ASC')->where('horizontal_level', $i)->get(); ?>
+                        <?php $vertical = DB::connection('mysql2')->table('content')->where('approved','1')->orderBy('vertical_level', 'ASC')->where('horizontal_level', $i)->get(); ?>
                         <div class="btn-group">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink<?php echo $i; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{$vertical[0]->horizontal_name}}
