@@ -275,7 +275,7 @@ class AdminController extends Controller {
                             DB::connection('mysql2')->insert("INSERT INTO fanart (`id`,`image`,`approved`) VALUE ('{$imgnumber}','{$filename}','0')");
                         else if ($request->session()->get('role') === 0)
                             DB::connection('mysql2')->insert("INSERT INTO fanart (`id`,`image`,`approved`) VALUE ('{$imgnumber}','{$filename}','1')");
-                            
+
                         $admin = $request->session()->get('admin');
                         $log_text = "Inserting fan art " . $imgnumber;
                         DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
@@ -307,7 +307,10 @@ class AdminController extends Controller {
                         $extention = $input_image->getClientOriginalExtension();
                         $filename = 'image_news' . $imgnumber . '.' . $extention;
                         $input_image->move($destination, $filename);
-                        DB::connection('mysql2')->insert("INSERT INTO news (`id`,`image`,`title`,`content`) VALUE ('{$imgnumber}','{$filename}','{$input_title}','{$input_content}')");
+                        if ($request->session()->get('role') > 0)
+                            DB::connection('mysql2')->insert("INSERT INTO news (`id`,`image`,`title`,`content`,`approved`) VALUE ('{$imgnumber}','{$filename}','{$input_title}','{$input_content}', '0')");
+                        else if ($request->session()->get('role') === 0)
+                            DB::connection('mysql2')->insert("INSERT INTO news (`id`,`image`,`title`,`content`,`approved`) VALUE ('{$imgnumber}','{$filename}','{$input_title}','{$input_content}', '1')");
 
                         $admin = $request->session()->get('admin');
                         $log_text = "Inserting news " . $imgnumber;
