@@ -99,8 +99,8 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
-    
-    public function addadmin(Request $request){
+
+    public function addadmin(Request $request) {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 $data = [];
@@ -123,7 +123,7 @@ class AdminController extends Controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $request->get('email');
             $pass = md5($request->get('password'));
-            $user_data = DB::connection('mysql2')->table('admin')->select('name', 'password','role')->where('name', $username)->get();
+            $user_data = DB::connection('mysql2')->table('admin')->select('name', 'password', 'role')->where('name', $username)->get();
             if (count($user_data) > 0 && $user_data[0]->password === $pass) {#SeaLcosGameMasterDERIANasher#1
                 $request->session()->put('admin', $user_data[0]->name);
                 $request->session()->put('role', $user_data[0]->role);
@@ -271,7 +271,11 @@ class AdminController extends Controller {
                         $extention = $input_image->getClientOriginalExtension();
                         $filename = 'image_fanart' . $imgnumber . '.' . $extention;
                         $input_image->move($destination, $filename);
-                        DB::connection('mysql2')->insert("INSERT INTO fanart (`id`,`image`) VALUE ('{$imgnumber}','{$filename}')");
+                        if ($request->session()->get('role') > 0)
+                            DB::connection('mysql2')->insert("INSERT INTO fanart (`id`,`image`,`approved`) VALUE ('{$imgnumber}','{$filename}','0')");
+                        else if ($request->session()->get('role') === 0)
+                            DB::connection('mysql2')->insert("INSERT INTO fanart (`id`,`image`,`approved`) VALUE ('{$imgnumber}','{$filename}','1')");
+                            
                         $admin = $request->session()->get('admin');
                         $log_text = "Inserting fan art " . $imgnumber;
                         DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
