@@ -107,6 +107,11 @@ class AdminController extends Controller {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $id = $request->get('username');
                     $pass = md5($request->get('password'));
+                    
+                    $user_data = DB::connection('mysql2')->table('admin')->select('*')->where('name', $id)->get();
+                    if(count($user_data) > 0)
+                        return view('admin.addadmin')->withPage('Add Admin')->withError('Duplicate Admin ID');
+                    
                     $admin = $request->session()->get('admin');
                     DB::connection('mysql2')->insert("INSERT INTO admin (`name`,`password`,`role`,`created_at`,`updated_at`,`admin_id`) VALUE ('{$id}','{$pass}','1',CURDATE(),CURDATE(),'{$admin}')");
 
@@ -495,6 +500,19 @@ class AdminController extends Controller {
                 DB::connection('mysql2')->delete("DELETE FROM content WHERE id = '" . $id . "'");
                 $admin = $request->session()->get('admin');
                 $log_text = "Delete event {$id}";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+            }
+        }
+        return view('admin.login');
+    }
+    
+    public function postDeleteAdmin(Request $request) {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') >= 0) {
+                $id = $request->get('sn');
+                DB::connection('mysql2')->delete("DELETE FROM admin WHERE id = '" . $id . "'");
+                $admin = $request->session()->get('admin');
+                $log_text = "Delete admin {$id}";
                 DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
             }
         }
