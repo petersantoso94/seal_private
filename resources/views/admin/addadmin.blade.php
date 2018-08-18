@@ -42,6 +42,9 @@
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;margin-top: 20px;">
     <div class="box">
         <div class="box-header">
+            <h3 class="box-title">Add Admin
+                <small>Simple and fast</small>
+            </h3>
             <!-- tools box -->
             <div class="pull-right box-tools">
                 <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
