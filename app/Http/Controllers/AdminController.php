@@ -112,7 +112,7 @@ class AdminController extends Controller {
 
                     $log_text = "add admin";
                     DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
-                    return $data;
+                    return view('admin.addadmin')->withPage('Add Admin')->withSuccess('Sukses Add Admin');
                 }
                 return view('admin.addadmin')->withPage('Add Admin');
             }
