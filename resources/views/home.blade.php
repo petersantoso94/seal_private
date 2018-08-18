@@ -43,7 +43,7 @@
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Pet 6th.png')}}" alt="Second slide" >
             </div>
             <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/July Update.png')}}" alt="Third slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/August 18th GC.png')}}" alt="Third slide" >
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/HP1.png')}}" alt="Fourth slide" >
