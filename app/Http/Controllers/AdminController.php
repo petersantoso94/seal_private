@@ -105,12 +105,13 @@ class AdminController extends Controller {
             if ($request->session()->get('role') >= 0) {
                 $data = [];
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $id = $request->get('sn');
-                    $existed_event = DB::connection('mysql2')->table('content')->where('id', $id)->select('*')->first();
-                    $data['content'] = html_entity_decode($existed_event->content);
-                    $data['id'] = $existed_event->id;
-                    $data['name'] = $existed_event->name;
-                    $data['horizontal_level'] = $existed_event->horizontal_level;
+                    $id = $request->get('username');
+                    $pass = md5($request->get('password'));
+                    $admin = $request->session()->get('admin');
+                    DB::connection('mysql2')->insert("INSERT INTO admin (`name`,`password`,`role`,`created_at`,`updated_at`,`admin_id`) VALUE ('{$id}','{$pass}','1',CURDATE(),CURDATE(),'{$admin}')");
+
+                    $log_text = "add admin";
+                    DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
                     return $data;
                 }
                 return view('admin.addadmin')->withPage('Add Admin');
@@ -197,7 +198,7 @@ class AdminController extends Controller {
                         $approve = '0';
                         if ($request->session()->get('role') === 0)
                             $approve = '1';
-                            
+
                         if ($request->get('newcategory')) {
                             $horizontal = DB::connection('mysql2')->table('content')->orderBy('horizontal_level', 'DESC')->select('horizontal_level')->first();
                             $new_name = $request->get('newcategory');
