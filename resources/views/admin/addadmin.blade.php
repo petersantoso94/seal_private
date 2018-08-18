@@ -14,7 +14,7 @@
         <tbody>
             @foreach(DB::connection('mysql2')->table('admin')->select('*')->get() as $data)
             @if($data->role > 0)
-            <?php 
+            <?php
             $admin_role = 'admin';
             ?>
             <tr>
@@ -40,9 +40,6 @@
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;margin-top: 20px;">
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">HTML editor
-                <small>Simple and fast</small>
-            </h3>
             <!-- tools box -->
             <div class="pull-right box-tools">
                 <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
@@ -66,43 +63,32 @@
                     {{$error}}
                 </div>
             <?php } ?>
-            <form method="POST">
+            <form method="POST" id='form-add-admin'>
                 {{ csrf_field() }}
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <label for="exampleInputEmail1">Put Under Category</label>
-                        </div>
-                        <div class="col-sm-4">
-                            <select data-placeholder="Choose users..." class="form-control" name="category" id="category">
-                                <option></option>
-                                @foreach(DB::connection('mysql2')->table('content')->selectRaw("DISTINCT horizontal_level, horizontal_name")->get() as $char)
-                                @if($char->horizontal_name != '')
-                                <option value="{{$char->horizontal_level}}">
-                                    {{$char->horizontal_name}}
-                                </option>
-                                @endif
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-sm-1" style="margin-top: 5px;">
-                            <button type="button" onclick="newCategory(this)"><span class="glyphicon glyphicon-plus"></span></button>
-                        </div>
+                
+                <div class="form-group row">
+                    <label for="username" class="col-md-4 col-form-label text-md-right"></label>
+
+                    <div class="col-md-6">
+                        <input id="username" type="text" class="form-control" name="username" required>
                     </div>
                 </div>
-                <input type="hidden" id="tipe" name="tipe" value="insert">
-                <input type="hidden" id="id_update" name="id_update" value="">
-                <div class="form-group" id="new-cat-container" style="display:none;">
-                    <label for="exampleInputPassword1">New Category Name</label>
-                    <input type="text" class="form-control" id="newcategory" name="newcategory" placeholder="leave blank if you want to use existing category">
+                <div class="form-group row">
+                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="password" type="password" class="form-control" name="password" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Name</label>
-                    <input type="text" class="form-control" id="pagename" name="pagename" placeholder="page name..">
+
+                <div class="form-group row">
+                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                    </div>
                 </div>
-                <textarea id="editor1" name="editor1" rows="10" cols="80" style="visibility: hidden; display: none;">                                            This is my textarea to be replaced with CKEditor.
-                </textarea>
-                <button type="submit" id="btn-submit" style="margin-top: 10px;">Submit</button>
+                <button type="button" id="btn-submit" onclick="check_pass()" style="margin-top: 10px;">Submit</button>
             </form>
         </div>
     </div>
@@ -125,6 +111,14 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    var check_pass = function(){
+        let pass = $('#password').val();
+        let pass_confirm = $('#password-confirm').val();
+        if(pass == pass_confirm)
+            $('#form-add-admin').submit();
+        else
+            alert('Confirm password does not match!');
+    };
     window.pushEdit = function (element) {
         notin = $(element).data('internal');
         name = $(element).data('name');
