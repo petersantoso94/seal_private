@@ -67,7 +67,7 @@
                 {{ csrf_field() }}
                 
                 <div class="form-group row">
-                    <label for="username" class="col-md-4 col-form-label text-md-right"></label>
+                    <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
 
                     <div class="col-md-6">
                         <input id="username" type="text" class="form-control" name="username" required>
