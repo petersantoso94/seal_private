@@ -166,7 +166,7 @@
         notin = $(element).data('internal');
         name_ = $(element).data('name');
         if (confirm("Do you want to confirm this Image?") == true) {
-            $.post(postDeleteFanart, {sn: notin, name: name_}, function (data) {
+            $.post(postConfirmFanart, {sn: notin, name: name_}, function (data) {
 
             }).done(function () {
                 window.location.replace("<?php url('editfanart') ?>");
