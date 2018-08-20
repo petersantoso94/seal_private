@@ -558,7 +558,20 @@ class AdminController extends Controller {
                 $admin = $request->session()->get('admin');
                 $log_text = "Confirm fanart {$id}";
                 DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
-                DB::connection('mysql2')->update("UPDATE fanart SET approved = '1'");
+                DB::connection('mysql2')->update("UPDATE fanart SET approved = '1' where id='{$id}'");
+            }
+        }
+        return view('admin.login');
+    }
+    public function postConfirmNews(Request $request) {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('sn');
+                $name = $request->get('name');
+                $admin = $request->session()->get('admin');
+                $log_text = "Confirm news {$id}";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                DB::connection('mysql2')->update("UPDATE news SET approved = '1' where id='{$id}'");
             }
         }
         return view('admin.login');
