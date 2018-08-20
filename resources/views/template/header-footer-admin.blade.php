@@ -49,6 +49,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             table, th, td {
                 border: 1px solid black;
+                padding-left: 5px;
             }
         </style>
     </head>
