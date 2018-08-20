@@ -35,6 +35,53 @@
         </div>
     </div>
 </div>
+<div class="white-pane__bordered margbot20" style="margin-left: 20px;">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">News Confirmation
+                <small>Simple and fast</small>
+            </h3>
+            <!-- tools box -->
+            <div class="pull-right box-tools">
+                <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Remove">
+                    <i class="fa fa-times"></i></button>
+            </div>
+            <!-- /. tools -->
+        </div>
+        <div class="box-body pad">
+            <table id="example" class="display table-rwd table-inventory" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    <!--<th>Actions</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(DB::connection('mysql2')->table('news')->where('approved','0')->select('*')->get() as $data)
+                    <tr>
+                        <td>{{$data->id}}</td>
+                        <td>{{$data->title}}</td>
+                        <td style="word-wrap: break-word;white-space: pre-wrap;">{{$data->content}}</td>
+                        <td><img class="card-img-top" src="{{URL::asset('public/picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
+                        <td>
+                            <button title="approve" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="confirmNews(this)"
+                                    class="btn btn-pure-xs btn-xs btn-delete">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 @endif
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;margin-top: 20px;">
     <div class="box">
@@ -106,6 +153,7 @@
 <script>
     var editEvent = '<?php echo Route('editEvent') ?>';
     var postDeleteNews = '<?php echo Route('postDeleteNews') ?>';
+    var postConfirmNews = '<?php echo Route('postConfirmNews') ?>';
     var result = '';
     var filetype = '';
     $.ajaxSetup({
@@ -139,6 +187,17 @@
         name_ = $(element).data('name');
         if (confirm("Do you want to delete this News?") == true) {
             $.post(postDeleteNews, {sn: notin, name: name_}, function (data) {
+
+            }).done(function () {
+                window.location.replace("<?php url('editnews') ?>");
+            });
+        }
+    };
+    var confirmNews = function (element) {
+        notin = $(element).data('internal');
+        name_ = $(element).data('name');
+        if (confirm("Do you want to confirm this News?") == true) {
+            $.post(postConfirmNews, {sn: notin, name: name_}, function (data) {
 
             }).done(function () {
                 window.location.replace("<?php url('editnews') ?>");
