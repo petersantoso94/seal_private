@@ -31,6 +31,49 @@
         </div>
     </div>
 </div>
+<div class="white-pane__bordered margbot20" style="margin-left: 20px;">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Fan Art Picture Confirmation
+                <small>Simple and fast</small>
+            </h3>
+            <!-- tools box -->
+            <div class="pull-right box-tools">
+                <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Remove">
+                    <i class="fa fa-times"></i></button>
+            </div>
+            <!-- /. tools -->
+        </div>
+        <div class="box-body pad">
+            <table id="example" class="display table-rwd table-inventory" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    <!--<th>Actions</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(DB::connection('mysql2')->table('fanart')->where('approved','0')->select('*')->get() as $data)
+                    <tr>
+                        <td>{{$data->id}}</td>
+                        <td><img class="card-img-top" src="{{URL::asset('public/picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
+                        <td>
+                            <button title="Delete" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="confirmFanart(this)"
+                                    class="btn btn-pure-xs btn-xs btn-delete">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 @endif
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;margin-top: 20px;">
     <div class="box">
@@ -83,6 +126,7 @@
 <script>
     var editEvent = '<?php echo Route('editEvent') ?>';
     var postDeleteFanart = '<?php echo Route('postDeleteFanart') ?>';
+    var postConfirmFanart = '<?php echo Route('postConfirmFanart') ?>';
     var result = '';
     var filetype = '';
     $.ajaxSetup({
@@ -111,6 +155,17 @@
         notin = $(element).data('internal');
         name_ = $(element).data('name');
         if (confirm("Do you want to delete this Image?") == true) {
+            $.post(postDeleteFanart, {sn: notin, name: name_}, function (data) {
+
+            }).done(function () {
+                window.location.replace("<?php url('editfanart') ?>");
+            });
+        }
+    };
+    var confirmFanart = function (element) {
+        notin = $(element).data('internal');
+        name_ = $(element).data('name');
+        if (confirm("Do you want to confirm this Image?") == true) {
             $.post(postDeleteFanart, {sn: notin, name: name_}, function (data) {
 
             }).done(function () {
