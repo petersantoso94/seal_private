@@ -480,7 +480,7 @@ class AdminController extends Controller {
 
     public function postDelete(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('role') >= 0) {
+            if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
                 DB::connection('mysql2')->delete("DELETE FROM idtable1 WHERE id = '" . $id . "'");
                 DB::connection('mysql2')->delete("DELETE FROM users WHERE name = '" . $id . "'");
@@ -495,7 +495,7 @@ class AdminController extends Controller {
 
     public function postDeleteEvent(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('role') >= 0) {
+            if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
                 DB::connection('mysql2')->delete("DELETE FROM content WHERE id = '" . $id . "'");
                 $admin = $request->session()->get('admin');
@@ -508,7 +508,7 @@ class AdminController extends Controller {
     
     public function postDeleteAdmin(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('role') >= 0) {
+            if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
                 DB::connection('mysql2')->delete("DELETE FROM admin WHERE id = '" . $id . "'");
                 $admin = $request->session()->get('admin');
@@ -521,7 +521,7 @@ class AdminController extends Controller {
 
     public function postDeleteFanart(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('role') >= 0) {
+            if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
                 $name = $request->get('name');
                 $admin = $request->session()->get('admin');
@@ -537,7 +537,7 @@ class AdminController extends Controller {
 
     public function postDeleteNews(Request $request) {
         if ($request->session()->has('admin')) {
-            if ($request->session()->get('role') >= 0) {
+            if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
                 $name = $request->get('name');
                 $admin = $request->session()->get('admin');
@@ -546,6 +546,19 @@ class AdminController extends Controller {
                 DB::connection('mysql2')->delete("DELETE FROM news WHERE id = '" . $id . "'");
                 $destination = base_path() . '/public/picture/' . $name;
                 unlink($destination);
+            }
+        }
+        return view('admin.login');
+    }
+    public function postConfirmFanart(Request $request) {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('sn');
+                $name = $request->get('name');
+                $admin = $request->session()->get('admin');
+                $log_text = "Confirm fanart {$id}";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                DB::connection('mysql2')->update("UPDATE fanart SET approved = '1'");
             }
         }
         return view('admin.login');
