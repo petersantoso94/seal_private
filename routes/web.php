@@ -71,5 +71,6 @@ Route::any('/home', 'HomeController@index')->name('home');
 Route::any('account', array('as' => 'account', 'uses' => 'HomeController@account'));
 Route::any('personalRank', array('as' => 'personalRank', 'uses' => 'HomeController@personalRank'));
 Route::any('browse/{id}', array('as' => 'browse', 'uses' => 'HomeController@browse'));
+Route::any('postConfirmFanart', array('as' => 'postConfirmFanart', 'uses' => 'AdminController@postConfirmFanart'));
 
 Auth::routes();
