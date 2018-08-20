@@ -62,7 +62,7 @@
                         <td>{{$data->id}}</td>
                         <td><img class="card-img-top" src="{{URL::asset('public/picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
                         <td>
-                            <button title="Delete" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="confirmFanart(this)"
+                            <button title="approve" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="confirmFanart(this)"
                                     class="btn btn-pure-xs btn-xs btn-delete">
                                 <span class="glyphicon glyphicon-ok"></span>
                             </button>
