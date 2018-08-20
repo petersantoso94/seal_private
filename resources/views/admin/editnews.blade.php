@@ -4,7 +4,7 @@
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;">
     <div class="box">
         <div class="box-body pad">
-            <table id="example" class="display table-rwd table-inventory" cellspacing="0" width="100%" style="border:#000000 1px solid;">
+            <table id="example" class="display table-rwd table-inventory" cellspacing="0" width="100%" >
                 <thead>
                     <tr>
                         <th>ID</th>
