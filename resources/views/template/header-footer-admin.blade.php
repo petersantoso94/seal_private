@@ -42,6 +42,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet" type="text/css" href="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css">
         <script type="text/javascript" src="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/plugins/image/dialogs/image.js?t=HBDF"></script>
         <link rel="stylesheet" type="text/css" href="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/skins/moono-lisa/dialog.css?t=HBDF">
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+        </style>
     </head>
     <!--
     BODY TAG OPTIONS:
