@@ -97,8 +97,9 @@
 @stop
 @section('js-content')
 <script>
-    console.log($(".container").width());
-$('iframe').css('width', $(".container").width()+'px');
+    setInterval(function () {
+        $('iframe').css('width', $(".container").width() + 'px');
+    }, 1000);
 </script>
 @stop
 
