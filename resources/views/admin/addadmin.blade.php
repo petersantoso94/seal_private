@@ -23,10 +23,6 @@
                 <td>{{$data->name}}</td>
                 <td>{{$admin_role}}</td>
                 <td>
-                    <button title="Set to available" type="button" data-internal="{{$data->id}}" data-name="{{$data->name}}" onclick="pushEdit(this)"
-                            class="btn btn-pure-xs btn-xs btn-delete">
-                        <span class="glyphicon glyphicon-edit"></span>
-                    </button>
                     <button title="Delete" type="button" data-internal="{{$data->id}}" data-name="{{$data->name}}" onclick="deleteData(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
                         <span class="glyphicon glyphicon-remove"></span>
