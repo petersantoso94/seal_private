@@ -39,8 +39,8 @@
                 <!--                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black;">     
                                 </div>-->
             </div>
-            <div class="carousel-item img-container-cs " style='width: 100%;'>
-                <iframe style="display: inline-block;" width="100%" height="500" src="https://www.youtube.com/embed/ycYLA_6-FTk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <div class="carousel-item img-container-cs " style='width: 100%;' style="display: inline-block;">
+                <iframe  width="100%" height="500" src="https://www.youtube.com/embed/ycYLA_6-FTk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Pet 6th.png')}}" alt="Second slide" >
