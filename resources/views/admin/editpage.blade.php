@@ -48,7 +48,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(DB::connection('mysql2')->table('content')->select('*')->get() as $data)
+            @foreach(DB::connection('mysql2')->table('content')->where('approved','0')->select('*')->get() as $data)
             @if($data->link === NULL)
             <tr>
                 <td>{{$data->id}}</td>
