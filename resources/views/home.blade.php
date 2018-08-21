@@ -34,7 +34,7 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
         </ol>
         <div class="carousel-inner" style="height:500px; width: 100%;">
-            <div class="carousel-item img-container-cs" >
+            <div class="carousel-item img-container-cs" style='width: 100%;'>
                 <iframe width="100%" height="500" src="https://www.youtube.com/embed/ycYLA_6-FTk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <div class="carousel-item img-container-cs active">
