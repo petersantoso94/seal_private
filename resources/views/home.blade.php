@@ -24,7 +24,7 @@
 <?php } ?>
 <div class="row text-center" style="margin-top: 10px;background:rgba(211,211,211,0.8); ">
     <iframe height="500" src="https://www.youtube.com/embed/ycYLA_6-FTk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left:auto;margin-right:auto;">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left:auto;margin-right:auto;margin-top: 10px;">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -35,10 +35,7 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
         </ol>
         <div class="carousel-inner" style="height:500px; width: 100%;">
-            <div class="carousel-item img-container-cs active" style='width: 100%;'>
-                
-            </div>
-            <div class="carousel-item img-container-cs">
+            <div class="carousel-item img-container-cs active">
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Home Logo Seal CoS.png')}}" alt="First slide" >
                 <!--                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black;">     
                                 </div>-->
