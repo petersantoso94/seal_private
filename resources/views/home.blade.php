@@ -35,7 +35,7 @@
         </ol>
         <div class="carousel-inner" style="height:500px; width: 100%;">
             <div class="carousel-item img-container-cs active" style='width: 100%;'>
-                <iframe  width="1108" height="100%" src="https://www.youtube.com/embed/ycYLA_6-FTk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe class="myIframe" src="https://www.youtube.com/embed/ycYLA_6-FTk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <div class="carousel-item img-container-cs">
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Home Logo Seal CoS.png')}}" alt="First slide" >
@@ -96,5 +96,8 @@
 <!-- /.container -->
 @stop
 @section('js-content')
+<script>
+$('.myIframe').css('width', $("div .row .text-center").width()+'px');
+</script>
 @stop
 
