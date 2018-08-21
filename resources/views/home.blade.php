@@ -97,7 +97,8 @@
 @stop
 @section('js-content')
 <script>
-$('.myIframe').css('width', $("div .row .text-center").width()+'px');
+$('.myIframe').css('width', $("img .d-block .w-100 .img-slider").width()+'px');
+$('.myIframe').css('height', $("img .d-block .w-100 .img-slider").height()+'px');
 </script>
 @stop
 
