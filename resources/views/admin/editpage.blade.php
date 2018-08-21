@@ -35,6 +35,45 @@
         </tbody>
     </table>
 </div>
+<div class="white-pane__bordered margbot20" style="margin-left: 20px;">
+    <h3>Confirm Front Page</h3>
+    <table id="example" class="display table-rwd table-inventory" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Event Name</th>
+                <th>Category</th>
+                <th>Action</th>
+            <!--<th>Actions</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(DB::connection('mysql2')->table('content')->select('*')->get() as $data)
+            @if($data->link === NULL)
+            <tr>
+                <td>{{$data->id}}</td>
+                <td>{{$data->name}}</td>
+                <td>{{$data->horizontal_name}}</td>
+                <td>
+                    <button title="approve" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="confirmPage(this)"
+                            class="btn btn-pure-xs btn-xs btn-delete">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </button>
+                    <button title="Set to available" type="button" data-internal="{{$data->id}}" data-name="{{$data->name}}" onclick="pushEdit(this)"
+                            class="btn btn-pure-xs btn-xs btn-delete">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                    <button title="Delete" type="button" data-internal="{{$data->id}}" data-name="{{$data->name}}" onclick="deleteData(this)"
+                            class="btn btn-pure-xs btn-xs btn-delete">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+            </tr>
+            @endif
+            @endforeach
+        </tbody>
+    </table>
+</div>
 @endif
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;margin-top: 20px;">
     <div class="box">
@@ -118,6 +157,7 @@
     }
     var editEvent = '<?php echo Route('editEvent') ?>';
     var postDeleteEvent = '<?php echo Route('postDeleteEvent') ?>';
+    var postConfirmPage = '<?php echo Route('postConfirmPage') ?>';
     var result = '';
     $.ajaxSetup({
         headers: {
@@ -145,6 +185,17 @@
         name = $(element).data('name');
         if (confirm("Do you want to delete this Event (" + name + ")?") == true) {
             $.post(postDeleteEvent, {sn: notin}, function (data) {
+
+            }).done(function () {
+                window.location.replace("<?php url('editpage') ?>");
+            });
+        }
+    };
+    var confirmPage = function (element) {
+        notin = $(element).data('internal');
+        name_ = $(element).data('name');
+        if (confirm("Do you want to confirm this Pages?") == true) {
+            $.post(postConfirmPage, {sn: notin, name: name_}, function (data) {
 
             }).done(function () {
                 window.location.replace("<?php url('editpage') ?>");
