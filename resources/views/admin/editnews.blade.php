@@ -74,6 +74,10 @@
                                     class="btn btn-pure-xs btn-xs btn-delete">
                                 <span class="glyphicon glyphicon-ok"></span>
                             </button>
+                            <button title="Delete" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="deleteData(this)"
+                                    class="btn btn-pure-xs btn-xs btn-delete">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
                         </td>
                     </tr>
                     @endforeach
