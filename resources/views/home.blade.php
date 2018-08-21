@@ -40,7 +40,9 @@
                                 </div>-->
             </div>
             <div class="carousel-item img-container-cs " style='width: 100%;' style="display: inline-block;">
-                <iframe  width="100%" height="500" src="https://www.youtube.com/embed/ycYLA_6-FTk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div class ='d-block w-100 img-slider'>
+                    <iframe  width="100%" height="500" src="https://www.youtube.com/embed/ycYLA_6-FTk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Pet 6th.png')}}" alt="Second slide" >
@@ -82,7 +84,7 @@
                 <img class="card-img-" src="{{URL::asset('public/picture/'.$new->image)}}" alt="Card image cap" style="width: 100%;">
             </div>
             <div class="col-8" style="word-wrap: break-word;white-space: pre-wrap;">
-{{$new->content}}
+                {{$new->content}}
             </div>
         </div>
     </div>
