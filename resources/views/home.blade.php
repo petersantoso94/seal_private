@@ -34,10 +34,10 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
         </ol>
         <div class="carousel-inner" style="height:500px; width: 100%;">
-            <div class="carousel-item img-container-cs" style='width: 100%;'>
-                <iframe  width="1018" height="500" src="https://www.youtube.com/embed/ycYLA_6-FTk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <div class="carousel-item img-container-cs active" style='width: 100%; display: inline-block;'>
+                <iframe  width="100%" height="100%" src="https://www.youtube.com/embed/ycYLA_6-FTk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
-            <div class="carousel-item img-container-cs active">
+            <div class="carousel-item img-container-cs">
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Home Logo Seal CoS.png')}}" alt="First slide" >
                 <!--                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black;">     
                                 </div>-->
