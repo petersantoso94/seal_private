@@ -40,7 +40,7 @@
                                 </div>-->
             </div>
             <div class="carousel-item img-container-cs " style='width: 100%;'>
-                <iframe class="d-block" width="100%" height="500" src="https://www.youtube.com/embed/ycYLA_6-FTk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe style="display: inline-block;" width="100%" height="500" src="https://www.youtube.com/embed/ycYLA_6-FTk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Pet 6th.png')}}" alt="Second slide" >
