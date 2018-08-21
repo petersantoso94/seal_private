@@ -73,5 +73,6 @@ Route::any('personalRank', array('as' => 'personalRank', 'uses' => 'HomeControll
 Route::any('browse/{id}', array('as' => 'browse', 'uses' => 'HomeController@browse'));
 Route::any('postConfirmFanart', array('as' => 'postConfirmFanart', 'uses' => 'AdminController@postConfirmFanart'));
 Route::any('postConfirmNews', array('as' => 'postConfirmNews', 'uses' => 'AdminController@postConfirmNews'));
+Route::any('postConfirmPage', array('as' => 'postConfirmPage', 'uses' => 'AdminController@postConfirmPage'));
 
 Auth::routes();
