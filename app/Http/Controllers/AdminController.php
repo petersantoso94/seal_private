@@ -576,5 +576,18 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
+    public function postConfirmPage(Request $request) {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('sn');
+                $name = $request->get('name');
+                $admin = $request->session()->get('admin');
+                $log_text = "Confirm pages {$id}";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                DB::connection('mysql2')->update("UPDATE content SET approved = '1' where id='{$id}'");
+            }
+        }
+        return view('admin.login');
+    }
 
 }
