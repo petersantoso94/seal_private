@@ -55,7 +55,7 @@
                 <td>{{$data->name}}</td>
                 <td>{{$data->horizontal_name}}</td>
                 <td>
-                    <button title="approve" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="confirmPage(this)"
+                    <button title="approve" type="button" data-internal="{{$data->id}}" data-name="{{$data->name}}" onclick="confirmPage(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
                         <span class="glyphicon glyphicon-ok"></span>
                     </button>
