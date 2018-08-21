@@ -97,6 +97,7 @@
 @stop
 @section('js-content')
 <script>
+    console.log($("#main .container").width());
 $('iframe').css('width', $("#main .container").width()+'px');
 </script>
 @stop
