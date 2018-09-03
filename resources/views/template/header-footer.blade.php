@@ -268,14 +268,14 @@
                                 Account
                             </a>
                         </div>
-                        <div class="btn-group">
-                            <a class="btn btn-secondary" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                Editable Space
+                        <div class="btn-group <?php if (isset($page)) if ($page == 'costume') echo 'show'; ?>">
+                            <a class="btn btn-secondary" href="{{url('costume')}}" role="button" aria-haspopup="true" aria-expanded="false">
+                                Costumes
                             </a>
                         </div>
                         <div class="btn-group <?php if (isset($page)) if ($page == 'fanart') echo 'show'; ?>">
                             <a class="btn btn-secondary" href="{{url('fanart')}}" role="button" aria-haspopup="true" aria-expanded="false">
-                                Costumes
+                                Fanart
                             </a>
                         </div>
                         @endif
