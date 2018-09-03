@@ -146,6 +146,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li <?php if (isset($page)) if ($page === 'Edit Character') echo 'class="active"'; ?>><a href="{{url('editcharacter')}}"><i class="fa fa-link"></i> <span>Edit Character</span></a></li>
                         <li <?php if (isset($page)) if ($page === 'Edit Front Page') echo 'class="active"'; ?>><a href="{{url('editpage')}}"><i class="fa fa-link"></i> <span>Edit Front Page</span></a></li>
                         <li <?php if (isset($page)) if ($page === 'Edit Fan Art') echo 'class="active"'; ?>><a href="{{url('editfanart')}}"><i class="fa fa-link"></i> <span>Edit Fan Art</span></a></li>
+                        <li <?php if (isset($page)) if ($page === 'Edit Costume') echo 'class="active"'; ?>><a href="{{url('editcostume')}}"><i class="fa fa-link"></i> <span>Edit Costume</span></a></li>
                         <li <?php if (isset($page)) if ($page === 'Edit News') echo 'class="active"'; ?>><a href="{{url('editnews')}}"><i class="fa fa-link"></i> <span>Edit News</span></a></li>
                     </ul>
                     <!-- /.sidebar-menu -->
