@@ -25,12 +25,12 @@
                 $players[] = array(
                     'char_name' => $player->name,
                     'master' => $player->mastername,
-                    'total_score' => (($gw_round * 10) + ($gw_win * 25) - ($gw_lose * 10)) * 10
+                    'total_score' => (($gw_win * 25) + ($gw_lose * 5)) * 10
                 );
             }
             $arr_total  = array_column($players, 'total_score');
             array_multisort($arr_total, SORT_DESC, $players);
-            $show_player = array_slice($players, 0, 5);
+            $show_player = array_slice($players, 0, 3);
             $counter = 1;
             ?>
             @foreach($show_player as $player)
