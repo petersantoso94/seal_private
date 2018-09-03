@@ -291,9 +291,43 @@ class AdminController extends Controller {
                         DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
                         return view('admin.editfanart')->withPage('Edit Fan Art')->withSuccess('Sukses Insert Fan Art');
                     }
-                    return view('admin.editfanart')->withPage('Edit Front Page')->withError('Error Data Kosong');
+                    return view('admin.editfanart')->withPage('Edit Fan Art')->withError('Error Data Kosong');
                 }
                 return view('admin.editfanart')->withPage('Edit Fan Art');
+            }
+        }
+        return view('admin.login');
+    }
+    public function editcostume(Request $request) {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') >= 0) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $input_image = $request->file('image');
+                    $caption = $request->file('caption');
+                    if ($input_image != '') {
+                        $imgnumber = DB::connection('mysql2')->table('costume')->orderBy('id', 'DESC')->select('id')->first();
+                        if (!$imgnumber) {
+                            $imgnumber = 1;
+                        } else {
+                            $imgnumber = $imgnumber->id + 1;
+                        }
+                        $destination = base_path() . '/public/picture/';
+                        $extention = $input_image->getClientOriginalExtension();
+                        $filename = 'image_costume' . $imgnumber . '.' . $extention;
+                        $input_image->move($destination, $filename);
+                        if ($request->session()->get('role') > 0)
+                            DB::connection('mysql2')->insert("INSERT INTO costume (`id`,`image`,`caption`,`approved`) VALUE ('{$imgnumber}','{$filename}','{$caption}','0')");
+                        else if ($request->session()->get('role') === 0)
+                            DB::connection('mysql2')->insert("INSERT INTO costume (`id`,`image`,`caption`,`approved`) VALUE ('{$imgnumber}','{$filename}','{$caption}','1')");
+
+                        $admin = $request->session()->get('admin');
+                        $log_text = "Inserting costume " . $imgnumber;
+                        DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                        return view('admin.editcostume')->withPage('Edit Costume')->withSuccess('Sukses Insert Costume');
+                    }
+                    return view('admin.editcostume')->withPage('Edit Costume')->withError('Error Data Kosong');
+                }
+                return view('admin.editcostume')->withPage('Edit Costume');
             }
         }
         return view('admin.login');
@@ -534,6 +568,21 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
+    public function postDeleteCostume(Request $request) {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('sn');
+                $name = $request->get('name');
+                $admin = $request->session()->get('admin');
+                $log_text = "Delete costume {$id}";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                DB::connection('mysql2')->delete("DELETE FROM costume WHERE id = '" . $id . "'");
+                $destination = base_path() . '/public/picture/' . $name;
+                unlink($destination);
+            }
+        }
+        return view('admin.login');
+    }
 
     public function postDeleteNews(Request $request) {
         if ($request->session()->has('admin')) {
@@ -559,6 +608,19 @@ class AdminController extends Controller {
                 $log_text = "Confirm fanart {$id}";
                 DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
                 DB::connection('mysql2')->update("UPDATE fanart SET approved = '1' where id='{$id}'");
+            }
+        }
+        return view('admin.login');
+    }
+    public function postConfirmCostume(Request $request) {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('sn');
+                $name = $request->get('name');
+                $admin = $request->session()->get('admin');
+                $log_text = "Confirm costume {$id}";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                DB::connection('mysql2')->update("UPDATE costume SET approved = '1' where id='{$id}'");
             }
         }
         return view('admin.login');
