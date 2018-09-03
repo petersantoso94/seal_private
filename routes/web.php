@@ -29,6 +29,9 @@ Route::get('/term', function () {
 Route::get('/fanart', function () {
     return view('fanart')->with('page','fanart');
 });
+Route::get('/costume', function () {
+    return view('costume')->with('page','costume');
+});
 Route::get('/guildRank', function () {
     return view('guildrank');
 });
@@ -49,6 +52,7 @@ Route::any('sendcash', array('as' => 'sendcash', 'uses' => 'AdminController@send
 Route::any('editpage', array('as' => 'editpage', 'uses' => 'AdminController@editpage'));
 Route::any('addadmin', array('as' => 'addadmin', 'uses' => 'AdminController@addadmin'));
 Route::any('editfanart', array('as' => 'editfanart', 'uses' => 'AdminController@editfanart'));
+Route::any('editcostume', array('as' => 'editcostume', 'uses' => 'AdminController@editcostume'));
 Route::any('editnews', array('as' => 'editnews', 'uses' => 'AdminController@editnews'));
 Route::any('editcharacter', array('as' => 'editcharacter', 'uses' => 'AdminController@editcharacter'));
 Route::any('logoutadmin', array('as' => 'logoutadmin', 'uses' => 'AdminController@logout'));
@@ -59,6 +63,7 @@ Route::any('postDelete', array('as' => 'postDelete', 'uses' => 'AdminController@
 Route::any('editEvent', array('as' => 'editEvent', 'uses' => 'AdminController@editEvent'));
 Route::any('postDeleteEvent', array('as' => 'postDeleteEvent', 'uses' => 'AdminController@postDeleteEvent'));
 Route::any('postDeleteFanart', array('as' => 'postDeleteFanart', 'uses' => 'AdminController@postDeleteFanart'));
+Route::any('postDeleteCostume', array('as' => 'postDeleteCostume', 'uses' => 'AdminController@postDeleteCostume'));
 Route::any('postDeleteNews', array('as' => 'postDeleteNews', 'uses' => 'AdminController@postDeleteNews'));
 Route::any('postDeleteAdmin', array('as' => 'postDeleteAdmin', 'uses' => 'AdminController@postDeleteAdmin'));
 Route::any('postCash', array('as' => 'postCash', 'uses' => 'AdminController@postCash'));
@@ -74,5 +79,6 @@ Route::any('browse/{id}', array('as' => 'browse', 'uses' => 'HomeController@brow
 Route::any('postConfirmFanart', array('as' => 'postConfirmFanart', 'uses' => 'AdminController@postConfirmFanart'));
 Route::any('postConfirmNews', array('as' => 'postConfirmNews', 'uses' => 'AdminController@postConfirmNews'));
 Route::any('postConfirmPage', array('as' => 'postConfirmPage', 'uses' => 'AdminController@postConfirmPage'));
+Route::any('postConfirmCostume', array('as' => 'postConfirmCostume', 'uses' => 'AdminController@postConfirmCostume'));
 
 Auth::routes();
