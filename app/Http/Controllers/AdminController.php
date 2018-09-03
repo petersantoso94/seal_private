@@ -303,7 +303,7 @@ class AdminController extends Controller {
             if ($request->session()->get('role') >= 0) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $input_image = $request->file('image');
-                    $caption = $request->file('caption');
+                    $caption = $request->get('caption');
                     if ($input_image != '') {
                         $imgnumber = DB::connection('mysql2')->table('costume')->orderBy('id', 'DESC')->select('id')->first();
                         if (!$imgnumber) {
