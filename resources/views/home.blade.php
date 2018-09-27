@@ -79,7 +79,7 @@
             <div class="col-4">
                 <img class="card-img-" src="{{URL::asset('public/picture/'.$new->image)}}" alt="Card image cap" style="width: 100%;">
             </div>
-            <div class="col-8" style="word-wrap: break-word;white-space: pre-wrap;">
+            <div class="col-8" style="word-wrap: break-word;white-space: pre-wrap;display: inline-block;">
                 {{$new->content}}
             </div>
         </div>
