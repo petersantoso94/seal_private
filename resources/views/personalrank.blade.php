@@ -11,12 +11,10 @@
                 <th scope="col">No</th>
                 <th scope="col">Char Name</th>
                 <th scope="col">Job</th>
-				<th scope="col">Original Level</th>
-                <th scope="col">Current Level</th>
+                <th scope="col">Level</th>
                 <th scope="col">Kill</th>
                 <th scope="col">Fame</th>
                 <th scope="col">Player's Rating</th>
-				<th scope="col">Play Time</th>
             </tr>
         </thead>
         <tbody>
@@ -57,7 +55,7 @@
 					'play_time' => $player->play_time
                 );
             }
-            $arr_total = array_column($players, 'play_time');
+            $arr_total = array_column($players, 'total_score');
             array_multisort($arr_total, SORT_DESC, $players);
             $show_player = array_slice($players, 0, 200);
             $counter = 1;
@@ -111,12 +109,10 @@
                 <th scope="row">{{$counter}}</th>
                 <td>{{$player['char_name']}}</td>
                 <td>{{$job_name}}</td>
-				<td>{{$player['old_level']}}</td>
                 <td>{{$player['level']}}</td>
                 <td>{{$player['kill']}}</td>
                 <td>{{$player['fame']}}</td>
                 <td>{{$player['total_score']}}</td>
-				<td>{{$player['play_time']}}</td>
             </tr>
             <?php $counter++; ?>
             @endforeach

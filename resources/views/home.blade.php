@@ -32,31 +32,31 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
         </ol>
         <div class="carousel-inner" style="height:500px; width: 100%;">
             <div class="carousel-item img-container-cs active">
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Home Logo Seal CoS.png')}}" alt="First slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Costume Poster.png')}}" alt="First slide" >
                 <!--                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black;">     
                                 </div>-->
             </div>
             <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Pet 6th.png')}}" alt="Second slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Pet 6th(2).png')}}" alt="Second slide" >
             </div>
             <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/August 18th GC.png')}}" alt="Third slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Special Golden Chest.png')}}" alt="Third slide" >
             </div>
             <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/HP1.png')}}" alt="Fourth slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/StrongerTogether.png')}}" alt="Fourth slide" >
             </div>
             <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Hero Progression1.png')}}" alt="Fifth slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Quest Reward.png')}}" alt="Fifth slide" >
             </div>
             <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Daily Events.png')}}" alt="Sixth slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Home Logo Seal CoS.png')}}" alt="Sixth slide" >
             </div>
-            <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Quest Reward.png')}}" alt="Seventh slide" >
+			<div class="carousel-item img-container-cs" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Daily Events.png')}}" alt="Seventh slide" >
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

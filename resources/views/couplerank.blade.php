@@ -11,7 +11,9 @@
                 <th scope="col">No</th>
                 <th scope="col">Player 1 Name</th>
                 <th scope="col">Player 2 Name</th>
-                <th scope="col">Days</th>
+				<th scope="col">Original Days</th>
+                <th scope="col">Current Days</th>
+				<th scope="col">Progression</th>
             </tr>
         </thead>
         <tbody>
@@ -28,31 +30,38 @@
             foreach(DB::connection('mysql3')->table('pc')->select('char_name','user_id')->whereIn('user_id',$all_gm)->get() as $char){
                 $gm_name[] = $char->char_name;
             }
-            $all_player = DB::connection('mysql3')->table('msgfriend')->select('char_name', 'couple_name', 'couple_daycnt')->whereNotIn('char_name', $gm_name)->whereNotIn('couple_name', $gm_name)->get();
+            $all_player = DB::connection('mysql3')->table('msgfriend')->select('char_name', 'couple_name', 'couple_daycnt', 'margin')->whereNotIn('char_name', $gm_name)->whereNotIn('couple_name', $gm_name)->get();
             $players = [];
             $players2 = [];
             foreach ($all_player as $player) {
-                $gw_win = floatval($player->couple_daycnt);
+				$player_days = floatval($player->couple_daycnt);
+				$ori_days = floatval($player->margin);
                 $players2[] = $player->couple_name;
                 if (count($players) == 0) {
+					$total_score = $player_days - $ori_days;
                     $players[] = array(
                         'char_name' => $player->char_name,
                         'master' => $player->couple_name,
-                        'total_score' => $gw_win
+						'margin' => $player->margin,
+						'player_days' => $player->couple_daycnt,
+                        'total_score' => $total_score
                     );
                 } else {
                     if (!in_array($player->char_name, $players2) && count($players) > 0) {
+						$total_score = $player_days - $ori_days;
                         $players[] = array(
-                            'char_name' => $player->char_name,
-                            'master' => $player->couple_name,
-                            'total_score' => $gw_win
+                        'char_name' => $player->char_name,
+                        'master' => $player->couple_name,
+						'margin' => $player->margin,
+						'player_days' => $player->couple_daycnt,
+                        'total_score' => $total_score
                         );
                     }
                 }
             }
             $arr_total = array_column($players, 'total_score');
             array_multisort($arr_total, SORT_DESC, $players);
-            $show_player = array_slice($players, 0, 20);
+            $show_player = array_slice($players, 0, 100);
             $counter = 1;
             ?>
             @foreach($show_player as $player)
@@ -60,7 +69,9 @@
                 <th scope="row">{{$counter}}</th>
                 <td>{{$player['char_name']}}</td>
                 <td>{{$player['master']}}</td>
-                <td>{{$player['total_score']}}</td>
+				<td>{{$player['margin']}}</td>
+                <td>{{$player['player_days']}}</td>
+				<td>{{$player['total_score']}}</td>
             </tr>
             <?php $counter++; ?>
             @endforeach
