@@ -59,13 +59,19 @@ class AdminController extends Controller
                         $skilluppoint = $request->get('skilluppoint');
                         $exppoint = $request->get('exppoint');
                         $playflag = $request->get('playflag');
-                        DB::connection('mysql3')->insert("UPDATE pc SET `map_num`='{$map}',`level`='{$level}',`play_flag`='{$playflag}',"
-                            . "`job`='{$job}',`exp`='{$exp}',`money`='{$money}',`fame`='{$fame}',`strength`='{$str}',`intelligence`='{$intel}',`dexterity`='{$dex}' "
-                            . ",`constitution`='{$cons}' ,`mentality`='{$mental}',`sense`='{$sense}',`levelup_point`='{$lvluppoint}',`skillup_point`='{$skilluppoint}',`expert_skillup_point`='{$exppoint}'"
-                            . "WHERE `char_name`='{$users}'");
 
                         $admin = $request->session()->get('admin');
                         $log_text = "editing character " . $users;
+                        if ($request->session()->get('role') === 0) {
+                            DB::connection('mysql3')->insert("UPDATE pc SET `map_num`='{$map}',`level`='{$level}',`play_flag`='{$playflag}',"
+                                . "`job`='{$job}',`exp`='{$exp}',`money`='{$money}',`fame`='{$fame}',`strength`='{$str}',`intelligence`='{$intel}',`dexterity`='{$dex}' "
+                                . ",`constitution`='{$cons}' ,`mentality`='{$mental}',`sense`='{$sense}',`levelup_point`='{$lvluppoint}',`skillup_point`='{$skilluppoint}',`expert_skillup_point`='{$exppoint}'"
+                                . "WHERE `char_name`='{$users}'");
+                        } else if ($request->session()->get('role') > 0) {
+                            DB::connection('mysql2')->insert("INSERT INTO confirmCharacter (`users`,`map`,`level`,`job`,`exp`,`money`,`fame`,`str`,`intel`,`dex`,`cons`,`mental`,`sense`,`lvluppoint`,`skilluppoint`,`exppoint`,`playflag`) VALUE ('{$users}','{$map}','{$level}','{$job}','{$exp},'{$money}','{$fame}','{$str}','{$intel}','{$dex}','{$cons}','{$mental}','{$sense},'{$lvluppoint}','{$skilluppoint}','{$exppoint}','{$playflag}')");
+                            $log_text = "editing character " . $users." need confirm";
+                        }
+
                         DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
                         return view('admin.editcharacter')->withPage('Edit Character')->withSuccess('Sukses Edit Character');
                     } else if ($request->get('tipe') === 'ban') {
@@ -89,10 +95,15 @@ class AdminController extends Controller
                         }
                         $registered_id = DB::connection('mysql')->table($table)->where('id', $a)->get();
                         if (count($registered_id) > 0) {
-                            DB::update("UPDATE {$table} SET game_block = '2030-01-01 00:00:00' WHERE id = '{$a}'");
-
                             $admin = $request->session()->get('admin');
                             $log_text = "ban character " . $users;
+                            if ($request->session()->get('role') === 0) {
+                                DB::update("UPDATE {$table} SET game_block = '2030-01-01 00:00:00' WHERE id = '{$a}'");
+                            }else if ($request->session()->get('role') > 0) {
+                                $log_text = "ban character " . $users." need confirm";
+                                DB::connection('mysql2')->insert("INSERT INTO confirmBan (`table`,`users`) VALUE ('{$table}','{$a}')");
+                            }
+
                             DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
                             return view('admin.editcharacter')->withPage('Edit Character')->withSuccessban('Sukses Ban Character');
                         }
