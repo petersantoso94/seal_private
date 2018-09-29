@@ -21,7 +21,7 @@
                 <td>
                     <button title="Set to available" type="button" data-cash="{{$data->cash}}" data-users="{{$data->users}}" data-table="{{$data->table}}" data-internal="{{$data->id}}" onclick="pushValid(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
-                        <span class="glyphicon glyphicon-save"></span>
+                        <span class="glyphicon glyphicon-ok"></span>
                     </button>
                     <button title="Set to available" type="button" data-internal="{{$data->id}}" onclick="deleteData(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
@@ -48,7 +48,7 @@
         cash_ = $(element).data('cash');
         table_ = $(element).data('table');
         users_ = $(element).data('users');
-        if (confirm("Do you want to send "+cash+" to "+users_+"?") == true) {
+        if (confirm("Do you want to send "+cash_+" to "+users_+"?") == true) {
             $.post(postConfirmCash, {id: notin,cash:cash_,user:users_,table:table_}, function (data) {
 
             }).done(function () {
