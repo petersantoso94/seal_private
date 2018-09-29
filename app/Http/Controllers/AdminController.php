@@ -421,7 +421,7 @@ class AdminController extends Controller
                 $id = $request->get('id');
 
                 $table = $request->get('table');
-                $a = $request->get('users');
+                $a = $request->get('user');
                 $cash = $request->get('cash');
 
                 DB::update("UPDATE {$table} SET point = point + {$cash} WHERE id = '{$a}'");
