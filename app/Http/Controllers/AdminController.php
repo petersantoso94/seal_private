@@ -418,11 +418,17 @@ class AdminController extends Controller
                     }
                     $registered_id = DB::connection('mysql')->table($table)->where('id', $a)->get();
                     if (count($registered_id) > 0) {
-                        DB::update("UPDATE {$table} SET point = point + {$cash} WHERE id = '{$a}'");
-
                         $admin = $request->session()->get('admin');
                         $log_text = "Set point {$a} +" . $cash;
-                        DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                        if ($request->session()->get('role') === 0) {
+                            DB::update("UPDATE {$table} SET point = point + {$cash} WHERE id = '{$a}'");
+                            DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                        }else {
+                            DB::connection('mysql2')->insert("INSERT INTO confirmCash (`table`,`cash`,`user`) VALUE ('{$table}','{$cash}','{$a}')");
+                            $log_text = "Set point confirmation {$a} +" . $cash;
+                            DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                        }
+
                     }
                 }
             }
