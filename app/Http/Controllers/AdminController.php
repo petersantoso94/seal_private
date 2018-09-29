@@ -401,6 +401,41 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
+    public function postConfirmCash(Request $request)
+    {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('id');
+
+                $table = $request->get('table');
+                $a = $request->get('users');
+                $cash = $request->get('cash');
+
+                DB::update("UPDATE {$table} SET point = point + {$cash} WHERE id = '{$a}'");
+                $admin = $request->session()->get('admin');
+
+                $this->deleteCash($id);
+                $log_text = "Confirm cash {$id}";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+            }
+        }
+        return view('admin.login');
+    }
+
+    public function postDeleteCash(Request $request)
+    {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('sn');
+                $this->deleteCash($id);
+            }
+        }
+        return view('admin.login');
+    }
+    public function deleteCash(string $id){
+        DB::connection('mysql2')->delete("DELETE FROM confirmCash WHERE id = '" . $id . "'");
+    }
+
     public function postCash(Request $request)
     {
         if ($request->session()->has('admin')) {
