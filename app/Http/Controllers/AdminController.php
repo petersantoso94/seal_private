@@ -68,7 +68,7 @@ class AdminController extends Controller
                                 . ",`constitution`='{$cons}' ,`mentality`='{$mental}',`sense`='{$sense}',`levelup_point`='{$lvluppoint}',`skillup_point`='{$skilluppoint}',`expert_skillup_point`='{$exppoint}'"
                                 . "WHERE `char_name`='{$users}'");
                         } else if ($request->session()->get('role') > 0) {
-                            DB::connection('mysql2')->insert("INSERT INTO confirmCharacter (`users`,`map`,`level`,`job`,`exp`,`money`,`fame`,`str`,`intel`,`dex`,`cons`,`mental`,`sense`,`lvluppoint`,`skilluppoint`,`exppoint`,`playflag`) VALUE ('{$users}','{$map}','{$level}','{$job}','{$exp},'{$money}','{$fame}','{$str}','{$intel}','{$dex}','{$cons}','{$mental}','{$sense}','{$lvluppoint}','{$skilluppoint}','{$exppoint}','{$playflag}')");
+                            DB::connection('mysql2')->insert("INSERT INTO confirmCharacter (`users`,`map`,`level`,`job`,`exp`,`money`,`fame`,`str`,`intel`,`dex`,`cons`,`mental`,`sense`,`lvluppoint`,`skilluppoint`,`exppoint`,`playflag`) VALUE ('{$users}','{$map}','{$level}','{$job}','{$exp}','{$money}','{$fame}','{$str}','{$intel}','{$dex}','{$cons}','{$mental}','{$sense}','{$lvluppoint}','{$skilluppoint}','{$exppoint}','{$playflag}')");
                             $log_text = "editing character " . $users." need confirm";
                         }
 
