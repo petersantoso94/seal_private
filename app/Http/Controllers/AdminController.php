@@ -422,12 +422,11 @@ class AdminController extends Controller
                         $log_text = "Set point {$a} +" . $cash;
                         if ($request->session()->get('role') === 0) {
                             DB::update("UPDATE {$table} SET point = point + {$cash} WHERE id = '{$a}'");
-                            DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
-                        }else if ($request->session()->get('role') > 0) {
+                        } else if ($request->session()->get('role') > 0) {
                             DB::connection('mysql2')->insert("INSERT INTO confirmCash (`table`,`cash`,`users`) VALUE ('{$table}','{$cash}','{$a}')");
                             $log_text = "Set point confirmation {$a} +" . $cash;
-                            DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
                         }
+                        DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
 
                     }
                 }
@@ -462,10 +461,15 @@ class AdminController extends Controller
                                 }
                             }
                             if ($idx_kosong < 99) {
-                                DB::connection('mysql3')->update("UPDATE store SET io" . $idx_kosong . " = '{$io_val}', it" . $idx_kosong . " = '{$it_val}' WHERE user_id = '{$id}'");
-
                                 $admin = $request->session()->get('admin');
                                 $log_text = "Give item for {$id} ";
+                                if ($request->session()->get('role') === 0) {
+                                    DB::connection('mysql3')->update("UPDATE store SET io" . $idx_kosong . " = '{$io_val}', it" . $idx_kosong . " = '{$it_val}' WHERE user_id = '{$id}'");
+                                } else if ($request->session()->get('role') > 0) {
+                                    DB::connection('mysql2')->insert("INSERT INTO confirmItem (`slot`,`io_val`,`it_val`,`users`) VALUE ('{$idx_kosong}','{$io_val}','{$it_val}','{$id}')");
+                                    $log_text = "Give item for {$id} need confirm";
+                                }
+
                                 DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
                             } else {
                                 $not_avail .= ' ' . $id;
@@ -491,9 +495,14 @@ class AdminController extends Controller
                 //$ids = 'gm01';
                 //$ids = explode(',', $ids);
                 foreach ($ids as $id) {
-                    DB::connection('mysql4')->update("INSERT INTO seal_item (ItemLimit, ItemType, OwnerID, ItemOp1, ItemOp2, OwnerDate, bxaid) VALUES('{$io_val}','{$it_val}','{$id}',0,0, CURDATE(), 'SEND')");
                     $admin = $request->session()->get('admin');
                     $log_text = "Set item for {$id} ";
+                    if ($request->session()->get('role') === 0) {
+                        DB::connection('mysql4')->update("INSERT INTO seal_item (ItemLimit, ItemType, OwnerID, ItemOp1, ItemOp2, OwnerDate, bxaid) VALUES('{$io_val}','{$it_val}','{$id}',0,0, CURDATE(), 'SEND')");
+                    } else if ($request->session()->get('role') > 0) {
+                        DB::connection('mysql2')->insert("INSERT INTO confirmItemAdd (`io_val`,`it_val`,`users`) VALUE ('{$io_val}','{$it_val}','{$id}')");
+                        $log_text = "Set item for {$id} need confirm";
+                    }
                     DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
                 }
                 return "success";
