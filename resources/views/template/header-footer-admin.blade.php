@@ -157,6 +157,8 @@ desired effect
                     </li>
                     <li <?php if (isset($page)) if ($page === 'Add Admin') echo 'class="active"'; ?>><a
                                 href="{{url('addadmin')}}"><i class="fa fa-link"></i> <span>Add Admin</span></a></li>
+                    <li <?php if (isset($page)) if ($page === 'Confirm Cash') echo 'class="active"'; ?>><a
+                                href="{{url('confirmCash')}}"><i class="fa fa-link"></i> <span>Confirm Cash</span></a></li>
                 @endif
                 <li <?php if (isset($page)) if ($page === 'Send Cash') echo 'class="active"'; ?>><a
                             href="{{url('sendcash')}}"><i class="fa fa-link"></i> <span>Send Cash</span></a></li>
