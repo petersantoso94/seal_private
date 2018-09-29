@@ -6,15 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use DB;
 
-class AdminController extends Controller {
+class AdminController extends Controller
+{
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct() {
-        
+    public function __construct()
+    {
+
     }
 
     /**
@@ -22,7 +24,8 @@ class AdminController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function getUserData(Request $request) {
+    public function getUserData(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 $user = $request->get('users');
@@ -33,7 +36,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function editcharacter(Request $request) {
+    public function editcharacter(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -56,9 +60,9 @@ class AdminController extends Controller {
                         $exppoint = $request->get('exppoint');
                         $playflag = $request->get('playflag');
                         DB::connection('mysql3')->insert("UPDATE pc SET `map_num`='{$map}',`level`='{$level}',`play_flag`='{$playflag}',"
-                                . "`job`='{$job}',`exp`='{$exp}',`money`='{$money}',`fame`='{$fame}',`strength`='{$str}',`intelligence`='{$intel}',`dexterity`='{$dex}' "
-                                . ",`constitution`='{$cons}' ,`mentality`='{$mental}',`sense`='{$sense}',`levelup_point`='{$lvluppoint}',`skillup_point`='{$skilluppoint}',`expert_skillup_point`='{$exppoint}'"
-                                . "WHERE `char_name`='{$users}'");
+                            . "`job`='{$job}',`exp`='{$exp}',`money`='{$money}',`fame`='{$fame}',`strength`='{$str}',`intelligence`='{$intel}',`dexterity`='{$dex}' "
+                            . ",`constitution`='{$cons}' ,`mentality`='{$mental}',`sense`='{$sense}',`levelup_point`='{$lvluppoint}',`skillup_point`='{$skilluppoint}',`expert_skillup_point`='{$exppoint}'"
+                            . "WHERE `char_name`='{$users}'");
 
                         $admin = $request->session()->get('admin');
                         $log_text = "editing character " . $users;
@@ -100,18 +104,19 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function addadmin(Request $request) {
+    public function addadmin(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 $data = [];
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $id = $request->get('username');
                     $pass = md5($request->get('password'));
-                    
+
                     $user_data = DB::connection('mysql2')->table('admin')->select('*')->where('name', $id)->get();
-                    if(count($user_data) > 0)
+                    if (count($user_data) > 0)
                         return view('admin.addadmin')->withPage('Add Admin')->withError('Duplicate Admin ID');
-                    
+
                     $admin = $request->session()->get('admin');
                     DB::connection('mysql2')->insert("INSERT INTO admin (`name`,`password`,`role`,`created_at`,`updated_at`,`admin_id`) VALUE ('{$id}','{$pass}','1',CURDATE(),CURDATE(),'{$admin}')");
 
@@ -125,7 +130,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $request->get('email');
             $pass = md5($request->get('password'));
@@ -136,7 +142,10 @@ class AdminController extends Controller {
                 $admin = $request->session()->get('admin');
                 $log_text = "admin login";
                 DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
-                return view('admin.home')->withPage('Approve User');
+                if ($user_data[0]->role === 0)
+                    return view('admin.home')->withPage('Approve User');
+                else
+                    return redirect('sendcash');
             } else {
                 $data = array(
                     'errors' => 'username or password is wrong!'
@@ -145,12 +154,16 @@ class AdminController extends Controller {
             }
         }
         if ($request->session()->has('admin')) {
-            return view('admin.home')->withPage('Approve User');
+            if ($request->session()->get('role') === 0)
+                return view('admin.home')->withPage('Approve User');
+            else
+                return redirect('sendcash');
         }
         return view('admin.login');
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         $admin = $request->session()->get('admin');
         $log_text = "admin logout";
         DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
@@ -159,11 +172,12 @@ class AdminController extends Controller {
         return redirect('adminpanelcos');
     }
 
-    public function sendcash(Request $request) {
+    public function sendcash(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    
+
                 }
                 return view('admin.sendcash')->withPage('Send Cash');
             }
@@ -171,7 +185,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function editEvent(Request $request) {
+    public function editEvent(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 $data = [];
@@ -190,7 +205,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function editpage(Request $request) {
+    public function editpage(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -265,7 +281,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function editfanart(Request $request) {
+    public function editfanart(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -298,7 +315,9 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
-    public function editcostume(Request $request) {
+
+    public function editcostume(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -333,7 +352,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function editnews(Request $request) {
+    public function editnews(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -370,7 +390,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function postCash(Request $request) {
+    public function postCash(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 $ids = $request->get('users');
@@ -409,7 +430,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function postItems(Request $request) {
+    public function postItems(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 $ids = $request->get('users');
@@ -451,7 +473,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function postItemsAdd(Request $request) {
+    public function postItemsAdd(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 $ids = $request->get('users');
@@ -473,7 +496,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function postValid(Request $request) {
+    public function postValid(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') >= 0) {
                 $id = $request->get('sn');
@@ -512,7 +536,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function postDelete(Request $request) {
+    public function postDelete(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
@@ -527,7 +552,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function postDeleteEvent(Request $request) {
+    public function postDeleteEvent(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
@@ -539,8 +565,9 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
-    
-    public function postDeleteAdmin(Request $request) {
+
+    public function postDeleteAdmin(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
@@ -553,7 +580,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function postDeleteFanart(Request $request) {
+    public function postDeleteFanart(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
@@ -568,7 +596,9 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
-    public function postDeleteCostume(Request $request) {
+
+    public function postDeleteCostume(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
@@ -584,7 +614,8 @@ class AdminController extends Controller {
         return view('admin.login');
     }
 
-    public function postDeleteNews(Request $request) {
+    public function postDeleteNews(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
@@ -599,7 +630,9 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
-    public function postConfirmFanart(Request $request) {
+
+    public function postConfirmFanart(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
@@ -612,7 +645,9 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
-    public function postConfirmCostume(Request $request) {
+
+    public function postConfirmCostume(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
@@ -625,7 +660,9 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
-    public function postConfirmNews(Request $request) {
+
+    public function postConfirmNews(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
@@ -638,7 +675,9 @@ class AdminController extends Controller {
         }
         return view('admin.login');
     }
-    public function postConfirmPage(Request $request) {
+
+    public function postConfirmPage(Request $request)
+    {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') == 0) {
                 $id = $request->get('sn');
