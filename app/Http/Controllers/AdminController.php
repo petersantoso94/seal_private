@@ -69,7 +69,7 @@ class AdminController extends Controller
                                 . "WHERE `char_name`='{$users}'");
                         } else if ($request->session()->get('role') > 0) {
                             DB::connection('mysql2')->insert("INSERT INTO confirmCharacter (`users`,`map`,`level`,`job`,`exp`,`money`,`fame`,`str`,`intel`,`dex`,`cons`,`mental`,`sense`,`lvluppoint`,`skilluppoint`,`exppoint`,`playflag`) VALUE ('{$users}','{$map}','{$level}','{$job}','{$exp}','{$money}','{$fame}','{$str}','{$intel}','{$dex}','{$cons}','{$mental}','{$sense}','{$lvluppoint}','{$skilluppoint}','{$exppoint}','{$playflag}')");
-                            $log_text = "editing character " . $users." need confirm";
+                            $log_text = "editing character " . $users . " need confirm";
                         }
 
                         DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
@@ -99,8 +99,8 @@ class AdminController extends Controller
                             $log_text = "ban character " . $users;
                             if ($request->session()->get('role') === 0) {
                                 DB::update("UPDATE {$table} SET game_block = '2030-01-01 00:00:00' WHERE id = '{$a}'");
-                            }else if ($request->session()->get('role') > 0) {
-                                $log_text = "ban character " . $users." need confirm";
+                            } else if ($request->session()->get('role') > 0) {
+                                $log_text = "ban character " . $users . " need confirm";
                                 DB::connection('mysql2')->insert("INSERT INTO confirmBan (`table`,`users`) VALUE ('{$table}','{$a}')");
                             }
 
@@ -445,7 +445,9 @@ class AdminController extends Controller
         }
         return view('admin.login');
     }
-    public function deleteCash(string $id){
+
+    public function deleteCash(string $id)
+    {
         DB::connection('mysql2')->delete("DELETE FROM confirmCash WHERE id = '" . $id . "'");
     }
 
@@ -495,7 +497,6 @@ class AdminController extends Controller
     }
 
 
-
     public function postConfirmItem(Request $request)
     {
         if ($request->session()->has('admin')) {
@@ -506,19 +507,36 @@ class AdminController extends Controller
                 $user = $request->get('user');
                 $ioval = $request->get('ioval');
                 $itval = $request->get('itval');
+                $registered_id = DB::connection('mysql3')->table('store')->where('user_id', $user)->get();
+                if (count($registered_id) > 0) {
+                    foreach ($registered_id as $user) {
+                        $idx_kosong = 99;
+                        for ($i = 0; $i < 80; $i++) {
+                            $stringio = 'io' . $i;
+                            $stringit = 'it' . $i;
+                            if ($user->$stringio == 0 && $user->$stringit == 0) {
+                                $idx_kosong = $i;
+                                break;
+                            }
+                        }
+                        if ($idx_kosong < 80) {
+                            DB::connection('mysql3')->update("UPDATE store SET io" . $idx_kosong . " = '{$ioval}', it" . $idx_kosong . " = '{$itval}' WHERE user_id = '{$user}'");
+                            $admin = $request->session()->get('admin');
 
-                DB::connection('mysql3')->update("UPDATE store SET io" . $slot . " = '{$ioval}', it" . $slot . " = '{$itval}' WHERE user_id = '{$user}'");
-                $admin = $request->session()->get('admin');
+                            $this->deleteItem($id);
+                            $log_text = "Give item for {$user} ";
+                            DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                        }
+                    }
+                }
 
-                $this->deleteItem($id);
-                $log_text = "Give item for {$user} ";
-                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
             }
         }
         return view('admin.login');
     }
 
-    public function deleteItem(string $id){
+    public function deleteItem(string $id)
+    {
         DB::connection('mysql2')->delete("DELETE FROM confirmItem WHERE id = '" . $id . "'");
     }
 
@@ -547,7 +565,7 @@ class AdminController extends Controller
                                     break;
                                 }
                             }
-                            if ($idx_kosong < 99) {
+                            if ($idx_kosong < 80) {
                                 $admin = $request->session()->get('admin');
                                 $log_text = "Give item for {$id} ";
                                 if ($request->session()->get('role') === 0) {
