@@ -33,12 +33,16 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
 			<li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
         </ol>
         <div class="carousel-inner" style="height:500px; width: 100%;">
             <div class="carousel-item img-container-cs active">
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Costume Poster.png')}}" alt="First slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/gmrec.jpg')}}" alt="First slide" >
                 <!--                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black;">     
                                 </div>-->
+            </div>
+			<div class="carousel-item img-container-cs" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Costume Poster.png')}}" alt="Second slide" >
             </div>
             <div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Pet 6th(2).png')}}" alt="Second slide" >
@@ -53,7 +57,7 @@
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Quest Reward.png')}}" alt="Fifth slide" >
             </div>
             <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Home Logo Seal CoS.png')}}" alt="Sixth slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Home.png')}}" alt="Sixth slide" >
             </div>
 			<div class="carousel-item img-container-cs" >
                 <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Daily Events.png')}}" alt="Seventh slide" >
