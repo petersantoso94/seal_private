@@ -85,5 +85,7 @@ Route::any('confirmCash', array('as' => 'confirmCash', 'uses' => 'AdminControlle
 Route::any('postDeleteCash', array('as' => 'postDeleteCash', 'uses' => 'AdminController@postDeleteCash'));
 Route::any('postConfirmItem', array('as' => 'postConfirmItem', 'uses' => 'AdminController@postConfirmItem'));
 Route::any('postDeleteItem', array('as' => 'postDeleteItem', 'uses' => 'AdminController@postDeleteItem'));
+Route::any('postConfirmItemAdd', array('as' => 'postConfirmItemAdd', 'uses' => 'AdminController@postConfirmItemAdd'));
+Route::any('postDeleteItemAdd', array('as' => 'postDeleteItemAdd', 'uses' => 'AdminController@postDeleteItemAdd'));
 
 Auth::routes();

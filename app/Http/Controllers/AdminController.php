@@ -535,6 +535,17 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
+    public function postDeleteItem(Request $request)
+    {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('sn');
+                $this->deleteItem($id);
+            }
+        }
+        return view('admin.login');
+    }
+
     public function deleteItem(string $id)
     {
         DB::connection('mysql2')->delete("DELETE FROM confirmItem WHERE id = '" . $id . "'");
@@ -586,6 +597,42 @@ class AdminController extends Controller
             }
         }
         return view('admin.login');
+    }
+
+    public function postConfirmItemAdd(Request $request)
+    {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('id');
+
+                $users = $request->get('user');
+                $io_val = $request->get('ioval');
+                $it_val = $request->get('itval');
+
+                $admin = $request->session()->get('admin');
+                $log_text = "Set item for {$id} ";
+                DB::connection('mysql4')->update("INSERT INTO seal_item (ItemLimit, ItemType, OwnerID, ItemOp1, ItemOp2, OwnerDate, bxaid) VALUES('{$io_val}','{$it_val}','{$users}',0,0, CURDATE(), 'SEND')");
+                $this->deleteItemAdd($users);
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+            }
+        }
+        return view('admin.login');
+    }
+
+    public function postDeleteItemAdd(Request $request)
+    {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('sn');
+                $this->deleteItemAdd($id);
+            }
+        }
+        return view('admin.login');
+    }
+
+    public function deleteItemAdd(string $id)
+    {
+        DB::connection('mysql2')->delete("DELETE FROM confirmItemAdd WHERE id = '" . $id . "'");
     }
 
     public function postItemsAdd(Request $request)
