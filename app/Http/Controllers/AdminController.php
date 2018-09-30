@@ -414,6 +414,19 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
+    public function confirmEditChar(Request $request)
+    {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                }
+                return view('admin.confirmEditChar')->withPage('Confirm Edit Character');
+            }
+        }
+        return view('admin.login');
+    }
+
     public function postConfirmCash(Request $request)
     {
         if ($request->session()->has('admin')) {
