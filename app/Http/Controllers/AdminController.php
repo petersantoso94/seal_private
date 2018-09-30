@@ -494,6 +494,34 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
+
+
+    public function postConfirmItem(Request $request)
+    {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('id');
+
+                $slot = $request->get('slot');
+                $user = $request->get('user');
+                $ioval = $request->get('ioval');
+                $itval = $request->get('itval');
+
+                DB::connection('mysql3')->update("UPDATE store SET io" . $slot . " = '{$ioval}', it" . $slot . " = '{$itval}' WHERE user_id = '{$user}'");
+                $admin = $request->session()->get('admin');
+
+                $this->deleteItem($id);
+                $log_text = "Give item for {$user} ";
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+            }
+        }
+        return view('admin.login');
+    }
+
+    public function deleteItem(string $id){
+        DB::connection('mysql2')->delete("DELETE FROM confirmItem WHERE id = '" . $id . "'");
+    }
+
     public function postItems(Request $request)
     {
         if ($request->session()->has('admin')) {
