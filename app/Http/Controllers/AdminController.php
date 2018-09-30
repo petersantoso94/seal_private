@@ -504,10 +504,10 @@ class AdminController extends Controller
                 $id = $request->get('id');
 
                 $slot = $request->get('slot');
-                $user = $request->get('user');
+                $users = $request->get('user');
                 $ioval = $request->get('ioval');
                 $itval = $request->get('itval');
-                $registered_id = DB::connection('mysql3')->table('store')->where('user_id', $user)->get();
+                $registered_id = DB::connection('mysql3')->table('store')->where('user_id', $users)->get();
                 if (count($registered_id) > 0) {
                     foreach ($registered_id as $user) {
                         $idx_kosong = 99;
@@ -520,11 +520,11 @@ class AdminController extends Controller
                             }
                         }
                         if ($idx_kosong < 80) {
-                            DB::connection('mysql3')->update("UPDATE store SET io" . $idx_kosong . " = '{$ioval}', it" . $idx_kosong . " = '{$itval}' WHERE user_id = '{$user}'");
+                            DB::connection('mysql3')->update("UPDATE store SET io" . $idx_kosong . " = '{$ioval}', it" . $idx_kosong . " = '{$itval}' WHERE user_id = '{$users}'");
                             $admin = $request->session()->get('admin');
 
                             $this->deleteItem($id);
-                            $log_text = "Give item for {$user} ";
+                            $log_text = "Give item for {$users} ";
                             DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
                         }
                     }
