@@ -9,6 +9,7 @@ app/storage/
 
 # Laravel 5 & Lumen specific
 public/storage
+public/patch
 config/database.php
 config/app.php
 public/hot
