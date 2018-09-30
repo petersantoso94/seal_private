@@ -612,7 +612,7 @@ class AdminController extends Controller
                 $admin = $request->session()->get('admin');
                 $log_text = "Set item for {$id} ";
                 DB::connection('mysql4')->update("INSERT INTO seal_item (ItemLimit, ItemType, OwnerID, ItemOp1, ItemOp2, OwnerDate, bxaid) VALUES('{$io_val}','{$it_val}','{$users}',0,0, CURDATE(), 'SEND')");
-                $this->deleteItemAdd($users);
+                $this->deleteItemAdd($id);
                 DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
             }
         }
