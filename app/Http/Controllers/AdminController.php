@@ -36,6 +36,56 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
+    public function deleteEditChar(string $id){
+        DB::connection('mysql2')->delete("DELETE FROM confirmCharacter WHERE id = '" . $id . "'");
+    }
+
+    public function postDeleteChar(Request $request)
+    {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('sn');
+                $this->deleteEditChar($id);
+            }
+        }
+        return view('admin.login');
+    }
+
+    public function postConfirmChar(Request $request)
+    {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id= $request->get('id');
+                $users = $request->get('users');
+                $map = $request->get('maps');
+                $level = $request->get('level');
+                $job = $request->get('job');
+                $exp = $request->get('exp');
+                $money = $request->get('money');
+                $fame = $request->get('fame');
+                $str = $request->get('str');
+                $intel = $request->get('intel');
+                $dex = $request->get('dex');
+                $cons = $request->get('cons');
+                $mental = $request->get('mental');
+                $sense = $request->get('sense');
+                $lvluppoint = $request->get('lvluppoint');
+                $skilluppoint = $request->get('skilluppoint');
+                $exppoint = $request->get('exppoint');
+                $playflag = $request->get('playflag');
+                DB::connection('mysql3')->insert("UPDATE pc SET `map_num`='{$map}',`level`='{$level}',`play_flag`='{$playflag}',"
+                    . "`job`='{$job}',`exp`='{$exp}',`money`='{$money}',`fame`='{$fame}',`strength`='{$str}',`intelligence`='{$intel}',`dexterity`='{$dex}' "
+                    . ",`constitution`='{$cons}' ,`mentality`='{$mental}',`sense`='{$sense}',`levelup_point`='{$lvluppoint}',`skillup_point`='{$skilluppoint}',`expert_skillup_point`='{$exppoint}'"
+                    . "WHERE `char_name`='{$users}'");
+                $this->deleteEditChar($id);
+                $admin = $request->session()->get('admin');
+                $log_text = "editing character " . $users;
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+            }
+        }
+        return view('admin.login');
+    }
+
     public function editcharacter(Request $request)
     {
         if ($request->session()->has('admin')) {
