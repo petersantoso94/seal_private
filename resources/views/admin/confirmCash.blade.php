@@ -53,7 +53,7 @@
                 <td>
                     <button title="Set to available" type="button"
                             data-itval="{{$data->it_val}}" data-ioval="{{$data->io_val}}"
-                            data-slot="{{$data->slot}}" data-users="{{$data->users}}" data-internal="{{$data->id}}"onclick="pushValidItem(this)"
+                            data-slot="{{$data->slot}}" data-users="{{$data->users}}" data-internal="{{$data->id}}" onclick="pushValidItem(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
                         <span class="glyphicon glyphicon-ok"></span>
                     </button>
@@ -106,11 +106,11 @@
         notin = $(element).data('internal');
         ioval_ = $(element).data('ioval');
         itval_ = $(element).data('itval');
-        slot_ = $(element).data('table');
+        slot_ = $(element).data('slot');
         users_ = $(element).data('users');
-
+        console.log($(element));
         if (confirm("Do you want to send Item to "+users_+"?") == true) {
-            $.post(postConfirmItem, {id: notin,ioval:ioval_,itval:itval_,user:users_,slot:slot_}, function (data) {
+            $.post(postConfirmItem, {id: notin, ioval:ioval_, itval:itval_, user:users_, slot:slot_}, function (data) {
 
             }).done(function () {
                 location.reload();
