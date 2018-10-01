@@ -36,7 +36,8 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
-    public function deleteEditChar(string $id){
+    public function deleteEditChar(string $id)
+    {
         DB::connection('mysql2')->delete("DELETE FROM confirmCharacter WHERE id = '" . $id . "'");
     }
 
@@ -55,7 +56,7 @@ class AdminController extends Controller
     {
         if ($request->session()->has('admin')) {
             if ($request->session()->get('role') == 0) {
-                $id= $request->get('id');
+                $id = $request->get('id');
                 $users = $request->get('users');
                 $map = $request->get('maps');
                 $level = $request->get('level');
@@ -81,6 +82,41 @@ class AdminController extends Controller
                 $admin = $request->session()->get('admin');
                 $log_text = "editing character " . $users;
                 DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+            }
+        }
+        return view('admin.login');
+    }
+
+    public function deleteBanChar(string $id)
+    {
+        DB::connection('mysql2')->delete("DELETE FROM confirmBan WHERE id = '" . $id . "'");
+    }
+
+    public function postConfirmBan(Request $request)
+    {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('id');
+                $users = $request->get('user');
+                $table = $request->get('table');
+                $admin = $request->session()->get('admin');
+                $log_text = "ban character " . $users;
+                DB::update("UPDATE {$table} SET game_block = '2030-01-01 00:00:00' WHERE id = '{$users}'");
+
+                DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
+                return view('admin.editcharacter')->withPage('Edit Character')->withSuccessban('Sukses Ban Character');
+                $this->deleteBanChar($id);
+            }
+        }
+        return view('admin.login');
+    }
+
+    public function postDeleteBan(Request $request)
+    {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') == 0) {
+                $id = $request->get('sn');
+                $this->deleteBanChar($id);
             }
         }
         return view('admin.login');
