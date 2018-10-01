@@ -48,7 +48,7 @@
                     <td>{{$data->exppoint}}</td>
                     <td>{{$data->playflag}}</td>
                     <td>
-                        <button title="Set to available" type="button"
+                        <button title="Confirm Edit" type="button"
                                 data-internal="{{$data->id}}"
                                 data-users="{{$data->users}}"
                                 data-map="{{$data->map}}"
@@ -71,7 +71,7 @@
                                 class="btn btn-pure-xs btn-xs btn-delete">
                             <span class="glyphicon glyphicon-ok"></span>
                         </button>
-                        <button title="Set to available" type="button" data-internal="{{$data->id}}"
+                        <button title="Cancel Edit" type="button" data-internal="{{$data->id}}"
                                 onclick="deleteData(this)"
                                 class="btn btn-pure-xs btn-xs btn-delete">
                             <span class="glyphicon glyphicon-remove"></span>
@@ -96,12 +96,12 @@
                     <td>{{$data->id}}</td>
                     <td>{{$data->users}}</td>
                     <td>
-                        <button title="Set to available" type="button" data-users="{{$data->users}}" data-internal="{{$data->id}}" data-table="{{$data->table}}"
+                        <button title="Ban User" type="button" data-users="{{$data->users}}" data-internal="{{$data->id}}" data-table="{{$data->table}}"
                                 onclick="pushValidBan(this)"
                                 class="btn btn-pure-xs btn-xs btn-delete">
                             <span class="glyphicon glyphicon-ok"></span>
                         </button>
-                        <button title="Set to available" type="button" data-internal="{{$data->id}}"
+                        <button title="Cancel Ban" type="button" data-internal="{{$data->id}}"
                                 onclick="deleteDataBan(this)"
                                 class="btn btn-pure-xs btn-xs btn-delete">
                             <span class="glyphicon glyphicon-remove"></span>

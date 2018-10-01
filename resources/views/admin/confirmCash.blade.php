@@ -19,11 +19,11 @@
                 <td>{{$data->users}}</td>
                 <td>{{$data->cash}}</td>
                 <td>
-                    <button title="Set to available" type="button" data-cash="{{$data->cash}}" data-users="{{$data->users}}" data-table="{{$data->table}}" data-internal="{{$data->id}}" onclick="pushValid(this)"
+                    <button title="Confirm" type="button" data-cash="{{$data->cash}}" data-users="{{$data->users}}" data-table="{{$data->table}}" data-internal="{{$data->id}}" onclick="pushValid(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
                         <span class="glyphicon glyphicon-ok"></span>
                     </button>
-                    <button title="Set to available" type="button" data-internal="{{$data->id}}" onclick="deleteData(this)"
+                    <button title="Delete" type="button" data-internal="{{$data->id}}" onclick="deleteData(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
@@ -51,13 +51,13 @@
                 <td>{{$data->it_val}}</td>
                 <td>{{$data->io_val}}</td>
                 <td>
-                    <button title="Set to available" type="button"
+                    <button title="Confirm" type="button"
                             data-itval="{{$data->it_val}}" data-ioval="{{$data->io_val}}"
                             data-slot="{{$data->slot}}" data-users="{{$data->users}}" data-internal="{{$data->id}}" onclick="pushValidItem(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
                         <span class="glyphicon glyphicon-ok"></span>
                     </button>
-                    <button title="Set to available" type="button" data-internal="{{$data->id}}" onclick="deleteDataItem(this)"
+                    <button title="Delete" type="button" data-internal="{{$data->id}}" onclick="deleteDataItem(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
@@ -85,13 +85,13 @@
                 <td>{{$data->it_val}}</td>
                 <td>{{$data->io_val}}</td>
                 <td>
-                    <button title="Set to available" type="button"
+                    <button title="Confirm" type="button"
                             data-itval="{{$data->it_val}}" data-ioval="{{$data->io_val}}"
                              data-users="{{$data->users}}" data-internal="{{$data->id}}" onclick="pushValidItemAdd(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
                         <span class="glyphicon glyphicon-ok"></span>
                     </button>
-                    <button title="Set to available" type="button" data-internal="{{$data->id}}" onclick="deleteDataItemAdd(this)"
+                    <button title="Delete" type="button" data-internal="{{$data->id}}" onclick="deleteDataItemAdd(this)"
                             class="btn btn-pure-xs btn-xs btn-delete">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
