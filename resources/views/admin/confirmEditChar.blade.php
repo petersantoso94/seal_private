@@ -96,7 +96,7 @@
                     <td>{{$data->id}}</td>
                     <td>{{$data->users}}</td>
                     <td>
-                        <button title="Set to available" type="button" data-users="{{$data->users}}" data-internal="{{$data->id}} data-table={{$data->table}}"
+                        <button title="Set to available" type="button" data-users="{{$data->users}}" data-internal="{{$data->id}}" data-table="{{$data->table}}"
                                 onclick="pushValidBan(this)"
                                 class="btn btn-pure-xs btn-xs btn-delete">
                             <span class="glyphicon glyphicon-ok"></span>
