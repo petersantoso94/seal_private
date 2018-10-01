@@ -102,10 +102,10 @@ class AdminController extends Controller
                 $admin = $request->session()->get('admin');
                 $log_text = "ban character " . $users;
                 DB::update("UPDATE {$table} SET game_block = '2030-01-01 00:00:00' WHERE id = '{$users}'");
+                $this->deleteBanChar($id);
 
                 DB::connection('mysql2')->insert("INSERT INTO logs (`admin_id`,`logs_detail`,`timestamp`,`ip`) VALUE ('{$admin}','{$log_text}',CURDATE(),'{$request->ip()}')");
                 return view('admin.editcharacter')->withPage('Edit Character')->withSuccessban('Sukses Ban Character');
-                $this->deleteBanChar($id);
             }
         }
         return view('admin.login');
