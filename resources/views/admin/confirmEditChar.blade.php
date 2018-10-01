@@ -91,7 +91,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach(DB::connection('mysql2')->table('confirmItem')->select('*')->get() as $data)
+            @foreach(DB::connection('mysql2')->table('confirmBan')->select('*')->get() as $data)
                 <tr>
                     <td>{{$data->id}}</td>
                     <td>{{$data->users}}</td>
