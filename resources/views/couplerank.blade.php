@@ -11,9 +11,7 @@
                 <th scope="col">No</th>
                 <th scope="col">Player 1 Name</th>
                 <th scope="col">Player 2 Name</th>
-				<th scope="col">Original Days</th>
                 <th scope="col">Current Days</th>
-				<th scope="col">Progression</th>
             </tr>
         </thead>
         <tbody>
@@ -59,9 +57,9 @@
                     }
                 }
             }
-            $arr_total = array_column($players, 'total_score');
+            $arr_total = array_column($players, 'player_days');
             array_multisort($arr_total, SORT_DESC, $players);
-            $show_player = array_slice($players, 0, 100);
+            $show_player = array_slice($players, 0, 50);
             $counter = 1;
             ?>
             @foreach($show_player as $player)
@@ -69,9 +67,7 @@
                 <th scope="row">{{$counter}}</th>
                 <td>{{$player['char_name']}}</td>
                 <td>{{$player['master']}}</td>
-				<td>{{$player['margin']}}</td>
                 <td>{{$player['player_days']}}</td>
-				<td>{{$player['total_score']}}</td>
             </tr>
             <?php $counter++; ?>
             @endforeach

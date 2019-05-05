@@ -12,8 +12,8 @@
                 </div>
                 @endif
                 <div class="card-body">
-                    <label class="form-check-label" for="term-id">Step 1. Add us as friend on facebook. Copy URL below and paste it in the new tab of your browser to open our profile <br /><br /> https://www.facebook.com/gm.eastwood.10</label> <br /><br />
-                    <label class="form-check-label" for="term-id">Step 2. Log In to Your Facebook Profile</label> <br /><br />
+                    <label class="form-check-label" for="term-id">Step 1. Add us as friend on facebook. Copy URL below and paste it in the new tab of your browser to open our profile <br /><br />https://www.facebook.com/conan.sealcos.9</label> <br /><br />
+                    <label class="form-check-label" for="term-id">Step 2. Log In to Your Facebook Profile (press the button below)</label> <br /><br />
                     <form method="POST" action="{{ route('register') }}">
 
                         @csrf
@@ -67,7 +67,7 @@
                             <label for="rcm" class="col-md-4 col-form-label text-md-right">Referral Code</label>
 
                             <div class="col-md-6">
-                                <input type="text" id="rcm"  name="rcm" placeholder="  Recommendation Code" value="" required>
+                                <input type="text" id="rcm"  name="rcm" placeholder="  Recommendation Code" value="None" required>
                             </div>
                         </div>
 
@@ -100,7 +100,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div> <br /> <br />
-                        <label class="form-check-label" for="term-id">Step 5. Read the Terms and Agreement, tick the box and click Register. Send us your Identitiy card's photo to facebook for activation</label> <br/ ><br />
+                        <label class="form-check-label" for="term-id">Step 5. Read the Terms and Agreement, tick the box and click Register. Send us your Identitiy card's photo to facebook or line id: @sealcos for activation</label> <br/ ><br />
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="term-id" name="term" required>
                             <label class="form-check-label" for="term-id">I already read and completely agree with all the <a href="{{url('term')}}">Rules, Terms of Service, and Agreement</a> used by Seal Online: Chronicles of Shiltz. All kinds of violation to used rules are agreed to be punished accordingly.</label>

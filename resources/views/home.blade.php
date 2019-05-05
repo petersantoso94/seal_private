@@ -5,7 +5,18 @@
 <!-- Jumbotron Header -->
 @if($user = Auth::user())
 <div class="alert alert-success" role="alert">
-    Your registration form has been submitted. Please send your Identity Card's Photos to GM Eastwood and wait for our administrator to review your registration form. (Max. 24 Hours). Thank you very much !! (Submitted as {{$user->name}})
+    Your registration form has been submitted. To complete the registration procedure: </br>
+	1. Please add GM Conan on Facebook as friend (https://www.facebook.com/conan.sealcos.9) </br>
+	2. Send your Identity Card's Photos to GM Conan or Line ID : @sealcos (https://seal-cos.com/browse/38) </br>
+	3. Wait for our administrator to review your registration form. (Max. 24 Hours). </br></br>
+	
+	Our Community: </br></br>
+	
+	Facebook : https://www.facebook.com/sealonlinecos/ </br>
+	Discord : https://discord.gg/WDQqpcv </br>
+	Line (Please let us know at @sealcos if you want to join Line group) </br></br>
+	
+	Thank you very much !! (Submitted as {{$user->name}})
 </div>
 <?php Auth::logout(); ?>
 @endif
@@ -33,38 +44,30 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
 			<li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="8"></li>
         </ol>
         <div class="carousel-inner" style="height:500px; width: 100%;">
             <div class="carousel-item img-container-cs active">
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Monthly Tournament.png')}}" alt="First slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Ask Blacksmith Anything3.png')}}" alt="First slide" >
                 <!--                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black;">     
                                 </div>-->
             </div>
 			<div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/gmrec.jpg')}}" alt="Third slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Costume Poster.png')}}" alt="Second slide" >
             </div>
 			<div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Costume Poster.png')}}" alt="Third slide" >
-            </div>
-            <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Pet 6th(2).png')}}" alt="Fourth slide" >
-            </div>
-            <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Special Golden Chest.png')}}" alt="Fifth slide" >
-            </div>
-            <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/StrongerTogether.png')}}" alt="Sixth slide" >
-            </div>
-            <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Quest Reward.png')}}" alt="Seventh slide" >
-            </div>
-            <div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Home.png')}}" alt="Eighth slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Special Golden Chest Latest.png')}}" alt="Third slide" >
             </div>
 			<div class="carousel-item img-container-cs" >
-                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Daily Events.png')}}" alt="Ninth slide" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Ordinary Golden Chest Latest.png')}}" alt="Fourth slide" >
+            </div>
+            <div class="carousel-item img-container-cs" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Blue Eye Dungeon New.png')}}" alt="Fifth slide" >
+            </div>
+            <div class="carousel-item img-container-cs" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Quest Reward.png')}}" alt="Sixth slide" >
+            </div>
+            <div class="carousel-item img-container-cs" >
+                <img class="d-block w-100 img-slider" src="{{URL::asset('public/picture/Pet 6th(2).png')}}" alt="Seventh slide" >
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

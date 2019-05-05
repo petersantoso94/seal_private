@@ -30,7 +30,7 @@
             }
             $arr_total  = array_column($players, 'total_score');
             array_multisort($arr_total, SORT_DESC, $players);
-            $show_player = array_slice($players, 0, 3);
+            $show_player = array_slice($players, 0, 5);
             $counter = 1;
             ?>
             @foreach($show_player as $player)

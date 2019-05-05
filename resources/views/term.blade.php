@@ -33,7 +33,7 @@
         account, equipment, or things shared between players that cause
         hacking, phishing, and scamming will not be retrieved by support
         team.</p>
-    <p>6. Players are not allowed to mimic, copy, use similar name as Seal
+    <p>6. Players are not allowed to mimic, copy, act, or use similar name as Seal
         Online: Chronicles of Shiltz’ support team, NPC, or Game Master. Players
         also not allowed to do any form of scam and hack to other players.</p>
     <p>7. Players are not allowed to create nickname with impolite, improper,

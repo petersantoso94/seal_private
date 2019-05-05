@@ -66,7 +66,7 @@
         @endforeach
         </tbody>
     </table>
-    <h4>Confirm Send Item Add to User:</h4>
+    <h4>Confirm Send Item Mall to User:</h4>
     <table id="example" class="display table-rwd table-inventory" cellspacing="0" width="100%">
         <thead>
         <tr>

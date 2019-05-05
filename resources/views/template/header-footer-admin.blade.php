@@ -159,14 +159,13 @@ desired effect
                                 href="{{url('addadmin')}}"><i class="fa fa-link"></i> <span>Add Admin</span></a></li>
                     <li <?php if (isset($page)) if ($page === 'Confirm Cash') echo 'class="active"'; ?>><a
                                 href="{{url('confirmCash')}}"><i class="fa fa-link"></i> <span>Confirm Cash</span></a></li>
+					<li <?php if (isset($page)) if ($page === 'Edit Character') echo 'class="active"'; ?>><a
+								href="{{url('editcharacter')}}"><i class="fa fa-link"></i> <span>Edit Character</span></a></li>
                     <li <?php if (isset($page)) if ($page === 'Confirm Edit Character') echo 'class="active"'; ?>><a
                                 href="{{url('confirmEditChar')}}"><i class="fa fa-link"></i> <span>Confirm Edit Character</span></a></li>
                 @endif
                 <li <?php if (isset($page)) if ($page === 'Send Cash') echo 'class="active"'; ?>><a
                             href="{{url('sendcash')}}"><i class="fa fa-link"></i> <span>Send Cash</span></a></li>
-                <li <?php if (isset($page)) if ($page === 'Edit Character') echo 'class="active"'; ?>><a
-                            href="{{url('editcharacter')}}"><i class="fa fa-link"></i> <span>Edit Character</span></a>
-                </li>
                 <li <?php if (isset($page)) if ($page === 'Edit Front Page') echo 'class="active"'; ?>><a
                             href="{{url('editpage')}}"><i class="fa fa-link"></i> <span>Edit Front Page</span></a></li>
                 <li <?php if (isset($page)) if ($page === 'Edit Fan Art') echo 'class="active"'; ?>><a

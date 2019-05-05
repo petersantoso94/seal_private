@@ -14,7 +14,7 @@
                 <th scope="col">Level</th>
                 <th scope="col">Kill</th>
                 <th scope="col">Fame</th>
-                <th scope="col">Player's Rating</th>
+				<th scope="col">Player's Rating</th>
             </tr>
         </thead>
         <tbody>
@@ -30,12 +30,52 @@
 			$all_test = [];
             for ($i = 1; $i <= 20; $i++) {
                 if ($i < 10)
-                    $all_gm[] = 'test' . $i;
+                    $all_test[] = 'test' . $i;
                 else {
-                    $all_gm[] = 'test' . $i;
+                    $all_test[] = 'test' . $i;
                 }
             }
-            $all_player = DB::connection('mysql3')->table('pc')->select('char_name', 'level', 'fame', 'gw_score_t','job', 'count_reborn', 'play_time')->whereNotIn('user_id', $all_gm)->whereNotIn('user_id', $all_test)->get();
+			$all_bacotz = [];
+            for ($i = 1; $i <= 20; $i++) {
+                if ($i < 10)
+                    $all_bacotz[] = 'bacotz' . $i;
+                else {
+                    $all_bacotz[] = 'bacotz' . $i;
+                }
+            }
+			$all_gblk = [];
+            for ($i = 1; $i <= 20; $i++) {
+                if ($i < 10)
+                    $all_gblk[] = 'gblk' . $i;
+                else {
+                    $all_gblk[] = 'gblk' . $i;
+                }
+            }
+			$all_babayaga = [];
+            for ($i = 1; $i <= 20; $i++) {
+                if ($i < 10)
+                    $all_babayaga[] = 'babayaga' . $i;
+                else {
+                    $all_babayaga[] = 'babayaga' . $i;
+                }
+            }
+			$all_majutakgentar = [];
+            for ($i = 1; $i <= 20; $i++) {
+                if ($i < 10)
+                    $all_majutakgentar[] = 'majutakgentar' . $i;
+                else {
+                    $all_majutakgentar[] = 'majutakgentar' . $i;
+                }
+            }
+			$all_pestisida = [];
+            for ($i = 1; $i <= 20; $i++) {
+                if ($i < 10)
+                    $all_pestisida[] = 'pestisida' . $i;
+                else {
+                    $all_pestisida[] = 'pestisida' . $i;
+                }
+            }
+            $all_player = DB::connection('mysql3')->table('pc')->select('char_name', 'level', 'fame', 'gw_score_t','job', 'count_reborn', 'play_time')->whereNotIn('user_id', $all_gm)->whereNotIn('user_id', $all_bacotz)->whereNotIn('user_id', $all_majutakgentar)->whereNotIn('user_id', $all_gblk)->whereNotIn('user_id', $all_babayaga)->whereNotIn('user_id', $all_pestisida)->whereNotIn('user_id', $all_test)->get();
             $players = [];
             foreach ($all_player as $player) {
                 $player_level = floatval($player->level);
@@ -44,6 +84,7 @@
                 $total_score = round((($player_level * 0.5) + ($player_fame * 0.0002) + ($player_kill * 0.6)) * 10,0);
 				$player_old_level = floatval($player->count_reborn);
 				$player_play_time = floatval($player->play_time);
+				$player_leveldiff = $player_level - $player_old_level;
                 $players[] = array(
                     'char_name' => $player->char_name,
                     'job' => $player->job,
@@ -52,12 +93,13 @@
                     'kill' => $player_kill,
                     'total_score' => $total_score,
 					'old_level' => $player->count_reborn,
-					'play_time' => $player->play_time
+					'play_time' => $player->play_time,
+					'level_diff' => $player_leveldiff
                 );
             }
             $arr_total = array_column($players, 'total_score');
             array_multisort($arr_total, SORT_DESC, $players);
-            $show_player = array_slice($players, 0, 200);
+            $show_player = array_slice($players, 0, 100);
             $counter = 1;
             ?>
             @foreach($show_player as $player)
@@ -112,7 +154,7 @@
                 <td>{{$player['level']}}</td>
                 <td>{{$player['kill']}}</td>
                 <td>{{$player['fame']}}</td>
-                <td>{{$player['total_score']}}</td>
+				<td>{{$player['total_score']}}</td>
             </tr>
             <?php $counter++; ?>
             @endforeach

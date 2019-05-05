@@ -3,7 +3,7 @@
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;">
     <div class='row'>
         <div class='col-xs-8'>
-            <h3>Cash transfer</h3>
+            <h3>Cash Transfer</h3>
             <form>
                 <div class="form-group">
                     <label for="users">User's Character Name:</label><br>
@@ -30,7 +30,7 @@
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;">
     <div class='row'>
         <div class='col-xs-8'>
-            <h3>Item transfer</h3>
+            <h3>Item Transfer</h3>
             <form>
                 <div class="form-group">
                     <label for="users">User's Character Name:</label><br>
@@ -61,7 +61,7 @@
 <div class="white-pane__bordered margbot20" style="margin-left: 20px;">
     <div class='row'>
         <div class='col-xs-8'>
-            <h3>Item transfer (add)</h3>
+            <h3>Item Mall Transfer</h3>
             <form>
                 <div class="form-group">
                     <label for="users">User's Character Name:</label><br>

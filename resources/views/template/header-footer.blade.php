@@ -209,7 +209,7 @@
                     <ul class="navbar-nav ml-auto mr-auto">
                         @if(Session::get('username') != null)
                         <li class="nav-item">
-                            <a class="nav-link" href="https://drive.google.com/uc?export=download&confirm=agd_&id=1s0PrbusWLzWMcU62Zdoal3RObAEPxeHP">Download</a>
+                            <a class="nav-link" href="https://drive.google.com/uc?id=1pv2GkXlRZnpVRq7rlRu9VwA7CHbV2v5Z&export=download">Download</a>
                         </li>
                         <div class="nav-item">
 
