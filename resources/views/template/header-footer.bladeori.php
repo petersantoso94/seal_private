@@ -12,8 +12,8 @@
 
         <!-- Bootstrap core CSS -->
 
-        <link href="{{ URL::asset('public/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ URL::asset('public/css/heroic-features.css') }}rel="stylesheet">
+        <link href="{{ URL::asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('css/heroic-features.css') }}rel="stylesheet">
         <style>
             html, body {
                 height: 100%;
@@ -40,11 +40,11 @@
         </style>
     </head>
 
-    <body background="{{URL::asset('public/picture/Web Background.png')}}" style="background-size: 100% 100%;background-attachment: fixed;">
+    <body background="{{URL::asset('picture/Web Background.png')}}" style="background-size: 100% 100%;background-attachment: fixed;">
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="position: -webkit-sticky; /* Safari */position: sticky;; margin-top: 30px;">
             <div class="container">
-                <a href="#" class="navbar-brand"><img src="{{URL::asset('public/picture/logo.png')}}" alt="Seal SHILTZ" style="height:120px;margin-top: -60px;position: absolute;margin-left: auto;margin-right: auto;left: 0;right: 0;"></a>
+                <a href="#" class="navbar-brand"><img src="{{URL::asset('picture/logo.png')}}" alt="Seal SHILTZ" style="height:120px;margin-top: -60px;position: absolute;margin-left: auto;margin-right: auto;left: 0;right: 0;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -94,8 +94,8 @@
               </footer>
 
               <!-- Bootstrap core JavaScript -->
-              <script src="{{ URL::asset('public/jquery/jquery.min.js') }}"></script>
-              <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+              <script src="{{ URL::asset('jquery/jquery.min.js') }}"></script>
+              <script src="{{ URL::asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
               @yield('js-content')
               </body>
 

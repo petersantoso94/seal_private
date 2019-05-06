@@ -7,288 +7,290 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('public/picture/seal-cos.ico')}}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('picture/seal-cos.ico')}}">
 
         <title>Seal Online: Chronicles of Shiltz</title>
 
         <!-- Bootstrap core CSS -->
 
-        <link href="{{ URL::asset('public/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ URL::asset('public/css/heroic-features.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('template/style.css') }}" rel="stylesheet">
         <style>
-            /* Full-width input fields */
-            input[type=text], input[type=password] {
-                width: 100%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                box-sizing: border-box;
-            }
-
-            button:hover {
-                opacity: 0.8;
-            }
-            
-            .row{
-                margin-right: auto;
-                margin-left: auto;
-            }
-
-            /* Extra styles for the cancel button */
-            .cancelbtn {
-                width: auto;
-                padding: 10px 18px;
-                background-color: #f44336;
-            }
-
-            /* Center the image and position the close button */
-            .imgcontainer {
-                text-align: center;
-                margin: 24px 0 12px 0;
-                position: relative;
-            }
-
-            img.avatar {
-                width: 40%;
-                border-radius: 50%;
-            }
-
-            .container {
-                padding: 16px;
-            }
-
-            span.psw {
-                float: right;
-                padding-top: 16px;
-            }
-
-            /* The Modal (background) */
-            .modal {
-                display: none; /* Hidden by default */
-                position: fixed; /* Stay in place */
-                z-index: 1; /* Sit on top */
-                left: 0;
-                top: 0;
-                width: 100%; /* Full width */
-                height: 100%; /* Full height */
-                overflow: auto; /* Enable scroll if needed */
-                background-color: rgb(0,0,0); /* Fallback color */
-                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-                padding-top: 60px;
-            }
-
-            /* Modal Content/Box */
-            .modal-content {
-                background-color: #fefefe;
-                margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-                border: 1px solid #888;
-                width: 50%; /* Could be more or less, depending on screen size */
-            }
-
-            /* The Close Button (x) */
-            .close {
-                position: absolute;
-                right: 25px;
-                top: 0;
-                color: #000;
-                font-size: 35px;
-                font-weight: bold;
-            }
-
-            .close:hover,
-            .close:focus {
-                color: red;
-                cursor: pointer;
-            }
-
-            /* Add Zoom Animation */
-            .animate {
-                -webkit-animation: animatezoom 0.6s;
-                animation: animatezoom 0.6s
-            }
-
-            @-webkit-keyframes animatezoom {
-                from {-webkit-transform: scale(0)} 
-                to {-webkit-transform: scale(1)}
-            }
-
-            @keyframes animatezoom {
-                from {transform: scale(0)} 
-                to {transform: scale(1)}
-            }
-
-            /* Change styles for span and cancel button on extra small screens */
-            @media screen and (max-width: 300px) {
-                span.psw {
-                    display: block;
-                    float: none;
-                }
-                .cancelbtn {
-                    width: 100%;
-                }
-            }
-            html, body {
-                height: 100%;
-            }
-            h1, h2, h3, h4, h5 {
-                font-family: 'MyWebFont';
-            }
-            .footer-custom {
-                position: relative;
-                margin-top: -100px; /* negative value of footer height */
-                height: 100px;
-                clear:both;
-                padding-top:20px;
-            } 
-            #wrap {
-                min-height: 100%;
-            }
-            #main {
-                overflow:auto;
-                padding-bottom:100px; /* this needs to be bigger than footer height*/
-            }
-            @font-face {
-                font-family: 'MyWebFont';
-                src: url('../../../public/NARNIABLL.ttf');
-            }  
             .img-container-cs{
-                height:500px;
-            }
-
-            .nav-item{
-                margin-left: 10px;
-                margin-right: 10px;
+                height:700px;
             }
             .img-slider{
                 width:100%;
                 height:100%;
             }
-            .card-img-top{
-                padding-top: 10px;
-                padding-bottom: 10px;
-            }
-            .btn-marg{
-                margin-right: 20px;
-            }
-            /*            .slideshow > div {
-                            position: absolute;
-                            max-width: 100%;
-                            width: 100%;
-                            height: 240px;
-                            max-height: 100%;
-                        }
-            
-                        .slideshow > div > img {
-                            height: 100%;
-                            width: 100%;
-                        }*/
         </style>
     </head>
 
-    <body background="{{URL::asset('public/picture/Web Background.png')}}" style="background-size: 100% 100%;background-attachment: fixed;background-size: cover;">
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="position: -webkit-sticky; /* Safari */position: sticky;; margin-top: 30px;font-family: 'MyWebFont';">
-            <div class="container">
-                <a href="#" class="navbar-brand"><img src="{{URL::asset('public/picture/logo.png')}}" alt="Seal SHILTZ" style="height:120px;margin-top: -60px;position: absolute;margin-left: auto;margin-right: auto;left: 0;right: 0;"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav mr-auto ml-auto">
-                        <li class="nav-item <?php if (isset($page)) if ($page == 'home') echo 'active'; ?>">
-                            <a class="nav-link" href="{{url('')}}">Home
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php if (isset($page)) if ($page == 'term') echo 'active'; ?>">
-                            <a class="nav-link" href="{{url('term')}}">Rules</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ml-auto mr-auto">
-                        @if(Session::get('username') != null)
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://drive.google.com/uc?id=1pv2GkXlRZnpVRq7rlRu9VwA7CHbV2v5Z&export=download">Download</a>
-                        </li>
-                        <div class="nav-item">
-
+    <body>
+    <header class="header-area wow fadeInDown" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInDown;">
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 d-flex align-items-center justify-content-between">
+                        <!-- Logo Area -->
+                        <div class="logo">
+                            <a href="{{url('')}}"><img style="max-width: 200px; max-height:70px;" src="{{URL::asset('picture/logo.png')}}" alt="Seal SHILTZ" ></a>
                         </div>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('logoutmanual')}}">Logout</a>
-                        </li>
-                        @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('login')}}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('register')}}">Sign Up</a>
-                        </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div id="wrap" style="">
-            <div class="container" id="main">
-                <div class="text-center" style="margin-top: 10px;background: #6c757d;font-family: 'MyWebFont';">
 
-                    <div class="dropdown" style="margin-left:auto;margin-right:auto;">
-                        @if(Session::get('username') == null)
-                        <!--dropdown-->
-                        <?php
-                        $horizontal = 0;
-                        $max_horizontal = DB::connection('mysql2')->table('content')->where('approved','1')->select('horizontal_level')->orderBy('horizontal_level', 'DESC')->first();
-                        if ($max_horizontal)
-                            $horizontal = $max_horizontal->horizontal_level;
-                        ?>
-                        @for($i = 1; $i<=$horizontal ;$i++)
-                        <?php $vertical = DB::connection('mysql2')->table('content')->where('approved','1')->orderBy('vertical_level', 'ASC')->where('horizontal_level', $i)->get(); ?>
-                        <div class="btn-group">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink<?php echo $i; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{$vertical[0]->horizontal_name}}
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink<?php echo $i; ?>">
-                                @foreach($vertical as $data)
-                                @if($data->link === '#')
-                                <a class="dropdown-item" href="#">{{$data->name}}</a>
-                                @elseif($data->content === '' || $data->content === NULL)
-                                <a class="dropdown-item" href="{{$data->link}}">{{$data->name}}</a>
-                                @else
-                                <a class="dropdown-item" href="{{(url('browse').'/'.$data->id)}}">{{$data->name}}</a>
-                                @endif
-                                @endforeach
+                        <!-- Search & Login Area -->
+                        <div class="search-login-area d-flex align-items-center">
+                            <!-- Top Search Area -->
+                            <!-- <div class="top-search-area">
+                                <form action="#" method="post">
+                                    <input type="search" name="top-search" id="topSearch" placeholder="Search">
+                                    <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div> -->
+                            <!-- Login Area -->
+                            @if(Session::get('username') == null)
+                            <div class="login-area">
+                                <a href="{{url('login')}}"><span>Login</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
                             </div>
+                            <div class="login-area" >
+                                <a style="background-color: #008080" href="{{url('register')}}"><span>Register</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
+                            </div>
+                            @else
+                            <div class="login-area">
+                                <a href="{{url('logoutmanual')}}"><span>Logout</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="login-area" >
+                                <a style="background-color: #ff0000" href="https://drive.google.com/uc?id=1pv2GkXlRZnpVRq7rlRu9VwA7CHbV2v5Z&export=download"><span>Download</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
+                            </div>
+                            @endif
                         </div>
-                        @endfor
-                        @else
-                        <div class="btn-group <?php if (isset($page)) if ($page == 'account') echo 'show'; ?>">
-                            <a class="btn btn-secondary" href="{{url('account')}}" role="button"  aria-haspopup="true" aria-expanded="false">
-                                Account
-                            </a>
-                        </div>
-                        <div class="btn-group <?php if (isset($page)) if ($page == 'costume') echo 'show'; ?>">
-                            <a class="btn btn-secondary" href="{{url('costume')}}" role="button" aria-haspopup="true" aria-expanded="false">
-                                Costumes
-                            </a>
-                        </div>
-                        <div class="btn-group <?php if (isset($page)) if ($page == 'fanart') echo 'show'; ?>">
-                            <a class="btn btn-secondary" href="{{url('fanart')}}" role="button" aria-haspopup="true" aria-expanded="false">
-                                Fanart
-                            </a>
-                        </div>
-                        @endif
                     </div>
                 </div>
-                @yield('main-section')
             </div>
         </div>
 
+        <!-- Navbar Area -->
+        <div id="sticker-sticky-wrapper" class="sticky-wrapper" style="height: 70px;"><div class="egames-main-menu" id="sticker" style="width: 1519px;">
+            <div class="classy-nav-container breakpoint-off light left">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="egamesNav">
 
-        <!-- Bootstrap core JavaSc                    ript -->
-        <script src="{{ URL::asset('public/jquery/jquery.min.js') }}"></script>
-        <script src="{{ URL::asset('public/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{{url('')}}">Home</a></li>
+                                    <li><a href="{{url('term')}}">Rules</a></li>
+                                    @if(Session::get('username') == null)
+                                    <!--dropdown-->
+                                    <?php
+                                    $horizontal = 0;
+                                    $max_horizontal = DB::connection('mysql2')->table('content')->where('approved','1')->select('horizontal_level')->orderBy('horizontal_level', 'DESC')->first();
+                                    if ($max_horizontal)
+                                        $horizontal = $max_horizontal->horizontal_level;
+                                    ?>
+                                        @for($i = 1; $i<=$horizontal ;$i++)
+                                        <?php $vertical = DB::connection('mysql2')->table('content')->where('approved','1')->orderBy('vertical_level', 'ASC')->where('horizontal_level', $i)->get(); ?>
+                                        <li class="cn-dropdown-item has-down"><a href="#">{{$vertical[0]->horizontal_name}}</a>
+                                            <ul class="dropdown">
+                                                @foreach($vertical as $data)
+                                                    @if($data->link === '#')
+                                                        <li><a href="#">{{$data->name}}</a></li>
+                                                    @elseif($data->content === '' || $data->content === NULL)
+                                                        <li><a href="{{$data->link}}">{{$data->name}}</a></li>
+                                                    @else
+                                                        <li><a href="{{(url('browse').'/'.$data->id)}}">{{$data->name}}</a></li>
+                                                    @endif
+                                                @endforeach
+                                            </ul>
+                                            @if(count($vertical) > 1)
+                                            <span class="dd-trigger"></span></li>
+                                            @endif
+                                        @endfor
+                                    @else
+                                    <li><a href="{{url('account')}}">Account</a></li>
+                                    <li><a href="{{url('costume')}}">Costumes</a></li>
+                                    <li><a href="{{url('fanart')}}">Fanart</a></li>
+                                    @endif
+                                    <!-- <li class="cn-dropdown-item has-down"><a href="game-review.html">Games</a>
+                                        <ul class="dropdown">
+                                            <li><a href="game-review.html">Game Review</a></li>
+                                            <li><a href="single-game-review.html">Single Game Review</a></li>
+                                        </ul>
+                                    <span class="dd-trigger"></span></li>
+                                    <li class="cn-dropdown-item has-down"><a href="#">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{{url('')}}">Home</a></li>
+                                            <li><a href="{{url('term')}}">Rules</a></li>
+                                            <li><a href="post.html">Articles</a></li>
+                                            <li><a href="single-post.html">Single Articles</a></li>
+                                            <li><a href="game-review.html">Game Review</a></li>
+                                            <li><a href="single-game-review.html">Single Game Review</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    <span class="dd-trigger"></span></li>
+                                    <li class="cn-dropdown-item has-down"><a href="post.html">Articles</a>
+                                        <ul class="dropdown">
+                                            <li><a href="post.html">Articles</a></li>
+                                            <li><a href="single-post.html">Single Articles</a></li>
+                                        </ul>
+                                    <span class="dd-trigger"></span></li>
+                                    <li class="cn-dropdown-item has-down"><a href="single-game-review.html">Reviews</a>
+                                        <ul class="dropdown">
+                                            <li><a href="game-review.html">Game Review</a></li>
+                                            <li><a href="single-game-review.html">Single Game Review</a></li>
+                                        </ul>
+                                    <span class="dd-trigger"></span></li> -->
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Top Social Info -->
+                        <div class="top-social-info">
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div></div>
+    </header>
+    @yield('main-section')
+        <!-- <div id="wrap" style="">
+            <div class="container" id="main">
+                
+            </div>
+        </div> -->
+    <footer class="footer-area">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area section-padding-100-0">
+            <div class="container">
+                <div class="row">
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="100ms" style="visibility: hidden; animation-delay: 100ms; animation-name: none;">
+                            <div class="widget-title">
+                                <a href="index.html"><img src="{{URL::asset('template/img/core-img/logo2.png')}}" alt=""></a>
+                            </div>
+                            <div class="widget-content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam ut interdum ultricies.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="300ms" style="visibility: hidden; animation-delay: 300ms; animation-name: none;">
+                            <div class="widget-title">
+                                <h4>Game Reviews</h4>
+                            </div>
+                            <div class="widget-content">
+                                <nav>
+                                    <ul>
+                                        <li><a href="#">Doom</a></li>
+                                        <li><a href="#">Grand Theft Auto</a></li>
+                                        <li><a href="#">Bloodborne</a></li>
+                                        <li><a href="#">God of war</a></li>
+                                        <li><a href="#">Persona 5</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="500ms" style="visibility: hidden; animation-delay: 500ms; animation-name: none;">
+                            <div class="widget-title">
+                                <h4>Usefull Links</h4>
+                            </div>
+                            <div class="widget-content">
+                                <nav>
+                                    <ul>
+                                        <li><a href="#">Testimanials</a></li>
+                                        <li><a href="#">Reviews</a></li>
+                                        <li><a href="#">New Games</a></li>
+                                        <li><a href="#">Forum</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget mb-70 wow fadeInUp" data-wow-delay="700ms" style="visibility: hidden; animation-delay: 700ms; animation-name: none;">
+                            <div class="widget-title">
+                                <h4>What’s new</h4>
+                            </div>
+                            <div class="widget-content">
+                                <nav>
+                                    <ul>
+                                        <li><a href="#">Doom</a></li>
+                                        <li><a href="#">Grand Theft Auto</a></li>
+                                        <li><a href="#">Bloodborne</a></li>
+                                        <li><a href="#">God of war</a></li>
+                                        <li><a href="#">Persona 5</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite Area -->
+        <div class="copywrite-content">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 col-sm-5">
+                        <!-- Copywrite Text -->
+                        <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->Copyright ©<script>document.write(new Date().getFullYear());</script>2019 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by </a><a href="https://colorlib.com" target="_blank">Colorlib</a><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                    <div class="col-12 col-sm-7">
+                        <!-- Footer Nav -->
+                        <div class="footer-nav">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="game-review.html">Games</a></li>
+                                <li><a href="post.html">Articles</a></li>
+                                <li><a href="single-game-review.html">Reviews</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="{{URL::asset('template/js/bootstrap/popper.min.js')}}"></script>
+        <script src="{{URL::asset('template/js/jquery/jquery-2.2.4.min.js')}}"></script>
+        <script src="{{URL::asset('template/js/bootstrap/bootstrap.min.js')}}"></script>
+        <script src="{{URL::asset('template/js/plugins/plugins.js')}}"></script>
+        <script src="{{URL::asset('template/js/active.js')}}"></script>
         @yield('js-content')
         <script>
         </script>

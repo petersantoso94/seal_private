@@ -10,15 +10,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Seal - COS</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('public/jquery.dataTables.css')}}">
-    <link href="{{ URL::asset('public/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-<!--<link href="{{ URL::asset('public/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">-->
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('jquery.dataTables.css')}}">
+    <link href="{{ URL::asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+<!--<link href="{{ URL::asset('bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">-->
 
-    <link rel="stylesheet" href="{{URL::asset('public/css/chosen.css')}}">
-    <link href="{{ URL::asset('public/bower_components/Ionicons/css/ionicons.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('public/dist/css/AdminLTE.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('public/dist/css/skins/skin-blue.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{URL::asset('public/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/chosen.css')}}">
+    <link href="{{ URL::asset('bower_components/Ionicons/css/ionicons.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('dist/css/AdminLTE.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('dist/css/skins/skin-blue.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{URL::asset('bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -297,15 +297,15 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
-<script src="{{ URL::asset('public/bower_components/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ URL::asset('public/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<script src="{{ URL::asset('public/dist/js/adminlte.min.js') }}"></script>
-<script type="text/javascript" src="{{URL::asset('public/js/chosen.jquery.min.js')}}"></script>
+<script src="{{ URL::asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ URL::asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('dist/js/adminlte.min.js') }}"></script>
+<script type="text/javascript" src="{{URL::asset('js/chosen.jquery.min.js')}}"></script>
 
-<script type="text/javascript" src="{{URL::asset('public/jquery.dataTables.min.js')}}"></script>
-<script src="{{URL::asset('public/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
-<script src="{{URL::asset('public/bower_components/ckeditor/ckeditor.js')}}"></script>
-<script src="{{URL::asset('public/dist/js/demo.js')}}"></script>
+<script type="text/javascript" src="{{URL::asset('jquery.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+<script src="{{URL::asset('bower_components/ckeditor/ckeditor.js')}}"></script>
+<script src="{{URL::asset('dist/js/demo.js')}}"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
 Both of these plugins are recommended to enhance the

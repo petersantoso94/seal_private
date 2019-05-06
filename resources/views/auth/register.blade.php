@@ -19,7 +19,7 @@
                         @csrf
                         @if(!Session::has('fb_id'))
                         <div class="form-group row" style="margin-left: 35%">
-                            <a href="{{url('login/facebook')}}"><img src='{{URL::asset('public/picture/fABGY.png')}}' width="60%"></a>
+                            <a href="{{url('login/facebook')}}"><img src='{{URL::asset('picture/fABGY.png')}}' width="60%"></a>
                         </div>
                         @endif
                         <br />
