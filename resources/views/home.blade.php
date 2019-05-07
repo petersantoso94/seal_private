@@ -33,50 +33,41 @@
     </div>
     @endif
 <?php } ?>
+<div class="hero-area">
+    <!-- Hero Post Slides -->
+    <div class="hero-post-slides owl-carousel">
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left:auto;margin-right:auto;margin-top: 10px;">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-    </ol>
-    <div class="carousel-inner" style="height:100%; width: 100%;">
-        <div class="carousel-item img-container-cs active">
-            <img class="d-block w-100 img-slider" src="{{URL::asset('picture/Ask Blacksmith Anything3.png')}}" alt="First slide" >
-            <!--                <div class="carousel-caption d-none d-md-block" style="background-color:rgba(211,211,211,0.5);color:black;">     
-                            </div>-->
+        <!-- Single Slide -->
+        <div class="single-slide bg-img bg-overlay" style="background-image: url(template/img/bg-img/1.jpg);">
+            <!-- Blog Content -->
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 col-lg-9">
+                        <div class="blog-content" data-animation="fadeInUp" data-delay="100ms">
+                            <h2 data-animation="fadeInUp" data-delay="400ms">The Power of Gaming</h2>
+                            <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="carousel-item img-container-cs" >
-            <img class="d-block w-100 img-slider" src="{{URL::asset('picture/Costume Poster.png')}}" alt="Second slide" >
+
+        <!-- Single Slide -->
+        <div class="single-slide bg-img bg-overlay" style="background-image: url(template/img/bg-img/2.jpg);">
+            <!-- Blog Content -->
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 col-lg-9">
+                        <div class="blog-content" data-animation="fadeInUp" data-delay="100ms">
+                            <h2 data-animation="fadeInUp" data-delay="400ms">The Power of Gaming</h2>
+                            <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="carousel-item img-container-cs" >
-            <img class="d-block w-100 img-slider" src="{{URL::asset('picture/Special Golden Chest Latest.png')}}" alt="Third slide" >
-        </div>
-        <div class="carousel-item img-container-cs" >
-            <img class="d-block w-100 img-slider" src="{{URL::asset('picture/Ordinary Golden Chest Latest.png')}}" alt="Fourth slide" >
-        </div>
-        <div class="carousel-item img-container-cs" >
-            <img class="d-block w-100 img-slider" src="{{URL::asset('picture/Blue Eye Dungeon New.png')}}" alt="Fifth slide" >
-        </div>
-        <div class="carousel-item img-container-cs" >
-            <img class="d-block w-100 img-slider" src="{{URL::asset('picture/Quest Reward.png')}}" alt="Sixth slide" >
-        </div>
-        <div class="carousel-item img-container-cs" >
-            <img class="d-block w-100 img-slider" src="{{URL::asset('picture/Pet 6th(2).png')}}" alt="Seventh slide" >
-        </div>
+
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
 </div>
 <div class="games-area section-padding-100-0">
     <div class="container">
@@ -84,7 +75,7 @@
             <!-- Single Games Area -->
             <div class="col-12 col-md-4">
                 <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="100ms" style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
-                    <img src="{{url::asset('picture/logo.png')}}" alt="">
+                    <img src="{{URL::asset('picture/logo.png')}}" alt="">
                     <a href="#" class="btn egames-btn mt-30">View Games</a>
                 </div>
             </div>
@@ -92,7 +83,7 @@
             <!-- Single Games Area -->
             <div class="col-12 col-md-4">
                 <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
-                    <img src="{{url::asset('picture/logo.png')}}" alt="">
+                    <img src="{{URL::asset('picture/logo.png')}}" alt="">
                     <a href="#" class="btn egames-btn mt-30">View Games</a>
                 </div>
             </div>
@@ -100,7 +91,7 @@
             <!-- Single Games Area -->
             <div class="col-12 col-md-4">
                 <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
-                    <img src="{{url::asset('picture/logo.png')}}" alt="">
+                    <img src="{{URL::asset('picture/logo.png')}}" alt="">
                     <a href="#" class="btn egames-btn mt-30">View Games</a>
                 </div>
             </div>
@@ -148,7 +139,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/50.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/50.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Grand Theft Auto V</a>
                             <div class="meta-data">
@@ -160,7 +151,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/51.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/51.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Doom</a>
                             <div class="meta-data">
@@ -172,7 +163,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/52.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/52.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">God of War</a>
                             <div class="meta-data">
@@ -184,7 +175,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/53.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/53.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Bloodborne</a>
                             <div class="meta-data">
@@ -196,7 +187,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/54.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/54.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Persona 5</a>
                             <div class="meta-data">
@@ -208,7 +199,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/52.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/52.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">God of War</a>
                             <div class="meta-data">
@@ -220,7 +211,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/53.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/53.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Bloodborne</a>
                             <div class="meta-data">
@@ -232,7 +223,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/54.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/54.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Persona 5</a>
                             <div class="meta-data">
@@ -250,7 +241,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/50.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/50.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Grand Theft Auto V</a>
                             <div class="meta-data">
@@ -262,7 +253,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/51.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/51.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Doom</a>
                             <div class="meta-data">
@@ -274,7 +265,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/52.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/52.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">God of War</a>
                             <div class="meta-data">
@@ -286,7 +277,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/53.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/53.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Bloodborne</a>
                             <div class="meta-data">
@@ -298,7 +289,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/54.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/54.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Persona 5</a>
                             <div class="meta-data">
@@ -310,7 +301,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/52.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/52.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">God of War</a>
                             <div class="meta-data">
@@ -322,7 +313,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/53.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/53.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Bloodborne</a>
                             <div class="meta-data">
@@ -334,7 +325,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/54.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/54.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Persona 5</a>
                             <div class="meta-data">
@@ -352,7 +343,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/50.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/50.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Grand Theft Auto V</a>
                             <div class="meta-data">
@@ -364,7 +355,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/51.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/51.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Doom</a>
                             <div class="meta-data">
@@ -376,7 +367,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/52.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/52.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">God of War</a>
                             <div class="meta-data">
@@ -388,7 +379,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/53.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/53.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Bloodborne</a>
                             <div class="meta-data">
@@ -400,7 +391,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/54.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/54.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Persona 5</a>
                             <div class="meta-data">
@@ -412,7 +403,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/52.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/52.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">God of War</a>
                             <div class="meta-data">
@@ -424,7 +415,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/53.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/53.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Bloodborne</a>
                             <div class="meta-data">
@@ -436,7 +427,7 @@
 
                     <!-- Single Games -->
                     <div class="single-games-slide">
-                        <img src="{{url::asset('template/img/bg-img/54.jpg')}}" alt="">
+                        <img src="{{URL::asset('template/img/bg-img/54.jpg')}}" alt="">
                         <div class="slide-text">
                             <a href="#" class="game-title">Persona 5</a>
                             <div class="meta-data">
@@ -460,7 +451,7 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="100ms" style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
                                     <div class="video-thumbnail">
-                                        <img src="{{url::asset('template/img/bg-img/14.jpg')}}" alt="">
+                                        <img src="{{URL::asset('template/img/bg-img/14.jpg')}}" alt="">
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">Assemble Your Squad and Join the Battle</p>
@@ -474,7 +465,7 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="200ms" style="visibility: visible; animation-delay: 200ms; animation-name: fadeInUp;">
                                     <div class="video-thumbnail">
-                                        <img src="{{url::asset('template/img/bg-img/15.jpg')}}" alt="">
+                                        <img src="{{URL::asset('template/img/bg-img/15.jpg')}}" alt="">
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">Tips to improve your game</p>
@@ -488,7 +479,7 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
                                     <div class="video-thumbnail">
-                                        <img src="{{url::asset('template/img/bg-img/16.jpg')}}" alt="">
+                                        <img src="{{URL::asset('template/img/bg-img/16.jpg')}}" alt="">
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">Game reviews: the best of 2018</p>
@@ -502,7 +493,7 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="400ms" style="visibility: hidden; animation-delay: 400ms; animation-name: none;">
                                     <div class="video-thumbnail">
-                                        <img src="{{url::asset('template/img/bg-img/17.jpg')}}" alt="">
+                                        <img src="{{URL::asset('template/img/bg-img/17.jpg')}}" alt="">
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">Assemble Your Squad and Join the Battle</p>
@@ -516,7 +507,7 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="500ms" style="visibility: hidden; animation-delay: 500ms; animation-name: none;">
                                     <div class="video-thumbnail">
-                                        <img src="{{url::asset('template/img/bg-img/18.jpg')}}" alt="">
+                                        <img src="{{URL::asset('template/img/bg-img/18.jpg')}}" alt="">
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">Tips to improve your game</p>
@@ -530,7 +521,7 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="600ms" style="visibility: hidden; animation-delay: 600ms; animation-name: none;">
                                     <div class="video-thumbnail">
-                                        <img src="{{url::asset('template/img/bg-img/14.jpg')}}" alt="">
+                                        <img src="{{URL::asset('template/img/bg-img/14.jpg')}}" alt="">
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">Game reviews: the best of 2018</p>
@@ -544,7 +535,7 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="700ms" style="visibility: hidden; animation-delay: 700ms; animation-name: none;">
                                     <div class="video-thumbnail">
-                                        <img src="{{url::asset('template/img/bg-img/15.jpg')}}" alt="">
+                                        <img src="{{URL::asset('template/img/bg-img/15.jpg')}}" alt="">
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">Tips to improve your game</p>
@@ -558,7 +549,7 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="800ms" style="visibility: hidden; animation-delay: 800ms; animation-name: none;">
                                     <div class="video-thumbnail">
-                                        <img src="{{url::asset('template/img/bg-img/16.jpg')}}" alt="">
+                                        <img src="{{URL::asset('template/img/bg-img/16.jpg')}}" alt="">
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">Game reviews: the best of 2018</p>
@@ -577,7 +568,7 @@
                             <div class="video-playground bg-img" style="background-image: url(template/img/bg-img/45.jpg);">
                                 <!-- Play Button -->
                                 <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{url::asset('template/img/core-img/play.png')}}" alt=""></a>
+                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{URL::asset('template/img/core-img/play.png')}}" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -585,7 +576,7 @@
                             <div class="video-playground bg-img" style="background-image: url(template/img/bg-img/46.jpg);">
                                 <!-- Play Button -->
                                 <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{url::asset('template/img/core-img/play.png')}}" alt=""></a>
+                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{URL::asset('template/img/core-img/play.png')}}" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -593,7 +584,7 @@
                             <div class="video-playground bg-img" style="background-image: url(template/img/bg-img/47.jpg);">
                                 <!-- Play Button -->
                                 <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{url::asset('template/img/core-img/play.png')}}" alt=""></a>
+                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{URL::asset('template/img/core-img/play.png')}}" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -601,7 +592,7 @@
                             <div class="video-playground bg-img" style="background-image: url(template/img/bg-img/48.jpg);">
                                 <!-- Play Button -->
                                 <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{url::asset('template/img/core-img/play.png')}}" alt=""></a>
+                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{URL::asset('template/img/core-img/play.png')}}" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -609,7 +600,7 @@
                             <div class="video-playground bg-img" style="background-image: url(template/img/bg-img/49.jpg);">
                                 <!-- Play Button -->
                                 <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{url::asset('template/img/core-img/play.png')}}" alt=""></a>
+                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{URL::asset('template/img/core-img/play.png')}}" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -617,7 +608,7 @@
                             <div class="video-playground bg-img" style="background-image: url(template/img/bg-img/45.jpg);">
                                 <!-- Play Button -->
                                 <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{url::asset('template/img/core-img/play.png')}}" alt=""></a>
+                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{URL::asset('template/img/core-img/play.png')}}" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -625,7 +616,7 @@
                             <div class="video-playground bg-img" style="background-image: url(template/img/bg-img/46.jpg);">
                                 <!-- Play Button -->
                                 <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{url::asset('template/img/core-img/play.png')}}" alt=""></a>
+                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{URL::asset('template/img/core-img/play.png')}}" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -633,7 +624,7 @@
                             <div class="video-playground bg-img" style="background-image: url(template/img/bg-img/47.jpg);">
                                 <!-- Play Button -->
                                 <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{url::asset('template/img/core-img/play.png')}}" alt=""></a>
+                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="{{URL::asset('template/img/core-img/play.png')}}" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -672,7 +663,7 @@
                     <!-- *** Single Articles Area *** -->
                     <div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
                         <div class="article-thumbnail">
-                            <img src="{{url::asset('template/img/bg-img/7.jpg')}}" alt="">
+                            <img src="{{URL::asset('template/img/bg-img/7.jpg')}}" alt="">
                         </div>
                         <div class="article-content">
                             <a href="single-post.html" class="post-title">10 Tips to be a better gamer</a>
@@ -687,7 +678,7 @@
                     <!-- *** Single Articles Area *** -->
                     <div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="700ms" style="visibility: visible; animation-delay: 700ms; animation-name: fadeInUp;">
                         <div class="article-thumbnail">
-                            <img src="{{url::asset('template/img/bg-img/8.jpg')}}" alt="">
+                            <img src="{{URL::asset('template/img/bg-img/8.jpg')}}" alt="">
                         </div>
                         <div class="article-content">
                             <a href="single-post.html" class="post-title">Microsoft has some new tips</a>
@@ -707,9 +698,9 @@
 
                 <!-- Single Widget Area -->
                 <div class="single-widget-area add-widget wow fadeInUp" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
-                    <a href="#"><img src="{{url::asset('template/img/bg-img/add.png')}}" alt=""></a>
+                    <a href="#"><img src="{{URL::asset('template/img/bg-img/add.png')}}" alt=""></a>
                     <!-- Side Img -->
-                    <img src="{{url::asset('template/img/bg-img/side-img.png')}}" class="side-img" alt="">
+                    <img src="{{URL::asset('template/img/bg-img/side-img.png')}}" class="side-img" alt="">
                 </div>
             </div>
         </div>
