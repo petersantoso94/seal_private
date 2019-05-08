@@ -113,10 +113,10 @@
                             <div class="login-area">
                                 <a href="{{url('logoutmanual')}}"><span>Logout</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
                             </div>
-                            <div class="login-area" >
-                                <a style="background-color: #ff0000" href="https://drive.google.com/uc?id=1pv2GkXlRZnpVRq7rlRu9VwA7CHbV2v5Z&export=download"><span>Download</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
-                            </div>
                             @endif
+                            <div class="login-area" >
+                                <a style="background-color: #ff0000" href="{{(Session::get('username') != null)?'https://drive.google.com/uc?id=1pv2GkXlRZnpVRq7rlRu9VwA7CHbV2v5Z&export=download':url('login')}}"><span>Download</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -70,7 +70,7 @@
             <!-- Single Games Area -->
             <div class="col-12 col-md-4">
                 <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="100ms" style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
-                    <img src="{{URL::asset('public/picture/logo.png')}}" alt="">
+                    <img src="{{URL::asset('public/template/img/bg-img/Exp-Drop.jpg')}}" alt="">
                     <a href="#" class="btn egames-btn mt-30">Exp and Drop Rate</a>
                 </div>
             </div>
@@ -78,7 +78,7 @@
             <!-- Single Games Area -->
             <div class="col-12 col-md-4">
                 <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
-                    <img src="{{URL::asset('public/picture/logo.png')}}" alt="">
+                    <img src="{{URL::asset('public/template/img/bg-img/Open Beta.jpg')}}" alt="">
                     <a href="https://seal-cos.com/register" class="btn egames-btn mt-30">Register</a>
                 </div>
             </div>
@@ -86,7 +86,7 @@
             <!-- Single Games Area -->
             <div class="col-12 col-md-4">
                 <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
-                    <img src="{{URL::asset('public/picture/logo.png')}}" alt="">
+                    <img src="{{URL::asset('public/template/img/bg-img/MT Schedule.jpg')}}" alt="">
                     <a href="#" class="btn egames-btn mt-30">Maintenance Schedule</a>
                 </div>
             </div>
@@ -609,7 +609,7 @@
                     <!-- *** Single Articles Area *** -->
                     <div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
                         <div class="article-thumbnail">
-                            <img src="{{URL::asset('public/picture/news1.jpg')}}" alt="">
+                            <img src="{{URL::asset('public/template/img/bg-img/Open Beta.jpg')}}" alt="">
                         </div>
                         <div class="article-content">
                             <a href="#" class="post-title">Server is now Live !!</a>
@@ -624,13 +624,13 @@
                     <!-- *** Single Articles Area *** -->
                     <div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
                         <div class="article-thumbnail">
-                            <img src="{{URL::asset('public/picture/pet 6th(2).png')}}" alt="">
+                            <img src="{{URL::asset('public/template/img/bg-img/News1.jpg')}}" alt="">
                         </div>
                         <div class="article-content">
-                            <a href="#" class="post-title">The Ultimate Partners are Here !!</a>
+                            <a href="https://seal-cos.com/6th-Grade-Pet" class="post-title">The Ultimate Partners are Here !!</a>
                             <div class="post-meta">
-                                <a href="#" class="post-date">May 8, 2019</a>
-                                <a href="#" class="post-comments">6th Grade Pet Evolution</a>
+                                <a href="https://seal-cos.com/6th-Grade-Pet" class="post-date">May 8, 2019</a>
+                                <a href="https://seal-cos.com/6th-Grade-Pet" class="post-comments">6th Grade Pet Evolution</a>
                             </div>
                             <p>It is time for those pets to reach new level, train them and defeat all those bales. 6th grade pet evolution are now available. You are chosen to wear them, they will only chose those above level 200 to be their master. Train, Bond, and Shine !!</p>                      </div>
                     </div>
@@ -638,7 +638,7 @@
                     <!-- *** Single Articles Area *** -->
                     <div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms" style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
                         <div class="article-thumbnail">
-                            <img src="{{URL::asset('public/picture/Quest Reward.png')}}" alt="">
+                            <img src="{{URL::asset('public/template/img/bg-img/News2.jpg')}}" alt="">
                         </div>
                         <div class="article-content">
                             <a href="#" class="post-title">The Game is On !!</a>
