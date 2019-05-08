@@ -18,7 +18,7 @@
                     @foreach(DB::connection('mysql2')->table('costume')->select('*')->get() as $data)
                     <tr>
                         <td>{{$data->id}}</td>
-                        <td><img class="card-img-top" src="{{URL::asset('picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
+                        <td><img class="card-img-top" src="{{URL::asset('public/picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
                         <td>{{$data->caption}}</td>
                         <td>
                             <button title="Delete" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="deleteData(this)"
@@ -62,7 +62,7 @@
                     @foreach(DB::connection('mysql2')->table('costume')->where('approved','0')->select('*')->get() as $data)
                     <tr>
                         <td>{{$data->id}}</td>
-                        <td><img class="card-img-top" src="{{URL::asset('picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
+                        <td><img class="card-img-top" src="{{URL::asset('public/picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
                         <td>{{$data->caption}}</td>
                         <td>
                             <button title="approve" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="confirmFanart(this)"

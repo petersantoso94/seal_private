@@ -21,7 +21,7 @@
                         <td>{{$data->id}}</td>
                         <td>{{$data->title}}</td>
                         <td style="word-wrap: break-word;white-space: pre-wrap;">{{$data->content}}</td>
-                        <td><img class="card-img-top" src="{{URL::asset('picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
+                        <td><img class="card-img-top" src="{{URL::asset('public/picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
                         <td>
                             <button title="Delete" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="deleteData(this)"
                                     class="btn btn-pure-xs btn-xs btn-delete">
@@ -68,7 +68,7 @@
                         <td>{{$data->id}}</td>
                         <td>{{$data->title}}</td>
                         <td style="word-wrap: break-word;white-space: pre-wrap;">{{$data->content}}</td>
-                        <td><img class="card-img-top" src="{{URL::asset('picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
+                        <td><img class="card-img-top" src="{{URL::asset('public/picture/'.$data->image)}}" data-holder-rendered="true" style="height: 100px; width: 100px; display: block;"></td>
                         <td>
                             <button title="approve" type="button" data-internal="{{$data->id}}" data-name="{{$data->image}}" onclick="confirmNews(this)"
                                     class="btn btn-pure-xs btn-xs btn-delete">

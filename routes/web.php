@@ -35,6 +35,9 @@ Route::get('/costume', function () {
 Route::get('/guildRank', function () {
     return view('guildrank');
 });
+Route::get('/6th-Grade-Pet', function () {
+    return view('6th-grade-pet');
+});
 Route::get('/coupleRank', function () {
     return view('couplerank');
 });
@@ -59,6 +62,7 @@ Route::any('logoutadmin', array('as' => 'logoutadmin', 'uses' => 'AdminControlle
 Route::any('loginmanual', array('as' => 'loginmanual', 'uses' => 'HomeController@loginmanual'));
 Route::any('logoutmanual', array('as' => 'logoutmanual', 'uses' => 'HomeController@logoutmanual'));
 Route::any('postValid', array('as' => 'postValid', 'uses' => 'AdminController@postValid'));
+Route::any('postPending', array('as' => 'postPending', 'uses' => 'AdminController@postPending'));
 Route::any('postDelete', array('as' => 'postDelete', 'uses' => 'AdminController@postDelete'));
 Route::any('editEvent', array('as' => 'editEvent', 'uses' => 'AdminController@editEvent'));
 Route::any('postDeleteEvent', array('as' => 'postDeleteEvent', 'uses' => 'AdminController@postDeleteEvent'));

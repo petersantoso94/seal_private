@@ -802,6 +802,17 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
+    public function postPending(Request $request)
+    {
+        if ($request->session()->has('admin')) {
+            if ($request->session()->get('role') >= 0) {
+                $id = $request->get('sn');
+                DB::connection('mysql2')->update("UPDATE idtable1 SET pending = '1' WHERE id = '{$id}'");
+            }
+        }
+        return view('admin.login');
+    }
+
     public function postDelete(Request $request)
     {
         if ($request->session()->has('admin')) {

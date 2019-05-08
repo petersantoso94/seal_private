@@ -3,7 +3,7 @@
 <!-- Page Content -->
 <!-- Jumbotron Header -->
 
-<header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
+<header class="jumbotron my-4" style="background: rgba(255, 255, 255, 0);;">
     <h2>Rules, Terms of Service, and Agreement</h2>
     <p>PLEASE READ CAREFULLY:</p>
     <p>These terms and agreement along with any policies are to be agreed once

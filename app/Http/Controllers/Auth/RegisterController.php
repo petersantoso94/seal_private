@@ -86,7 +86,7 @@ use RegistersUsers;
             $hashed_pass = DB::connection('mysql')->table('idtable2')->selectRaw("OLD_PASSWORD ('{$data['password']}') as 'pass'")->get();
             //dd($hashed_pass[0]->pass);
             //dd("INSERT INTO {$table} VALUES({$a},{$hashed_pass},CURDATE(),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,{$nick_name},NULL,{$data['email']},NULL,NULL,NULL,NULL,NULL,NULL,{$fb_id},{$data['rcm']})");
-            DB::connection('mysql2')->insert("INSERT INTO idtable1 VALUES('{$a}','{$hashed_pass[0]->pass}',CURDATE(),'99','','0',NULL,'',0,0,NULL,NULL,0,NULL,0,CURDATE(),'{$nick_name}','','{$data['email']}','{$data['pin']}',0,0,0,0,0,'{$fb_id}','{$data['rcm']}','{$data['fblink']}')");
+            DB::connection('mysql2')->insert("INSERT INTO idtable1 VALUES('{$a}','{$hashed_pass[0]->pass}',CURDATE(),'99','','0',NULL,'',0,0,NULL,NULL,0,NULL,0,CURDATE(),'{$nick_name}','','{$data['email']}','{$data['pin']}',0,0,0,0,0,'{$fb_id}','{$data['rcm']}','{$data['fblink']}',NULL)");
             Session::forget('fb_id');
         }
         return User::create([

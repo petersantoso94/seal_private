@@ -3,7 +3,7 @@
 <!-- Page Content -->
 <!-- Jumbotron Header -->
 <!-- Page Features -->
-<header class="jumbotron my-4" style="background: rgba(204, 204, 204, 0.8);;">
+<header class="jumbotron my-4" style="background: rgba(255, 255, 255, 0);;">
     <h3>Guild's Leaderboard</h3>
     <table class="table">
         <thead class="thead-dark">

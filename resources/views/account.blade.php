@@ -3,7 +3,8 @@
 <!-- Page Content -->
 <!-- Jumbotron Header -->
 <!-- Page Features -->
-<div class="row" style="background: rgba(204, 204, 204, 0.8);margin-top: 20px;padding: 30px">
+<div class="container">
+<div class="row" style="background: rgba(255, 255, 255, 0);margin-top: 20px;padding: 30px">
     <div id="id01" class="modal">
         <form class="modal-content animate" action="{{url('account')}}" method="POST" id='form_reset_pass'>
             @csrf
@@ -18,8 +19,8 @@
                 <input type="password" placeholder="Confirm Password" name="psw2" id='conf_pass' required>
             </div>
             <div class="container" style="background-color:#f1f1f1">
-                <button type="button" id='submitpin'>Submit</button>
-                <button type="button" onclick="document.getElementById('id01').style.display = 'none'">Cancel</button>
+                <button type="button" class="btn btn-success" id='submitpin'>Submit</button>
+                <button type="button" class="btn btn-default" onclick="document.getElementById('id01').style.display = 'none'">Cancel</button>
             </div>
         </form>
     </div>
@@ -37,8 +38,8 @@
                 <input type="password" placeholder="Confirm New Pin" name="psw2" id='conf_pass2' required>
             </div>
             <div class="container" style="background-color:#f1f1f1">
-                <button type="button" id='submitpin2'>Submit</button>
-                <button type="button" onclick="document.getElementById('id02').style.display = 'none'">Cancel</button>
+                <button type="button"  class="btn btn-success" id='submitpin2'>Submit</button>
+                <button type="button" class="btn btn-default" onclick="document.getElementById('id02').style.display = 'none'">Cancel</button>
             </div>
         </form>
     </div>
@@ -56,13 +57,13 @@
                 <input type="email" placeholder="Confirm New Email" name="psw2" id='conf_pass3' required>
             </div>
             <div class="container" style="background-color:#f1f1f1">
-                <button type="button" id='submitpin3'>Submit</button>
-                <button type="button" onclick="document.getElementById('id03').style.display = 'none'">Cancel</button>
+                <button type="button" class="btn btn-success" id='submitpin3'>Submit</button>
+                <button type="button" class="btn btn-default" onclick="document.getElementById('id03').style.display = 'none'">Cancel</button>
             </div>
         </form>
     </div>
     <div class="row" style="width: 100%;">
-        <h3>Welcome to SEAL ONLINE: Chronicles of Shiltz</h3>
+        <h3>Welcome to Seal Online: Chronicles of Shiltz</h3>
     </div>
     <?php if (isset($message)) { ?>
         @if($message == 'success')
@@ -79,7 +80,7 @@
     <?php } ?>
     <div class="row" style="width: 100%;">
         @if(Session::get('username') != null)
-        <label for="users">Hi, {{Session::get('username')}}</label><br>
+        <label for="users"><strong>Hi, {{Session::get('username')}}</strong></label><br>
         @endif
     </div>
 
@@ -179,7 +180,7 @@
             alert('Please fill all the field');
         } else {
             if (pass !== confpass) {
-                alert("Passwords Don't Match");
+                alert("Passwords Does Not Match");
             } else {
                 $('form#form_reset_pass').submit();
             }
@@ -193,7 +194,7 @@
             alert('Please fill all the field');
         } else {
             if (pass !== confpass) {
-                alert("PINs Don't Match");
+                alert("PINs Does Not Match");
             } else {
                 $('form#form_reset_pin').submit();
             }
