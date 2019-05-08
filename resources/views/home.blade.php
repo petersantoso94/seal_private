@@ -397,7 +397,7 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="100ms" style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
                                     <div class="video-thumbnail">
-                                        <img src="{{URL::asset('public/template/img/bg-img/game1.jpg')}}" alt="">
+                                        <img src="{{URL::asset('public/template/img/bg-img/Warriors.jpg')}}" alt="">
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">Class: Warriors</p>
@@ -411,13 +411,13 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="200ms" style="visibility: visible; animation-delay: 200ms; animation-name: fadeInUp;">
                                     <div class="video-thumbnail">
-                                        <img src="{{URL::asset('public/template/img/bg-img/150.jpg')}}" alt="">
+                                        <img src="{{URL::asset('public/template/img/bg-img/Knights.jpg')}}" alt="">
                                     </div>
                                     <div class="video-text">
-                                        <p class="video-title mb-0">#</p>
-                                        <span>#</span>
+                                        <p class="video-title mb-0">Class: Knights</p>
+                                        <span>Before You Play Edition</span>
                                     </div>
-                                    <div class="video-rating">#</div>
+                                    <div class="video-rating">CoS</div>
                                 </div>
                             </a>
 
@@ -429,9 +429,9 @@
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">#</p>
-                                        <span>#</span>
+                                        <span>Before You Play Edition</span>
                                     </div>
-                                    <div class="video-rating">#</div>
+                                    <div class="video-rating">CoS</div>
                                 </div>
                             </a>
 
@@ -443,9 +443,9 @@
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">#</p>
-                                        <span>#</span>
+                                        <span>Before You Play Edition</span>
                                     </div>
-                                    <div class="video-rating">#</div>
+                                    <div class="video-rating">CoS</div>
                                 </div>
                             </a>
 
@@ -457,9 +457,9 @@
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">#</p>
-                                        <span>#</span>
+                                        <span>Before You Play Edition</span>
                                     </div>
-                                    <div class="video-rating">8.3/10</div>
+                                    <div class="video-rating">CoS</div>
                                 </div>
                             </a>
 
@@ -471,14 +471,14 @@
                                     </div>
                                     <div class="video-text">
                                         <p class="video-title mb-0">#</p>
-                                        <span>#</span>
+                                        <span>Before You Play Edition</span>
                                     </div>
-                                    <div class="video-rating">8.3/10</div>
+                                    <div class="video-rating">CoS</div>
                                 </div>
                             </a>
 
-                            <a class="nav-link" id="video7" data-toggle="pill" href="#video-7" role="tab" aria-controls="video-7" aria-selected="false">
-                                <!-- Single Video Widget -->
+                            <!--<a class="nav-link" id="video7" data-toggle="pill" href="#video-7" role="tab" aria-controls="video-7" aria-selected="false">
+                                
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="700ms" style="visibility: hidden; animation-delay: 700ms; animation-name: none;">
                                     <div class="video-thumbnail">
                                         <img src="{{URL::asset('public/template/img/bg-img/150.jpg')}}" alt="">
@@ -492,7 +492,7 @@
                             </a>
 
                             <a class="nav-link" id="video8" data-toggle="pill" href="#video-8" role="tab" aria-controls="video-8" aria-selected="false">
-                                <!-- Single Video Widget -->
+                                
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="800ms" style="visibility: hidden; animation-delay: 800ms; animation-name: none;">
                                     <div class="video-thumbnail">
                                         <img src="{{URL::asset('public/template/img/bg-img/160.jpg')}}" alt="">
@@ -503,7 +503,7 @@
                                     </div>
                                     <div class="video-rating">8.3/10</div>
                                 </div>
-                            </a>
+                            </a>-->
                         </div>
                     </div>
                 </div>
@@ -511,7 +511,7 @@
                 <div class="col-12 col-md-6 col-lg-8">
                     <div class="tab-content" id="video-tabContent">
                         <div class="tab-pane fade show active" id="video-1" role="tabpanel" aria-labelledby="video1">
-                            <div class="video-playground bg-img" style="background-image: url(public/template/img/bg-img/game1.jpg);">
+                            <div class="video-playground bg-img" style="background-image: url(public/template/img/bg-img/Warriors.jpg);">
                                 <!-- Play Button -->
                                 <div class="play-btn">
                                     <a href="https://www.youtube.com/watch?v=jqZ76g7ZKi8" class="play-button"><img src="{{URL::asset('public/template/img/core-img/play.png')}}" alt=""></a>

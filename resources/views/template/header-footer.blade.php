@@ -114,7 +114,7 @@
                                 <a href="{{url('logoutmanual')}}"><span>Logout</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
                             </div>
                             @endif
-                            <div class="login-area" >
+                            <div class="login-area" id="btn-download">
                                 <a style="background-color: #ff0000" href="{{(Session::get('username') != null)?'https://drive.google.com/uc?id=1pv2GkXlRZnpVRq7rlRu9VwA7CHbV2v5Z&export=download':url('login')}}"><span>Download</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
                             </div>
                         </div>
@@ -349,6 +349,44 @@
         <script src="{{URL::asset('public/template/js/active.js')}}"></script>
         @yield('js-content')
         <script>
+            var user_login = <?php if(Session::get('username') == null) echo "0"; else echo "1"; ?>;
+            var dl_link = 'https://drive.google.com/uc?id=1pv2GkXlRZnpVRq7rlRu9VwA7CHbV2v5Z&export=download';
+            function setCookie(cname,cvalue,exdays) {
+                var d = new Date(); 
+                d.setTime(d.getTime() + (exdays*1000*60*60*24)); 
+                var expires = "expires=" + d.toGMTString(); 
+                window.document.cookie = cname+"="+cvalue+"; "+expires;
+            }
+            
+            function getCookie(cname) {
+                var name = cname + "="; 
+                var cArr = window.document.cookie.split(';'); 
+                for(var i=0; i<cArr.length; i++) {
+                    var c = cArr[i].trim();
+                    if (c.indexOf(name) == 0) 
+                        return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+            
+            function deleteCookie(cname) {
+                var d = new Date(); 
+                d.setTime(d.getTime() - (1000*60*60*24)); 
+                var expires = "expires=" + d.toGMTString(); 
+                window.document.cookie = cname+"="+"; "+expires;
+            
+            }
+
+            document.addEventListener("DOMContentLoaded", function (event) {
+                $("#btn-download").click(function(){
+                    if(user_login == "0")
+                    setCookie("dl","1","1000");
+                });
+                if(getCookie("dl") == "1" && user_login == "1"){
+                    deleteCookie("dl");
+                    window.open(dl_link);
+                }
+            })
         </script>
     </body>
 </html>
